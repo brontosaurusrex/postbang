@@ -1,0 +1,6 @@
+alias lst='ls -clhtr'
+alias up='sudo apt-get update && sudo apt-get dist-upgrade'
+alias mi='mediainfo'
+alias open='thunar'
+alias htop='htop -C'
+alias pojdistran='sudo shutdown -h now'
