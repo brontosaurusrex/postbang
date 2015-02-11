@@ -135,7 +135,7 @@ launcher_icon_size = 38
 #launcher_item_app = /usr/share/applications/terminator.desktop
 #launcher_item_app = /usr/share/applications/Thunar.desktop
 #launcher_item_app = /usr/share/applications/geany.desktop
-launcher_item_app = /usr/share/applications/menu.desktop
+#launcher_item_app = /usr/share/applications/menu.desktop
 
 
 # System Tray
