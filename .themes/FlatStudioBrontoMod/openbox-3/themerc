@@ -1,0 +1,124 @@
+# bronto mod
+
+border.width: 1
+padding.width: 0
+padding.height: 0
+window.handle.width: 0
+window.client.padding.width: 0
+window.client.padding.height: 0
+menu.overlap: -4
+*.justify: center
+
+
+!# Menu settings
+!!------------------------------------------------------------------------
+menu.title.bg: 					Flat Solid
+menu.title.bg.color: 			#ffffff
+menu.title.text.color: 			#656565
+menu.title.text.justify: 		Left
+
+menu.border.width: 				4
+menu.border.color:              #ffffff
+menu.overlap.x: 				-14
+menu.overlap.y:					0
+menu.items.bg: 					Flat Solid
+menu.items.bg.color: 			#ffffff
+menu.items.text.color: 			#656565
+menu.items.justify:             left
+menu.items.disabled.text.color: #ffffff
+menu.items.active.bg: 			Flat Vertical
+menu.items.active.bg.color: 	#ffffff
+menu.items.active.text.color: 	#000000
+menu.separator.width:			1
+menu.separator.padding.width:	4
+menu.separator.padding.height:	4
+menu.separator.color:			#959595
+
+
+!# Windows
+window.*.label.bg: Parentrelative
+window.*.border.color: #aaaaaa
+window.*.handle.bg: Raised solid
+window.*.handle.bg.color: #dadada
+window.*.grip.bg: Raised solid
+window.*.grip.bg.color: #dadada
+window.*.title.separator.color: #ededed
+
+*.title.bg: flat
+*.title.bg.color: #d0d0d0
+
+
+
+window.*.button.*.bg: Parentrelative
+window.*.button.*.image.color: #333333
+window.*.button.hover.image.color: #ffffff
+window.*.button.pressed.image.color: #000
+
+
+!# Active
+window.active.label.text.color: #3c3c3c
+
+!# inactive
+window.inactive.label.text.color: #999999
+
+
+!# osd
+
+osd.border.width: 1
+osd.border.color: #aaaaaa
+osd.bg.border.color: #ffffff
+
+osd.bg: flat border gradient splitvertical
+osd.bg.color: #f0efee
+osd.bg.color.splitto: #f5f5f4
+osd.bg.colorTo: #eaebec
+osd.bg.colorTo.splitto: #e7e5e4
+
+osd.active.label.bg: parentrelative
+osd.active.label.bg.color: #f7f7f7
+osd.active.label.bg.border.color: #88A1B6
+osd.active.label.text.color: #111111
+
+osd.inactive.label.bg: parentrelative
+osd.inactive.label.text.color: #999999
+
+osd.hilight.bg: flat vertical gradient
+osd.hilight.bg.color: #8ba4b8
+osd.hilight.bg.colorTo: #7a94a9
+osd.unhilight.bg: flat vertical gradient
+osd.unhilight.bg.color: #babdb6
+osd.unhilight.bg.colorTo: #efefef
+
+!# mua
+
+window.label.text.justify: left
+
+!! window borders
+
+border.width: 					1
+border.color:					#111111
+
+window.active.border.color:			#111111
+window.inactive.border.color:		#d0d0d0
+
+window.client.padding.width: 			0
+window.client.padding.height:			0			
+
+window.active.client.color:                     #ededed
+window.inactive.client.color:                   #ededed
+
+window.active.title.separator.color:            #d0d0d0
+window.inactive.title.separator.color:          #d0d0d0
+
+!! Miscellaneous settings
+# border.color: #D0D0D0
+menu.border.color: #ffffff
+
+padding.width: 4
+padding.height: 8
+
+menu.separator.padding.width:			4
+menu.separator.padding.height:			4
+
+menu.border.width: 				6
+
