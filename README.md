@@ -444,7 +444,8 @@ add conky to ~/.config/openbox/autostart
 
     nitrogen --restore & compton & tint2 & conky & 
 
-scrot:
+scrot
+
 <a href="http://shrani.si/f/3F/Gv/aUcIXtT/prettyclean.png"><img src="http://shrani.si/t/3F/Gv/aUcIXtT/prettyclean.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 ### gimp
