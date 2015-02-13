@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -117,7 +116,7 @@
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
   <resize>
-    <drawContents>no</drawContents>
+    <drawContents>yes</drawContents>
     <popupShow>Nonpixel</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
@@ -321,15 +320,7 @@
         <command>x-www-browser</command>
       </action>
     </keybind>
-    <keybind key="W-l">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Lock screen</name>
-        </startupnotify>
-        <command>cb-lock</command>
-      </action>
-    </keybind>
+
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
@@ -354,18 +345,10 @@
           <enabled>true</enabled>
           <name>Volume</name>
         </startupnotify>
-        <command>pavucontrol</command>
+        <command>terminator -x alsamixer -g</command>
       </action>
     </keybind>
-    <keybind key="W-x">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Logout</name>
-        </startupnotify>
-        <command>cb-exit</command>
-      </action>
-    </keybind>
+    
     <keybind key="W-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
@@ -394,16 +377,11 @@
     <keybind key="W-Up">
       <action name="GrowToEdgeNorth"/>
     </keybind>
-    <keybind key="W-A-Left">
-      <action name="Execute">
-        <command>cb-aerosnap --left</command>
-      </action>
-    </keybind>
-    <keybind key="W-A-Right">
-      <action name="Execute">
-        <command>cb-aerosnap --right</command>
-      </action>
-    </keybind>
+    
+
+    
+    
+    
     <!-- brontosaurusrex start -->
     <keybind key="W-a">
       <!-- Begin the keychains to manage windows -->
@@ -1064,13 +1042,7 @@
 
   # end of the example
 -->
-    <application class="URxvt" name="urxvt" type="normal">
-      <position force="no">
-        <x>right</x>
-        <y>center</y>
-      </position>
-      <decor>no</decor>
-    </application>
+    
     <application class="Gimp" name="gimp-2.6" role="gimp-toolbox" type="utility">
       <maximized>vertical</maximized>
     </application>
@@ -1138,5 +1110,6 @@
       <desktop>1</desktop>
       <focus>yes</focus>
     </application>
-  </applications>
+  <application class="URxvt" name="urxvt" type="normal"><decor>no</decor><position force="no"><x>0</x><y>0</y></position></application>
+</applications>
 </openbox_config>
