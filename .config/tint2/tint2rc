@@ -94,8 +94,8 @@ taskbar_name_active_background_id = 0
 taskbar_name_font = ubuntu condensed 9
 taskbar_name_font_color = #cccccc 100
 taskbar_name_active_font_color = #cccccc 100
-taskbar_icon = 1
-taskbar_text = 0
+#taskbar_icon = 1
+#taskbar_text = 0
 
 # Tasks
 urgent_nb_of_blink = 20
@@ -177,7 +177,7 @@ mouse_scroll_up = toggle
 mouse_scroll_down = iconify
 
 # Battery
-battery = 1
+battery = 0
 battery_low_status = 20
 battery_low_cmd = notify-send "battery low"
 battery_hide = 96
