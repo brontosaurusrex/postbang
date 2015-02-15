@@ -1,0 +1,198 @@
+#!/bin/bash
+
+# rplay
+
+# primitive ebu r128 audio player script
+
+# calculates ebu r128 Integrated Loudness and correction needed
+# stores the calculus next to audio.mp3 file as .audio.mp3.rgtxt 
+# No, it is not limited to mp3, any audio format supported by ffmpeg 
+# should just work, mp3|mp4|m4a|flac|ogg|mpc|ect ...
+
+# required: recent ffmpeg, mplayer2 or mpv
+# (or any player that can take +-$VAR in dB)
+
+# brontosaurusrex 2013,2014 copyleft
+
+# do I need this
+shopt -s extglob
+
+# checks
+ffmpeg -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting." ; exit 1; }
+#command -v mplayer2 >/dev/null 2>&1 || { echo >&2 "I require mplayer2 but it's not installed, exiting."; exit 1; }
+command -v mpv >/dev/null 2>&1 || { echo >&2 "I require mpv but it's not installed, exiting."; exit 1; }
+command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
+
+# info echo
+echo "rplay v 0.8, usage examples:"
+
+echo "a. rplay"
+echo "b. rplay scan && rplay"
+echo "c. rplay scan > /dev/null 2>&1 & rplay"
+echo "d. find . -type f -iname \"*shakira*.mp3\" -not -name \".*\" -exec rplay {} \+"
+
+echo "+----------------------------------------+"
+echo "|  mplayer2/mpv:                         |"
+echo "|  spacebar - Toggles pause/play.        |"
+echo "|  Enter or q - Next track.              |"
+echo "|  ctrl+c - Escape/Quit.                 |"
+echo "|  9 and 0 - Volume.                     |"
+echo "+----------------------------------------+"
+
+
+# trap  clean up
+cleanup ()
+{
+rm -rf "$TMPDIR"
+exit 0
+}
+
+trap cleanup SIGINT SIGTERM
+
+
+# scan
+# if first argument to script is called "scan" then no playback will be done, 
+# only calculus of r128
+if [ "$1" = "scan" ] 
+then
+echo "Scan-only mode" 
+scanonly="true"
+shift
+
+
+
+fi
+
+
+
+# If no specific arguments were passed to script then it will check current dir for
+# certain audio extensions itself
+(( $# )) || set -- *.@(mp3|mp4|m4a|flac|ogg|mpc|wav|aif); [[ -e $1 ]] || { echo "No audio files find in this dir (mp3|mp4|m4a|flac|ogg|mpc|wav|aif)"; exit 1; }
+
+
+
+# loop
+while [ $# -gt 0 ]; do
+
+#clear
+
+#
+# check if file is audio file and only then calculate r128
+#
+
+# expanded=$(readlink -f "$1")
+expanded="$1"
+
+# check if file is a file (and not dir) and there is audio in file
+if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
+
+	# echo next three songs
+
+	if [ "$scanonly" != "true" ] 
+	then
+	
+	
+	[[ -n "$4" ]] && echo "later   >" $4
+	[[ -n "$3" ]] && echo "soon    >" $3
+	[[ -n "$2" ]] && echo "next    >" $2
+                      
+	fi
+
+	# make temporary folder 
+	TMPDIR=`mktemp -d --suffix=_rPlay`
+
+	# get r128 stats
+	justname=`basename "$expanded"`
+	justdir=`dirname "$expanded"`
+	#echo $justdir "=folder"
+
+	if [ "$scanonly" != "true" ] 
+	then
+	echo -e "playing > \e[7m$justname\e[0m $justdir"
+	else
+	echo -e "scan > \e[7m$justname\e[0m $justdir"
+	fi
+	
+	# calculate loudness or read prestored variable if exist
+	
+	if [ -f "$justdir"/."$justname".rgtxt ];
+		then
+			echo "using prestored r128 value"
+			r128=`cat "$justdir"/."$justname".rgtxt`
+		else
+			echo "calculating r128"
+			
+			
+			
+				ffmpeg -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$TMPDIR/$justname".rgtxt
+			
+				# get Integrated loudness into variable
+	 
+				line=$(tail "$TMPDIR/$justname".rgtxt | grep I:)
+				read -r _ r128 _<<< "$line"
+	
+				# store the calculated value next to audio file
+				echo "$r128" > "$justdir"/."$justname".rgtxt
+			
+				# remove tmp folder
+				rm -rf "$TMPDIR"
+			
+			
+	
+	fi
+	
+	
+	# Check if r128 Integrated loudness variable is defined
+					if [ -z "$r128" ]; then
+							echo "r128 undefined, error"
+							else
+							echo "$r128		LUFS Integrated loudness (I)"
+	
+							correct=$(echo "(-18)-($r128)" | bc)  
+							# change this -18 to whatever you want, default EBU value is -23
+	
+							echo -n "$correct 		dB correction"
+							echo
+						
+							# make tmp flac
+							# ffmpeg -loglevel panic -i "$expanded" -vn -filter_complex 
+							# volume=volume="$correct"dB "$TMPDIR/$justname".flac
+							
+							echo "-----------------------"
+													
+							if [ "$scanonly" != "true" ] 
+							then
+							
+								# mplayer2 -msglevel all=0:statusline=6 -vo null -af volume="$correct" "$expanded"
+								
+								# --term-osd-bar-chars="■■□■■"
+								# --term-osd-bar-chars=" |=| "
+								# --term-osd-bar-chars=" | | "
+								# --term-osd-bar-chars="[||.]"
+								# ♫ 
+								# (start, left space, position indicator, right space, end)
+								
+							
+								# mpv --msg-level=demux=no:cplayer=no:ffmpeg/audio=no:ffmpeg/demuxer=no:ffmpeg/video=no:ad=no --term-osd-bar --term-osd-bar-chars="··· ·" --consolecontrols --no-video --af volume="$correct" "$expanded"
+
+								mpv --no-video --af volume="$correct" "$expanded"
+								
+								# mpv --msgmodule 
+								echo
+								echo
+							
+							fi
+					fi
+#
+# end check if file is audio file and only then calculate r128
+#
+		
+
+fi		
+
+rm -rf "$TMPDIR"
+	
+shift
+done
+
+

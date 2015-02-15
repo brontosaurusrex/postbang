@@ -1,0 +1,16 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+
+    # expand path, so this can be used from cli as well (on relative paths)
+    expanded=$(readlink -f "$1")
+    echo $expanded 
+
+ffmpeg_fdkaac -i "$expanded" -pix_fmt yuv420p -vf scale=1024:576 -c:a libfdk_aac -vbr 5 -c:v libx264 -preset medium -crf 21 -threads 0 "$expanded.mp4" 
+
+#ffmpeg -i "$expanded" -c:a libfdk_aac -vbr 3 -vn "$expanded.mp4" 
+ 
+#ffmpeg -i "$expanded" -vn "$expanded.wav"
+   
+    shift
+done

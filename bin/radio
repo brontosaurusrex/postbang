@@ -1,0 +1,15 @@
+#!/bin/bash
+
+STREAM_FILE=~/bin/radiolist
+
+[[ ! -f "$STREAM_FILE" ]] && echo "$STREAM_FILE does not exist" && exit 1
+
+array=( $(cat "$STREAM_FILE") )
+
+select opt in "${array[@]}"; do
+    [[ $1 =~ ^-r ]] && streamripper "$opt" &
+    # mpg123 -b 2000 -@ "$opt"
+    mpv --load-unsafe-playlists "$opt" --no-video
+    # --cache=1000
+    break
+done

@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# play
+# 
+# (mpv edition)
+
+# changelog:
+# version 0.4
+# only alowes one instance of mpv
+# (now uses percents all over the place)
+
+# readme:
+# this can be used as:
+# store me in "~/bin" as "play" (chmod +x play) and 
+# refer from thunar as custom action "play %F"
+
+
+# check if another instance of mpv is alleady running
+if [ "$(pidof mpv)" ] 
+then
+notify-send "another instance of mpv is allready running"
+  exit
+
+fi
+
+# do I need this
+shopt -s extglob
+
+
+# make temporary folder and trap to clean up
+TMPDIR=`mktemp -d`
+trap "rm -rf $TMPDIR" EXIT
+
+# If no specific arguments were passed to script then it will check current dir for
+# certain video extensions itself
+(( $# )) || set -- *.@(mkv|mp4|avi|mov); [[ -e $1 ]] || { echo "No video files"; exit 1; }
+
+
+while [ $# -gt 0 ]; do
+
+    # expand path, so this can be used from cli as well (on relative paths)
+     expanded=$(readlink -f "$1")
+
+    
+    # write line by line into temporary folder / playlist.txt
+    echo "$expanded" >> "$TMPDIR"/playlist.txt
+    shift
+done
+
+# confirm input
+cat "$TMPDIR"/playlist.txt
+
+# open playlist and play
+# openbox edition
+mpv --cache 10000 --osd-scale=0.5 --ontop --geometry=0%:5% --autofit=50%x50% --fixed-vo --playlist="$TMPDIR"/playlist.txt 
+
+# dwm edition
+# mpv --cache 10000 --af=drc --osd-scale=0.5 --fixed-vo --playlist="$TMPDIR"/playlist.txt 
+
+# end
