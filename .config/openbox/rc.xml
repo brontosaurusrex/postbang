@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -31,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>FlatStudioLightBronto</name>
+    <name>FlatStudioBrontoMod</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -320,7 +321,6 @@
         <command>x-www-browser</command>
       </action>
     </keybind>
-
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
@@ -330,15 +330,7 @@
         <command>geany</command>
       </action>
     </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Mediaplayer</name>
-        </startupnotify>
-        <command>vlc</command>
-      </action>
-    </keybind>
+
     <keybind key="W-v">
       <action name="Execute">
         <startupnotify>
@@ -347,6 +339,12 @@
         </startupnotify>
         <command>terminator -x alsamixer -g</command>
       </action>
+    </keybind>
+    
+    <keybind key="W-m">
+     <action name="Execute">
+        <command>amixer set Master toggle</command>
+     </action>
     </keybind>
     
     <keybind key="W-Tab">
@@ -377,11 +375,6 @@
     <keybind key="W-Up">
       <action name="GrowToEdgeNorth"/>
     </keybind>
-    
-
-    
-    
-    
     <!-- brontosaurusrex start -->
     <keybind key="W-a">
       <!-- Begin the keychains to manage windows -->
@@ -1042,7 +1035,6 @@
 
   # end of the example
 -->
-    
     <application class="Gimp" name="gimp-2.6" role="gimp-toolbox" type="utility">
       <maximized>vertical</maximized>
     </application>
@@ -1110,6 +1102,12 @@
       <desktop>1</desktop>
       <focus>yes</focus>
     </application>
-  <application class="URxvt" name="urxvt" type="normal"><decor>no</decor><position force="no"><x>0</x><y>0</y></position></application>
-</applications>
+    <application class="URxvt" name="urxvt" type="normal">
+      <decor>no</decor>
+      <position force="no">
+        <x>0</x>
+        <y>0</y>
+      </position>
+    </application>
+  </applications>
 </openbox_config>
