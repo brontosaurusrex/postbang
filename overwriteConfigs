@@ -4,4 +4,4 @@ set -e
 
 cd ~/source/postbang
 git pull
-cp -r .config/* ~/.config/
+cp -rb .config/* ~/.config/
