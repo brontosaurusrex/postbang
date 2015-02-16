@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+cd ~/source/postbang
+git pull
+cp -r .config/* ~/.config/

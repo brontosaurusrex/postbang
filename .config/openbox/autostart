@@ -1,0 +1,1 @@
+nitrogen --restore & compton & tint2 & conky & volti & mpv ~/audio_fx/vader.mp3 & 
