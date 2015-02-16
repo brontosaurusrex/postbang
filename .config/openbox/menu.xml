@@ -57,6 +57,11 @@
 					<execute>lxappearance</execute>
 				</action>
 			</item>
+			<item label="wallpaper">
+				<action name="Execute">
+					<execute>nitrogen</execute>
+				</action>
+			</item>
 			<separator/>
 			<item label="obRestart">
 				<action name="Restart"/>
@@ -71,14 +76,14 @@
 				<action name="Exit"/>
 			</item>
 			<separator/>
-			<item label="reBoot">
-				<action name="Execute">
-					<execute>systemctl reboot</execute>
-				</action>
-			</item>
 			<item label="powerOff">
 				<action name="Execute">
 					<execute>systemctl poweroff</execute>
+				</action>
+			</item>
+			<item label="reBoot">
+				<action name="Execute">
+					<execute>systemctl reboot</execute>
 				</action>
 			</item>
 		</menu>
