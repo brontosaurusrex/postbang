@@ -87,5 +87,11 @@
 				</action>
 			</item>
 		</menu>
+		<separator/>
+		<item label="lock">
+			<action name="Execute">
+				<execute>i3lock -c 222222 -u</execute>
+			</action>
+		</item>
 	</menu>
 </openbox_menu>
