@@ -485,6 +485,8 @@ to
 
 <a href="http://shrani.si/f/3W/12U/2CV3Lag6/volti.png"><img src="http://shrani.si/t/3W/12U/2CV3Lag6/volti.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+or alternative: volumeicon-alsa
+
 
 ### gimp
 
@@ -521,6 +523,39 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     alt +
     f2      gmrun
 
+### Darth Vader breathing, login sound
+
+user
+
+    cd ~/source/postbang/
+    cp -R ./audio_fx/ ~
+    vi ~/.config/openbox/autostart
+
+add
+
+    mpv ~/audio_fx/vader.mp3 &
+
+so autostart might look like
+
+    nitrogen --restore & compton & tint2 & conky & volti &  mpv ~/audio_fx/vader.mp3 & 
+
+### time, timezone
+
+<https://wiki.archlinux.org/index.php/Time>
+
+user
+
+    timedatectl list-timezones | grep Yourcity
+
+sudo
+
+    apt-get install ntp
+    timedatectl set-ntp true
+    timedatectl set-timezone Europe/Yourcity
+
+user
+
+    timedatectl 
 
 
 ### disabling services
@@ -535,11 +570,13 @@ sudo
 duh,radio,play,rplay,invaders,myip    
 (Check postbang/bin and copy needed to user bin)
 
-### Problems to fix:
+### Problems to fix/things to add/modify:
+- gksu
 - theme errors
 - document custom scripts
+- add weechat config
 - disable root?
-- better name than "postbang": icebreaker?
+- better name than "postbang": icebreaker? iceberg?
 - <s>Add that flat-pinkMarker theme</s> < done
 - <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
 
