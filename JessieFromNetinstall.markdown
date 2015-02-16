@@ -239,7 +239,7 @@ a browser and an image viewer and a command line unpacker, sudo
 
 I would add an Adblock Plus extension right away
 
-<a href="http://shrani.si/f/12/Bf/3dU9hsA9/iceweasel.png"><img src="http://shrani.si/t/12/Bf/3dU9hsA9/iceweasel.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+<a href="http://shrani.si/f/2E/MY/4dE12bs6/iceweasel.png"><img src="http://shrani.si/t/2E/MY/4dE12bs6/iceweasel.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 test the alias "open" and viewnior, as user
 
@@ -420,7 +420,7 @@ user
 
 Came up with this, totally "passive";
 
-<a href="http://shrani.si/f/E/6k/3CBVQrJO/justmenu.png"><img src="http://shrani.si/t/E/6k/3CBVQrJO/justmenu.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+<img src="http://shrani.si/f/E/6k/3CBVQrJO/justmenu.png">
 
 from my git, as user
 
