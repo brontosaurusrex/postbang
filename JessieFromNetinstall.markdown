@@ -487,6 +487,17 @@ sudo
 
     apt-get install gimp gimp-plugin-registry
 
+
+### utility
+
+sudo
+
+    apt-get install galculator gpick font-manager
+
+(p.s. I know there was something cuter than font-manager ...)
+offtopic, a nice online font thingy <http://bluejamesbond.github.io/CharacterMap/>
+
+
 ### 3rd party apps
 
 Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
@@ -515,10 +526,11 @@ sudo
 
 
 ### custom scripts 
-Which ones would make sense
-(duh,ura,radio,r128,play,rplay,gaga?,invaders,r128?,r128graph,snapConfigs?,makethumbwd,myip)
 
-Problems to fix:
+duh,radio,play,rplay,invaders,myip    
+(Check postbang/bin and copy needed to user bin)
+
+### Problems to fix:
 - <s>Add that flat-pinkMarker theme</s> < done
 - <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
 
