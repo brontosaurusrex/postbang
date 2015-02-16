@@ -316,7 +316,7 @@ Everything should look like this now
 
 sudo
 
-    apt-get install lxappearance librsvg2-bin zenity imagemagick
+    apt-get install lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick
 
 user
 
@@ -350,7 +350,8 @@ Select postbang theme and run, then
 sudo
 
     apt-get install dmz-cursor-theme
-    apt-get install gtk2-engines-murrine gtk2-engines-pixbuf
+    apt-get install gtk2-engines-pixbuf gtk2-engines-murrine gtk2-engines-oxygen gtk2-engines-xfce --no-install-recommends
+    apt-get install gtk3-engines-oxygen gtk3-engines-xfce
 
 user
 
@@ -531,6 +532,8 @@ duh,radio,play,rplay,invaders,myip
 (Check postbang/bin and copy needed to user bin)
 
 ### Problems to fix:
+- theme errors
+- document custom scripts
 - <s>Add that flat-pinkMarker theme</s> < done
 - <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
 
