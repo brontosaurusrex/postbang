@@ -4,7 +4,7 @@
 # needs 'figlet' from repos
 
 # checks
-command -v figlet >/dev/null 2>&1 || { echo "apt-get install figlet"; exit 1; } 
+command -v figlet >/dev/null 2>&1 || { echo "apt-get install figlet toilet-fonts"; exit 1; } 
 
 date1=`date +%s`; while true; do 
 
@@ -15,7 +15,7 @@ date1=`date +%s`; while true; do
 
      # nice -n 19 figlet -f mono9 $(echo -ne "\r$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)";);
   
-     nice -n 19 figlet $(echo -ne "\r$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)";);
+     nice -n 19 figlet -f mono9 $(echo -ne "\r$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)";);
 
 sleep 1
 

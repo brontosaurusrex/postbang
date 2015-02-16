@@ -18,7 +18,7 @@
 shopt -s extglob
 
 # checks
-ffmpeg -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting." ; exit 1; }
+ffmpeg_static -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting." ; exit 1; }
 #command -v mplayer2 >/dev/null 2>&1 || { echo >&2 "I require mplayer2 but it's not installed, exiting."; exit 1; }
 command -v mpv >/dev/null 2>&1 || { echo >&2 "I require mpv but it's not installed, exiting."; exit 1; }
 command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
@@ -124,7 +124,7 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 			
 			
 			
-				ffmpeg -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$TMPDIR/$justname".rgtxt
+				ffmpeg_static -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$TMPDIR/$justname".rgtxt
 			
 				# get Integrated loudness into variable
 	 
