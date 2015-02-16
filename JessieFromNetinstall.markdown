@@ -2,6 +2,8 @@
 
 the manual approach to post-banging the Jessie, work in progress
 
+Warning: This is brainstorm and execution in single step, so consider this document experimental.
+
 ## install Debian Jessie
 
 Base is what we want and nothing else
@@ -12,9 +14,10 @@ as su
 
     apt-get install openbox xserver-xorg xinit
     apt-get install terminator vim thunar tint2 geany gmrun
-    apt-get install htop mc inxi
+    apt-get install htop mc inxi xsettingsd
 
-Note: terminator and thunar will bring in lots of stuff
+Note: terminator and thunar will bring in lots of stuff    
+Note: Installing xsettingsd stoped tint2 to fill .xsession-errors <https://code.google.com/p/xsettingsd/>
 
 ### sudo
 
@@ -393,6 +396,7 @@ Add directory images/wallpapers, select one of the wallpapers ....
 
 p.s. luxRender Debian-like swirl 
 <http://shrani.si/f/44/HW/4c0Czz2S/swirllux.png>
+<http://shrani.si/f/2q/10a/11vEdHZ2/swirldali3post28bpc.png>
 
 #### obmenu and obapps
 
@@ -534,6 +538,8 @@ duh,radio,play,rplay,invaders,myip
 ### Problems to fix:
 - theme errors
 - document custom scripts
+- disable root?
+- better name than "postbang": icebreaker?
 - <s>Add that flat-pinkMarker theme</s> < done
 - <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
 
