@@ -1,1 +1,5 @@
-nitrogen --restore & compton & tint2 & conky & volti & mpv ~/audio_fx/vader.mp3 & 
+nitrogen --restore & compton & tint2 & 
+
+(sleep 3 && conky) &  
+
+# mpv ~/audio_fx/vader.mp3 & 
