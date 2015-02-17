@@ -14,7 +14,7 @@ as su
 
     apt-get install openbox xserver-xorg xinit
     apt-get install terminator vim thunar tint2 geany gmrun
-    apt-get install htop mc inxi xsettingsd
+    apt-get install htop mc inxi xsettingsd i3lock
 
 Note: terminator and thunar will bring in lots of stuff    
 Note: Installing xsettingsd stoped tint2 to fill .xsession-errors <https://code.google.com/p/xsettingsd/>
@@ -287,6 +287,8 @@ sudo
 
     dpkg -i *.deb
 
+Note: If this infinality thing doesn't want to cooperate, skip it, font rendering is pretty good in jessie by default.
+
 #### openbox, openbox menu logic and beauty
 
     cp -b ~/source/postbang/.config/openbox/rc.xml ~/.config/openbox/
@@ -494,6 +496,12 @@ sudo
 
     apt-get install gimp gimp-plugin-registry
 
+You will probably want to install some custom icon theme, like
+
+<http://android272.deviantart.com/art/Flat-GIMP-icon-Theme-V-2-1-375010811>
+
+<a href="http://shrani.si/f/U/E6/4JbrV9sC/gimp.png"><img src="http://shrani.si/t/U/E6/4JbrV9sC/gimp.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+
 
 ### utility
 
@@ -517,7 +525,8 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     f       file manager
     e       text editor
     v       alsamixer
-    space   obmenu
+    m       toggle mute
+    space   obmenu  
     tab     combined-menu
 
     alt +
@@ -571,12 +580,13 @@ duh,radio,play,rplay,invaders,myip
 (Check postbang/bin and copy needed to user bin)
 
 ### Problems to fix/things to add/modify:
-- gksu
 - theme errors
 - document custom scripts
 - add weechat config
 - disable root?
-- better name than "postbang": icebreaker? iceberg?
+- when things settle down, do a script that installs everything.
+- <s>better name than "postbang": icebreaker? iceberg?</s> < actually present icebreaker for the community respin and keep postbang for this experiment
+- <s>gksu</s> < seems to be working
 - <s>Add that flat-pinkMarker theme</s> < done
 - <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
 
