@@ -1,4 +1,4 @@
-nitrogen --restore & compton & tint2 & 
+nitrogen --restore & compton & tint2 & volti & 
 
 (sleep 3 && conky) &  
 
