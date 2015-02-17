@@ -4,4 +4,11 @@ set -e
 
 cd ~/source/postbang
 git pull
+
 cp -rb .config/* ~/.config/
+
+cp -b .bashrc ~
+cp -b .bash_aliases ~
+cp -b .conkyrc ~
+cp -b .gtkrc-2.0* ~
+cp -b .Xresources ~
