@@ -62,10 +62,10 @@ border_color = #111111 100
 
 # Panel
 panel_monitor = all
-panel_position = bottom center horizontal
+panel_position = bottom right horizontal
 #panel_items = TSBC
-panel_items = LTSB
-panel_size = 95% 46
+panel_items = LTSBC
+panel_size = 100% 46
 panel_margin = 0 -1
 panel_padding = 3 2
 panel_dock = 0
@@ -143,7 +143,7 @@ systray = 1
 systray_padding = 0 4 5
 systray_background_id = 9
 systray_sort = left2right
-systray_icon_size = 22
+systray_icon_size = 16
 
 systray_icon_asb = 100 100 -100
 

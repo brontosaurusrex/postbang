@@ -49,9 +49,9 @@ color2 1BB8F0
 TEXT
 ${font cuprum:size=10}$cpubar cpu
 $membar ram 
-$nodename
+#$nodename
 #$fs_bar disk 
 #$fs_size used
-#${font cuprum:size=11}${time %H:%M}${font cuprum:size=13}
-#${time %A}, ${time %e.%B %G}
+#${font cuprum:size=8}${time %A}, ${time %e.%b %G}
+${font cuprum:size=23}${time %H.%M}
 # $nodename ${addr} $uptime
