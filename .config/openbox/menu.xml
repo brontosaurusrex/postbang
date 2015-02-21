@@ -37,6 +37,17 @@
 		<menu id="/Debian"/>
 		<separator/>
 		<menu id="root-menu-251146" label="config">
+			<item label="lxAppearance">
+				<action name="Execute">
+					<execute>lxappearance</execute>
+				</action>
+			</item>
+			<item label="wallpaper">
+				<action name="Execute">
+					<execute>nitrogen</execute>
+				</action>
+			</item>
+			<separator/>
 			<item label="obMenu">
 				<action name="Execute">
 					<execute>obmenu</execute>
@@ -50,16 +61,6 @@
 			<item label="obConf">
 				<action name="Execute">
 					<execute>obconf</execute>
-				</action>
-			</item>
-			<item label="lxAppearance">
-				<action name="Execute">
-					<execute>lxappearance</execute>
-				</action>
-			</item>
-			<item label="wallpaper">
-				<action name="Execute">
-					<execute>nitrogen</execute>
 				</action>
 			</item>
 			<separator/>
