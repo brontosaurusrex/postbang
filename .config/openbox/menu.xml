@@ -7,12 +7,6 @@
 			</action>
 		</item>
 		<separator/>
-		<item label="alsaMixer">
-			<action name="Execute">
-				<execute>terminator -x alsamixer -g</execute>
-			</action>
-		</item>
-		<separator/>
 		<item label="terminator">
 			<action name="Execute">
 				<execute>x-terminal-emulator</execute>
@@ -31,6 +25,12 @@
 		<item label="browser">
 			<action name="Execute">
 				<execute>x-www-browser</execute>
+			</action>
+		</item>
+		<separator/>
+		<item label="alsaMixer">
+			<action name="Execute">
+				<execute>terminator -x alsamixer -g</execute>
 			</action>
 		</item>
 		<!-- This requires the presence of the 'menu' package to work -->
@@ -72,6 +72,11 @@
 		</menu>
 		<separator/>
 		<menu id="root-menu-315416" label="exit">
+			<item label="lock">
+				<action name="Execute">
+					<execute>i3lock -c 222222</execute>
+				</action>
+			</item>
 			<item label="obExit">
 				<action name="Exit"/>
 			</item>
@@ -87,11 +92,5 @@
 				</action>
 			</item>
 		</menu>
-		<separator/>
-		<item label="lock">
-			<action name="Execute">
-				<execute>i3lock -c 222222 -u</execute>
-			</action>
-		</item>
 	</menu>
 </openbox_menu>
