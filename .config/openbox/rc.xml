@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -31,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>FlatStudioLightBronto</name>
+    <name>FlatStudioBrontoMod</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -225,7 +226,7 @@
         <desktop>4</desktop>
       </action>
     </keybind>
-    <keybind key="W-d">
+    <keybind key="W-s">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
@@ -275,15 +276,7 @@
         <command>gmrun</command>
       </action>
     </keybind>
-    <keybind key="A-F3">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>dmenu-bind</name>
-        </startupnotify>
-        <command>~/.config/dmenu/dmenu-bind.sh</command>
-      </action>
-    </keybind>
+    
     <keybind key="W-f">
       <action name="Execute">
         <startupnotify>
@@ -302,15 +295,7 @@
         <command>terminator</command>
       </action>
     </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>skippy</name>
-        </startupnotify>
-        <command>skippy-xd</command>
-      </action>
-    </keybind>
+
     <keybind key="W-w">
       <action name="Execute">
         <startupnotify>
@@ -1031,14 +1016,6 @@
 
   # end of the example
 -->
-    
-    
-    
-    
-    
-    
-    
-    
     <application class="Gmrun" name="gmrun" type="normal">
       <iconic>default</iconic>
       <decor>no</decor>
@@ -1059,10 +1036,21 @@
     <application class="Dwb" name="dwb" type="normal">
       <decor>no</decor>
     </application>
-    
-    
-  <application class="X-terminal-emulator" name="x-terminal-emulator" type="normal"><position force="no"><x>50</x><y>90</y></position></application>
-<application class="Terminator" name="terminator" type="normal"><position force="no"><x>50</x><y>90</y></position></application>
-<application class="URxvt" name="rxvt-unicode" type="normal"><decor>no</decor><shade>default</shade></application>
-</applications>
+    <application class="X-terminal-emulator" name="x-terminal-emulator" type="normal">
+      <position force="no">
+        <x>50</x>
+        <y>90</y>
+      </position>
+    </application>
+    <application class="Terminator" name="terminator" type="normal">
+      <position force="no">
+        <x>50</x>
+        <y>90</y>
+      </position>
+    </application>
+    <application class="URxvt" name="rxvt-unicode" type="normal">
+      <decor>no</decor>
+      <shade>default</shade>
+    </application>
+  </applications>
 </openbox_config>
