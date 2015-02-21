@@ -141,6 +141,8 @@ user
     ls -lha
     cp -b .config/terminator/config ~/.config/terminator/
 
+Note: You will probably want to adjust the `size = 850, 400` part of the terminator config.
+
 and bash related (backup those first, if you will)
 
     cp -b .bashrc ~
@@ -526,6 +528,7 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     e       text editor
     v       alsamixer
     m       toggle mute
+    s       toggle show desktop
     space   obmenu  
     tab     combined-menu
 
@@ -610,7 +613,7 @@ under
 - <s>Add that flat-pinkMarker theme</s> < done
 - <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
 
-Note: to be continued ...
+Note: This is probably pretty much it from me.
 
 
 [gimmick:theme](amelia)
