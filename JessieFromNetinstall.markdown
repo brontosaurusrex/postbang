@@ -602,6 +602,8 @@ under
 
     [SeatDefaults]
 
+Note: Lightdm does not source .profile, so make sure that user bin path is added in .bashrc instead
+
 ### Problems to fix/things to add/modify:
 - theme errors
 - document custom scripts
