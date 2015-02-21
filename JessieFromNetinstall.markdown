@@ -490,13 +490,13 @@ to
 or alternative: volumeicon-alsa
 
 
-### gimp
+### gimp and inkscape
 
 sudo
 
-    apt-get install gimp gimp-plugin-registry
+    apt-get install gimp gimp-plugin-registry inkscape
 
-You will probably want to install some custom icon theme, like
+You will probably want to install some custom icon theme for gimp, like
 
 <http://android272.deviantart.com/art/Flat-GIMP-icon-Theme-V-2-1-375010811>
 
@@ -578,6 +578,26 @@ sudo
 
 duh,radio,play,rplay,invaders,myip    
 (Check postbang/bin and copy needed to user bin)
+
+### login manager and autologin
+
+sudo
+
+    apt-get install lightdm
+
+To autologin:
+
+gksu 
+
+    geany /etc/lightdm/lightdm.conf
+
+and add
+
+    autologin-user=someuser
+
+under
+
+    [SeatDefaults]
 
 ### Problems to fix/things to add/modify:
 - theme errors
