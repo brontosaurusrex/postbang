@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/ticho/.gtkrc-2.0.mine"
-gtk-theme-name="FlatStudioLightBronto"
+gtk-theme-name="FlatStudioBrontoMod"
 gtk-icon-theme-name="Clarity"
 gtk-font-name="Cuprum 11"
 gtk-cursor-theme-name="DMZ-White"
@@ -17,4 +17,3 @@ gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintslight"
 gtk-xft-rgba="rgb"
-
