@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -928,20 +929,29 @@
       </mousebind>
     </context>
   </mouse>
-  <menu>
+  
+ 
+  <menu id="/Debian">
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- system menu files on Debian systems 
-    <file>/var/lib/openbox/debian-menu.xml</file>
-    <file>debian-menu.xml</file> -->
-    <file>menu.xml</file>
+    <!-- system menu files on Debian systems -->
+    
+    <!-- <file>/var/lib/openbox/debian-menu.xml</file> -->
+    <!-- <file>menu.xml</file> -->
     <hideDelay>200</hideDelay>
     <middle>no</middle>
-    <submenuShowDelay>100</submenuShowDelay>
-    <applicationIcons>yes</applicationIcons>
+    <submenuShowDelay>10</submenuShowDelay>
+    <applicationIcons>no</applicationIcons>
   </menu>
+
+  
+  
+  
   <applications>
+	  
+	  
+	  
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
@@ -1048,7 +1058,17 @@
     <application class="URxvt" name="rxvt-unicode" type="normal">
       <decor>no</decor>
       <shade>default</shade>
-    <position force="no"><x>0</x><y>0</y></position></application>
-  <application class="URxvt" name="urxvt" type="normal"><decor>no</decor><position force="no"><x>0</x><y>0</y></position></application>
-</applications>
+      <position force="no">
+        <x>0</x>
+        <y>0</y>
+      </position>
+    </application>
+    <application class="URxvt" name="urxvt" type="normal">
+      <decor>no</decor>
+      <position force="no">
+        <x>0</x>
+        <y>0</y>
+      </position>
+    </application>
+  </applications>
 </openbox_config>

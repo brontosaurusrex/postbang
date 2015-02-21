@@ -13,7 +13,7 @@ Base is what we want and nothing else
 as su
 
     apt-get install openbox xserver-xorg xinit
-    apt-get install terminator vim thunar tint2 geany gmrun
+    apt-get install terminator rxvt-unicode vim thunar tint2 geany gmrun
     apt-get install htop mc inxi xsettingsd i3lock
 
 Note: terminator and thunar will bring in lots of stuff    
@@ -620,7 +620,7 @@ Note: This is probably pretty much it.
 
 sudo
 
-    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome install xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager
+    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome install xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode
 
     apt-get install --no-install-recommends fonts-dejavu fonts-droid ttf-freefont ttf-liberation gdebi gtk2-engines-pixbuf gtk2-engines-murrine gtk2-engines-oxygen gtk2-engines-xfce
 
