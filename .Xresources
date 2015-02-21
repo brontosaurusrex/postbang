@@ -1,4 +1,4 @@
-*.font: 	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+ge*.font: 	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 *.boldFont:	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 
 !URxvt.font:		-misc-fixed-*-r-*-*-13-*-*-*-*-*-*-*
@@ -61,8 +61,9 @@ URxvt*fading:		20
 !URxvt*fadeColor:	#3f3f3f
 !URxvt*fadeColor:	#c9c9c9 
 *.borderless:	true 
-*.geometry: 84x15 
-!*geometry: 80x18 
+*.geometry: 100x20 
+!*geometry: 100x20
+URxvt.geometry: 100x20
 
 Urxvt*termName:     rxvt-unicode-256color
 Urxvt*allow_bold:   false 

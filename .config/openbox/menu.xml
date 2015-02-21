@@ -30,7 +30,7 @@
 		<separator/>
 		<item label="alsaMixer">
 			<action name="Execute">
-				<execute>terminator -x alsamixer -g</execute>
+				<execute>urxvt -e alsamixer -g</execute>
 			</action>
 		</item>
 		<!-- This requires the presence of the 'menu' package to work -->
