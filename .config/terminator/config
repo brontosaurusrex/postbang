@@ -13,7 +13,6 @@
     palette = "#444444:#b10000:#6cb100:#b15c00:#005577:#5600b1:#007177:#bbbbbb:#444444:#cc0000:#7ccc00:#cc6a00:#0075a3:#6300cc:#009199:#eeeeee"
     background_image = None
     background_darkness = 0.89
-    background_type = transparent
     use_system_font = False
     cursor_color = "#B15C00"
     cursor_blink = False
@@ -31,4 +30,5 @@
     [[[window0]]]
       type = Window
       parent = ""
+      size = 850, 400
 [plugins]
