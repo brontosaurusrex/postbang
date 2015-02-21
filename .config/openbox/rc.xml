@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -32,7 +31,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>FlatStudioBrontoMod</name>
+    <name>FlatStudioLightBronto</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -330,7 +329,6 @@
         <command>geany</command>
       </action>
     </keybind>
-
     <keybind key="W-v">
       <action name="Execute">
         <startupnotify>
@@ -340,13 +338,11 @@
         <command>terminator -x alsamixer -g</command>
       </action>
     </keybind>
-    
     <keybind key="W-m">
-     <action name="Execute">
+      <action name="Execute">
         <command>amixer set Master toggle</command>
-     </action>
+      </action>
     </keybind>
-    
     <keybind key="W-Tab">
       <action name="ShowMenu">
         <menu>client-list-combined-menu</menu>
@@ -1035,43 +1031,14 @@
 
   # end of the example
 -->
-    <application class="Gimp" name="gimp-2.6" role="gimp-toolbox" type="utility">
-      <maximized>vertical</maximized>
-    </application>
-    <application class="Gimp" name="gimp-2.6" role="gimp-dock" type="utility">
-      <maximized>vertical</maximized>
-    </application>
-    <application class="Gimp" name="gimp-2.6" role="gimp-image-window" type="normal">
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application class="mplayer2" name="xv" type="normal">
-      <decor>no</decor>
-    </application>
-    <application class="MPlayer" name="xv" type="normal">
-      <decor>no</decor>
-    </application>
-    <application class="synapse" name="synapse" type="utility">
-      <decor>no</decor>
-      <shade>no</shade>
-      <skip_taskbar>yes</skip_taskbar>
-    </application>
-    <application class="MPlayer" name="xv" type="normal">
-      <skip_pager>yes</skip_pager>
-      <skip_taskbar>yes</skip_taskbar>
-      <focus>yes</focus>
-      <decor>no</decor>
-      <shade>no</shade>
-    </application>
-    <application class="mpv" name="x11" type="normal">
-      <skip_taskbar>yes</skip_taskbar>
-      <skip_pager>no</skip_pager>
-      <decor>no</decor>
-      <shade>no</shade>
-      <focus>yes</focus>
-    </application>
+    
+    
+    
+    
+    
+    
+    
+    
     <application class="Gmrun" name="gmrun" type="normal">
       <iconic>default</iconic>
       <decor>no</decor>
@@ -1092,22 +1059,10 @@
     <application class="Dwb" name="dwb" type="normal">
       <decor>no</decor>
     </application>
-    <application class="Iceweasel" name="Navigator" role="browser" type="normal">
-      <decor>default</decor>
-      <maximized>yes</maximized>
-      <position force="no">
-        <x>-0</x>
-        <y>0</y>
-      </position>
-      <desktop>1</desktop>
-      <focus>yes</focus>
-    </application>
-    <application class="URxvt" name="urxvt" type="normal">
-      <decor>no</decor>
-      <position force="no">
-        <x>0</x>
-        <y>0</y>
-      </position>
-    </application>
-  </applications>
+    
+    
+  <application class="X-terminal-emulator" name="x-terminal-emulator" type="normal"><position force="no"><x>50</x><y>90</y></position></application>
+<application class="Terminator" name="terminator" type="normal"><position force="no"><x>50</x><y>90</y></position></application>
+<application class="URxvt" name="rxvt-unicode" type="normal"><decor>no</decor><shade>default</shade></application>
+</applications>
 </openbox_config>
