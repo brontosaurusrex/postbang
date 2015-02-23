@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# fixme: tmp file is not needed, use variable
+
 if dmesg | grep -i Virtualbox ; then
 
 	while true ; do
