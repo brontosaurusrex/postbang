@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if dmesg | grep -i Virtualbox ; then
+
+	while true ; do
+	
+	diff /tmp/xrandr.txt <(xrandr) || nitrogen --restore
+	
+	xrandr > /tmp/xrandr.txt
+	
+	sleep 5; done
+
+else
+
+	exit
+     
+fi

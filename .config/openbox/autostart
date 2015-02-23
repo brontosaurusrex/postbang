@@ -4,6 +4,10 @@ nitrogen --restore & compton & tint2 & volti &
 
 # mpv ~/audio_fx/vader.mp3 & 
 
+# only if running in vbox, will restore wallpaper if resolution 
+# change is detected.
+# ~/bin/changeres &
+
 # optional (http://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
 xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
