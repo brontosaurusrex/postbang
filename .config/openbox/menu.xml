@@ -28,13 +28,19 @@
 			</action>
 		</item>
 		<separator/>
+		<item label="app finder">
+			<action name="Execute">
+				<execute>xfce4-appfinder</execute>
+			</action>
+		</item>
+		<menu id="/Debian"/>
+		<separator/>
+		<!-- This requires the presence of the 'menu' package to work -->
 		<item label="alsaMixer">
 			<action name="Execute">
 				<execute>urxvt -e alsamixer -g</execute>
 			</action>
 		</item>
-		<!-- This requires the presence of the 'menu' package to work -->
-		<menu id="/Debian"/>
 		<separator/>
 		<menu id="root-menu-251146" label="config">
 			<item label="lxAppearance">
