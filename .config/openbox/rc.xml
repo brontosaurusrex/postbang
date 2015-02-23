@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -31,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>FlatStudioLightBronto</name>
+    <name>FlatStudioBrontoMod</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -225,7 +226,7 @@
         <desktop>4</desktop>
       </action>
     </keybind>
-    <keybind key="W-d">
+    <keybind key="W-s">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
@@ -275,15 +276,6 @@
         <command>gmrun</command>
       </action>
     </keybind>
-    <keybind key="A-F3">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>dmenu-bind</name>
-        </startupnotify>
-        <command>~/.config/dmenu/dmenu-bind.sh</command>
-      </action>
-    </keybind>
     <keybind key="W-f">
       <action name="Execute">
         <startupnotify>
@@ -300,15 +292,6 @@
           <name>Terminal</name>
         </startupnotify>
         <command>terminator</command>
-      </action>
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>skippy</name>
-        </startupnotify>
-        <command>skippy-xd</command>
       </action>
     </keybind>
     <keybind key="W-w">
@@ -335,7 +318,7 @@
           <enabled>true</enabled>
           <name>Volume</name>
         </startupnotify>
-        <command>terminator -x alsamixer -g</command>
+        <command>urxvt -e alsamixer -g</command>
       </action>
     </keybind>
     <keybind key="W-m">
@@ -946,20 +929,29 @@
       </mousebind>
     </context>
   </mouse>
-  <menu>
+  
+ 
+  <menu id="/Debian">
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- system menu files on Debian systems 
-    <file>/var/lib/openbox/debian-menu.xml</file>
-    <file>debian-menu.xml</file> -->
-    <file>menu.xml</file>
+    <!-- system menu files on Debian systems -->
+    
+    <!-- <file>/var/lib/openbox/debian-menu.xml</file> -->
+    <!-- <file>menu.xml</file> -->
     <hideDelay>200</hideDelay>
     <middle>no</middle>
-    <submenuShowDelay>100</submenuShowDelay>
-    <applicationIcons>yes</applicationIcons>
+    <submenuShowDelay>10</submenuShowDelay>
+    <applicationIcons>no</applicationIcons>
   </menu>
+
+  
+  
+  
   <applications>
+	  
+	  
+	  
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
@@ -1031,14 +1023,6 @@
 
   # end of the example
 -->
-    
-    
-    
-    
-    
-    
-    
-    
     <application class="Gmrun" name="gmrun" type="normal">
       <iconic>default</iconic>
       <decor>no</decor>
@@ -1059,10 +1043,32 @@
     <application class="Dwb" name="dwb" type="normal">
       <decor>no</decor>
     </application>
-    
-    
-  <application class="X-terminal-emulator" name="x-terminal-emulator" type="normal"><position force="no"><x>50</x><y>90</y></position></application>
-<application class="Terminator" name="terminator" type="normal"><position force="no"><x>50</x><y>90</y></position></application>
-<application class="URxvt" name="rxvt-unicode" type="normal"><decor>no</decor><shade>default</shade></application>
-</applications>
+    <application class="X-terminal-emulator" name="x-terminal-emulator" type="normal">
+      <position force="no">
+        <x>50</x>
+        <y>90</y>
+      </position>
+    </application>
+    <application class="Terminator" name="terminator" type="normal">
+      <position force="no">
+        <x>50</x>
+        <y>90</y>
+      </position>
+    </application>
+    <application class="URxvt" name="rxvt-unicode" type="normal">
+      <decor>no</decor>
+      <shade>default</shade>
+      <position force="no">
+        <x>0</x>
+        <y>0</y>
+      </position>
+    </application>
+    <application class="URxvt" name="urxvt" type="normal">
+      <decor>no</decor>
+      <position force="no">
+        <x>0</x>
+        <y>0</y>
+      </position>
+    </application>
+  </applications>
 </openbox_config>
