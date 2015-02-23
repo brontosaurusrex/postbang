@@ -1,4 +1,8 @@
-# Jessie from netinstall
+# Jessie from netinstall (postbang)
+
+#### Brought to you by:
+
+![](http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png "brontolabs")    
 
 the manual approach to post-banging the Jessie, work in progress
 
@@ -430,6 +434,10 @@ Came up with this, totally "passive";
 
 <img src="http://shrani.si/f/E/6k/3CBVQrJO/justmenu.png">
 
+sudo
+
+    apt-get install xfce4-appfinder --no-install-recommends
+
 from my git, as user
 
     cd ~/source/postbang && git pull
@@ -454,7 +462,7 @@ user
 
 sudo
 
-    apt-get install conky
+    apt-get install conky-all
 
 user
 
@@ -527,6 +535,7 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     e       text editor
     v       alsamixer
     m       toggle mute
+    n       xfce4-appfinder
     s       toggle show desktop
     space   obmenu  
     tab     combined-menu
@@ -603,10 +612,25 @@ under
 
 Note: Lightdm does not source .profile, so make sure that user bin path is added in .bashrc instead
 
+### more stuff and flash, optional
+
+sudo
+
+    apt-get install evince vlc smplayer
+    apt-get install --no-install-recommends file-roller
+
+note: something about .config/Trolltech.conf and qt4-qtconfig (qtconfig)
+
+Neither vlc, nor smplayer are working correctly in vbox enviroment for me, possibly missing stuff.
+
+sudo 
+
+    apt-get install flashplugin-nonfree
+
 ### Problems to fix/things to add/modify:
-- theme errors
-- document custom scripts
-- add weechat config
+- <s>theme errors</s> < seems like they mostly fixed themselves
+- document custom scripts?
+- add weechat config?
 - disable root?
 - when things settle down, do a script that installs everything.
 - <s>better name than "postbang": icebreaker? iceberg?</s> < actually present icebreaker for the community respin and keep postbang for this experiment
@@ -620,9 +644,9 @@ Note: This is probably pretty much it.
 
 sudo
 
-    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome install xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode
+    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome install xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode flashplugin-nonfree
 
-    apt-get install --no-install-recommends fonts-dejavu fonts-droid ttf-freefont ttf-liberation gdebi gtk2-engines-pixbuf gtk2-engines-murrine gtk2-engines-oxygen gtk2-engines-xfce
+    apt-get install --no-install-recommends fonts-dejavu fonts-droid ttf-freefont ttf-liberation gdebi gtk2-engines-pixbuf gtk2-engines-murrine gtk2-engines-oxygen gtk2-engines-xfce xfce4-appfinder file-roller
 
     apt-get install ntp
 
