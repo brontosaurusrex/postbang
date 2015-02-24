@@ -13,3 +13,4 @@ cp -b .conkyrc ~
 cp -b .gtkrc-2.0* ~
 cp -b .Xresources ~
 cp -b .profile ~
+cp -b .xsessionrc ~
