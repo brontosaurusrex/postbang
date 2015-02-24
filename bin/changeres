@@ -1,14 +1,21 @@
 #!/bin/bash
 
-# fixme: tmp file is not needed, use variable
+# changeres
+# reset wallpaper if screen-resolution change is detected and we are running
+# under virtualbox, else just exit.
+# var=$(command-name-here)
+
+old=$(xrandr)
 
 if dmesg | grep -i Virtualbox ; then
 
 	while true ; do
 	
-	diff /tmp/xrandr.txt <(xrandr) || nitrogen --restore
+	# diff <(echo "$foo") <(echo "$bar")
 	
-	xrandr > /tmp/xrandr.txt
+	diff <(echo "$old") <(xrandr) || nitrogen --restore
+	
+	old=$(xrandr)
 	
 	sleep 5; done
 
