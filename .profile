@@ -16,8 +16,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# Bronto, next part was moved to .bashrc, due to lightdm behaviour
+
 # set PATH so it includes user's private bin if it exists
-#if [ -d "$HOME/bin" ] ; then
-#    PATH="$HOME/bin:$PATH"
-#fi
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
