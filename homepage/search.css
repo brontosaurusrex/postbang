@@ -14,7 +14,8 @@ input[type="text"]
 	color: #fff;
 	background-color: #444;
 	border: none ;
-	margin:10;padding:10;
+	margin:10px ; 
+	padding:10px ;
 	border-radius: 5px;
 
 }
@@ -33,7 +34,7 @@ a {
 select, button {
 
 	border: none ;
-	margin:10;padding:10;
+	
 
 }
 
