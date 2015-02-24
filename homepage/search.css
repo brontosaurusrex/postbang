@@ -1,0 +1,43 @@
+.centered {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+
+}
+
+input[type="text"]
+ {
+	
+	font-size: 26px;
+	color: #fff;
+	background-color: #444;
+	border: none ;
+	margin:10;padding:10;
+	border-radius: 5px;
+
+}
+
+body {
+	font: 20px;
+	color: #fff;
+	background-color: #333;
+	text-align:center;
+}
+
+a {
+	font-size: 20px;
+}
+
+select, button {
+
+	border: none ;
+	margin:10;padding:10;
+
+}
+
+A:link {text-decoration: none; color: #ccc;}
+A:visited {text-decoration: none; color: #ccc;}
+A:active {text-decoration: none; color: #ccc;}
+A:hover {text-decoration: none; color: #fff; }
