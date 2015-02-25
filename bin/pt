@@ -1,1 +1,1 @@
-mpv --video-aspect=16:9 --cache 10000 $(youtube-dl -g "$1")
+mpv --cache 10000 $(youtube-dl -g "$1")
