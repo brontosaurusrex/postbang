@@ -672,6 +672,8 @@ some i3 desktop
 
 <a href="http://shrani.si/f/1/ML/2e0k1KMM/realhardwarei3.png"><img src="http://shrani.si/t/1/ML/2e0k1KMM/realhardwarei3.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+"Problems" were a. video playback related, tearing. I did not dig into compton setting this time, just removed it from autostart. b. gtk3 apps like catfish or file-roller do look fugly. c. added xfce4-power-manager in the openbox/autostart.
+
 [gimmick:theme](amelia)
 
 
