@@ -28,11 +28,18 @@
 			</action>
 		</item>
 		<separator/>
-		<item label="app finder">
-			<action name="Execute">
-				<execute>xfce4-appfinder</execute>
-			</action>
-		</item>
+		<menu id="root-menu-774543" label="find">
+			<item label="apps">
+				<action name="Execute">
+					<execute>xfce4-appfinder</execute>
+				</action>
+			</item>
+			<item label="files">
+				<action name="Execute">
+					<execute>catfish</execute>
+				</action>
+			</item>
+		</menu>
 		<menu id="/Debian"/>
 		<separator/>
 		<!-- This requires the presence of the 'menu' package to work -->
