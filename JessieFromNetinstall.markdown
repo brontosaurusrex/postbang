@@ -192,7 +192,7 @@ user
     cd 
     cd .config
     rm user-dirs.*
-    xdg-user-dirs-update
+    LC_ALL=C xdg-user-dirs-update
     cd
     ls
 
@@ -398,6 +398,8 @@ user
     cp ~/source/postbang/images/wallpapers/*.png ~/images/wallpapers/
     nitrogen
 
+Note: The magic background color is #32383B
+
 Add directory images/wallpapers, select one of the wallpapers ....
 (btw: as with most of this guide this is single-user approach,)
 
@@ -494,7 +496,7 @@ to
 
     .config/openbox/autostart
 
-<a href="http://shrani.si/f/3W/12U/2CV3Lag6/volti.png"><img src="http://shrani.si/t/3W/12U/2CV3Lag6/volti.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+<a href="http://shrani.si/f/2R/Rf/3kz8EUdL/volti2.png"><img src="http://shrani.si/t/2R/Rf/3kz8EUdL/volti2.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 or alternative: volumeicon-alsa
 
@@ -610,7 +612,7 @@ under
 
     [SeatDefaults]
 
-Note: Lightdm does not source .profile, so make sure that user bin path is added in .bashrc instead
+Note: Lightdm does not source .profile, so make sure that user bin path is added in .xsessionrc instead
 
 ### more stuff and flash, optional
 
@@ -628,11 +630,14 @@ sudo
     apt-get install flashplugin-nonfree
 
 ### Problems to fix/things to add/modify:
-- <s>theme errors</s> < seems like they mostly fixed themselves
+- xfce4-power-manager?
+- png wallpapers are fat, test bpg lossless (perhaps 8bpc 4:2:2)
+- automounting usb drives? android phones?
 - document custom scripts?
 - add weechat config?
 - disable root?
 - when things settle down, do a script that installs everything.
+- <s>theme errors</s> < seems like they mostly fixed themselves
 - <s>better name than "postbang": icebreaker? iceberg?</s> < actually present icebreaker for the community respin and keep postbang for this experiment
 - <s>gksu</s> < seems to be working
 - <s>Add that flat-pinkMarker theme</s> < done
@@ -644,9 +649,15 @@ Note: This is probably pretty much it.
 
 sudo
 
-    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome install xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode flashplugin-nonfree
+    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode 
+
+    apt-get install flashplugin-nonfree ? < seems to be missing in action
+
+    apt-get install gtk3-engines-* ?
 
     apt-get install --no-install-recommends fonts-dejavu fonts-droid ttf-freefont ttf-liberation gdebi gtk2-engines-pixbuf gtk2-engines-murrine gtk2-engines-oxygen gtk2-engines-xfce xfce4-appfinder file-roller
+
+    apt-get install libreoffice libreoffice-gtk
 
     apt-get install ntp
 
@@ -655,6 +666,11 @@ sudo
 
 Infinality related stuff skipped here.
 
+### Real hardware
+
+some i3 desktop
+
+<a href="http://shrani.si/f/1/ML/2e0k1KMM/realhardwarei3.png"><img src="http://shrani.si/t/1/ML/2e0k1KMM/realhardwarei3.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 [gimmick:theme](amelia)
 
