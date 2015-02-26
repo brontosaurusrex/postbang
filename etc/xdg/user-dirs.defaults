@@ -1,0 +1,8 @@
+DESKTOP=downloads
+# we need to define desktop due to firefox weird behaviour.
+DOWNLOAD=downloads
+DOCUMENTS=documents
+MUSIC=music
+PICTURES=images
+VIDEOS=videos
+
