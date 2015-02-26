@@ -1,10 +1,6 @@
 # Jessie from netinstall (postbang)
 
-#### Brought to you by:
-
-![](http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png "brontolabs")    
-
-the manual approach to post-banging the Jessie, work in progress
+ the manual approach to post-banging the Jessie, work in progress
 
 Warning: This is brainstorm and execution in single step, so consider this document experimental.
 
@@ -13,6 +9,13 @@ Warning: This is brainstorm and execution in single step, so consider this docum
 Base is what we want and nothing else
 
 <https://www.debian.org/devel/debian-installer>
+or with non-free stuff
+<http://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/>
+
+Basic eth0 /etc/network/interfaces
+
+    auto eth0
+    iface eth0 inet dhcp
 
 as su
 
@@ -346,7 +349,11 @@ Copy a custom black theme from my git
     cd ~/.icons/Clarity/
     ./change-theme
 
-Select postbang theme and run, then 
+Select postbang theme and run ... 
+
+warning: building may take a long time on a slow machine (like asus eee)
+
+then 
 
     cp ~/source/postbang/.gtkrc-2* ~
 
@@ -416,7 +423,7 @@ sudo
 user
 
     cd 
-    cd downloads
+    cd source
     wget sourceforge.net/projects/obapps/files/obapps-0.1.7.tar.gz
     unp obapps-0.1.7.tar.gz 
     cd obapps-0.1.7/
@@ -618,7 +625,7 @@ Note: Lightdm does not source .profile, so make sure that user bin path is added
 
 sudo
 
-    apt-get install evince vlc smplayer
+    apt-get install evince vlc smplayer catfish
     apt-get install --no-install-recommends file-roller
 
 note: something about .config/Trolltech.conf and qt4-qtconfig (qtconfig)
@@ -628,6 +635,10 @@ Neither vlc, nor smplayer are working correctly in vbox enviroment for me, possi
 sudo 
 
     apt-get install flashplugin-nonfree
+
+to update flash, sudo
+
+    update-flashplugin-nonfree --install
 
 ### Problems to fix/things to add/modify:
 - xfce4-power-manager?
@@ -649,9 +660,9 @@ Note: This is probably pretty much it.
 
 sudo
 
-    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode 
+    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode catfish
 
-    apt-get install flashplugin-nonfree ? < seems to be missing in action
+    apt-get install flashplugin-nonfree
 
     apt-get install gtk3-engines-* ?
 
@@ -659,7 +670,7 @@ sudo
 
     apt-get install libreoffice libreoffice-gtk
 
-    apt-get install ntp
+    apt-get install ntp ?
 
     apt-get install lightdm
 
@@ -668,11 +679,37 @@ Infinality related stuff skipped here.
 
 ### Real hardware
 
-some i3 desktop
+#### some i3 desktop
 
 <a href="http://shrani.si/f/1/ML/2e0k1KMM/realhardwarei3.png"><img src="http://shrani.si/t/1/ML/2e0k1KMM/realhardwarei3.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 "Problems" were a. video playback related, tearing. I did not dig into compton setting this time, just removed it from autostart. b. gtk3 apps like catfish or file-roller do look fugly. c. added xfce4-power-manager in the openbox/autostart.
+
+#### asus eee
+
+<a href="http://shrani.si/f/17/2c/4znL9NdL/eee.png"><img src="http://shrani.si/t/17/2c/4znL9NdL/eee.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+
+sudo
+
+    apt-get install nvidia-detect
+
+and so on..., when it craps out, add
+
+/etc/X11/xorg.conf.d/20-nvidia.conf
+
+    Section "Device"
+            Identifier "My GPU"
+            Driver "nvidia"
+    EndSection
+
+and reboot.
+
+google-earth related < not fixed.
+
+
+#### Brought to you by:
+
+![](http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png "brontolabs")   
 
 [gimmick:theme](amelia)
 
