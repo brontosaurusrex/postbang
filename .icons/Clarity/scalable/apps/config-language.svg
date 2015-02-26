@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="128" height="128" version="1.1">
+    <title>Flag Icon</title>
+    <desc>This icon is a part of Clarity icon theme for gtk</desc>
+    <metadata>
+        <rdf:RDF>
+            <cc:Work rdf:about="">
+                <dc:title>Flag Icon</dc:title>
+                <dc:description>This icon is a part of Clarity icon theme for gtk</dc:description>
+                <dc:creator>
+                    <cc:Agent>
+                        <dc:title>Jakub Jankiewicz</dc:title>
+                    </cc:Agent>
+                </dc:creator>
+                <dc:rights>
+                    <cc:Agent>
+                        <dc:title>Jakub Jankiewicz</dc:title>
+                    </cc:Agent>
+                </dc:rights>
+                <dc:date>2010</dc:date>
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                <cc:license rdf:resource="http://www.gnu.org/copyleft/gpl.html" />
+             </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <defs>
+        <linearGradient x1="0" y1="128" x2="128" y2="0" id="gradient" gradientUnits="userSpaceOnUse">
+            <stop id="start" style="stop-color:#000000;stop-opacity:1" offset="0" />
+            <stop id="stop" style="stop-color:#000000;stop-opacity:1" offset="1" />
+        </linearGradient>
+        <filter id="shadow">
+            <feMorphology operator="dilate" in="SourceGraphic" radius="3" />
+            <feGaussianBlur stdDeviation="1.5" />
+        </filter>
+    </defs>
+    <path d="m 15.9375,10.71875 c -2.790803,0 -5.03125,2.240447 -5.03125,5.03125 l 0,101.53125 10.09375,0 L 21,15.75 c 0,-2.790803 -2.271697,-5.03125 -5.0625,-5.03125 z M 90,18.6875 c -26.224357,0.705829 -34.701471,26.101077 -65.53125,6.75 l 0,62.78125 c 39.462117,24.76937 42.311595,-23.747052 92.625,0 l 0,-62.78125 C 106.08769,20.242833 97.34282,18.489868 90,18.6875 z" style="fill:url(#gradient);fill-opacity:1;stroke:none" />
+</svg>
