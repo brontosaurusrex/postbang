@@ -1,6 +1,27 @@
-nitrogen --restore & compton & tint2 & volti & 
+nitrogen --restore & tint2 & volti & 
 
 (sleep 3 && conky) &  
+
+xfce4-power-manager &
+
+## compton banned due to video playback tearing
+
+## Detect and configure touchpad. See 'man synclient' for more info.
+if egrep -iq 'touchpad' /proc/bus/input/devices; then
+    synclient VertEdgeScroll=1 &
+    synclient HorizEdgeScroll=1 &
+    synclient TapButton1=1 &
+fi
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+## Adjust the values according to your preferances.
+xset r rate 250 25 &
+
+## Turn on/off system beep
+xset b off &
+
+## policy kit
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # mpv ~/audio_fx/vader.mp3 & 
 
@@ -9,6 +30,7 @@ nitrogen --restore & compton & tint2 & volti &
 # ~/bin/changeres &
 
 # optional (http://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
-xset s off         # don't activate screensaver
-xset -dpms         # disable DPMS (Energy Star) features.
-xset s noblank     # don't blank the video device
+# xset s off         # don't activate screensaver
+# xset -dpms         # disable DPMS (Energy Star) features.
+# xset s noblank     # don't blank the video device
+
