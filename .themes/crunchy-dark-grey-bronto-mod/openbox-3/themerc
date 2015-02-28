@@ -1,0 +1,105 @@
+!! Menu settings
+
+menu.title.bg: flat solid
+menu.title.bg.color: #454545
+menu.title.bg.colorTo: #454545
+menu.title.text.color: #e6e6e6
+menu.title.text.justify: right
+
+menu.items.bg: flat solid
+menu.items.bg.color: #3C3C3C
+menu.items.text.color: #E6E6E6
+menu.items.disabled.text.color: #575757
+
+menu.items.active.bg: flat solid
+
+menu.items.active.bg.color:#7d2d2d
+menu.items.active.text.color: #FFFFFF
+menu.bullet.selected.image.color: #FFFFFF
+
+!! focused window settings
+
+window.active.title.bg: flat solid
+
+window.active.title.bg.color: #2d7d2d
+window.active.title.separator.color: #3C3c3c
+
+window.active.handle.bg: flat solid
+window.active.handle.bg.color: #3C3C3C
+window.active.handle.bg.colorTo: #3C3C3C
+
+window.active.grip.bg: parentrelative
+
+window.active.label.bg: parentrelative
+window.active.label.text.color: #E6E6E6
+
+window.*.button.*.bg: parentrelative
+window.active.button.*.image.color: #E6E6E6
+window.active.button.*.hover.image.color: #FFFFFF
+window.active.button.*.pressed.image.color: #000000
+window.active.button.disabled.image.color: #575757
+
+!! unfocused window settings
+
+window.inactive.title.bg: flat solid
+
+window.inactive.title.bg.color: #3C3C3C
+window.inactive.title.separator.color: #3C3C3C
+
+window.inactive.handle.bg: flat solid
+window.inactive.handle.bg.color: #3C3C3C
+window.inactive.handle.bg.colorTo: #3C3C3C
+
+window.inactive.grip.bg: parentrelative
+
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #777777
+
+window.inactive.button.*.image.color: #999999
+window.inactive.button.*.hover.image.color: #FFFFFF
+window.inactive.button.*.pressed.image.color: #000000
+window.inactive.button.disabled.image.color: #575757
+
+!! Global width settings
+border.Width: 0
+padding.width: 6
+window.handle.width: 2
+window.client.padding.width: 0
+menu.overlap: 0
+
+!! Miscellaneous settings
+#border.color: #3C3C3C
+window.active.border.color: #3c3c3c
+window.inactive.border.color: #3c3c3c
+
+!! OSD
+osd.bg: flat solid
+osd.bg.color: #3c3c3c
+osd.bg.colorTo: #3c3c3c
+osd.label.bg: parentrelative
+osd.hilight.bg: flat solid
+osd.hilight.bg.color: #8c8c8c
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #3c3c3c
+osd.label.text.color: #e8e8e8
+
+!! font me!
+window.label.text.justify: left
+window.active.label.text.font:shadow=n:shadowtint=-60:shadowoffset=1
+window.inactive.label.text.font:shadow=n:shadowtint=-60:shadowoffset=1
+menu.items.font:
+menu.title.text.font:shadow=n:shadowtint=70
+
+
+!! Miscellaneous settings
+# border.color: #D0D0D0
+
+
+padding.width: 4
+padding.height: 8
+
+menu.separator.padding.width:			4
+menu.separator.padding.height:			4
+
+menu.border.color: #3c3c3c
+menu.border.width: 6

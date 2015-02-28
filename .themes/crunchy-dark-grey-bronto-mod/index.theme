@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=crunchy-dark-grey-brontomod
+Comment=
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=
+MetacityTheme=
+IconTheme=
+CursorTheme=
+ButtonLayout=:minimize,maximize,close
