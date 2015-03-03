@@ -1,6 +1,6 @@
 .centered {
   position: fixed;
-  top: 30%;
+  top: 40%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
@@ -12,7 +12,7 @@ input[type="text"]
 	
 	font-size: 26px;
 	color: #fff;
-	background-color: #444;
+	background-color: #191C1E;
 	border: none ;
 	margin:10px ; 
 	padding:10px ;
@@ -23,7 +23,7 @@ input[type="text"]
 body {
 	font: 20px;
 	color: #fff;
-	background-color: #333;
+	background-color: #2e3436;
 	text-align:center;
 }
 
