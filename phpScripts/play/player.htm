@@ -1,0 +1,153 @@
+<?php {
+	$movieFile = $_GET['moviename'];
+	if (file_exists($movieFile) && is_readable($movieFile)) {
+		$moviename = $_GET['moviename'];
+		if (is_numeric(xres($moviename)) && is_numeric(yres($moviename))) {
+			$width  = xres($moviename);
+			$height = yres($moviename);
+		} //is_numeric(xres($moviename)) && is_numeric(yres($moviename))
+		elseif (is_numeric(strip_ext_last7($moviename)) && is_numeric(strip_ext_last3($moviename))) {
+			$width  = strip_ext_last7($moviename);
+			$height = strip_ext_last3($moviename);
+		} //is_numeric(strip_ext_last7($moviename)) && is_numeric(strip_ext_last3($moviename))
+		else {
+			$width  = "1024";
+			$height = "576";
+		}
+		/* if res is false - default */
+		if ((!isset($_COOKIE["res"])) || ($_COOKIE['res'] == "false")) {
+			$width  = "1024";
+			$height = "576";
+		} //(!isset($_COOKIE["res"])) || ($_COOKIE['res'] == "false")
+		
+		/* player start */
+		/* if couchmode is enabled */
+		if ((isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")) {
+			$container_height = "100%";
+			echo "<div style=\" width:100%\" id=\"container\" class=\"dragclass\">
+					
+			<div id=\"player1\" style=\"width:100%\">
+			<a href=\"http://www.macromedia.com/go/getflashplayer\">Get or Update the Flash Player</a> to see this player.</div> \n";
+			echo "	<script type=\"text/javascript\"> \n";
+			echo "	var s1 = new SWFObject(\"player.swf\",\"single\", ";
+			echo "\"";
+			echo "100%";
+			echo "\",";
+			echo "\"";
+		} //(isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")
+		else {
+			/* if couchmode is disabled */
+			$container_height = $height;
+			echo "<div style=\" width:" . $width . "px; \" id=\"container\" class=\"dragclass\">
+			<div id=\"player1\" style=\"width:" . $width . "px;\">
+			<a href=\"http://www.macromedia.com/go/getflashplayer\">Get or Update the Flash Player</a> to see this player.</div> \n";
+			echo "	<script type=\"text/javascript\"> \n";
+			echo "	var s1 = new SWFObject(\"player.swf\",\"single\", ";
+			echo "\"";
+			echo $width;
+			echo "\",";
+			echo "\"";
+		}
+		/* if couchmode is enabled */
+		if ((isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")) {
+			echo "100%";
+		} //(isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")
+		else {
+			echo $height + 32;
+		}
+		echo "\"";
+		/* za mp4 datoteteke zahtevaj ver9 flash playerja, za vse ostalo bo ver7 v redu */
+		// this does NOT work as expected:
+		$moviename_ext = substr(strrchr($moviename, "."), 1);
+		if ($moviename_ext == 'mp4') {
+			echo ",\"10\",\"#000000\"); \n";
+		} //$moviename_ext == 'mp4'
+		else {
+			echo ",\"7\"); \n";
+		}
+		echo "  s1.addParam('allowfullscreen','true'); \n";
+		echo "  s1.addVariable(\"file\",\"";
+		echo $_GET['moviename'];
+		echo "\"); \n";
+		echo "  s1.addVariable('displayclick','play'); \n";
+		echo "  s1.addVariable('displayheight','$height'); \n";
+		/* if couchmode is enabled, disable controls */
+		if ((isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")) {
+			echo "  s1.addVariable('controlbar','none'); \n";
+		} //(isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")
+		else {
+			echo "  s1.addVariable('controlbar','bottom'); \n";
+		}
+		echo "  s1.addVariable('bufferlength','10'); \n";
+		echo "  s1.addVariable('fullscreen','true'); \n";
+		echo "  s1.addVariable('showdownload','true'); \n";
+		echo "  s1.addVariable('icons','false'); \n";
+		/* if file is jpg */
+		if ($moviename_ext == 'jpg') {
+			echo "  s1.addVariable('duration','5'); \n";
+		} //$moviename_ext == 'jpg'
+		if ($moviename_ext == 'jpeg') {
+			echo "  s1.addVariable('duration','5'); \n";
+		} //$moviename_ext == 'jpeg'
+		echo "  s1.addVariable('link',";
+		echo "'" . $_GET['moviename'] . "'";
+		echo "); \n";
+		echo "  s1.addVariable('showstop','false'); \n";
+		echo " 	s1.addVariable('skin', 'plugins/skins/modieus/modieus.swf'); \n";
+		echo "  s1.addVariable('frontcolor',  'cccccc'); \n";
+		echo "  s1.addVariable('lightcolor',  'cccccc'); \n";
+		/* if couchmode is enabled, set player back color to black */
+		if ((isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")) {
+			echo "  s1.addVariable('backcolor', '000000'); \n";
+		} //(isset($_COOKIE["couch"])) && ($_COOKIE['couch'] == "true")
+		else {
+			echo "  s1.addVariable('backcolor', '181818'); \n";
+		}
+		/* this next plugins gets read directly from jaerowen's page
+		echo "  s1.addVariable('plugins', 'quickkeys-1'); \n"; */
+		// id
+		echo "  s1.addVariable('id','single'); \n";
+		// php streaming does not work well with this new versions of the player
+		if (preg_match('/stream/', $moviename) == 1) {
+			echo "  s1.addVariable('type','http');  \n";
+			echo "  s1.addVariable('streamer','stream.php');  \n";
+		} //preg_match('/stream/', $moviename) == 1
+		// lighttpd streaming
+		if (preg_match('/lighty/', $moviename) == 1) {
+			echo "  s1.addVariable('streamer','lighttpd');  \n";
+		} //preg_match('/lighty/', $moviename) == 1
+		$includeFile = 'subs/' . $moviename . '.xml';
+		if (file_exists($includeFile) && is_readable($includeFile)) {
+			echo "  s1.addVariable('captions','$includeFile'); \n";
+		} //file_exists($includeFile) && is_readable($includeFile)
+		
+		/* some flashvars may be stored in cookies */
+		if (isset($_COOKIE["repeat"])) {
+			echo "  s1.addVariable('repeat','" . $_COOKIE["repeat"] . "'); \n";
+		} //isset($_COOKIE["repeat"])
+		else {
+			echo "  s1.addVariable('repeat','false'); \n";
+		}
+		if (isset($_COOKIE["autostart"])) {
+			echo "  s1.addVariable('autostart','" . $_COOKIE["autostart"] . "'); \n";
+		} //isset($_COOKIE["autostart"])
+		else {
+			echo "  s1.addVariable('autostart','true'); \n";
+		}
+		if (isset($_COOKIE["quality"])) {
+			echo "  s1.addVariable('quality','" . $_COOKIE["quality"] . "'); \n";
+		} //isset($_COOKIE["quality"])
+		else {
+			echo "  s1.addVariable('quality','true'); \n";
+		}
+		echo "  s1.write(\"player1\"); \n";
+		echo " </script> \n";
+	} //file_exists($movieFile) && is_readable($movieFile)
+	else {
+		echo " <div id=container><a href=\"./\">error, file not found</a></div> ";
+	}
+}
+// end container div
+echo "</div>";
+/* end player */
+?>

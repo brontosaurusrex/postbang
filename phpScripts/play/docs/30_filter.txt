@@ -1,0 +1,33 @@
+Filter now supports regex expressions.
+----------------------------------------------------------
+
+examples:
+
+or
+------------------------
+foo|bar
+			will find
+foothing
+barthing
+
+and
+------------------------
+(foo).*(bar)
+			will find
+foobar
+
+starts with
+------------------------
+^foo
+			will find
+foothing
+foobar
+
+
+more:
+http://www.visibone.com/regular-expressions/
+http://weblogtoolscollection.com/regex/regex.php
+
+edit:
+Script versions higher than 37se do support filtering via posix system user (the system user who 
+uploaded the movies).

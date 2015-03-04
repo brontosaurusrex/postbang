@@ -1,0 +1,2 @@
+player version higher than 37se require posix enviroments, if you are running windows server you may
+still use version 37se or older.

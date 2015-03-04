@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# put me in /usr/local/bin (or somewhere on the path)
+#    php must be aware of the system path (php.ini?)
+# i need mtn (http://moviethumbnail.sourceforge.net/)
+#    /usr/local/bin/mtn
+# and image magick installed
+
+file=$1
+filename=${file%.*}
+extension=${file##*.}
+
+
+# mtn 1st try
+
+/usr/local/bin/mtn -i -c 1 -r 1 -t -P -o .$extension.jpg $1
+if [ ! -s $1.jpg ] 
+then
+	/usr/local/bin/mtn -i -c 1 -r 1 -t -P -Z -o .$extension.jpg $1
+fi
+
+#convert (image magick)
+convert $1.jpg -gravity Center -scale 200^ -extent 200x200 +polaroid -scale 130^ -extent 150x150 $1_thumb.png
+
+#remove mtn snap and rename the thumb
+mv $1_thumb.png $1.jpg
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+<div id="notes">
+
+<table>
+<tr><td>
+
+<tr>
+<td>
+<?php 
+
+// $_SERVER['QUERY_STRING']
+
+//repeat one (must be disabled in autoadvance mode)
+if (isset($_COOKIE["repeat"])){
+  echo "repeat one = <td>".$_COOKIE["repeat"];}
+else{
+  echo "repeat one = <td>"."false (default)";
+}
+ echo " <td><a href=\"cookies/repeat_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+      <a href=\"cookies/repeat_false.php?".$_SERVER['QUERY_STRING']."\">false</a><br> <tr><td> ";
+      
+//repeat all (must be also true in couch mode)
+if (isset($_COOKIE["repeatAll"])){
+  echo "repeat all = <td>".$_COOKIE["repeatAll"];}
+else{
+  echo "repeat all = <td>"."false (default)";
+}
+ echo " <td><a href=\"cookies/repeatall_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+      <a href=\"cookies/repeatall_false.php?".$_SERVER['QUERY_STRING']."\">false</a><br> <tr><td> ";
+ 
+//autostart
+if (isset($_COOKIE["autostart"])){
+  echo "autostart = <td>".$_COOKIE["autostart"];}
+else{
+  echo "autostart = <td>"."true (default)";
+  }
+echo " <td><a href=\"cookies/autostart_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+           <a href=\"cookies/autostart_false.php?".$_SERVER['QUERY_STRING']."\">false</a><br> <tr><td> ";  
+ 
+   
+//autoadvance
+if (isset($_COOKIE["autoadvance"])){
+  echo "autoadvance = <td>".$_COOKIE["autoadvance"];}
+else{
+  echo "autoadvance = <td>"."false (default)";
+}
+ echo " <td><a href=\"cookies/autoadvance_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+            <a href=\"cookies/autoadvance_false.php?".$_SERVER['QUERY_STRING']."\">false</a><br> <tr><td> ";  
+			
+//sort by date
+if (isset($_COOKIE["sortdate"])){
+  echo "sort by date = <td>".$_COOKIE["sortdate"];}
+else{
+  echo "sort by date = <td>"."true (default)";
+}
+ echo " <td><a href=\"cookies/date_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+            <a href=\"cookies/date_false.php?".$_SERVER['QUERY_STRING']."\">false</a><br> <tr><td>";  
+            
+//res - respect file embeded resolution like: filename_x576y320
+if (isset($_COOKIE["res"])){
+  echo "respect res = <td>".$_COOKIE["res"];}
+else{
+  echo "respect res = <td>"."false (default)";
+}
+ echo " <td><a href=\"cookies/res_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+            <a href=\"cookies/res_false.php?".$_SERVER['QUERY_STRING']."\">false</a><br> <tr><td>"; 
+ 
+ //couch mode
+if (isset($_COOKIE["couch"])){
+  echo "couch mode = <td>".$_COOKIE["couch"];}
+else{
+  echo "couch mode = <td>"."false (default)";
+}
+ echo " <td><a href=\"cookies/couch_true.php?".$_SERVER['QUERY_STRING']."\">true</a> | 
+            <a href=\"cookies/couch_false.php?".$_SERVER['QUERY_STRING']."\">false</a><tr><td>";  
+ 
+ //reset (unset?) all
+
+  echo "<td>" ;
+
+ echo " <td>
+            <a href=\"cookies/unset.php?".$_SERVER['QUERY_STRING']."\">reset all</a><br>"; 
+ 
+ 
+ 
+ ?>
+ 
+ </td></tr></table>
+
+
+ 
+ 
+</div>

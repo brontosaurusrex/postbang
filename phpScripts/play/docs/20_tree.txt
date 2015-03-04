@@ -1,0 +1,39 @@
+player
+│
+├───movies
+│       somefilm-x640y352.mp4
+│
+├───notes   
+│       somefilm-x640y352.mp4.txt
+│
+└───thumbs
+        somefilm-x640y352.mp4.jpg
+
+      
+a. WHERE TO UPLOAD
+You (admin) should put things in movies and notes folder, possibly into thumbs as well (if server 
+is not configured to make thumbs itself. Make sure movies and thumbs folders are writable by the php
+as well, if you need that thumbs are generated on the server side.
+a2. WHAT TO UPLOAD
+Movie files must be valid flv or mp4 files than can be played via flash, for php streaming you need 
+to take special care.
+
+b. FILE NAMING
+example1: file-x576y320.mp4
+will play embeded as 576x320 px
+example2: file2-stream-x512y384.flv
+will play embeded as 512x384 px and will try to use so called fake-php streaming
+(if the file cant be played via php streamer, the progressive download mode should automagically 
+kick in - not tested much lately, avoid or take special care)
+
+c. THUMBNAILS AND SERVER REQUIREMENTS
+Server requirements to automagically generate thumbs are:
+1. posix (win servers are not supported any more, use older versions of the script, if you need that)
+2. mtn (http://moviethumbnail.sourceforge.net/), makethumb (included), imagemagick
+makethumb says:
+# put me in /usr/local/bin (or somewhere on the path)
+#    php must be aware of the system path (php.ini?)
+# i need mtn (http://moviethumbnail.sourceforge.net/)
+#    /usr/local/bin/mtn
+# and image magick installed
+
