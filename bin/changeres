@@ -13,9 +13,12 @@ if dmesg | grep -i Virtualbox ; then
 	
 	# diff <(echo "$foo") <(echo "$bar")
 	
-	diff <(echo "$old") <(xrandr) || nitrogen --restore
+	diff <(echo "$old") <(xrandr) || ( nitrogen --restore && killall conky && sleep 2 && conky & )
 	
 	old=$(xrandr)
+	
+
+
 	
 	sleep 5; done
 
