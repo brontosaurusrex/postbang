@@ -52,9 +52,17 @@ sudo
 
 ### cont
 
+sudo 
+
+    apt-get install gvfs gvfs-backends sshfs
+
+(should provide you with the working "Browse Network" thingy in thunar, however that does not work as expected)
+
 sudo
 
     apt-get install compton
+
+(optional, personally not using compton)
 
 to test
 
@@ -639,6 +647,38 @@ sudo
 to update flash, sudo
 
     update-flashplugin-nonfree --install
+
+### things
+
+#### opensnap (optional)
+
+Opensnap brings the Aero Snap feature to Openbox.
+<https://github.com/lawl/opensnap>
+
+sudo 
+
+    apt-get install wmctrl
+
+user
+
+    cd ~/source/postbang/debs
+
+sudo
+
+    dpkg -i opensnap*.deb
+
+(or compile your own)
+
+test
+
+    opensnap &
+
+Move your windows around and check if opensnap gives you any errors and so on.
+If everything seems peachy, add opensnap & to your autostart.
+
+scrot
+
+<a href="http://shrani.si/f/4/Rs/1jQqz1kh/opensnap.png"><img src="http://shrani.si/t/4/Rs/1jQqz1kh/opensnap.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 ### Problems to fix/things to add/modify:
 - xfce4-power-manager?
