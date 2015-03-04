@@ -365,6 +365,9 @@ then
 
     cp ~/source/postbang/.gtkrc-2* ~
 
+p.s. another nice icon set:
+<http://pobtott.deviantart.com/art/Any-Color-You-Like-175624910>
+
 
 #### themes
 
@@ -680,6 +683,22 @@ scrot
 
 <a href="http://shrani.si/f/4/Rs/1jQqz1kh/opensnap.png"><img src="http://shrani.si/t/4/Rs/1jQqz1kh/opensnap.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+#### notify-send and replacing notification thingy
+
+sudo 
+
+    apt-get install libnotify-bin
+    apt-get remove notification-daemon
+    apt-get install dunst
+
+to test, user
+
+    notify-send "My sweater is black ......... not!"
+
+bronto-moded dunstrc should be in .config/dunst/dunstrc
+
+<a href="http://shrani.si/f/15/Do/WW1ZmZ6/dunst.png"><img src="http://shrani.si/t/15/Do/WW1ZmZ6/dunst.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+
 ### Problems to fix/things to add/modify:
 - xfce4-power-manager?
 - png wallpapers are fat, test bpg lossless (perhaps 8bpc 4:2:2)
@@ -752,26 +771,3 @@ google-earth related < not fixed.
 ![](http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png "brontolabs")   
 
 [gimmick:theme](amelia)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
