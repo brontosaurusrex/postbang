@@ -12,9 +12,9 @@
 				<execute>x-terminal-emulator</execute>
 			</action>
 		</item>
-		<item label="nemo">
+		<item label="thunar">
 			<action name="Execute">
-				<execute>nemo</execute>
+				<execute>thunar</execute>
 			</action>
 		</item>
 		<item label="geany">
@@ -36,7 +36,7 @@
 			</item>
 			<item label="files">
 				<action name="Execute">
-					<execute>gnome-search-tool</execute>
+					<execute>catfish</execute>
 				</action>
 			</item>
 		</menu>
