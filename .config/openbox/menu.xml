@@ -88,7 +88,7 @@
 		<menu id="root-menu-315416" label="exit">
 			<item label="lock">
 				<action name="Execute">
-					<execute>i3lock -c 222222</execute>
+					<execute>i3lock -c 191C1E</execute>
 				</action>
 			</item>
 			<item label="obExit">
