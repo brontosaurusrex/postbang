@@ -1,0 +1,58 @@
+# conky configuration
+#
+# The list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+
+background yes
+use_xft yes
+xftfont Liberation Sans:size=16
+xftalpha 1
+update_interval 5.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+# own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 412 412
+maximum_width 500
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+#default_color aaaaaa
+default_color 111111
+
+default_shade_color 000000
+default_outline_color 5D2560
+alignment middle_middle
+gap_x 0
+gap_y 40
+
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+
+default_bar_size 100 10
+default_graph_size 100 50
+
+color0 81CFD6
+color1 999999
+color2 1BB8F0
+
+##############################################
+#  Output
+##############################################
+TEXT
+${image ~/logo.png -p 0,40 -s 412x412}
+${font cuprum:size=10}$cpubar cpu
+$membar ram 
+#$nodename
+#$fs_bar disk 
+#$fs_size used
+#${font cuprum:size=8}${time %A}, ${time %e.%b %G}
+${font cuprum:size=23}${time %H.%M}
+# $nodename ${addr} $uptime
