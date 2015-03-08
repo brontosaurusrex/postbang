@@ -36,7 +36,7 @@
 			</item>
 			<item label="files">
 				<action name="Execute">
-					<execute>catfish</execute>
+					<execute>gnome-search-tool</execute>
 				</action>
 			</item>
 		</menu>
