@@ -1,0 +1,3 @@
+after installing libpng and libbpg do 
+hash bpgenc bpgdec
+sudo ldconfig
