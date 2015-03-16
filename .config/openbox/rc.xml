@@ -32,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>FlatStudioBrontoMod</name>
+    <name>ZukitreBrontoMod</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -929,14 +929,11 @@
       </mousebind>
     </context>
   </mouse>
-  
- 
   <menu id="/Debian">
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <!-- system menu files on Debian systems -->
-    
     <!-- <file>/var/lib/openbox/debian-menu.xml</file> -->
     <!-- <file>menu.xml</file> -->
     <hideDelay>200</hideDelay>
@@ -944,14 +941,7 @@
     <submenuShowDelay>10</submenuShowDelay>
     <applicationIcons>no</applicationIcons>
   </menu>
-
-  
-  
-  
   <applications>
-	  
-	  
-	  
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
