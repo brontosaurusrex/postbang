@@ -1,0 +1,14 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+
+    # expand path, so this can be used from cli as well (on relative paths)
+    expanded=$(readlink -f "$1")
+    echo $expanded 
+
+bpgenc -q 10 "$expanded" -o "$expanded.bpg"
+ 
+#ffmpeg -i "$expanded" -vn "$expanded.wav"
+   
+    shift
+done
