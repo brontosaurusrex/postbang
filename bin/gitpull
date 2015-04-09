@@ -1,0 +1,4 @@
+#!/bin/bash
+# git pull all the subdirs where .git dir is found
+
+find . -type d -name '.git' -execdir pwd \; -execdir git pull \; 2>/dev/null
