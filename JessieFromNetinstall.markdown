@@ -699,6 +699,20 @@ bronto-moded dunstrc should be in .config/dunst/dunstrc
 
 <a href="http://shrani.si/f/15/Do/WW1ZmZ6/dunst.png"><img src="http://shrani.si/t/15/Do/WW1ZmZ6/dunst.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+#### nemo (behaves nicely with gnome-search-tool)
+
+sudo
+
+    apt-get install nemo dconf-tools
+
+user
+
+    dconf write /org/nemo/desktop/show-desktop-icons false
+
+or use dconf-editor.
+
+<http://shrani.si/f/1X/zx/2kVbese0/nemo.png>
+
 ### Problems to fix/things to add/modify:
 - xfce4-power-manager?
 - png wallpapers are fat, test bpg lossless (perhaps 8bpc 4:2:2)
