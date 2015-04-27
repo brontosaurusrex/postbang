@@ -5,6 +5,7 @@
   borderless = True
   title_transmit_bg_color = "#3d3d3d"
   tab_position = bottom
+  inactive_color_offset = 1.0
   title_inactive_bg_color = "#000000"
 [keybindings]
 [profiles]
