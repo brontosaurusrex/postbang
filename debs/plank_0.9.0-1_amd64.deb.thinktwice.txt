@@ -1,0 +1,1 @@
+This was pain in the ... to compile as usual, does NOT work nicely without compositing (like compton).
