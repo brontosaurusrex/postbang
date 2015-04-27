@@ -699,7 +699,17 @@ bronto-moded dunstrc should be in .config/dunst/dunstrc
 
 <a href="http://shrani.si/f/15/Do/WW1ZmZ6/dunst.png"><img src="http://shrani.si/t/15/Do/WW1ZmZ6/dunst.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+#### various system tools
+
+sudo 
+
+    apt-get install e2fsprogs xfsprogs reiserfsprogs reiser4progs jfsutils ntfs-3g fuse gvfs gvfs-fuse fusesmb
+
+from : <http://crunchbang.org/forums/viewtopic.php?id=38994> (wally)
+
 #### nemo (behaves nicely with gnome-search-tool)
+
+note: this did not make it, I'am back to thunar.
 
 sudo
 
