@@ -14,7 +14,7 @@ static const char selbordercolor[]  = "#eeeeee";
 static const char selbgcolor[]      = "#5d7700";
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 16;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
 
@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
