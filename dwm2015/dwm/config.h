@@ -8,10 +8,10 @@ static const char *fonts[] = {
 };
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#111111";
-static const char normbgcolor[]     = "#222222";
+static const char normbgcolor[]     = "#111111";
 static const char normfgcolor[]     = "#bbbbbb";
 static const char selbordercolor[]  = "#eeeeee";
-static const char selbgcolor[]      = "#5d7700";
+static const char selbgcolor[]      = "#111111";
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
@@ -19,7 +19,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "ena", "dve", "tri", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "ena", "dve", "tri" };
 
 static const Rule rules[] = {
 	/* xprop(1):

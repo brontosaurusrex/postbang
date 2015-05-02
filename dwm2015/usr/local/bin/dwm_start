@@ -26,7 +26,7 @@
 
 
     dwm_status &
-    (sleep 5 && nmgui) &
+    (sleep 1 && nmgui) &
     
-    terminator &
+    (sleep 2 && terminator) &
     exec ck-launch-session dbus-launch dwm
