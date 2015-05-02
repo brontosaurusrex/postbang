@@ -1,11 +1,6 @@
     #!/bin/sh
     nm-applet    > /dev/null 2>/dev/null &
     volti        > /dev/null 2>/dev/null &
-    # trayer --widthtype pixel --width 100 --height 34 --transparent true --alpha 255 --align right > /dev/null 2>/dev/null
-    
-    
-    
-    trayer --widthtype pixel --width 50 --height 24 --edge top --align right > /dev/null 2>/dev/null
-    # stalonetray > /dev/null 2>/dev/null
+    trayer --padding 3 --widthtype pixel --width 50 --height 24 --edge top --align right > /dev/null 2>/dev/null
     killall nm-applet
     killall volti
