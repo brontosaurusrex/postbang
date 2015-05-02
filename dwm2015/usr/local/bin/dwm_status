@@ -1,0 +1,12 @@
+
+
+    #!/bin/bash
+    while true; do
+      date=`date +"%a %d.%m.%y %H:%M"`
+      speed=`awk '{if(l1){print int(($2-l1)/1024+.5),int(($10-l2)/1024+.5)" kB/s"} else{l1=$2; l2=$10;}}' <(grep eth0 /proc/net/dev) <(sleep 1; grep eth0 /proc/net/dev)`
+      disk=`df -hl /home/b/videos | tail -n 1 | cut -c 28-32`
+      info="$speed$disk $date"
+    #  echo $info # disable
+      xsetroot -name "$info" 
+      sleep 13
+    done
