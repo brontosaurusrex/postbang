@@ -1,0 +1,8 @@
+#!/bin/bash
+while :
+do
+
+awk '{if(l1){print int(($2-l1)/1024+.5),int(($10-l2)/1024+.5)" kB/s"} else{l1=$2; l2=$10;}}' <(grep eth0 /proc/net/dev) <(sleep 1; grep eth0 /proc/net/dev)
+
+sleep 1
+done
