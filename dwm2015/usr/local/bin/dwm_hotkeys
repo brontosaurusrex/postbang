@@ -1,0 +1,29 @@
+cat << EOF
+alt +
+
+y = terminal (that would be z on mac)
+w = iceweasel
+x = thunar
+p = dmenu 
+b = hide statusbar
+return = put active window to main view
+# = jump to workspace #
+h/l = vertical resize
+j/k = jump around windows
+i/d = include more windows into master-area
+f/m/t = modes (floating, monocle, tiling)
+
+shift + alt
+
+c = close window
+q = close dwm
+return = terminal
+# = move active window to workspace #
+0 = tag to all workspaces
+
+mice
+mod + lmb                   move   (floating mode)
+mod + rmb                   resize (floating mode)
+
+note: workspaces are actually tags, mkay.
+EOF
