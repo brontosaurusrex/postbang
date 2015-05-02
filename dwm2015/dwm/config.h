@@ -2,24 +2,24 @@
 
 /* appearance */
 static const char *fonts[] = {
-    "Cuprum:size=11",
+    "Cuprum:size=10",
     "VL Gothic:size=10.5",
     "WenQuanYi Micro Hei:size=10.5",
 };
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#111111";
-static const char normbgcolor[]     = "#111111";
+static const char normbordercolor[] = "#113311";
+static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#eeeeee";
+static const char selbordercolor[]  = "#aaaaaa";
 static const char selbgcolor[]      = "#111111";
-static const char selfgcolor[]      = "#eeeeee";
+static const char selfgcolor[]      = "#aaaaaa";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "ena", "dve", "tri" };
+static const char *tags[] = { "1", "2", "3", "4", "5" };
 
 static const Rule rules[] = {
 	/* xprop(1):
