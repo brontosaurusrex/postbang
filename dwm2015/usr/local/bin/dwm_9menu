@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# www:iceweasel
+# term:terminator
+# files:thunar
+# net:nmgui
+
+9menu -geometry 0x0-5+40 -fg '#aaaaaa' -bg '#111111' -font '-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*' www:iceweasel ter:terminator fil:thunar net:nmgui
