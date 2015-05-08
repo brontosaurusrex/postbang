@@ -108,8 +108,6 @@ paste
     auto lo
     iface lo inet loopback
 
-:wq
-
 as user
 
     openbox --exit
