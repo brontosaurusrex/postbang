@@ -1,6 +1,19 @@
-    #!/bin/sh
-    nm-applet    > /dev/null 2>/dev/null &
-    volti        > /dev/null 2>/dev/null &
-    trayer --padding 3 --widthtype pixel --width 50 --height 24 --edge top --align right > /dev/null 2>/dev/null
-    killall nm-applet
-    killall volti
+#!/bin/bash
+
+if pgrep volti >/dev/null 2>&1
+  then
+     echo " volti is running "
+  else
+     echo " volti is not running "
+     volti        > /dev/null 2>/dev/null &
+fi
+if pgrep nm-applet >/dev/null 2>&1
+  then
+     echo " nm-applet is running "
+  else
+     echo " nm-applet is not running "
+     nm-applet     > /dev/null 2>/dev/null &
+fi
+
+
+stalonetray -i 16 -v -geometry 1x2-5+5

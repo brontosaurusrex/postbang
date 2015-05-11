@@ -5,4 +5,4 @@
 # files:thunar
 # net:nmgui
 
-9menu -geometry 0x0-5+40 -fg '#111111' -bg '#999999' -font '-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*' www:iceweasel ter:terminator fil:thunar gen:geany app:xfce4-appfinder net:nmgui
+9menu -geometry 0x0-5-40 -fg '#111111' -bg '#999999' -font '-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*' www:iceweasel ter:terminator fil:thunar gen:geany app:xfce4-appfinder
