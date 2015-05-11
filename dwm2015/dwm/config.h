@@ -14,7 +14,7 @@ static const char selbordercolor[]  = "#aaaaaa";
 static const char selbgcolor[]      = "#111111";
 static const char selfgcolor[]      = "#aaaaaa";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 16;       /* snap pixel */
+static const unsigned int snap      = 4;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
 
