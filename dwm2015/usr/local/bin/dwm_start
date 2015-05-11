@@ -27,7 +27,7 @@
 
     dwm_status &
     
-    (sleep 1 && nmgui) &
+    #(sleep 1 && nmgui) &
     
     #(sleep 2 && terminator) &
 

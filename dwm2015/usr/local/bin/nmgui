@@ -7,6 +7,7 @@ if pgrep volti >/dev/null 2>&1
      echo " volti is not running "
      volti        > /dev/null 2>/dev/null &
 fi
+
 if pgrep nm-applet >/dev/null 2>&1
   then
      echo " nm-applet is running "
@@ -15,5 +16,10 @@ if pgrep nm-applet >/dev/null 2>&1
      nm-applet     > /dev/null 2>/dev/null &
 fi
 
-
-stalonetray -i 16 -v -geometry 1x2-5+5
+if pgrep stalonetray >/dev/null 2>&1
+  then
+     echo " stalone is running "
+  else
+     echo " stalobe is not running "
+     stalonetray -i 16 -v -geometry 1x2-5+5
+fi
