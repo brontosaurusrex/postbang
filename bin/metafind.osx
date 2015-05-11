@@ -1,0 +1,18 @@
+#!/bin/bash
+
+trap 'kill $(jobs -p) 2>/dev/null' EXIT 
+# Ja ta trap se rabi, drugače zadeva še kar išče v ozadju, tudi po ctrl+c
+
+dirs=("/Volumes/int_raid/NETATALK/podnaslovi_new" "/Volumes/PROMOCIJA" "/Volumes/Disk R")
+
+for i in "${dirs[@]}"
+do
+
+echo "searching $i"
+
+find "$i" 2>/dev/null | grep -i -s -e "$@" &
+
+# 2>/dev/null
+done
+wait
+exit
