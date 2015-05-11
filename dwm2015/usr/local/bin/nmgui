@@ -20,6 +20,6 @@ if pgrep stalonetray >/dev/null 2>&1
   then
      echo " stalone is running "
   else
-     echo " stalobe is not running "
-     stalonetray -i 16 -v -geometry 1x2-5+5
+     echo " stalone is not running "
+     stalonetray -i 16 -v -geometry 1x2-5+5 > /dev/null 2>/dev/null &
 fi
