@@ -24,6 +24,7 @@ return = terminal
 mice
 mod + lmb                   move   (floating mode)
 mod + rmb                   resize (floating mode)
+mod + mmb                   toggle (floating/tiling)
 
 note: workspaces are actually tags, mkay.
 EOF
