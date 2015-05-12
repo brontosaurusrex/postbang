@@ -2,9 +2,10 @@
 
 the manual approach to post-banging the Jessie, work in progress.
 
-## Latest version of the guide;
+## Latest version of the guide
 <http://brontosaurusrex.github.io>
 
+## Contact:
 Either:
 - Open an issue here
 - visit the forums and chat away there
