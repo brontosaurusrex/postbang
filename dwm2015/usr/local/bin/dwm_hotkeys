@@ -12,6 +12,7 @@ h/l = vertical resize
 j/k = jump around windows
 i/d = include more windows into master-area
 f/m/t = modes (floating, monocle, tiling)
+0 = show all tags
 
 shift + alt
 
@@ -24,7 +25,6 @@ return = terminal
 mice
 mod + lmb                   move   (floating mode)
 mod + rmb                   resize (floating mode)
-mod + mmb                   toggle (floating/tiling)
 
 note: workspaces are actually tags, mkay.
 EOF
