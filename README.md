@@ -3,12 +3,9 @@
 the manual approach to post-banging the Jessie, work in progress.
 
 ## Latest version of the guide;
-<https://dl.dropboxusercontent.com/u/79532365/dwm/mdwiki.html#!JessieFromNetinstall.markdown>
+<http://brontosaurusrex.github.io>
 
-Which will probably eventually end up [here](JessieFromNetinstall.markdown).
-
-## comments?
 Either:
 - Open an issue here
-- visit the forum and chat away there
+- visit the forums and chat away there
 <http://crunchbang.org/forums/viewtopic.php?id=38976>
