@@ -8,8 +8,8 @@ the manual approach to post-banging the Jessie, work in progress.
 
 ## Contact
 Either
-- Open an issue here
+- Open an issue [here](issues)
 - visit the forums and chat away there
 <http://crunchbang.org/forums/viewtopic.php?id=38976>
 
-brontoLabs 2015
+![](http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png "brontolabs")
