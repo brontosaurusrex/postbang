@@ -1,0 +1,144 @@
+#!/bin/bash
+
+# what it needs:
+# decent new ffmpeg (2013)
+# mediainfo (optional)
+# r128graph subroutine (optional)
+
+# what it does:
+# This is a r128 info script, it doesn't change files in any way
+# a. get max volume value (dB), if it is 0 then you may assume the input file is clipped (using volumedetect filter)
+# 	note that clipping may be different for lossy formats (like mp3) due to different decoder roundups
+# b. get the r128 integrated loudness value (LUFS) (using -filter_complex ebur128)
+# c. calculate the correction value (dB) to get -23 LUFS
+# e. optional: + echo raw r128 info
+
+# check if ffmpeg seems to be capable of tasks ahead
+ffmpeg -filters 2>/dev/null | grep -q 'volumedetect' || { echo "your ffmpeg doesn't have volumedetect filter, exiting" ; exit; }
+ffmpeg -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting" ; exit; }
+
+while [ $# -gt 0 ]; do
+
+    # echo the file
+    echo "$1"
+
+# make temporary folder and trap to clean up
+TMPDIR=`mktemp -d`
+trap "rm -rf $TMPDIR" EXIT
+
+# expand path, so this can be used from cli as well (on relative paths)
+# expanded=$(readlink -f "$1")
+ expanded=$1
+
+    # detect max volume and if = 0 then also number of 0 dB samples
+   
+    ffmpeg -i "$expanded" -vn -af volumedetect -f null - 2> "$TMPDIR/maxvolume.txt"
+    
+    
+    
+    tmpmaxvolume=$(cat "$TMPDIR/maxvolume.txt" | grep max_volume)
+    read -r _ _ _ _ max_volume _ <<< "$tmpmaxvolume"
+    
+		# if there is no max_volume variable defined, then we stop everything here
+        if [ -z "$max_volume" ]; then
+		echo "no max volume, no audio found in file or unknown error"
+		echo "__________________xxxxxxxxxx____________________"
+		echo
+		else
+		# the rest of the loop 
+		
+		    # some basic format info
+		    tmpbasicinfo=$(cat "$TMPDIR/maxvolume.txt" | grep -m 1 "Audio:")
+			read -r _ _ _ basicinfo <<< "$tmpbasicinfo"
+			echo -n "$basicinfo"
+
+			# mediainfo duration
+			if hash mediainfo 2>/dev/null; then
+			dur=$(mediainfo "--Inform=General;%Duration/String1%" "$expanded")
+			echo " - $dur"
+			else
+			echo
+			fi
+    
+		    if (( $(bc <<< "$max_volume == 0") )); then
+		    # get some more info about 0 range
+		    tmphistogram=$(cat "$TMPDIR/maxvolume.txt" | grep histogram_0db)
+		    read -r _ _ _ _ histogram _ <<< "$tmphistogram"
+		    
+		    echo "$max_volume		dB max volume, CLIPPING WARNING, $histogram samples"
+
+		    
+		    else
+		    echo "$max_volume		dB max volume"
+		    fi
+		
+
+    
+			    ffmpeg -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$TMPDIR/r128.txt"
+			    
+			    line=$(tail "$TMPDIR/r128.txt" | grep I:)
+			    read -r _ r128 _<<< "$line"
+			    
+			    line=$(tail "$TMPDIR/r128.txt" | grep LRA:)
+			    read -r _ lra _<<< "$line"
+			    
+				# Check if r128 variable is defined
+				if [ -z "$r128" ]; then
+					echo "r128 undefined, error"
+					else
+					echo "$r128		LUFS Integrated loudness (I)"
+					echo "$lra		LU Loudness Range (LRA)"
+			    
+					correct=$(echo "(-23)-($r128)" | bc)
+					abscorrect=$(echo ${correct#-})
+			    
+						max=16    
+						min=1
+			
+						#if [ $(echo "$abscorrect > $max" | bc) ] 
+						if (( $(bc <<< "$abscorrect > $max") )); then
+						echo -n "$correct 		dB correction"
+						echo ", WARNING - correction needed is higher than $max dB"
+									
+						elif (( $(bc <<< "$abscorrect < $min") )); then
+						echo -n "$correct 		dB correction"
+						echo ", NO correction needed, smaller than $min dB"
+						echo
+						else
+						echo -n "$correct 		dB correction"
+						echo
+						
+						fi
+				    
+				     
+				    # r128grapher (optional)
+				    # send "$TMPDIR/r128.txt" there
+				    r128graph -v foo >/dev/null 2>&1 && { r128graph "$TMPDIR/r128.txt"; }
+				    
+				    
+				    
+				    
+				
+				    
+				
+				    
+				    
+					
+				fi
+
+	
+	
+		fi
+
+	
+	
+	rm -rf $TMPDIR
+	
+    shift
+done
+
+
+# various notes
+# to actually change volume using ffmpeg, one could use something like:
+# ffmpeg -i in.flac -af volume=-13.1dB out_ebu.flac
+

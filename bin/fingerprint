@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# produces a color-stripe (color fingerprint) png of a video file (1 pixel = 1 frame)
+
+while [ $# -gt 0 ]; do
+
+# make temporary folder and trap to clean up
+TMPDIR=`mktemp -d`
+trap "rm -rf $TMPDIR" EXIT
+
+# expand path, so this can be used from cli as well (on relative paths)
+# file=$(readlink -f "$1")
+ file="$1"
+
+ffmpeg -i "$file" -sws_flags neighbor -vf scale=2:2 -f image2 "$TMPDIR/out-%05d.png"
+convert +append "$TMPDIR/out-*.png" -resize 1x1\! -resize 1x128\! "$file.png"
+
+rm -rf $TMPDIR
+
+    shift
+done

@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# this is an optional subroutine on main r128 script
+
+# input:
+# raw ffmpeg ebur128 log text file
+
+# output: ascii graph
+
+# what it needs:
+# gnuplot 
+
+# what it does:
+# draws shortterm loudness graph using gnuplot
+
+# checks
+gnuplot -h -v foo >/dev/null 2>&1 || { echo >&2 "r128graph requires gnuplot but it's not installed.  Aborting."; exit 1; }
+
+
+if [ -f "$1" ]; then
+
+# make temporary folder and trap to clean up
+TMPDIR=`mktemp -d`
+trap "rm -rf $TMPDIR" EXIT
+
+
+	r128log=$1
+
+# next should give some csv data consisting of
+# t,M,S	
+grep "Parsed" $r128log | awk -F '[ :]+' -v OFS=, '{for (f=1; f<=NF; f++) if ($f == "t") t=$(f+1); \
+else if ($f == "M") m=$(f+1); else if ($f == "S") s=$(f+1); print t, m, s}' > "$TMPDIR/csv.txt"
+# this awk line was donated by <e36freak> on freenode #bash
+
+# terminal width
+termwidth=$(tput cols)
+plotwidth=$termwidth
+plotheight=25
+plotcuthack=$(expr $plotheight - 1)
+
+yrangemin="-35"
+
+
+# csv data			
+# column1 = time, 2 = M, 3 = S
+
+# gnuplot terminal
+			outputname="graph"
+			gnuplot << eor
+				set terminal dumb $plotwidth,$plotheight
+
+				set yrange [$yrangemin:]
+				# show autoscale
+				
+# this range is just not working properly, but ticks are not an option either.
+
+	#set noxtics				
+	#set noytics
+	
+				
+				
+				set noborder
+				
+				set output '$TMPDIR/$outputname.txt'
+				set datafile separator ","
+				#set xlabel "time"
+				#set ylabel "Momentary Loudness (min $yrangemin dB)"
+				
+				plot '$TMPDIR/csv.txt' 	using 1:2 smooth csplines \
+										notitle
+										
+					
+eor
+
+
+
+
+				
+
+
+# echo terminal graph
+tail -"$plotcuthack" "$TMPDIR/$outputname.txt"
+
+echo "Y Momentary Loudness (min=$yrangemin, max=auto dB) / X Time in seconds"
+#echo "Y Momentary Loudness dB) / X Time seconds"
+
+
+
+
+
+else
+echo "I'am a subroutine of r128gain and i expect path to raw ffmpeg ebur128 log as input, mkay?"
+fi
+
+# thunar $TMPDIR
+
+echo
+rm -rf $TMPDIR
