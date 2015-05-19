@@ -1,6 +1,7 @@
 #!/bin/bash
 
-IMG="/tmp/image_nasa.jpg"
+# feh needed, since it can download http files directly
 
-test=$(curl -s http://www.nasa.gov/rss/dyn/image_of_the_day.rss | grep -m1 "<enclosure" | sed 's/^.*url="//' | sed 's/" len.*$//') && wget -O "$IMG" "$test"
-viewnior /tmp/image_nasa.jpg
+test=$(curl -s http://www.nasa.gov/rss/dyn/image_of_the_day.rss | grep -m1 "<enclosure" | sed 's/^.*url="//' | sed 's/" len.*$//') && feh -. "$test"
+
+
