@@ -16,7 +16,7 @@ static const char selfgcolor[]      = "#aaaaaa";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 4;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
-static const Bool topbar            = False;     /* False means bottom bar */
+static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
 static const char *tags[] = { "   one   ", "   two   ", "  three  ", "  four  ", "  five  " };
