@@ -7,7 +7,4 @@ use_spacer none
 
 TEXT
 
-down $downspeed up $upspeed | ram used $memperc% | cpu $cpu% | ${time %a}, ${time %e.%B %G} 
-
-#down ${downspeed eth0}K/s up ${upspeed eth0}K/s ${time %a %b %d %I:%M%P}
-
+down $downspeed up $upspeed |  ram used $memperc%  |  cpu $cpu%  |  ${time %a}, ${time %e. %B %G} 
