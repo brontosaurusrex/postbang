@@ -35,6 +35,8 @@
 
     #albert & 
 
+    (conky -c ~/.conkyrcdwm | while read LINE; do xsetroot -name "$LINE"; done) &
+
     exec ck-launch-session dbus-launch dwm
 
 

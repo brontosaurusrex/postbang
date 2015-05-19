@@ -1,0 +1,13 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 10
+total_run_times 0
+use_spacer none
+
+TEXT
+
+down $downspeed up $upspeed | ram used $memperc% | cpu $cpu% | ${time %a}, ${time %e.%B %G} 
+
+#down ${downspeed eth0}K/s up ${upspeed eth0}K/s ${time %a %b %d %I:%M%P}
+
