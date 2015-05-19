@@ -19,7 +19,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "one", "two", "three", "four", "five" };
+static const char *tags[] = { "   one   ", "   two   ", "  three  ", "  four  ", "  five  " };
 
 static const Rule rules[] = {
 	/* xprop(1):
