@@ -13,6 +13,9 @@ j/k = jump around windows
 i/d = include more windows into master-area
 f/m/t = modes (floating, monocle, tiling)
 0 = show all tags
+y(y) = terminal launch
+w = iceweasel launch
+y = thunar launch
 
 shift + alt
 
@@ -21,6 +24,7 @@ q = close dwm
 return = terminal
 # = move active window to workspace #
 0 = tag to all workspaces
+space = terminal
 
 mice
 mod + lmb                   move   (floating mode)
