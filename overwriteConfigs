@@ -10,8 +10,12 @@ cp -rb .config/* ~/.config/
 cp -b .bashrc ~
 cp -b .bash_aliases ~
 cp -b .conkyrc ~
+cp -b .conkyrcdwm ~
 cp -b .gtkrc-2.0* ~
 cp -b .Xresources ~
 cp -b .profile ~
 cp -b .xsessionrc ~
 cp -b .tmux* ~
+
+cp -b --parents .local/share/applications/defaults.list ~
+
