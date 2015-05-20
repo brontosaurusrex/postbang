@@ -17,5 +17,3 @@ cp -b .profile ~
 cp -b .xsessionrc ~
 cp -b .tmux* ~
 
-cp -b --parents .local/share/applications/defaults.list ~
-
