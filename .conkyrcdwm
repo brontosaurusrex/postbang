@@ -8,4 +8,4 @@ use_spacer none
 TEXT
 
 #down $downspeed up $upspeed |  
-ram $memperc%  |  cpu $cpu%  |  ${time %a}, ${time %e. %B %G} 
+ram $memperc%  |  cpu $cpu%  |  ${time %a %e. %B %G %H.%M} 
