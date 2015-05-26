@@ -3,5 +3,5 @@
 
 
 
-GTK2_RC_FILES="$HOME/.themes/Bang Light Green/gtk-2.0/gtkrc:$HOME/bin/browser-launch.gtkrc" iceweasel
+GTK2_RC_FILES="$HOME/.themes/Bang Light Green/gtk-2.0/gtkrc:$HOME/.config/.browser-launch.gtkrc" iceweasel
 

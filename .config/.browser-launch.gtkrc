@@ -4,3 +4,4 @@ font_name = "Cuprum 11"
 }
 widget_class "*" style "Sans"
 gtk-font-name = "Cuprum 11"
+gtk-icon-theme-name = "Flattr"
