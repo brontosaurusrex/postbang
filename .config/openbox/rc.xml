@@ -32,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>FlatStudioLightBronto</name>
+    <name>Bang Dark Green Bronto</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -66,7 +66,7 @@
     </font>
     <font place="MenuHeader">
       <name>Cuprum</name>
-      <size>11</size>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -84,13 +84,13 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>Cuprum</name>
-      <size>11</size>
+      <size>10</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Cuprum</name>
-      <size>11</size>
+      <size>10</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -368,7 +368,7 @@
           <x>0%</x>
           <y>0</y>
           <width>50%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- right side -->
@@ -378,7 +378,7 @@
           <x>50%</x>
           <y>0</y>
           <width>50%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- top left -->
@@ -423,7 +423,7 @@
           <x>0</x>
           <y>0</y>
           <width>100%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- golden big left -->
@@ -433,7 +433,7 @@
           <x>0</x>
           <y>0</y>
           <width>62%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- golden small right -->
@@ -443,7 +443,7 @@
           <x>62%</x>
           <y>0</y>
           <width>38%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- golden small left -->
@@ -453,7 +453,7 @@
           <x>0</x>
           <y>0</y>
           <width>38%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- golden big right -->
@@ -463,7 +463,7 @@
           <x>38%</x>
           <y>0</y>
           <width>62%</width>
-          <height>90%</height>
+          <height>96%</height>
         </action>
       </keybind>
       <!-- enter center -->

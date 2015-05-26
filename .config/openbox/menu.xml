@@ -24,7 +24,7 @@
 		</item>
 		<item label="browser">
 			<action name="Execute">
-				<execute>x-www-browser</execute>
+				<execute>browser-launch</execute>
 			</action>
 		</item>
 		<separator/>
