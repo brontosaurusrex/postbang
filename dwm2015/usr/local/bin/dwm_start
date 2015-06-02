@@ -21,7 +21,7 @@
 
     nitrogen --restore & # load wallpaper
 
-    dwm_9menu &    
+    # dwm_9menu &    
 
     (conky -c ~/.conkyrcdwm | while read LINE; do xsetroot -name "$LINE"; done) &
 

@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",       NULL,       NULL,       0,            True,        -1 },
-	{ "Iceweasel",  NULL,       NULL,       1 << 2,       False,       -1 },
+/*	{ "Iceweasel",  NULL,       NULL,       1 << 2,       False,       -1 },    */
 };
 
 /* layout(s) */
@@ -59,7 +59,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 
 static const char *termcmd[]  = { "terminator", NULL };
-static const char *webcmd[]  = { "iceweasel", NULL };
+static const char *webcmd[]  = { "browser-launch", NULL };
 static const char *filecmd[]  = { "thunar", NULL };
 
 static Key keys[] = {
