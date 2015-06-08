@@ -7,13 +7,13 @@ trap 'kill $(jobs -p) 2>/dev/null' EXIT
 dirs=("/Volumes/int_raid/NETATALK/podnaslovi_new" "/Volumes/PROMOCIJA" "/Volumes/Disk R")
 
 echo "white iname : mov, avi, mxf, mp4, mpg, wav, aif, omf, aiff, mp3" 
-echo "black path  : *adobe*, *.DS_Store"
+echo "black ipath : *adobe*, *.DS_Store"
 
 for i in "${dirs[@]}"
 do
 
 echo "searching $i"
-find "$i" \( -iname "*.mov" -o -iname "*.avi" -o -iname "*.mxf" -o -iname "*.mp4" -o -iname "*.mpg" -o -iname "*.wav" -o -iname "*.aif" -o -iname "*.omf" -o -iname "*.aiff" -o -iname "*.mp3" \) ! -ipath "*adobe*" ! -ipath "*.DS_Store" 2>/dev/null | grep --colour="always" -i -s -e "$@" &
+find "$i" \( -ipath "*$i*" -iname "*.mov" -o -iname "*.avi" -o -iname "*.mxf" -o -iname "*.mp4" -o -iname "*.mpg" -o -iname "*.wav" -o -iname "*.aif" -o -iname "*.omf" -o -iname "*.aiff" -o -iname "*.mp3" \) ! -ipath "*adobe*" ! -iname "*.DS_Store" 2>/dev/null | grep --colour="always" -i -s -e "$@" &
 
 # 2>/dev/null
 done
