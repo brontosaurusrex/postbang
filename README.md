@@ -5,6 +5,8 @@ the manual approach to post-banging the Jessie, work in progress.
 ## Latest version of the guide
 <http://brontosaurusrex.github.io/#!index.md> (html-ish)  
 <http://brontosaurusrex.github.io/index.md> (raw markdown)
+<http://brontosaurusrex.github.io/mkdocs/> (experimental mkdocs version)
+
 
 ## Contact
 Either
