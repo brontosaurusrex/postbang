@@ -1,5 +1,5 @@
 #!/bin/bash
 
 
-9menu -warp -geometry 0x0-5-5 -fg '#111111' -bg '#999999' -font '-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*' browser.:iceweasel terminal:terminator files...:thunar geany...:geany apps....:xfce4-appfinder stalone.:nmgui
+9menu -warp -geometry 0x0-5-5 -fg '#111111' -bg '#999999' -font '-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*' browser.:browser-launch terminal:terminator files...:thunar geany...:geany apps....:xfce4-appfinder stalone.:nmgui
 

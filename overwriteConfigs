@@ -6,6 +6,9 @@ cd ~/source/postbang
 git pull
 
 cp -rb .config/* ~/.config/
+cp -rb .icons/* ~/.icons/
+cp -rb .themes/* ~/.themes/
+cp -rb bin/* ~/bin/
 
 cp -b .bashrc ~
 cp -b .bash_aliases ~
