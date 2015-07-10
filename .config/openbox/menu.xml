@@ -24,7 +24,7 @@
 		</item>
 		<item label="browser">
 			<action name="Execute">
-				<execute>browser-launch</execute>
+				<execute>iceweasel</execute>
 			</action>
 		</item>
 		<separator/>
