@@ -57,7 +57,7 @@
 			</item>
 			<item label="wallpaper">
 				<action name="Execute">
-					<execute>nitrogen</execute>
+					<execute>nitrogen --sort=alpha</execute>
 				</action>
 			</item>
 			<separator/>
