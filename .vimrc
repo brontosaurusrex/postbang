@@ -8,3 +8,7 @@ set tabstop=4 shiftwidth=4 expandtab
 
 " function key F10 is use to go to end of line
 nmap <F10> $
+
+" Use mouse for visual selection mode as well, use shift + mouse to get primary clipboard selections
+
+set mouse=a
