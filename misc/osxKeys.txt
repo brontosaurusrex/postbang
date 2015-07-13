@@ -1,0 +1,6 @@
+tilde ~			shift + alt + <
+pipe |			shift + alt + ž
+afna @			shift + alt + 2
+zaviti {}		shift + alt + š/đ
+oglati []		alt + š/đ
+backslash \		alt + ž
