@@ -1,1 +1,1 @@
-img2txt -W "$( tput cols )" -f ansi bronto.png
+img2txt -W "$( tput cols )" -f utf8 -d random bronto.gif
