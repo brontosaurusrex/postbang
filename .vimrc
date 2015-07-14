@@ -10,5 +10,11 @@ set tabstop=4 shiftwidth=4 expandtab
 nmap <F10> $
 
 " Use mouse for visual selection mode as well, use shift + mouse to get primary clipboard selections
-
 set mouse=a
+
+" turn off swp and stuff that may clutter git
+set nobackup
+set noswapfile
+
+
+
