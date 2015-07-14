@@ -1,0 +1,17 @@
+OS:CrunchBang11"CrunchBang11waldorf"
+Kernel:x86_64Linux3.2.0-4-amd64
+Uptime:20d5h14m
+Packages:3284
+Shell:bash4.2.37
+Resolution:1280x1024
+WM:OpenBox
+WMTheme:BangDarkGreenBronto
+GTKTheme:BangLightGreen[GTK2],BangLightGreen[GTK3]
+Font:Cuprum11
+CPU:IntelPentium4CPU3.20GHz@3.193GHz
+GPU:GeForce9400GT
+RAM:632MB/1001MB
+
+
+
+
