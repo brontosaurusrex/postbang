@@ -1,0 +1,1 @@
+img2txt -W "$( tput cols )" -f ansi bronto.png
