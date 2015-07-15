@@ -27,6 +27,17 @@
 				<execute>iceweasel</execute>
 			</action>
 		</item>
+		<item label="mpv">
+			<action name="Execute">
+				<execute>mpv --force-window --idle</execute>
+			</action>
+		</item>
+		<separator/>
+		<item label="inkscape">
+			<action name="Execute">
+				<execute>inkscape</execute>
+			</action>
+		</item>
 		<separator/>
 		<menu id="root-menu-774543" label="find">
 			<item label="apps">
