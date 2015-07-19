@@ -37,8 +37,15 @@
 
     (conky -c ~/.conkyrcdwm | while read LINE; do xsetroot -name "$LINE"; done) &
 
+
+    (      urxvtc & urxvtc
+          if [ $? \-eq 2 ]; then
+             urxvtd \-q \-o \-f
+             urxvtc & urxvtc
+          fi
+    )  &
+
     
-    (urxvtd & urxvtc & urxvtc) &
 
     exec ck-launch-session dbus-launch dwm
 
