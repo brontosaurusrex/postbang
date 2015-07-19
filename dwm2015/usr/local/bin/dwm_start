@@ -37,7 +37,8 @@
 
     (conky -c ~/.conkyrcdwm | while read LINE; do xsetroot -name "$LINE"; done) &
 
-    urxvt &
+    
+    (urxvtd & urxvtc & urxvtc) &
 
     exec ck-launch-session dbus-launch dwm
 
