@@ -7,7 +7,7 @@ static const char *fonts[] = {
     "WenQuanYi Micro Hei:size=10.5",
 };
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#113311";
+static const char normbordercolor[] = "#111111";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
 static const char selbordercolor[]  = "#aaaaaa";
