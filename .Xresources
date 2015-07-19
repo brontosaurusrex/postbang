@@ -1,8 +1,8 @@
 ge*.font: 	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 *.boldFont:	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 
-!URxvt.font:		-misc-fixed-*-r-*-*-13-*-*-*-*-*-*-*
-!URxvt.boldFont:	-misc-fixed-*-r-*-*-13-*-*-*-*-*-*-*
+URxvt.font:		-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+URxvt.boldFont:		-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
 !Urxvt*iconPixmap:/usr/share/pixmaps/openbox.xbm
 !Urxvt*iconMask: /usr/share/pixmaps/openbox.xbm
@@ -229,3 +229,7 @@ Xft.hintstyle: hintslight
 !Xft.dpi: 96
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+
+
+! adding stuff for dwm and urxvt
+URxvt.internalBorder:  40
