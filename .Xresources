@@ -51,10 +51,10 @@ Xcursor.theme: handhelds
 Xcursor.size: 8
 
 !URxvt*depth:32
-!URxvt*transparent:	true
-URxvt*shading:	       30	
-URxvt*fading:		20
-!URxvt.tintColor:     black
+URxvt*transparent:	true
+URxvt*shading:	       	30	
+URxvt*fading:		50
+URxvt.tintColor:     gray
 *.fadeColor:	#252525
 !URxvt*fadeColor:	#383a3b
 !URxvt*fadeColor:	#313131
