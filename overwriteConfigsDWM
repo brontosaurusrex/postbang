@@ -17,7 +17,7 @@ cd dwm2015
  
 # sudo here
 
-Do not run this:
+# Do not run this:
 
 # sudo cp -rb usr/* /usr/ 
 
