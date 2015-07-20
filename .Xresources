@@ -2,7 +2,7 @@
 *.boldFont:	    -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
 ! add extensions here
-URxvt.perl-ext-common:  font-size,default,matcher
+URxvt.perl-ext-common:  default,matcher,font-size
 
 ! url matcher extension
 URxvt*matcher.button:       1 
