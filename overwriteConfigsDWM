@@ -17,8 +17,12 @@ cd dwm2015
  
 # sudo here
 
-echo "65% stupid, run at your own risk from now on"
+set +x # verbosity off
+echo
+echo
+echo "65% stupid, run at your own risk from now on:"
 
+set -x # verbosity
 sudo cp -rb usr/* /usr/ 
 
 
