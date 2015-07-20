@@ -1,0 +1,1 @@
+img2txt -W 130 -f utf8 -d random /usr/local/bin/bronto.gif
