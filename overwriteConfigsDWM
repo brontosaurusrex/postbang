@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+set -x # verbosity
+
+cd ~/source/postbang # < set this to the place where root postbang source git is
+
+git pull
+
+# --- dwm related configs ---
+
+cd dwm2015
+
+[[ -d "$HOME/source/dwm" ]]     &&  cp dwm/config.h ~/source/dwm/
+
+[[ -d "$HOME/source/dmenu" ]]   &&  cp dmenu/config.h ~/source/dmenu/
+ 
+# sudo here
+
+sudo cp -rb usr/* /usr/ 
+
+
+
+
