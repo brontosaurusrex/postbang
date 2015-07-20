@@ -1,104 +1,82 @@
-ge*.font: 	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-*.boldFont:	-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+*.font:	        -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+*.boldFont:	    -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
-URxvt.font:		-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont:		-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+! add extensions here
+URxvt.perl-ext-common:  font-size,default,matcher
 
-!Urxvt*iconPixmap:/usr/share/pixmaps/openbox.xbm
-!Urxvt*iconMask: /usr/share/pixmaps/openbox.xbm
-!*.font: fixed:size=8
+! url matcher extension
+URxvt*matcher.button:       1 
+Urxvt*matcher.pattern:      \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.mapAlert:             true
 
-! FOR MONOSPACE 
-!*.letterSpace:1
+! color bold, color italic
+*.colorBD:                  #7d7875
+*.colorIT:                  #7d7875 
 
-! FOR SOURCE SANS PRO
-!*.letterSpace:-1
-
-*.lineSpace: 2 
-!*.lineSpace: 1 
-
-URxvt.perl-ext-common:  default,matcher
-URxvt*urlLauncher:/usr/bin/uzbl-tabbed 
-URxvt*matcher.button:1 
-Urxvt*matcher.pattern: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-!URxvt*urgentOnBell:true
-!URxvt*visualBell:true
-URxvt.mapAlert: true
-!URxvt*saveLines: 1024
-!*.bellIsUrgent: true
-*.colorBD:  #7d7875
-*.colorIT:  #7d7875 
-
-!Xft*dpi:	96
-Xft*antialias:	true
-Xft*hinting:	full	
-
-URxvt.selection.pattern-0: ([[:word:]]+)
-URxvt*secondaryscroll:  true
-URxvt*scrollTtyOutput: false
+! no idea what this is
+URxvt.selection.pattern-0:  ([[:word:]]+)
+URxvt*secondaryscroll:      true
+URxvt*scrollTtyOutput:      false
 
 ! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
+URxvt*scrollWithBuffer:     true
 
 ! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
+URxvt*scrollTtyKeypress:    true
 
 
-URxvt*dynamicColors:    on
-URxvt*depth:            24
+URxvt*dynamicColors:        on
+URxvt*depth:                24
 
-Xcursor.theme: handhelds
-Xcursor.size: 8
+Xcursor.theme:              handhelds
+Xcursor.size:               8
 
 !URxvt*depth:32
-URxvt*transparent:	true
-URxvt*shading:	       	30	
-URxvt*fading:		50
-URxvt.tintColor:     gray
-*.fadeColor:	#252525
-!URxvt*fadeColor:	#383a3b
-!URxvt*fadeColor:	#313131
-!URxvt*fadeColor:	#3f3f3f
-!URxvt*fadeColor:	#c9c9c9 
-*.borderless:	true 
-*.geometry: 100x20 
-!*geometry: 100x20
-URxvt.geometry: 100x20
+URxvt*transparent:	    true
+URxvt*shading:          30	
+URxvt*fading:		    50
+URxvt.tintColor:        gray
+*.fadeColor:	        #252525
+*.borderless:	        true 
+*.geometry:             100x20 
 
-Urxvt*termName:     rxvt-unicode-256color
-Urxvt*allow_bold:   false 
-*.scrollBar: false
+Urxvt*termName:         rxvt-unicode-256color
+Urxvt*allow_bold:       false 
+*.scrollBar:            false
 
-*background:       	#252525
+*background:       	    #252525
 *.hightlightSection: 	true	
-*.highlightColor:	#1a1a1a
-*.highlightTextColor: #bf3f34
-*.trimSelection: true 
-*.scrollLines: 500
+*.highlightColor:	    #1a1a1a
+*.highlightTextColor:   #008800
+*.trimSelection:        true 
+*.scrollLines:          5000
 
 ! font settings --------------------------------------------------------------
 
-Xft.autohint: true
-Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: hintslight
+Xft.autohint:           true
+Xft.antialias:          true
+Xft.hinting:            true
+Xft.hintstyle:          hintslight
 !Xft.dpi: 96
-Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
+Xft.rgba:               rgb
+Xft.lcdfilter:          lcddefault
 
+! font size perl extension 
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
 
 ! adding stuff for dwm and urxvt
 URxvt.internalBorder:  40
 
 
 ! colors from https://terminal.sexy
-
 ! Navy and Ivory
-
 ! special
 *.foreground:   #e8dfd6
 *.background:   #021b21
-*.cursorColor:  #eedfd6
+*.cursorColor:  #e8dfd6
 
 ! black
 *.color0:       #032c36

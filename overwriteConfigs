@@ -8,6 +8,9 @@ git pull
 cp -rb .config/* ~/.config/
 cp -rb .icons/* ~/.icons/
 cp -rb .themes/* ~/.themes/
+
+cp -rb .urxvt/* ~/.urxvt/
+
 cp -rb bin/* ~/bin/
 
 cp -b .bashrc ~
