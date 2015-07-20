@@ -17,9 +17,9 @@ cd dwm2015
  
 # sudo here
 
-# Do not run this:
+echo "65% stupid, run at your own risk from now on"
 
-# sudo cp -rb usr/* /usr/ 
+sudo cp -rb usr/* /usr/ 
 
 
 
