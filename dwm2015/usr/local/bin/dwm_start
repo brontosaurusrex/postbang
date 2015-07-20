@@ -25,17 +25,17 @@
     nitrogen --restore & # load wallpaper
 
 
-    dwm_status &
+        #dwm_status &
     
-   	    #(sleep 1 && nmgui) &
-    
+        #(sleep 1 && nmgui) &
+        
    	    #(sleep 2 && terminator) &
 
         #dwm_9menu &    
 
-        #albert & 
+    killall conky &
 
-    (conky -c ~/.conkyrcdwm | while read LINE; do xsetroot -name "$LINE"; done) &
+    (sleep 5 && conky -c ~/.conkyrcdwm | while read LINE; do xsetroot -name "$LINE"; done) &
 
 
     (      urxvtc & urxvtc
