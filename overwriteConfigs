@@ -1,8 +1,10 @@
 #!/bin/bash
 
 set -e
+set -x # verbosity
 
-cd ~/source/postbang
+cd ~/source/postbang # < set this to the place where root postbang source git is
+
 git pull
 
 cp -rb .config/* ~/.config/
