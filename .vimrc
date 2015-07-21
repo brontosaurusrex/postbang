@@ -9,6 +9,11 @@ set tabstop=4 shiftwidth=4 expandtab
 " function key F10 is use to go to end of line
 nmap <F10> $
 
+" up down faster, but still using j and k (ctrl + key)
+
+nmap <C-j> 10j
+nmap <C-k> 10k
+
 " Use mouse for visual selection mode as well, use shift + mouse to get primary clipboard selections
 set mouse=a
 
