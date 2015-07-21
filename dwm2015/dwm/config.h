@@ -8,9 +8,9 @@ static const char *fonts[] = {
 };
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#111111";
-static const char normbgcolor[]     = "#222222";
+static const char normbgcolor[]     = "#262626";
 static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#222222";
+static const char selbordercolor[]  = "#262626";
 static const char selbgcolor[]      = "#111111";
 static const char selfgcolor[]      = "#aaaaaa";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
