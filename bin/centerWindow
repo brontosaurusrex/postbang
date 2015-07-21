@@ -10,7 +10,7 @@ half=$(expr "$width" / 2 )
 
 # move active window
 
-xdotool getactivewindow windowsize 75% y
+#xdotool getactivewindow windowsize 75% y
 xdotool getactivewindow windowmove $half y
 
 
