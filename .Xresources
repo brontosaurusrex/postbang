@@ -72,7 +72,14 @@ URxvt.keysym.C-Left:    perl:font-size:reset
 ! adding stuff for dwm and urxvt
 URxvt.internalBorder:  40
 
+! disable catching ctrl+shift, since I want ctrl+shift+r to be vims redo 
 
+URxvt.iso14755:         false
+URxvt.iso14755_52:      false
+
+! experiments
+
+URxvt.lineSpace:    3
 
 ! digerati 
 ! special
@@ -111,4 +118,9 @@ URxvt.internalBorder:  40
 ! white
 *.color7:       #e2e2e5
 *.color15:      #e2e2e5
+
+
+
+
+
 
