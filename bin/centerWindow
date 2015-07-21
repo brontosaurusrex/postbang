@@ -2,7 +2,7 @@
 
 # get screen resolution width and halve it
 
-width=$(xrandr --current | head -2 | tail -1 | cut -d 'x' -f1 | cut -d ' ' -f3)
+width=$(xrandr --current | awk '/Screen/ {print $8}')
 
 half=$(expr "$width" / 2 )
 
