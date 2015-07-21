@@ -19,6 +19,8 @@ alt +
     f/m/t       modes (floating, monocle, tiling)
     0           show all tags
 
+    a           runs custom command centerWindow (depends on xrandr and xdotool)
+
 shift + alt
 -----------------
 

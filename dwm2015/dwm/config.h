@@ -64,6 +64,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb
 static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *webcmd[]  = { "iceweasel", NULL };
 static const char *filecmd[]  = { "thunar", NULL };
+static const char *centercmd[]  = { "centerWindow", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,7 +104,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-        { Mod4Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_a,  spawn,          {.v = centercmd } },
+
 
 
 };
