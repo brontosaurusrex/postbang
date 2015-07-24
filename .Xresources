@@ -79,44 +79,45 @@ URxvt.iso14755_52:      false
 
 ! experiments
 
-URxvt.lineSpace:    
+! URxvt.lineSpace:    
 
 
-! Navy and Ivory
+
+! dkeg something
 ! special
-*.foreground:   #e8dfd6
-*.background:   #021b21
-*.cursorColor:  #e8dfd6
+*.foreground:   #d3d3d3
+*.background:   #111111
+*.cursorColor:  #d3d3d3
 
 ! black
-*.color0:       #032c36
-*.color8:       #065f73
+*.color0:       #382c2f
+*.color8:       #ac9377
 
 ! red
-*.color1:       #c2454e
-*.color9:       #ef5847
+*.color1:       #48393a
+*.color9:       #baa17e
 
 ! green
-*.color2:       #7cbf9e
-*.color10:      #a2d9b1
+*.color2:       #65534d
+*.color10:      #bca282
 
 ! yellow
-*.color3:       #8a7a63
-*.color11:      #beb090
+*.color3:       #79665a
+*.color11:      #c1a67e
 
 ! blue
-*.color4:       #2e3340
-*.color12:      #61778d
+*.color4:       #836e5e
+*.color12:      #cfb48e
 
 ! magenta
-*.color5:       #ff5879
-*.color13:      #ff99a1
+*.color5:       #8e7766
+*.color13:      #d1baa3
 
 ! cyan
-*.color6:       #44b5b1
-*.color14:      #9ed9d8
+*.color6:       #917781
+*.color14:      #dfc39b
 
 ! white
-*.color7:       #f2f1b9
-*.color15:      #f6f6c9
+*.color7:       #9a846d
+*.color15:      #eed8c4
 
