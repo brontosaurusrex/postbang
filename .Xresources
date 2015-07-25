@@ -77,9 +77,13 @@ URxvt.internalBorder:  40
 URxvt.iso14755:         false
 URxvt.iso14755_52:      false
 
-! experiments
+! cursor color
 
-! URxvt.lineSpace:    
+URxvt*cursorColor: #B15C00
+
+! blur?
+
+! URxvt.blurRadius: 5
 
 
 
