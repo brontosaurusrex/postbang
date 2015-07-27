@@ -45,7 +45,7 @@
           fi
     )  &
 
-    
+    xset s off s noblank s noexpose -dpms 
 
     exec ck-launch-session dbus-launch dwm
 
