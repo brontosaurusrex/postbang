@@ -1,4 +1,4 @@
-nitrogen --restore & tint2 & volti & 
+nitrogen --restore & tint2 & volumeicon & 
 
 (sleep 3 && conky) &  
 
