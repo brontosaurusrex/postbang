@@ -1,0 +1,38 @@
+! dkeg something
+! special
+*.foreground:   #d3d3d3
+*.background:   #111111
+*.cursorColor:  #d3d3d3
+
+! black
+*.color0:       #382c2f
+*.color8:       #ac9377
+
+! red
+*.color1:       #48393a
+*.color9:       #baa17e
+
+! green
+*.color2:       #65534d
+*.color10:      #bca282
+
+! yellow
+*.color3:       #79665a
+*.color11:      #c1a67e
+
+! blue
+*.color4:       #836e5e
+*.color12:      #cfb48e
+
+! magenta
+*.color5:       #8e7766
+*.color13:      #d1baa3
+
+! cyan
+*.color6:       #917781
+*.color14:      #dfc39b
+
+! white
+*.color7:       #9a846d
+*.color15:      #eed8c4
+

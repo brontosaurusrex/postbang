@@ -1,0 +1,38 @@
+! brexMostlyGreen
+! special
+*.foreground:   #999999
+*.background:   #252525
+*.cursorColor:  #999999
+
+! black
+*.color0:       #777777
+*.color8:       #777777
+
+! red
+*.color1:       #d7d7d7
+*.color9:       #d7d7d7
+
+! green
+*.color2:       #aadb0f
+*.color10:      #aadb0f
+
+! yellow
+*.color3:       #666666
+*.color11:      #666666
+
+! blue
+*.color4:       #7c7c7c
+*.color12:      #7c7c7c
+
+! magenta
+*.color5:       #91ba0d
+*.color13:      #91ba0d
+
+! cyan
+*.color6:       #d4d4d4
+*.color14:      #d4d4d4
+
+! white
+*.color7:       #d3d3d3
+*.color15:      #d3d3d3
+

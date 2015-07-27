@@ -1,0 +1,39 @@
+! http://crunchbang.org/forums/viewtopic.php?id=40055
+! br33ze terminal colour scheme
+! based on KDE Breeze
+
+URxvt*background: #232629
+URxvt*foreground: #fcfcfc
+
+!black
+URxvt*color0:  #31363b
+URxvt*color8:  #4d4d4d
+
+!red
+URxvt*color1:  #da4453
+URxvt*color9:  #ed1515
+
+!green
+URxvt*color2:  #2ecc71
+URxvt*color10: #27ae60
+
+!yellow
+URxvt*color3:  #fdbc4b
+URxvt*color11: #fde04b
+
+!blue
+URxvt*color4:  #3498db
+URxvt*color12: #3daee9
+
+!magenta
+URxvt*color5:  #9b59b6
+URxvt*color13: #8e44ad
+
+!cyan
+URxvt*color6:  #1abc9c
+URxvt*color14: #1cdc9a
+
+!white
+URxvt*color7:  #eff0f1
+URxvt*color15: #fcfcfc
+
