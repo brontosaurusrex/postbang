@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -1045,19 +1044,12 @@
         <y>90</y>
       </position>
     </application>
-    <application class="URxvt" name="rxvt-unicode" type="normal">
-      <decor>no</decor>
-      <shade>default</shade>
-      <position force="no">
-        <x>0</x>
-        <y>0</y>
-      </position>
-    </application>
+    
     <application class="URxvt" name="urxvt" type="normal">
       <decor>no</decor>
       <position force="no">
-        <x>0</x>
-        <y>0</y>
+        <x>center</x>
+        <y>20</y>
       </position>
     </application>
   </applications>

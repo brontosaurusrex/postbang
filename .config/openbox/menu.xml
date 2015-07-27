@@ -7,6 +7,11 @@
 			</action>
 		</item>
 		<separator/>
+		<item label="urxvt">
+			<action name="Execute">
+				<execute>urxvt</execute>
+			</action>
+		</item>
 		<item label="terminator">
 			<action name="Execute">
 				<execute>x-terminal-emulator</execute>
