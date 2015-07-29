@@ -23,7 +23,7 @@ temp="/tmp/clip.txt"
 command -v dropbox.py >/dev/null 2>&1 || { echo >&2 "I require dropbox.py but it's not on PATH, exiting."; exit 1; }
 command -v convert >/dev/null 2>&1 || { echo >&2 "I require imagemagicks/convert but it's not installed, exiting."; exit 1; }
 command -v xclip >/dev/null 2>&1 || { echo >&2 "I require xclip but it's not installed, exiting."; exit 1; }
-
+dropbox.py status | grep "isn't" && exit
 
 [[ -f "$temp" ]] && echo "delete the $temp file" && exit
 
