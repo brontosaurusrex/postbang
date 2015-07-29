@@ -29,26 +29,33 @@ command -v xclip >/dev/null 2>&1 || { echo >&2 "I require xclip but it's not ins
 
 while [ $# -gt 0 ]; do
 
-    base=${1%.*}
+base=$(basename "${1}")
+dir=$(dirname "${1}")
+   
+#echo "$dir/"
+#echo "${base}"
+#echo "$dir/${base}"
 
-    convert "$1" -resize 160x ".$base.thumb.png"
+
+    # action
+    convert "$1" -resize 160x "$dir/.${base}"
     
     # round corners http://www.imagemagick.org/Usage/thumbnails/
-    convert ".$base.thumb.png" \
+    convert "$dir/.${base}" \
      \( +clone  -alpha extract \
         -draw 'fill black polygon 0,0 0,5 5,0 fill white circle 5,5 5,0' \
         \( +clone -flip \) -compose Multiply -composite \
         \( +clone -flop \) -compose Multiply -composite \
-     \) -alpha off -compose CopyOpacity -composite ".$base.thumb.png_"
+     \) -alpha off -compose CopyOpacity -composite "$dir/.${base}_"
      
-     mv ".$base.thumb.png_" ".$base.thumb.png"
+     mv "$dir/.${base}_" "$dir/.${base}"
      # end round corners < remove this to disable rounded corners for thumbs
 
     
     imageurl="$(dropbox.py puburl "$1")"
     #echo "$imageurl < imageurl"
     
-    thumburl="$(dropbox.py puburl ".$base.thumb.png")"
+    thumburl="$(dropbox.py puburl "$dir/.${base}")"
     #echo "$thumburl < thumburl"
     
     all="[url=$imageurl][img]$thumburl[/img][/url]"
