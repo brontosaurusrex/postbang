@@ -1,22 +1,20 @@
 #!/bin/bash
 
-# dropimage 0.1
+# dropimage 0.2
 # Script that generates some thumbs & 
 # constructs #! compatible forum code for easy image sharing
 
 # usage:
-# dropimage scrot.png
-# dropimage *.png
+# dropimage scrot.png or dropimage *.png
 
 # needed:
-# dropbox, need to be run in dropbox shared folder, 
-# dropbox.py, imagemagicks, xclip
+# dropbox, dropbox.py, imagemagick/convert, xclip
 
-# [url=linkToFullSizeImage][img]linkToThumb[/img][/url]
+# tmp dir http://mywiki.wooledge.org/BashFAQ/062
 
-# vars
-
-temp="/tmp/clip.txt"
+temp_dir=${TMPDIR:=/tmp}/$(awk -v p=$$ 'BEGIN { srand(); s = rand(); sub(/^0./, "", s); printf("%X_%X", p, s) }')
+trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
 
 # checks
 
@@ -25,49 +23,48 @@ command -v convert >/dev/null 2>&1 || { echo >&2 "I require imagemagicks/convert
 command -v xclip >/dev/null 2>&1 || { echo >&2 "I require xclip but it's not installed, exiting."; exit 1; }
 dropbox.py status | grep "isn't" && exit
 
-[[ -f "$temp" ]] && echo "delete the $temp file" && exit
+# main 
 
 while [ $# -gt 0 ]; do
 
-base=$(basename "${1}")
+base=$(basename "${1}")     # basename, like                file.png
+base="${base%.*}"           # basename without extension    file
 dir=$(dirname "${1}")
    
 #echo "$dir/"
 #echo "${base}"
 #echo "$dir/${base}"
 
-
     # action
-    convert "$1" -resize 160x "$dir/.${base}"
+    convert "$1" -flatten -depth 8 -resize 160x "png:$dir/.${base}"
+    
+    # for area resizing one could use: -resize '@25600'
     
     # round corners http://www.imagemagick.org/Usage/thumbnails/
-    convert "$dir/.${base}" \
+    convert "$dir/.${base}"  \
      \( +clone  -alpha extract \
-        -draw 'fill black polygon 0,0 0,5 5,0 fill white circle 5,5 5,0' \
+        -draw 'fill black polygon 0,0 0,3 3,0 fill white circle 3,3 3,0' \
         \( +clone -flip \) -compose Multiply -composite \
         \( +clone -flop \) -compose Multiply -composite \
-     \) -alpha off -compose CopyOpacity -composite "$dir/.${base}_"
+     \) -alpha off -compose CopyOpacity -composite "png:$dir/.${base}_"
      
-     mv "$dir/.${base}_" "$dir/.${base}"
+     mv "$dir/.${base}_" "$dir/.${base}.png"
      # end round corners < remove this to disable rounded corners for thumbs
 
     
     imageurl="$(dropbox.py puburl "$1")"
     #echo "$imageurl < imageurl"
     
-    thumburl="$(dropbox.py puburl "$dir/.${base}")"
+    thumburl="$(dropbox.py puburl "$dir/.${base}.png")"
     #echo "$thumburl < thumburl"
     
     all="[url=$imageurl][img]$thumburl[/img][/url]"
     echo "$all"
     
-    echo "$all" >> "$temp"
-
+    printf "$all" >> "$temp_dir/clip"
 
     shift
 
 done
 
-xclip -i -selection clipboard "$temp"
-rm "$temp"
-
+xclip -i -selection clipboard "$temp_dir/clip"
