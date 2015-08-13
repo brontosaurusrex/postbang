@@ -25,3 +25,9 @@ cp -b .profile ~
 cp -b .xsessionrc ~
 cp -b .tmux* ~
 
+echo
+echo
+echo "65% stupid, run at your own risk from now on:"
+
+set -x # verbosity
+sudo cp -rb usr/* /usr/ 
