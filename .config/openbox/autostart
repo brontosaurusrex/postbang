@@ -2,7 +2,7 @@ nitrogen --restore & tint2 & volumeicon &
 
 (sleep 3 && conky) &  
 
-xfce4-power-manager &
+# xfce4-power-manager &
 
 ## compton banned due to video playback tearing
 
@@ -27,10 +27,10 @@ xset b off &
 
 # only if running in vbox, will restore wallpaper if resolution 
 # change is detected.
-# ~/bin/changeres &
+~/bin/changeres &
 
 # optional (http://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
-# xset s off         # don't activate screensaver
-# xset -dpms         # disable DPMS (Energy Star) features.
-# xset s noblank     # don't blank the video device
+xset s off         # don't activate screensaver
+xset -dpms         # disable DPMS (Energy Star) features.
+xset s noblank     # don't blank the video device
 
