@@ -52,7 +52,7 @@ cat "$TMPDIR"/playlist.txt
 
 # open playlist and play
 # openbox edition
-mpv --cache 10000 --osd-scale=0.5 --ontop --geometry=0%:5% --autofit=50%x50% --fixed-vo --playlist="$TMPDIR"/playlist.txt 
+mpv --cache 10000 --osd-scale=0.5 --ontop --geometry=0%:5% --autofit=50%x50% --playlist="$TMPDIR"/playlist.txt 
 
 # dwm edition
 # mpv --cache 10000 --af=drc --osd-scale=0.5 --fixed-vo --playlist="$TMPDIR"/playlist.txt 
