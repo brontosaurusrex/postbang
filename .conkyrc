@@ -47,10 +47,10 @@ color2 1BB8F0
 #  Output
 ##############################################
 TEXT
-${font cuprum:size=10}cpu $cpubar  ram $membar  disk ${fs_bar /home}  $nodename, up $uptime
+${font cuprum:size=10}cpu $cpubar  ram $membar  disk ${fs_bar /home}  $nodename, up $uptime_short
 #$nodename
 #$fs_bar disk 
 #$fs_size used
 #${font cuprum:size=8}${time %A}, ${time %e.%b %G}
 #${font cuprum:size=18}${time %H.%M}
-#$nodename ${addr} $uptime
+#$nodename ${addr} $uptime_short
