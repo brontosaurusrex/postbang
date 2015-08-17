@@ -101,6 +101,24 @@
 			</item>
 		</menu>
 		<separator/>
+		<menu id="root-menu-753656" label="beep me">
+			<item label="in 1 min">
+				<action name="Execute">
+					<execute>bash -c 'at now + 1 min &lt;&lt;&lt; &quot;beep&quot;'</execute>
+				</action>
+			</item>
+			<item label="in 5 min">
+				<action name="Execute">
+					<execute>bash -c 'at now + 5 min &lt;&lt;&lt; &quot;beep -r 5&quot;'</execute>
+				</action>
+			</item>
+			<item label="in 15 min">
+				<action name="Execute">
+					<execute>bash -c 'at now + 15 min &lt;&lt;&lt; &quot;beep -r 5&quot;'</execute>
+				</action>
+			</item>
+		</menu>
+		<separator/>
 		<menu id="root-menu-315416" label="exit">
 			<item label="lock">
 				<action name="Execute">
