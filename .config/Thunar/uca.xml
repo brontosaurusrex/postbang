@@ -1,0 +1,40 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon></icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1439803383128041-2</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon></icon>
+	<name>set wallpaper centered</name>
+	<unique-id>1439803502985890-3</unique-id>
+	<command>nitrogen --save --set-centered %f</command>
+	<description>set wallpaper centered</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>set wallpaper zoomed-fill</name>
+	<unique-id>1439803621723655-7</unique-id>
+	<command>nitrogen --save --set-zoom-fill %f</command>
+	<description>set wallpaper zoomed-fill</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>set wallpaper tiled</name>
+	<unique-id>1439803647244152-8</unique-id>
+	<command>nitrogen --save --set-tiled %f</command>
+	<description>set wallpaper tiled</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+</actions>

@@ -3,7 +3,7 @@
 
 include "/home/ticho/.gtkrc-2.0.mine"
 gtk-theme-name="Bang Light Green"
-gtk-icon-theme-name="Flattr"
+gtk-icon-theme-name="Clarity"
 gtk-font-name="Cuprum 11"
 gtk-cursor-theme-name="DMZ-White"
 gtk-cursor-theme-size=0
