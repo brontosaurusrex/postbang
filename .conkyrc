@@ -27,7 +27,7 @@ default_color 222222
 #default_color ffffff
 default_shade_color 000000
 default_outline_color 5D2560
-alignment TR
+alignment TL
 gap_x 6
 gap_y 0
 
