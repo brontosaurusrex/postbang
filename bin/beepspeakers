@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# beep via speakers N times using speaker-test which is a part of alsa-utils
+# usage example: beepspeakers 3
+
+[ -z "$1" ] && loops="1" || loops="$1"
+
+for ((i=1; i<=loops; i++))
+do
+
 ( speaker-test -t sine -f 1000 ) > /dev/null 2>&1 & pid=$! 
 sleep 0.1s
-kill -9 $pid > /dev/null 2>&1
+{ kill -9 $pid;wait $pid; } > /dev/null 2>&1
+sleep 0.1s
+
+done
