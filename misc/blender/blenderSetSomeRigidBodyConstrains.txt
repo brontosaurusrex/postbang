@@ -1,0 +1,9 @@
+# select all the RigidBodyConstrains, set the wanted values in this script 
+# and paste to blenders console list
+import bpy
+for obj in bpy.context.selected_objects:
+    obj.rigid_body_constraint.use_breaking = True
+    obj.rigid_body_constraint.breaking_threshold = 40
+    obj.rigid_body_constraint.disable_collisions = False
+    obj.rigid_body_constraint.type = 'FIXED'
+    # obj.location = 0,0,0
