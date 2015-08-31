@@ -10,6 +10,10 @@
 command -v opusenc >/dev/null 2>&1 || { echo >&2 "I require opusenc but it's not installed, exiting."; exit 1; }
 command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
 
+encode() { # put your opusenc settings here
+   opusenc "$expanded" "$dir/$base.opus"
+}
+
 while [ $# -gt 0 ]; do
 
   
@@ -32,13 +36,13 @@ while [ $# -gt 0 ]; do
                     echo "yes, durations match, skipping"
                 else
                     echo "no, durations does not match, reencoding" 
-                    opusenc "$expanded" "$dir/$base.opus" 
+                    encode 
                    
                 fi
             
             
         else # the opus file does not exist yet
-            opusenc "$expanded" "$dir/$base.opus"
+            encode
         fi
    
     shift
