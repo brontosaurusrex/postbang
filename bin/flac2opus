@@ -26,14 +26,13 @@ while [ $# -gt 0 ]; do
         then # opus file in existance, do some duration checking
             echo "the file exists, checking if flac and opus durations match"
         
-            #[[ -n $(your command) ]] && echo "yes" || echo "no"
-        
-                if [ "$(diff <(mediainfo "$expanded" | grep -m 1 Duration) <(mediainfo "$dir/$base.opus" | grep -m 1 Duration))" ]
+                if diff <(mediainfo "$expanded" | grep -m 1 Duration) <(mediainfo "$dir/$base.opus" | grep -m 1 Duration)
                 then
+                    echo "yes, durations match, skipping"
+                else
                     echo "no, durations does not match, reencoding" 
                     opusenc "$expanded" "$dir/$base.opus" 
-                else
-                    echo "yes, durations match, skipping"
+                   
                 fi
             
             
