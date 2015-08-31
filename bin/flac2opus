@@ -5,19 +5,41 @@
 # find . -lname "*.flac" -exec flac2opus {} \+
 # on a normal or 'cp -rs' symlinked dir structure
 
+
+command -v opusenc >/dev/null 2>&1 || { echo >&2 "I require opusenc but it's not installed, exiting."; exit 1; }
+command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
+
 while [ $# -gt 0 ]; do
 
   
     expanded=$(readlink -f "$1")
+    echo ".............................."
     echo "$expanded"
     
     base=$(basename "${1}")     # basename, like                file.flac
     base="${base%.*}"           # basename without extension    file
     dir=$(dirname "${1}")       # directory
+    
 
-opusenc "$expanded" "$dir/$base.opus" 
-
-
+        # Do some checks first
+        if [ -f "$dir/$base.opus" ]
+        then # opus file in existance, do some duration checking
+            echo "the file exists, checking if flac and opus durations match"
+        
+            #[[ -n $(your command) ]] && echo "yes" || echo "no"
+        
+                if [ "$(diff <(mediainfo "$expanded" | grep -m 1 Duration) <(mediainfo "$dir/$base.opus" | grep -m 1 Duration))" ]
+                then
+                    echo "no, durations does not match, reencoding" 
+                    opusenc "$expanded" "$dir/$base.opus" 
+                else
+                    echo "yes, durations match, skipping"
+                fi
+            
+            
+        else # the opus file does not exist yet
+            opusenc "$expanded" "$dir/$base.opus"
+        fi
    
     shift
 done
