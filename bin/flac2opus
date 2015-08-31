@@ -3,8 +3,9 @@
 # flac2opus
 # you could call this script like:
 # find . -lname "*.flac" -exec flac2opus {} \+
-# on a normal or 'cp -rs' symlinked dir structure
-
+# if the symbolic links are in question, or
+# find . -type f -iname "*.flac" -exec flac2opus {} \+
+# if the actual files are to be found. 
 
 command -v opusenc >/dev/null 2>&1 || { echo >&2 "I require opusenc but it's not installed, exiting."; exit 1; }
 command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
