@@ -14,7 +14,7 @@
 # If the symlinks are in question, you could call this script:
 # find . -lname "*.flac" -exec flac2opus {} \+
 # or with parallel
-# find . -lname "*.flac" | parallel --gnu flac2opus {
+# find . -lname "*.flac" | parallel --gnu flac2opus {}
 
 # Or if the files are to be found
 # find . -type f -iname "*.flac" -exec flac2opus {} \+
