@@ -1,11 +1,19 @@
 #!/bin/bash
 
 # flac2opus
-# you could call this script like:
+
+# If the symlinks are in question, you could call this script:
 # find . -lname "*.flac" -exec flac2opus {} \+
-# if the symbolic links are in question, or
+# or with parallel
+# find . -lname "*.flac" | parallel --gnu flac2opus {
+
+# Or if the files are to be found
 # find . -type f -iname "*.flac" -exec flac2opus {} \+
-# if the actual files are to be found. 
+# or with parallel
+# find . -type f -iname "*.flac" | parallel --gnu flac2opus {}
+
+# note: Using parallel (apt-get install parallel) will give enormous encoding speed boost. 
+
 
 command -v opusenc >/dev/null 2>&1 || { echo >&2 "I require opusenc but it's not installed, exiting."; exit 1; }
 command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
