@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# flac2opus
+# you could call this script like:
+# find . -lname "*.flac" -exec flac2opus {} \+
+# on a normal or 'cp -rs' symlinked dir structure
+
+while [ $# -gt 0 ]; do
+
+  
+    expanded=$(readlink -f "$1")
+    echo "$expanded"
+    
+    base=$(basename "${1}")     # basename, like                file.flac
+    base="${base%.*}"           # basename without extension    file
+    dir=$(dirname "${1}")       # directory
+
+opusenc "$expanded" "$dir/$base.opus" 
+
+
+   
+    shift
+done
