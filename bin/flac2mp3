@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# flac2mp3 (based on flac2opus)
+# brontosaurusrex 2015
+
+# Usage examples
+
+# Simple:
+# ...........................................
+# flac2mp3 *.flac
+# parallel --gnu flac2mp3 {} ::: *.flac
+
+# With find:
+# ...........................................
+# If the symlinks are in question, you could call this script:
+# find . -lname "*.flac" -exec flac2mp3 {} \+
+# or with parallel
+# find . -lname "*.flac" | parallel --gnu flac2mp3 {}
+
+# Or if the files are to be found
+# find . -type f -iname "*.flac" -exec flac2mp3 {} \+
+# or with parallel
+# find . -type f -iname "*.flac" | parallel --gnu flac2mp3 {}
+
+# note: Using parallel (apt-get install parallel) will give enormous encoding speed boost. 
+
+
+command -v lame >/dev/null 2>&1 || { echo >&2 "I require lame but it's not installed, exiting."; exit 1; }
+command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
+command -v ffmpeg_static >/dev/null 2>&1 || { echo "I need ffmpeg_static on the path." ; exit 1; }
+
+# http://wiki.hydrogenaud.io/index.php?title=Lame#Very_high_quality:_HiFi.2C_home.2C_or_quiet_listening.2C_with_best_file_size
+# Very high quality: HiFi, home, or quiet listening, with best file size
+# -V0 (~245 kbps), -V1 (~225 kbps), -V2 (~190 kbps) or -V3 (~175 kbps) are recommended.
+# These VBR settings will normally produce transparent results. Audible differences between these presets may exist, but are rare. 
+
+encode() { # put your encoding settings here
+    
+    # encode 
+    ffmpeg_static -i "$expanded" -vn -y -f wav - 2> /dev/null| lame -V3 - "$dir/$base.tmp.mp3"
+    # copy metadata
+    ffmpeg_static -i "$dir/$base.tmp.mp3" -i "$expanded" -map_metadata 1:g -vn -acodec copy "$dir/$base.mp3"
+    rm "$dir/$base.tmp.mp3"
+
+}
+
+while [ $# -gt 0 ]; do
+
+  
+    expanded=$(readlink -f "$1")
+    echo ".............................."
+    echo "$expanded"
+    
+    base=$(basename "${1}")     # basename, like                file.flac
+    base="${base%.*}"           # basename without extension    file
+    dir=$(dirname "${1}")       # directory
+    
+
+        # Do some checks first
+        if [ -f "$dir/$base.mp3" ]
+        then # mp3 file in existance, do some duration checking
+            echo "the file exists, checking if flac and mp3 durations match"
+        
+                if diff <(mediainfo "$expanded" | grep -m 1 Duration) <(mediainfo "$dir/$base.mp3" | grep -m 1 Duration)
+                then
+                    echo "yes, durations match, skipping"
+                else
+                    echo "no, durations does not match, reencoding" 
+                    encode 
+                   
+                fi
+            
+            
+        else # the mp3 file does not exist yet
+            encode
+        fi
+   
+    shift
+done
