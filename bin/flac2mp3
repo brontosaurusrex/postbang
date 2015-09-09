@@ -39,7 +39,7 @@ encode() { # put your encoding settings here
     # encode 
     ffmpeg_static -i "$expanded" -vn -y -f wav - 2> /dev/null| lame -V3 - "$dir/$base.tmp.mp3"
     # copy metadata
-    ffmpeg_static -i "$dir/$base.tmp.mp3" -i "$expanded" -map_metadata 1:g -vn -acodec copy "$dir/$base.mp3"
+    ffmpeg_static -i "$dir/$base.tmp.mp3" -i "$expanded" -y -map_metadata 1:g -vn -acodec copy "$dir/$base.mp3"
     rm "$dir/$base.tmp.mp3"
 
 }
