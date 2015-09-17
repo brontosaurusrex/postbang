@@ -10,7 +10,7 @@ xftfont Liberation Sans:size=16
 xftalpha 1
 update_interval 5.0
 total_run_times 0
-own_window yes
+own_window no
 own_window_transparent yes
 own_window_type desktop
 # own_window_argb_visual yes
