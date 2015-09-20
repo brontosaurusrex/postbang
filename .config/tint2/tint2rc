@@ -61,10 +61,10 @@ background_color = #ffffff 0
 border_color = #111111 100
 
 # Panel
-panel_monitor = all
+panel_monitor = 1
 panel_position = bottom center horizontal
 #panel_items = TSBC
-panel_items = LTSBC
+panel_items = LTSC
 panel_size = 95% 46
 panel_margin = 0 -1
 panel_padding = 3 2
@@ -82,7 +82,7 @@ strut_policy = follow_size
 
 # Taskbar
 taskbar_mode = multi_desktop
-# taskbar_mode = single_desktop
+#taskbar_mode = single_desktop
 taskbar_padding = 0 0 0
 taskbar_background_id = 5
 taskbar_active_background_id = 6
@@ -125,20 +125,19 @@ font_shadow = 0
 # Launcher
 launcher_padding = 0 0 0
 launcher_background_id = 0
-launcher_icon_size = 38
+launcher_icon_size = 32
 # Specify icon theme names with launcher_icon_theme. 
 # if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
 # launcher_icon_theme = Clarity
 # Each launcher_item_app must be a full path to a .desktop file
-#launcher_item_app = /usr/share/applications/terminator.desktop
-#launcher_item_app = /usr/share/applications/Thunar.desktop
-#launcher_item_app = /usr/share/applications/geany.desktop
-#launcher_item_app = /usr/share/applications/menu.desktop
 
+launcher_item_app = /home/ticho/source/postbang/applications/menu.desktop
+
+#launcher_item_app = /home/ticho/source/postbang/applications/urxvt.desktop
+
+#launcher_item_app = /home/ticho/source/postbang/applications/iceweasel.desktop
 
 # System Tray
-
-
 systray = 1
 systray_padding = 0 4 5
 systray_background_id = 9
