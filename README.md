@@ -11,4 +11,4 @@ Either
 - Open an issue [here](https://github.com/brontosaurusrex/postbang/issues) or
 - visit the forums and chat away [there](http://crunchbang.org/forums/viewtopic.php?id=38976).
 
-![http://brontosaurusrex.github.io](https://raw.githubusercontent.com/brontosaurusrex/postbang/master/images/wallpapers/brontolabsBlack.png "brontolabs")
+<a href="http://brontosaurusrex.github.io"><img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/images/wallpapers/brontolabsBlack.png"></a>
