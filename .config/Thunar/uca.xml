@@ -37,4 +37,13 @@
 	<patterns>*</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>unp</name>
+	<unique-id>1443033625975920-10</unique-id>
+	<command>urxvt -e bash -c &apos;unp %F &amp;&amp; (echo &quot;ok&quot;; sleep 1) || (echo &quot;nope&quot;; sleep 10)&apos;</command>
+	<description>unp</description>
+	<patterns>*.zip;*.tar.gz;*.tar.xz</patterns>
+	<other-files/>
+</action>
 </actions>
