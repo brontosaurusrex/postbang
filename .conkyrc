@@ -23,13 +23,13 @@ draw_outline no
 draw_borders no
 draw_graph_borders no
 #default_color aaaaaa
-default_color 222222
+default_color 111111
 #default_color ffffff
 default_shade_color 000000
 default_outline_color 5D2560
-alignment TL
-gap_x 6
-gap_y 0
+alignment BM
+gap_x 0
+gap_y 5
 
 no_buffers yes
 uppercase no
