@@ -62,7 +62,7 @@ border_color = #111111 100
 
 # Panel
 panel_monitor = 1
-panel_position = bottom center horizontal
+panel_position = top center horizontal
 #panel_items = TSBC
 panel_items = LTSC
 panel_size = 95% 46
@@ -133,9 +133,7 @@ launcher_icon_size = 32
 
 launcher_item_app = /home/ticho/source/postbang/applications/menu.desktop
 
-#launcher_item_app = /home/ticho/source/postbang/applications/urxvt.desktop
 
-#launcher_item_app = /home/ticho/source/postbang/applications/iceweasel.desktop
 
 # System Tray
 systray = 1
