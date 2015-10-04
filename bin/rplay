@@ -102,9 +102,9 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 
 	if [ "$scanonly" != "true" ] 
 	then
-	echo -e "playing > \e[7m$justname\e[0m $justdir"
+	echo -e "playing > $justname $justdir"
 	else
-	echo -e "scan > \e[7m$justname\e[0m $justdir"
+	echo -e "scan > $justname $justdir"
 	fi
 	
 	# calculate loudness or read prestored variable if exist
