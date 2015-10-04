@@ -24,6 +24,14 @@
 
 # note: Using parallel (apt-get install parallel) will give enormous encoding speed boost. 
 
+function control_c {
+    echo -en "Caught SIGINT; Clean up and Exit \n"
+    exit $?
+}
+
+trap control_c SIGINT
+trap control_c SIGTERM
+
 
 command -v lame >/dev/null 2>&1 || { echo >&2 "I require lame but it's not installed, exiting."; exit 1; }
 command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }

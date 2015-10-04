@@ -14,6 +14,15 @@
 
 # brontosaurusrex 2013,2014 copyleft
 
+# ctrl+c trap, only needed on osx as it seems
+function control_c {
+    echo -en "rplay Caught SIGINT; Clean up and Exit \n"
+    exit $?
+}
+
+trap 'control_c; trap - SIGINT; kill -INT "$$"' SIGINT  # end ctrl+c trap
+
+
 # do I need this
 shopt -s extglob
 
@@ -182,7 +191,6 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 		
 
 fi		
-
 
 	[ -n "$temp_dir" ] && rm -fr "$temp_dir"
 
