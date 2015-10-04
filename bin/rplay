@@ -183,8 +183,9 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 
 fi		
 
-rm -rf "$TMPDIR"
-	
+
+	[ -n "$temp_dir" ] && rm -fr "$temp_dir"
+
 shift
 done
 
