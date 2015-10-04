@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+	# tmp dir http://mywiki.wooledge.org/BashFAQ/062
+   	temp_dir=/tmp/$RANDOM-$$ # This is working on OSX as well
+   	trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+   	mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
+   	
+   	sleep 10

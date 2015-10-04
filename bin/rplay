@@ -40,16 +40,6 @@ echo "|  9 and 0 - Volume.                     |"
 echo "+----------------------------------------+"
 
 
-# trap  clean up
-cleanup ()
-{
-rm -rf "$TMPDIR"
-exit 0
-}
-
-trap cleanup SIGINT SIGTERM
-
-
 # scan
 # if first argument to script is called "scan" then no playback will be done, 
 # only calculus of r128
@@ -98,8 +88,12 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
                       
 	fi
 
-	# make temporary folder 
-	TMPDIR=`mktemp -d --suffix=_rPlay`
+
+	# tmp dir http://mywiki.wooledge.org/BashFAQ/062
+   	temp_dir=/tmp/$RANDOM-$$
+   	trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+   	mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
+
 
 	# get r128 stats
 	justname=`basename "$expanded"`
@@ -124,18 +118,17 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 			
 			
 			
-				ffmpeg_static -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$TMPDIR/$justname".rgtxt
+				ffmpeg_static -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$temp_dir/$justname".rgtxt
 			
 				# get Integrated loudness into variable
 	 
-				line=$(tail "$TMPDIR/$justname".rgtxt | grep I:)
+				line=$(tail "$temp_dir/$justname".rgtxt | grep I:)
 				read -r _ r128 _<<< "$line"
 	
 				# store the calculated value next to audio file
 				echo "$r128" > "$justdir"/."$justname".rgtxt
 			
-				# remove tmp folder
-				rm -rf "$TMPDIR"
+
 			
 			
 	
