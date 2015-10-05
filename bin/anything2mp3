@@ -45,12 +45,6 @@ absdiff() {
 
 
 while [ $# -gt 0 ]; do
-
-	# temp dir http://mywiki.wooledge.org/BashFAQ/062
-   	temp_dir=/tmp/$RANDOM-$$
-   	trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
-   	mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; } # end temp dir
-
   
     expanded=$(readlink -f "$1")
     # echo ".............................."
@@ -71,7 +65,7 @@ while [ $# -gt 0 ]; do
                 a=$(mediainfo "--Inform=General;%Duration%" "$expanded")
                 b=$(mediainfo "--Inform=General;%Duration%" "$dir/$base.mp3")
                 
-                if diff <(echo "$a") <(echo "$b") >/dev/null 2>&1
+                if [[ "$a" == "$b" ]]
        
                 then
                     echo "    yes, durations match exactly, skipping" # This will probably never happen
@@ -86,7 +80,7 @@ while [ $# -gt 0 ]; do
                         # if samplerate is 48 kHz, then it equals to 200x48=9600 samples
                         if (( $(absdiff "$a" "$b") < 200 )) 
                         then
-                            echo " < but close enough (200 ms is max allowed)"
+                            echo " = still ok (200 ms is max allowed)"
                         else
                             encode
                         fi
@@ -98,7 +92,7 @@ while [ $# -gt 0 ]; do
         fi
    
    
-       [ -n "$temp_dir" ] && rm -fr "$temp_dir" # deleting temp dir
+       
    
     shift
     
