@@ -11,7 +11,7 @@
 
 # With find:
 # ...........................................
-# If the symlinks are in question, you could call this script:
+# If the symlinks are in question (cp -rs flacs /destination/), you could call this script:
 # find . -lname "*.flac" -exec flac2opus {} \+
 # or with parallel
 # find . -lname "*.flac" | parallel --gnu flac2opus {}

@@ -12,7 +12,7 @@
 
 # With find:
 # ...........................................
-# If the symlinks are in question, you could call this script:
+# If the symlinks are in question (cp -rs flacs /destination/), you could call this script:
 # find . -lname "*.flac" -exec anything2mp3 {} \+
 # or with parallel
 # find . -lname "*.flac" | parallel --gnu anything2mp3 {}
