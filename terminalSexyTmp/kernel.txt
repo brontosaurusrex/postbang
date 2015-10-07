@@ -1,9 +1,0 @@
-linux-image-3.16.0-4-amd64:
-  Installed: 3.16.7-ckt11-1+deb8u2
-  Candidate: 3.16.7-ckt11-1+deb8u2
-  Version table:
- *** 3.16.7-ckt11-1+deb8u2 0
-        500 http://security.debian.org/ jessie/updates/main amd64 Packages
-        100 /var/lib/dpkg/status
-     3.16.7-ckt11-1 0
-        500 http://http.debian.net/debian/ jessie/main amd64 Packages
