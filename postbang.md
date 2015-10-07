@@ -822,5 +822,3 @@ and reboot.
 ### Brought to you by:
 
 <img src="http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png">
-
-[gimmick:theme](yeti)
