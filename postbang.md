@@ -819,6 +819,4 @@ and so on..., when it craps out, add
 
 and reboot.
 
-### Brought to you by:
-
-<img src="http://shrani.si/f/1w/129/4XbHQNtV/brontolabs.png">
+<img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/images/wallpapers/brontolabsBlack.png">
