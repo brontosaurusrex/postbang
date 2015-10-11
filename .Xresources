@@ -32,9 +32,9 @@ Xcursor.theme:              handhelds
 Xcursor.size:               8
 
 !URxvt*depth:32
-URxvt*transparent:	    true
-URxvt*shading:          30	
-URxvt*fading:		    50
+URxvt*transparent:	    false
+URxvt*shading:          15	
+URxvt*fading:		    0
 URxvt.tintColor:        gray
 *.fadeColor:	        #252525
 *.borderless:	        true 
@@ -79,45 +79,50 @@ URxvt.iso14755_52:      false
 
 ! experiments
 
-
-
-
-
-! neon
+! dkeg something
 ! special
-*.foreground:   #f8f8f8
-*.background:   #171717
-*.cursorColor:  #f8f8f8
+*.foreground:   #d3d3d3
+*.background:   #111111
+*.cursorColor:  #d3d3d3
 
 ! black
-*.color0:       #171717
-*.color8:       #38252c
+*.color0:       #382c2f
+*.color8:       #ac9377
 
 ! red
-*.color1:       #d81765
-*.color9:       #ff0000
+*.color1:       #48393a
+*.color9:       #baa17e
 
 ! green
-*.color2:       #97d01a
-*.color10:      #76b639
+*.color2:       #65534d
+*.color10:      #bca282
 
 ! yellow
-*.color3:       #ffa800
-*.color11:      #e1a126
+*.color3:       #79665a
+*.color11:      #c1a67e
 
 ! blue
-*.color4:       #16b1fb
-*.color12:      #289cd5
+*.color4:       #836e5e
+*.color12:      #cfb48e
 
 ! magenta
-*.color5:       #ff2491
-*.color13:      #ff2491
+*.color5:       #8e7766
+*.color13:      #d1baa3
 
 ! cyan
-*.color6:       #0fdcb6
-*.color14:      #0a9b81
+*.color6:       #917781
+*.color14:      #dfc39b
 
 ! white
-*.color7:       #ebebeb
-*.color15:      #f8f8f8
+*.color7:       #9a846d
+*.color15:      #eed8c4
+
+
+
+
+
+
+
+
+
 
