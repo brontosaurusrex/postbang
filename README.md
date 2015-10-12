@@ -819,7 +819,7 @@ and so on..., when it craps out, add
 
 and reboot.
 
-<img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/images/wallpapers/brontolabsBlack.png">
+<img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/images/bronto_green_ascii_png8.png">
 
 Table of Contents
 =================
