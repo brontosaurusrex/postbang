@@ -1,0 +1,29 @@
+i: /usr/share/pixmaps/wbar/dock.png
+c: wbar --above-desk --bpress --hbar --pos bottom --isize 46 --balfa 0 --falfa 40 --idist 1 --zoomf 1.05 --offset -6
+t: /home/ticho/.fonts/Cuprum-Regular/10
+
+# It appears that wbar is always overlayed with maximized window (openbox), "fix" is to use openbox/margins to reserve some space...
+
+i: /home/ticho/source/postbang/images/term.png
+c: urxvt
+t: Terminal
+
+i: /home/ticho/source/postbang/images/thunar.png
+c: thunar
+t: thunar
+
+i: /home/ticho/source/postbang/images/geany.png
+c: geany
+t: geany
+
+i: /home/ticho/source/postbang/images/firefox.png
+c: iceweasel
+t: iceweasel
+
+i: /home/ticho/source/postbang/images/blender.png
+c: /home/ticho/apps/blender/blender
+t: blender
+
+
+
+
