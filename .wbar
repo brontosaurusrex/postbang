@@ -1,5 +1,5 @@
 i: /usr/share/pixmaps/wbar/dock.png
-c: wbar --above-desk --bpress --hbar --pos bottom --isize 46 --balfa 0 --falfa 40 --idist 1 --zoomf 1.05 --offset -6
+c: wbar --above-desk --bpress --hbar --pos bottom --isize 46 --balfa 0 --falfa 40 --idist 1 --zoomf 1.05 --offset -8 --nofont
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
 # It appears that wbar is always overlayed with maximized window (openbox), "fix" is to use openbox/margins to reserve some space...
