@@ -727,6 +727,7 @@ notes:
 - you will probably want to start this via openbox/autostart with some delay, so remember to remove /etc/xdg/autostart/wbar.desktop
 - wbar does not autohide and will not take place on desktop < fix it with some openbox margins (bottom in this case)
 
+bronto-moded .wbar should be in this gits root.
 
 ### notify-send and replacing notification thingy
 
