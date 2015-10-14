@@ -1,4 +1,4 @@
-nitrogen --restore & tint2 & volumeicon & (sleep 1 && wbar) &
+nitrogen --restore & tint2 & volumeicon & (sleep 10 && wbar) &
 
 (sleep 3 && conky) &  
 
