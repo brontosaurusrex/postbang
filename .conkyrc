@@ -23,7 +23,7 @@ draw_outline no
 draw_borders no
 draw_graph_borders no
 #default_color aaaaaa
-default_color 333333
+default_color 222222
 #default_color ffffff
 default_shade_color 000000
 default_outline_color 5D2560
