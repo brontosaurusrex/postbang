@@ -1,5 +1,5 @@
 i: /usr/share/pixmaps/wbar/dock.png
-c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 42 --idist 1 --zoomf 1.100000 --balfa 0 --falfa 58
+c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 42 --idist 1 --zoomf 1,100000 --balfa 0 --falfa 58
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
 i: /home/ticho/source/postbang/images/term.png
