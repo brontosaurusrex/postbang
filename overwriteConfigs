@@ -24,6 +24,8 @@ cp -b .Xresources ~
 cp -b .profile ~
 cp -b .xsessionrc ~
 cp -b .tmux* ~
+cp -b .wbar ~
+
 
 echo
 echo
