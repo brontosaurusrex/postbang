@@ -14,11 +14,15 @@ i: /home/ticho/source/postbang/images/geany.png
 c: geany
 t: geany
 
+i: /home/ticho/source/postbang/images/blender.png
+c: /home/ticho/apps/blender/blender
+t: blender
+
 i: /home/ticho/source/postbang/images/firefox.png
 c: iceweasel
 t: iceweasel
 
-i: /home/ticho/source/postbang/images/blender.png
-c: /home/ticho/apps/blender/blender
-t: blender
+i: /home/ticho/source/postbang/images/chrome.png
+c: google-chrome
+t: chrome
 
