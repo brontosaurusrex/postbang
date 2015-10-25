@@ -12,7 +12,8 @@
 
 # tmp dir http://mywiki.wooledge.org/BashFAQ/062
 
-temp_dir=${TMPDIR:=/tmp}/$(awk -v p=$$ 'BEGIN { srand(); s = rand(); sub(/^0./, "", s); printf("%X_%X", p, s) }')
+
+temp_dir=/tmp/$RANDOM # < this seems to be working on sid
 trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
 mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
 
