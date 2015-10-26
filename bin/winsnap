@@ -1,0 +1,337 @@
+#!/bin/bash
+#
+# Based on ideas in a script found at
+# http://icculus.org/pipermail/openbox/2013-January/007772.html
+#
+# Written by damo <damo@bunsenlabs.org> October 2015
+#
+# The script snaps a window to left or right halves of screen, or top and bottom,
+# using X window properties for getting and storing values.
+#
+# Left, right, top, or bottom screen margins can be specified (negative values allowed);
+# Works with dual monitors - windows will snap to edges of monitor they are on;
+# Honours user-defined Openbox left and right screen margins;
+# Works with decorated and undecorated windows, and windows with no borders;
+# Doesn't cover panels at top,bottom, desktop left or desktop right.
+#
+# REQUIRES: xdotool, wmctrl
+#
+########################################################################
+#
+# TODO: Account for _NET_WORKAREA with top/bottom snapping if panel only
+# appears on the other monitor.
+#
+########################################################################
+
+USAGE=$(echo -e "\vUSAGE:\twinsnap [--help|--left|--right|--top|--bottom] <margin>"
+        echo -e "\v\t--help \t\tUsage"
+        echo -e "\t--left \t\tsnap to left screen edge"
+        echo -e "\t--right \tsnap to right screen edge"
+        echo -e "\t--top \t\tsnap to upper screen edge"
+        echo -e "\t--bottom \tsnap to bottom screen edge"
+        echo
+        echo -e "\tIf no margin is specified, the values set\n\tfor Openbox in rc.xml are used."
+        echo -e "\tNegative margin values can be used (there may be a panel\n\ton one screen only)."
+        echo
+        echo -e "\tThe active window will snap to the edge of the screen on\n\twhich it placed."
+        echo
+        echo -e "\tOriginal window position and dimensions are restored if\n\tthe command is repeated."
+)
+
+####  FUNCTIONS  ####################################################
+
+function set_prop_int(){    # Add var values to X window properties
+  PROPNAME="$1"
+  VAL="$2"                         # integer value
+  xprop -id "$WINDOW" -f "$PROPNAME" 32i -set "$PROPNAME" "$VAL"
+}
+
+function set_prop_str(){
+    PROPNAME="$1"
+    VAL="$2"                         # string value
+    xprop -id "$WINDOW" -f "$PROPNAME" 8s -set "$PROPNAME" "$VAL"
+}
+
+function get_prop(){    # Retrieve var values from X window properties
+  PROPNAME="$1"
+  VARNAME="$2"
+  eval "$VARNAME"=$(xprop -id $WINDOW $PROPNAME | awk '{print $3}')
+}
+
+function count_monitors(){ #test for more than 2 monitors connected.
+    MON=$(xrandr -q | grep -c " connected")
+    case $MON in
+        1 | 2 ) MONITORS=$MON
+                ;;
+        3 | * ) echo "Script cannot deal with more than 2 monitors" >&2
+                exit
+                ;;
+    esac
+}
+
+function get_screen_dimensions(){   # get net workarea, if panels are present
+    vals=$(echo $(xprop -root | grep _NET_WORKAREA) | awk '{gsub(",","");print $3,$4,$5,$6}')
+    read valX valY valW valH <<< "$vals"    # X pos, Y pos, usable width, usable height
+
+    desktopW=$(xrandr -q | awk '/Screen/ {print $8}')  # total desktop width
+
+    # Get monitors geometry and position ( w,h,offset_x,offset_y )
+    MONS=$(echo $(xrandr -q | awk '/ connected/ {if ($3=="primary") print $1,$4; else print $1,$3}'))
+    read monA monAgeom monB monBgeom <<< "$MONS"
+
+    monApos=$(echo $monAgeom | awk -F "+" '{print $2}') # get offset_x
+    monBpos=$(echo $monBgeom | awk -F "+" '{print $2}')
+    if [[ $MONITORS != 1 ]];then        # test if there are 2 monitors
+        if [[ $monApos -lt $monBpos ]]; then
+            screenW1=${monAgeom%'x'*}   # width of left screen
+            screenW2=${monBgeom%'x'*}   # width of right screen
+        else
+            screenW2=${monAgeom%'x'*}
+            screenW1=${monBgeom%'x'*}
+        fi
+    else
+        screenW1=${monAgeom%'x'*}       # only one screen
+    fi
+    get_ActiveX
+}
+
+function get_ActiveX(){      # X position of active window:
+    WINPOS=$(xwininfo -id $WINDOW | grep "Absolute upper-left X")
+    if [[ ${WINPOS##*' '} -ge $screenW1 ]];then # window is on R monitor
+        X_zero=$(( $desktopW - $screenW2 ))
+        panelR=$(( $desktopW - $valW - $valX ))
+        screenW=$(( $desktopW - $screenW1 - $panelR ))
+    else
+        X_zero=$valX                            # window is on L monitor
+        screenW=$(( $screenW1 - $X_zero ))
+    fi
+}
+
+function get_WM_FRAME(){         # get borders set by WM
+    # WM sets window frame and border sizes
+    # Titlebar height depends on fontsize of Active titlebar
+    winEXTENTS=$(xprop -id $WINDOW | awk '/_NET_FRAME_EXTENTS/ {gsub(",","");print $3,$4,$5,$6}')
+    read BORDER_L BORDER_R BORDER_T BORDER_B <<< "$winEXTENTS"
+
+    Xoffset=$(( $BORDER_L + $BORDER_R ))    # Need corrections for wmctrl
+    Yoffset=$(( $BORDER_T + $BORDER_B ))
+}
+
+function get_OB_margins(){
+    RC="$HOME/.config/openbox/rc.xml"
+    if [[ -f "$RC" ]];then
+        TAG="margins"
+        RCXML=$(sed -n "/<$TAG>/,/<\/$TAG>/p" "$RC")
+        OB_LEFT=$(grep -oPm1 "(?<=<left>)[^<]+" <<< "$RCXML")
+        OB_RIGHT=$(grep -oPm1 "(?<=<right>)[^<]+" <<< "$RCXML")
+        OB_TOP=$(grep -oPm1 "(?<=<top>)[^<]+" <<< "$RCXML")
+        OB_BOTTOM=$(grep -oPm1 "(?<=<bottom>)[^<]+" <<< "$RCXML")
+    else
+        echo "$RC not found" >&2
+        exit 1
+    fi
+}
+
+function store_geometry(){  # store values in X window properties
+    # Store number of monitors
+    set_prop_int "_MONITORS" "$MONITORS"
+    eval $(xdotool getactivewindow getwindowgeometry --shell)
+    # Set initial geometry and position
+    set_prop_int "_INITIAL_DIMENSION_X" "$X"
+    set_prop_int "_INITIAL_DIMENSION_Y" "$Y"
+    set_prop_int "_INITIAL_DIMENSION_WIDTH" "$WIDTH"
+    set_prop_int "_INITIAL_DIMENSION_HEIGHT" "$HEIGHT"
+
+    get_WM_FRAME  # Get frame and border sizes
+    set_prop_int "_OB_BORDER_L" "$BORDER_L"
+    set_prop_int "_OB_BORDER_R" "$BORDER_R"
+    set_prop_int "_OB_BORDER_T" "$BORDER_T"
+    set_prop_int "_OB_BORDER_B" "$BORDER_B"
+    set_prop_int "_OFFSET_X" "$Xoffset"
+
+    # Use different corrections if window is decorated/undecorated
+    if xprop -id $WINDOW | grep -q _OB_WM_STATE_UNDECORATED ;then
+        OFFSET_Y="$Yoffset"
+    else
+        OFFSET_Y=$(( $BORDER_T * 2 ))
+    fi
+    set_prop_int "_OFFSET_Y" "$OFFSET_Y"
+
+    get_OB_margins
+    set_prop_int "_OB_MARGIN_L" "$OB_LEFT"
+    set_prop_int "_OB_MARGIN_R" "$OB_RIGHT"
+    set_prop_int "_OB_MARGIN_T" "$OB_TOP"
+    set_prop_int "_OB_MARGIN_B" "$OB_BOTTOM"
+}
+
+function load_stored_geometry(){    # set var to xprop value
+    get_prop "_MONITORS" "num_monitors"
+    get_prop "_INITIAL_DIMENSION_X" "initial_x"
+    get_prop "_INITIAL_DIMENSION_Y" "initial_y"
+    get_prop "_INITIAL_DIMENSION_WIDTH" "initial_width"
+    get_prop "_INITIAL_DIMENSION_HEIGHT" "initial_height"
+    get_prop "_OFFSET_X" "adjust_X"
+    get_prop "_OFFSET_Y" "adjust_Y"
+    get_prop "_OB_BORDER_L" "OB_border_left"
+    get_prop "_OB_BORDER_R" "OB_border_right"
+    get_prop "_OB_BORDER_T" "OB_border_top"
+    get_prop "_OB_BORDER_B" "OB_border_bottom"
+    get_prop "_OB_MARGIN_L" "OB_margin_left"
+    get_prop "_OB_MARGIN_R" "OB_margin_right"
+    get_prop "_OB_MARGIN_T" "OB_margin_top"
+    get_prop "_OB_MARGIN_B" "OB_margin_bottom"
+}
+
+function restore_dimension_geometry(){
+    Xpos=$(( initial_x - adjust_X ))    # Correct for frame and border values
+    Ypos=$(( initial_y - adjust_Y ))
+    if [[ $SNAP = --left ]] || [[ $SNAP = --right ]];then
+        RESTORE="wmctrl -r :ACTIVE: -b remove,maximized_vert"
+    else
+        RESTORE="wmctrl -r :ACTIVE: -b remove,maximized_horz"
+    fi
+    $RESTORE && wmctrl -r :ACTIVE: -e 0,"$Xpos","$Ypos","$initial_width","$initial_height"
+    remove_geometry
+}
+
+function remove_geometry(){
+    geom=(_MONITORS _SNAPPED _INITIAL_DIMENSION_X _INITIAL_DIMENSION_Y \
+    _INITIAL_DIMENSION_WIDTH _INITIAL_DIMENSION_HEIGHT \
+    _OFFSET_X _OFFSET_Y \
+    _OB_BORDER_L _OB_BORDER_R _OB_BORDER_T _OB_BORDER_B \
+    _OB_MARGIN_L _OB_MARGIN_R _OB_MARGIN_T _OB_MARGIN_B)
+
+    for g in ${geom[@]};do
+        xprop -id $WINDOW -remove $g
+    done
+}
+
+function snap(){
+    case "$1" in
+        "--left"  ) snap_left $MARGIN
+                    ;;
+        "--right" ) snap_right $MARGIN
+                    ;;
+        "--top"   ) snap_top $MARGIN
+                    ;;
+        "--bottom") snap_bottom $MARGIN
+                    ;;
+                * ) echo "Unknown parameter" 2>&1
+                    exit 1
+                    ;;
+    esac
+}
+
+function snap_left(){
+    if (( $1 != 0 ));then
+        if (( $1 <= $OB_border_left ));then
+            XPOS=$(( $OB_border_left + $X_zero ))   # don't need OB margin
+        else
+            XPOS=$(( $1 + $OB_border_left + $X_zero ))
+        fi
+    else
+        XPOS=$(( $OB_margin_left + $X_zero ))       # add OB margin
+    fi
+    WIN_WIDTH_L=$(( ($screenW / 2) - $XPOS - $adjust_X + $X_zero ))
+    # Move window
+    wmctrl -r :ACTIVE: -b add,maximized_vert && \
+    wmctrl -r :ACTIVE: -b remove,maximized_horz && \
+    wmctrl -r :ACTIVE: -e 0,$XPOS,0,"$WIN_WIDTH_L",-1
+}
+
+function snap_right(){
+    if (( $1 != 0 ));then
+        if (( $1 <= $OB_border_right ));then
+            MARGIN_R="$OB_border_right"      # don't need OB margin
+        else
+            MARGIN_R=$(( $1 + $OB_border_right ))
+        fi
+    else
+        MARGIN_R="$OB_margin_right"         # add OB margin to right edge
+    fi
+    XPOS=$((( $screenW / 2 ) + $X_zero ))
+    WIN_WIDTH_R=$(( ($screenW / 2) - $MARGIN_R - $adjust_X ))
+    # Move window
+    wmctrl -r :ACTIVE: -b add,maximized_vert && \
+    wmctrl -r :ACTIVE: -b remove,maximized_horz && \
+    wmctrl -r :ACTIVE: -e 0,"$XPOS",0,"$WIN_WIDTH_R",-1
+}
+
+function snap_top(){
+    MARGIN_T=$(( $1 + OB_margin_top ))
+    YPOS=$(( $valY + $MARGIN_T ))
+    WIN_HEIGHT_T=$(( ($valH/2) - $OB_border_top - $OB_border_bottom - $MARGIN_T ))
+    # Move window
+    wmctrl -r :ACTIVE: -b remove,maximized_vert && \
+    wmctrl -r :ACTIVE: -b add,maximized_horz && \
+    wmctrl -r :ACTIVE: -e 0,-1,"$YPOS",-1,"$WIN_HEIGHT_T"
+}
+
+function snap_bottom(){
+    MARGIN_B=$(( $1 + OB_margin_bottom ))
+    WIN_HEIGHT_B=$(( ($valH/2) - $OB_border_top - $OB_border_bottom - $MARGIN_B ))
+    YPOS=$(( $valH/2 + $valY ))
+    # Move window
+    wmctrl -r :ACTIVE: -b remove,maximized_vert && \
+    wmctrl -r :ACTIVE: -b add,maximized_horz && \
+    wmctrl -r :ACTIVE: -e 0,-1,"$YPOS",-1,"$WIN_HEIGHT_B"
+}
+####    END FUNCTIONS   ################################################
+
+if [[ $1 = "--help" ]] || [[ ! $@ ]];then
+    echo "$USAGE"
+    echo
+    exit
+fi
+if [[ $2 ]];then
+    MARGIN=$2
+else
+    MARGIN=0
+fi
+WINDOW=$(xdotool getactivewindow)
+#load_stored_geometry
+get_prop "_SNAPPED" "SNAP"      #      "Flag" for left/right snapped
+                                #      1: Window is snapped to LEFT
+                                #      2: Window is snapped to RIGHT
+                                #      3: Window is snapped to TOP
+                                #      4: Window is snapped to BOTTOM
+case $SNAP in
+    "such" | "found." )    # xprop returns 'such' or 'found.' upon error
+            count_monitors
+            store_geometry
+            get_screen_dimensions
+            get_prop "_OFFSET_X" "adjust_X"
+            get_prop "_OFFSET_Y" "adjust_Y"
+            get_prop "_OB_BORDER_L" "OB_border_left"
+            get_prop "_OB_BORDER_R" "OB_border_right"
+            get_prop "_OB_BORDER_T" "OB_border_top"
+            get_prop "_OB_BORDER_B" "OB_border_bottom"
+            get_prop "_OB_MARGIN_L" "OB_margin_left"
+            get_prop "_OB_MARGIN_R" "OB_margin_right"
+
+            case "$1" in
+                "--left"  ) snap_left $MARGIN
+                            ;;
+                "--right" ) snap_right $MARGIN
+                            ;;
+                "--top"   ) snap_top $MARGIN
+                            ;;
+                "--bottom") snap_bottom $MARGIN
+                            ;;
+                        * ) echo "Unknown parameter" 2>&1
+                            exit 1
+                            ;;
+            esac
+            set_prop_str "_SNAPPED" "$1"
+            ;;
+    "--left" | "--right" | "--top" | "--bottom" )
+            load_stored_geometry
+            get_screen_dimensions
+            if [[ $1 = $SNAP ]];then
+                restore_dimension_geometry
+            else
+                snap "$1"
+                set_prop_str "_SNAPPED" "$1"
+            fi
+            ;;
+esac

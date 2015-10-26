@@ -1,4 +1,5 @@
-<?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
+<?xml version="1.0"?>
+<openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -47,7 +48,7 @@
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Cuprum</name>
-      <size>11</size>
+      <size>13</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -56,7 +57,7 @@
     </font>
     <font place="InactiveWindow">
       <name>Cuprum</name>
-      <size>11</size>
+      <size>13</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -65,7 +66,7 @@
     </font>
     <font place="MenuHeader">
       <name>Cuprum</name>
-      <size>10</size>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -74,7 +75,7 @@
     </font>
     <font place="MenuItem">
       <name>Cuprum</name>
-      <size>11</size>
+      <size>12</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -83,13 +84,13 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>Cuprum</name>
-      <size>10</size>
+      <size>11</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Cuprum</name>
-      <size>10</size>
+      <size>11</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -266,6 +267,31 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    
+    <!-- added by bronto, winsnap is a bash script from Damo -->
+    
+    <keybind key="A-y">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Run Program</name>
+        </startupnotify>
+        <command>winsnap --left</command>
+      </action>
+    </keybind>
+    
+    <keybind key="A-x">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Run Program</name>
+        </startupnotify>
+        <command>winsnap --right</command>
+      </action>
+    </keybind>
+    
+    <!-- END added by bronto --> 
+
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
@@ -1044,12 +1070,19 @@
         <y>90</y>
       </position>
     </application>
-    
+    <application class="URxvt" name="rxvt-unicode" type="normal">
+      <decor>no</decor>
+      <shade>default</shade>
+      <position force="no">
+        <x>0</x>
+        <y>0</y>
+      </position>
+    </application>
     <application class="URxvt" name="urxvt" type="normal">
       <decor>no</decor>
       <position force="no">
-        <x>center</x>
-        <y>20</y>
+        <x>0</x>
+        <y>0</y>
       </position>
     </application>
   </applications>
