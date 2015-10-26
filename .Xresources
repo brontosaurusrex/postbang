@@ -2,7 +2,13 @@
 *.boldFont:	    -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
 ! add extensions here
-URxvt.perl-ext-common:  default,matcher,font-size
+URxvt.perl-ext-common:  default,matcher,font-size,tabbed
+
+! tabbed colors
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
 
 ! url matcher extension
 URxvt*matcher.button:       1 
@@ -78,6 +84,8 @@ URxvt.iso14755:         false
 URxvt.iso14755_52:      false
 
 ! experiments
+
+
 
 ! dkeg something
 ! special
