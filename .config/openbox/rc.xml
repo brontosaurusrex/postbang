@@ -267,30 +267,6 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    
-    <!-- added by bronto, winsnap is a bash script from Damo -->
-    
-    <keybind key="A-y">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Run Program</name>
-        </startupnotify>
-        <command>winsnap --left</command>
-      </action>
-    </keybind>
-    
-    <keybind key="A-x">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Run Program</name>
-        </startupnotify>
-        <command>winsnap --right</command>
-      </action>
-    </keybind>
-    
-    <!-- END added by bronto --> 
 
     <keybind key="A-F2">
       <action name="Execute">
@@ -624,6 +600,48 @@
       </keybind>
       <!-- other keychains to manage windows -->
     </keybind>
+    
+      <!-- and duplicated with different keybindings - ALT + y,x,c,v -->
+      <!-- left side -->
+      <keybind key="A-y">
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo">
+          <x>0%</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>96%</height>
+        </action>
+      </keybind>
+      <!-- right side -->
+      <keybind key="A-x">
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo">
+          <x>50%</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>96%</height>
+        </action>
+      </keybind>
+      <!-- just center x -->
+      <keybind key="A-c">
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo">
+          <x>center</x>
+        </action>
+      </keybind>
+      <!-- full width -->
+      <keybind key="A-v">
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo">
+          <x>0</x>
+          <y>0</y>
+          <width>100%</width>
+          <height>96%</height>
+        </action>
+      </keybind>
+
+    
+    
     <!-- brontosaurusrex end -->
   </keyboard>
   <mouse>
