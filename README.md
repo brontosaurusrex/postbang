@@ -595,7 +595,7 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     f2      gmrun
     
     super + a + 1,2,7,enter     windows move around (a lot more in rc.xml)
-    alt + y,x,c,v               duplicated for most used actions (left, right, center, fullwidth/height)
+    super + y,x,c,b             duplicated for most used actions (left, right, center, fullwidth/height)
     
     +-------------+  +-------------+  +-------------+  +-------------+
     |------|      |  |      |------|  |   |-----|   |  |-------------|
@@ -603,6 +603,12 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     |------|      |  |      |------|  |   |-----|   |  |-------------|
     +-------------+  +-------------+  +-------------+  +-------------+
     left             right            center           fullwidth
+    
+### OSX as guest, or how to use left cmd as super
+
+preferences/input/Virtual Machine/Host Key Combination < change this to Right cmd
+
+<a href="http://shrani.si/f/23/Yj/3dibjEKn/keys.png"><img src="http://shrani.si/t/23/Yj/3dibjEKn/keys.jpg" style="border: 0px;" alt="keys"/></a>
 
 ## Darth Vader breathing, login sound
 
