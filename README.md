@@ -596,6 +596,13 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     
     super + a + 1,2,7,enter     windows move around (a lot more in rc.xml)
     alt + y,x,c,v               duplicated for most used actions (left, right, center, fullwidth/height)
+    
+    +-------------+  +-------------+  +-------------+  +-------------+
+    |------|      |  |      |------|  |   |-----|   |  |-------------|
+    |------|      |  |      |------|  |   |-----|   |  |-------------|
+    |------|      |  |      |------|  |   |-----|   |  |-------------|
+    +-------------+  +-------------+  +-------------+  +-------------+
+    left             right            center           fullwidth
 
 ## Darth Vader breathing, login sound
 
