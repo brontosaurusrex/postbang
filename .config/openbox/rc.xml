@@ -603,7 +603,7 @@
     
       <!-- and duplicated with different keybindings - ALT + y,x,c,v -->
       <!-- left side -->
-      <keybind key="W-y">
+      <keybind key="A-y">
         <action name="UnmaximizeFull"/>
         <action name="MoveResizeTo">
           <x>0%</x>
@@ -613,7 +613,7 @@
         </action>
       </keybind>
       <!-- right side -->
-      <keybind key="W-x">
+      <keybind key="A-x">
         <action name="UnmaximizeFull"/>
         <action name="MoveResizeTo">
           <x>50%</x>
@@ -623,14 +623,14 @@
         </action>
       </keybind>
       <!-- just center x -->
-      <keybind key="W-c">
+      <keybind key="A-c">
         <action name="UnmaximizeFull"/>
         <action name="MoveResizeTo">
           <x>center</x>
         </action>
       </keybind>
       <!-- full width -->
-      <keybind key="W-b">
+      <keybind key="A-v">
         <action name="UnmaximizeFull"/>
         <action name="MoveResizeTo">
           <x>0</x>
