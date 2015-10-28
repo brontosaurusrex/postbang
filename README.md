@@ -4,10 +4,6 @@ Manual approach to post-banging the Debian Jessie, work in progress
 
 Attention: This is brainstorming and execution in single step, so consider this document experimental.
 
-## brought to You by
-
-<img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/logos/logoPost.png">
-
 ## install Debian Jessie
 
 Base is what we want and nothing else
@@ -902,3 +898,7 @@ Table of Contents
       * [asus eee](#asus-eee)
 
 TOC created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+
+## brought to You by
+
+<img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/logos/logoPost.png">
