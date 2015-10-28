@@ -4,7 +4,7 @@ Manual approach to post-banging the Debian Jessie, work in progress
 
 Attention: This is brainstorming and execution in single step, so consider this document experimental.
 
-## Brought to You by
+## brought to You by
 
 <img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/logos/logoPost.png">
 
