@@ -1,0 +1,128 @@
+#!/bin/bash
+
+# flac2mp3 (based on flac2opus)
+# brontosaurusrex 2015
+
+# Usage examples
+
+# Simple:
+# ...........................................
+# flac2mp3 *.flac
+# parallel --gnu flac2mp3 {} ::: *.flac
+
+# With find:
+# ...........................................
+# If the symlinks are in question (cp -rs flacs /destination/), you could call this script:
+# find . -lname "*.flac" -exec flac2mp3 {} \+
+# or with parallel
+# find . -lname "*.flac" | parallel --gnu flac2mp3 {}
+
+# Or if the files are to be found
+# find . -type f -iname "*.flac" -exec flac2mp3 {} \+
+# or with parallel
+# find . -type f -iname "*.flac" | parallel --gnu flac2mp3 {}
+
+# note: Using parallel (apt-get install parallel) will give enormous encoding speed boost. 
+
+command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
+command -v flac      >/dev/null 2>&1 || { echo "I need flac installed." ; exit 1; }
+command -v metaflac  >/dev/null 2>&1 || { echo "metaflac not found - I need flac installed." ; exit 1; }
+command -v lame      >/dev/null 2>&1 || { echo "I need lame installed." ; exit 1; }
+
+# temp_dir http://mywiki.wooledge.org/BashFAQ/062
+   	temp_dir=/tmp/$RANDOM-$$
+   	trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+   	mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
+
+
+# functions
+
+# encode, decode flac to tmp wav, lame to mp3 - inject tags, done.
+
+function encode() { # put your encoding settings here
+    
+             #   ffmpeg_static -hide_banner -loglevel quiet -i "$expanded" -vn -y -codec:a libmp3lame -q:a 3 "$dir/$base.mp3" 
+                
+	# extract the tags from the flac file
+	for tag in TITLE ARTIST ALBUM DATE COMMENT TRACKNUMBER TRACKTOTAL GENRE; do
+		eval "$tag=\"`metaflac --show-tag=$tag "$expanded" | sed 's/.*=//'`\""
+	done
+
+	# start the conversion and include the extracted tags
+	flac -d -f --decode-through-errors "$expanded" -o "$temp_dir/$base.wav"
+    
+    # encode with lame
+    lame -V 3 --tt "$TITLE" --ta "$ARTIST" --tl "$ALBUM" --ty "$DATE" --tc "$COMMENT" --tn "$TRACKNUMBER" --tg "$GENRE" "$temp_dir/$base.wav" "$dir/$base.mp3"
+    
+    # or you could pipe directly, if you don't care about the pretty lame bitrate graph
+    # flac -cd -f --decode-through-errors "$expanded" | lame -V 3 --tt "$TITLE" --ta "$ARTIST" --tl "$ALBUM" --ty "$DATE" --tc "$COMMENT" --tn "$TRACKNUMBER" --tg "$GENRE" - "$dir/$base.mp3"
+
+}
+
+# http://wiki.hydrogenaud.io/index.php?title=Lame#Very_high_quality:_HiFi.2C_home.2C_or_quiet_listening.2C_with_best_file_size
+
+
+absdiff() { 
+                echo -n "$(( (a<b) ? b-a : a-b ))" 
+}
+# end functions
+
+
+while [ $# -gt 0 ]; do
+  
+    expanded=$(readlink -f "$1")
+    # echo ".............................."
+    echo "$expanded"
+    
+    base=$(basename "${1}")     # basename, like                file.flac
+    base="${base%.*}"           # basename without extension    file
+    dir=$(dirname "${1}")       # directory
+    
+
+        # Do some checks first
+        if [ -f "$dir/$base.mp3" ]
+        then # mp3 file in existance, do some duration checking
+            echo "    the file exists, checking if source and mp3 durations match"
+        
+                # mediainfo "--Inform=General;%Duration%"
+                
+                a=$(mediainfo "--Inform=General;%Duration%" "$expanded")
+                b=$(mediainfo "--Inform=General;%Duration%" "$dir/$base.mp3")
+                
+                if [[ "$a" == "$b" ]]
+       
+                then
+                    echo "    yes, durations match exactly, skipping" # This will probably never happen
+                else
+                    echo "    no, durations does not match exactly" 
+                    
+                    # echo "$a" "$b"
+                    echo -n "    "
+                    absdiff "$a" "$b"
+                    echo -n "ms difference"
+                        
+                        # this 200 is just some value in miliseconds = max difference allowed,
+                        # if samplerate is 48 kHz, then it equals to 200x48=9600 samples
+                        # 36 ms seems to be the constant in this specific case (unknown reasons)
+                        
+                        if (( $(absdiff "$a" "$b") < 200 )) 
+                        then
+                            echo " = still ok (200 ms is max allowed)"
+                        else
+                            encode
+                        fi
+                fi
+            
+            
+        else # the mp3 file does not exist yet
+            encode
+        fi
+   
+   
+       
+   
+    shift
+    
+
+    
+done
