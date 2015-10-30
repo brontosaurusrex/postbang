@@ -38,6 +38,11 @@
 			</action>
 		</item>
 		<separator/>
+		<item label="gimp-dev">
+			<action name="Execute">
+				<execute>/home/ticho/.gimp-dev/bin/gimp-2.9</execute>
+			</action>
+		</item>
 		<item label="inkscape">
 			<action name="Execute">
 				<execute>inkscape</execute>
