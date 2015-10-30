@@ -560,6 +560,8 @@ You will probably want to install some custom icon theme for gimp, like
 
 <a href="http://shrani.si/f/U/E6/4JbrV9sC/gimp.png"><img src="http://shrani.si/t/U/E6/4JbrV9sC/gimp.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+Note: A nice script to compile the latest version of gimp:
+<https://forums.bunsenlabs.org/viewtopic.php?id=446>
 
 ## utility
 
