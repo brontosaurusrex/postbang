@@ -5,6 +5,11 @@
 command -v xml2 >/dev/null 2>&1 || { echo "I need xml2 installed." ; exit 1; }
 command -v zip >/dev/null 2>&1 || { echo "I need zip installed." ; exit 1; }
 
+# define web location here, must be fullpath to be used with crontab !
+webdir="/home/ticho/spored/"
+
+# example crontab (will update every 2 minutes)
+# */2 * * * * ~/bin/sporedUgly >/tmp/stdout.log 2>/tmp/stderr.log
 
 # temp_dir http://mywiki.wooledge.org/BashFAQ/062
    	temp_dir=/tmp/$RANDOM-$$
@@ -44,7 +49,7 @@ date '+%A %-d.%m.%Y %H:%M' >> "$temp_dir/spored.txt"
 for file in "$temp_dir/TVS1/"*
 do
 
-    echo -n "$file"
+    echo -n "$file "
     basefile=$(basename "${file}")
     echo "$basefile"
     
@@ -60,7 +65,7 @@ done
 for file in "$temp_dir/TVS2/"*
 do
 
-    echo -n "$file"
+    echo -n "$file "
     basefile=$(basename "${file}")
     echo "$basefile"
     
@@ -101,9 +106,6 @@ zip "$temp_dir/spored.zip" "$temp_dir/spored.txt"
 
 
 # here would move "$temp_dir/spored.zip" and "$temp_dir/spored.txt" to some intraner/web accessible location
-
-webdir="$HOME/spored/" # < define web location here !
-
 
 
 if [  -d "$webdir" ]
