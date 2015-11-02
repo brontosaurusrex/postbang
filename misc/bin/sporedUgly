@@ -1,0 +1,129 @@
+#!/bin/bash
+
+# set -o verbose
+
+command -v xml2 >/dev/null 2>&1 || { echo "I need xml2 installed." ; exit 1; }
+command -v zip >/dev/null 2>&1 || { echo "I need zip installed." ; exit 1; }
+
+
+# temp_dir http://mywiki.wooledge.org/BashFAQ/062
+   	temp_dir=/tmp/$RANDOM-$$
+   	trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+   	mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
+
+# download main links
+wget -P "$temp_dir" http://api.rtvslo.si/spored/listProvys
+
+if [  ! -f "$temp_dir/listProvys" ]
+then
+echo "download failed or some other problem, listProvys does not exists, exiting."
+EXIT
+else
+echo "ok"
+fi
+
+mkdir "$temp_dir/TVS1"
+mkdir "$temp_dir/TVS2"
+mkdir "$temp_dir/TVS3"
+
+# download all TVS1, TVS2, ect
+xml2 < "$temp_dir/listProvys" | grep TVS1 | grep -o 'http://[^"]*' | wget -i - -P "$temp_dir/TVS1" 
+xml2 < "$temp_dir/listProvys" | grep TVS2 | grep -o 'http://[^"]*' | wget -i - -P "$temp_dir/TVS2" 
+xml2 < "$temp_dir/listProvys" | grep TVS3 | grep -o 'http://[^"]*' | wget -i - -P "$temp_dir/TVS3" 
+
+
+
+
+echo
+
+echo -n "spored: TVS1,2,3, vir: api.rtvslo.si/spored/listProvys, posodobljeno: " >> "$temp_dir/spored.txt"
+date '+%A %-d.%m.%Y %H:%M' >> "$temp_dir/spored.txt"
+
+
+
+for file in "$temp_dir/TVS1/"*
+do
+
+    echo -n "$file"
+    basefile=$(basename "${file}")
+    echo "$basefile"
+    
+    humandate="$(date '+%A %-d.%m.%Y' -d "$basefile")"
+    
+    cat ~/source/postbang/brontoLogo.txt >> "$temp_dir/spored.txt"
+    echo "TVS1 $humandate" >> "$temp_dir/spored.txt"
+    xml2 < "$file" | sed 's/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME\///g' | sed "s/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME/\nTVS1 $humandate/g" \
+    >> "$temp_dir/spored.txt"
+
+done
+
+for file in "$temp_dir/TVS2/"*
+do
+
+    echo -n "$file"
+    basefile=$(basename "${file}")
+    echo "$basefile"
+    
+    humandate="$(date '+%A %-d.%m.%Y' -d "$basefile")"
+    
+    cat ~/source/postbang/brontoLogo.txt >> "$temp_dir/spored.txt"
+    echo "TVS2 $humandate" >> "$temp_dir/spored.txt"
+    xml2 < "$file" | sed 's/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME\///g' | sed "s/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME/\nTVS2 $humandate/g" \
+    >> "$temp_dir/spored.txt"
+
+done
+
+for file in "$temp_dir/TVS3/"*
+do
+
+    echo -n "$file "
+    basefile=$(basename "${file}")
+    echo "$basefile"
+    
+    humandate="$(date '+%A %-d.%m.%Y' -d "$basefile")"
+    
+    cat ~/source/postbang/brontoLogo.txt >> "$temp_dir/spored.txt"
+    echo "TVS3 $humandate" >> "$temp_dir/spored.txt"
+    xml2 < "$file" | sed 's/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME\///g' | sed "s/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME/\nTVS3 $humandate/g" \
+    >> "$temp_dir/spored.txt"
+
+done
+
+# additional filtering
+
+grep -v "\*\*\*\*\*" "$temp_dir/spored.txt" | grep -v "REPLAYOF\/CHANNEL_SHORT" > "$temp_dir/sporedFiltered.txt"
+
+rm "$temp_dir/spored.txt" && mv "$temp_dir/sporedFiltered.txt" "$temp_dir/spored.txt"
+
+
+zip "$temp_dir/spored.zip" "$temp_dir/spored.txt"
+
+
+
+# here would move "$temp_dir/spored.zip" and "$temp_dir/spored.txt" to some intraner/web accessible location
+
+webdir="$HOME/spored/" # < define web location here !
+
+
+
+if [  -d "$webdir" ]
+then
+
+echo "$webdir exists"
+
+cp -b "$temp_dir/spored.zip" "$webdir"
+cp -b "$temp_dir/spored.txt" "$webdir"
+
+
+fi
+
+
+
+# convert each to something more readable
+# xml2 < 2015-10-30 | sed 's/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME//g'    < remove the begginings
+# xml2 < 2015-10-30 | sed 's/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME//g' | grep -v "\*\*\*\*\*"   < and all ***** lines
+# xml2 < 2015-10-30 | sed 's/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME\///g' | sed "s/\/TX_SCHEDULES\/TXSCHED\/PROGRAMMES\/PROGRAMME/\nTVS1 $humandate/g" | grep -v "\*\*\*\*\*" | grep -v "\/REPLAYOF\/CHANNEL_SHORT" 
+
+
+echo
+#read -rsp $'Press any key to continue...\n' -n1 key
