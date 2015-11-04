@@ -1,0 +1,14 @@
+#!/bin/bash
+
+unset -v oldest
+# for file in "$dir"/*; do
+
+
+for file in "."/*; do
+  [[ -z $oldest || $file -ot $oldest ]] && oldest=$file
+done
+
+echo "$oldest"
+
+
+
