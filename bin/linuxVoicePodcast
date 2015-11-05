@@ -1,0 +1,2 @@
+# linux voice podcast
+mpv $(wget -qO- http://www.linuxvoice.com/podcast_ogg.rss | xml2 | grep -m 1 '.ogg$' | cut -d "=" -f 2)
