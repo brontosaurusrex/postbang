@@ -10,4 +10,6 @@ mpv $(wget -qO- http://www.linuxvoice.com/podcast_ogg.rss | xml2 | grep -m 1 '.o
 # - find first occurrence of line that ends with exactly only .ogg  < grep
 # - get me the 2nd field if delimiter is "=" < cut ( or you could use:  grep -o 'http://[^"]*' )
 
+# To download last 3 episodes to ~/tmp
+# wget -qO- http://www.linuxvoice.com/podcast_ogg.rss | xml2  | grep '.ogg$' | grep -o 'http://[^"]*' | head -n 3 | wget -i - -P ~/tmp/
 
