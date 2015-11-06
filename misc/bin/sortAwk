@@ -1,0 +1,15 @@
+#!/usr/bin/awk -f
+BEGIN { FS = "=" }
+
+/^@SORT_NUMBER=/ { number[i] = $2 }
+!NF { i++; next }
+{ array[i] = array[i] $0 "\n" }
+
+function cmp(i1, v1, i2, v2) {
+  return number[i1] - number[i2]
+}
+
+END {
+  asort(array, out, "cmp")
+  for (j = 0; j <= i; j++) print out[j]
+}
