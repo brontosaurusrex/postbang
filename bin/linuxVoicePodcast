@@ -1,2 +1,13 @@
+#!/bin/bash
+
 # linux voice podcast
 mpv $(wget -qO- http://www.linuxvoice.com/podcast_ogg.rss | xml2 | grep -m 1 '.ogg$' | cut -d "=" -f 2)
+
+
+# breakdown:
+# - get xml < wget
+# - convert to something easier for line tools < xml2
+# - find first occurrence of line that ends with exactly only .ogg  < grep
+# - get me the 2nd field if delimiter is "=" < cut ( or you could use:  grep -o 'http://[^"]*' )
+
+
