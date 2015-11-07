@@ -5,7 +5,7 @@
 # set -o verbose
 
 command -v xml2 >/dev/null 2>&1 || { echo "I need xml2 installed." ; exit 1; }
-command -v zip >/dev/null 2>&1 || { echo "I need zip installed." ; exit 1; }
+# command -v zip >/dev/null 2>&1 || { echo "I need zip installed." ; exit 1; }
 command -v sortAwk >/dev/null 2>&1 || { echo "I need sortAwk custom script on path." ; exit 1; }
 
 # define web location here, must be fullpath to be used with crontab ?
@@ -178,7 +178,7 @@ grep -v "\*\*\*\*\*" "$temp_dir/spored.txt" | grep -v "REPLAYOF\/CHANNEL_SHORT" 
 
 rm "$temp_dir/spored.txt" && mv "$temp_dir/sporedFiltered.txt" "$temp_dir/spored.txt"
 
-zip -j -9 "$temp_dir/spored.zip" "$temp_dir/spored.txt" # -j stands for removing dir structure
+# zip -j -9 "$temp_dir/spored.zip" "$temp_dir/spored.txt" # -j stands for removing dir structure
 
 
 
@@ -189,7 +189,7 @@ then
 
 echo "$webdir exists"
 
-cp -b "$temp_dir/spored.zip" "$webdir"
+# cp -b "$temp_dir/spored.zip" "$webdir"
 cp -b "$temp_dir/spored.txt" "$webdir"
 
 
