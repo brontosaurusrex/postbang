@@ -1082,21 +1082,9 @@
         <y>90</y>
       </position>
     </application>
-    <application class="URxvt" name="rxvt-unicode" type="normal">
-      <decor>no</decor>
-      <shade>default</shade>
-      <position force="no">
-        <x>0</x>
-        <y>0</y>
-      </position>
-    </application>
-    <application class="URxvt" name="urxvt" type="normal">
-      <decor>no</decor>
-      <position force="no">
-        <x>0</x>
-        <y>0</y>
-      </position>
-    </application>
+    
+    
   <application class="mpv" name="x11" type="normal"><decor>no</decor></application>
+<application class="URxvt" name="urxvt" type="normal"><decor>no</decor></application>
 </applications>
 </openbox_config>
