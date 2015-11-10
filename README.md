@@ -580,13 +580,12 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
 ## Some hotkeys
 
     super + (super is right cmd on osx)
-    t       terminator
+    t       terminal
     w       browser
     f       file manager
     e       text editor
     v       alsamixer
     m       toggle mute
-    n       xfce4-appfinder
     s       toggle show desktop
     space   obmenu  
     tab     combined-menu
