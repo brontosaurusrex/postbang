@@ -607,14 +607,12 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
 ### urxvt related 
     
     font-size extension (see ~./Xresources)
-    
     alt +
     up      increase font size
     down    decrease font size
     left    reset font size
     
-    tabbed extension (defaults)
-    
+    tabbed extension (defaults)    
     shift+
     down    new tab
     left    go to left tab
