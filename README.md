@@ -604,6 +604,28 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     +-------------+  +-------------+  +-------------+  +-------------+
     left             right            center           fullwidth
     
+### urxvt related 
+    
+    font-size extension (see ~./Xresources)
+    
+    alt +
+    up      increase font size
+    down    decrease font size
+    left    reset font size
+    
+    tabbed extension (defaults)
+    
+    shift+
+    down    new tab
+    left    go to left tab
+    right   go to right tab
+    
+    ctrl+
+    left    move tab to the left
+    right   move tab to the right
+    d       close tab 
+    
+    
 ### OSX as host, or how to use left cmd as super
 
 VirtualBox/preferences/input/Virtual Machine/Host Key Combination < change this to Right cmd

@@ -68,12 +68,12 @@ Xft.rgba:               rgb
 Xft.lcdfilter:          lcddefault
 
 ! font size perl extension 
-URxvt.keysym.C-Up:      perl:font-size:increase
-URxvt.keysym.C-Down:    perl:font-size:decrease
-URxvt.keysym.C-S-Up:    perl:font-size:incglobal
-URxvt.keysym.C-S-Down:  perl:font-size:decglobal
+URxvt.keysym.A-Up:      perl:font-size:increase
+URxvt.keysym.A-Down:    perl:font-size:decrease
+URxvt.keysym.A-S-Up:    perl:font-size:incglobal
+URxvt.keysym.A-S-Down:  perl:font-size:decglobal
 
-URxvt.keysym.C-Left:    perl:font-size:reset
+URxvt.keysym.A-Left:    perl:font-size:reset
 
 ! adding stuff for dwm and urxvt
 URxvt.internalBorder:  40
