@@ -2,27 +2,27 @@ i: /usr/share/pixmaps/wbar/dock.png
 c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idist 1 --zoomf 1.100000 --balfa 0 --falfa 80
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
-i: /home/ticho/source/postbang/images/term.png
+i: /home/ticho/source/postbang/images/wbar/black/term.png
 c: urxvt
 t: Terminal
 
-i: /home/ticho/source/postbang/images/thunar.png
+i: /home/ticho/source/postbang/images/wbar/black/thunar.png
 c: thunar
 t: thunar
 
-i: /home/ticho/source/postbang/images/geany.png
+i: /home/ticho/source/postbang/images/wbar/black/geany.png
 c: geany
 t: geany
 
-i: /home/ticho/source/postbang/images/blender.png
+i: /home/ticho/source/postbang/images/wbar/black/blender.png
 c: /home/ticho/apps/blender/blender
 t: blender
 
-i: /home/ticho/source/postbang/images/firefox.png
+i: /home/ticho/source/postbang/images/wbar/black/firefox.png
 c: iceweasel
 t: iceweasel
 
-i: /home/ticho/source/postbang/images/calc.png
+i: /home/ticho/source/postbang/images/wbar/black/calc.png
 c: galculator
 t: calc
 

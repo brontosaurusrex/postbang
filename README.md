@@ -370,8 +370,9 @@ then
 
     cp ~/source/postbang/.gtkrc-2* ~
 
-p.s. another nice icon set:
+p.s. some other interesting sets:
 <http://pobtott.deviantart.com/art/Any-Color-You-Like-175624910>
+<https://github.com/varlesh/papirus-pack-kde>
 
 
 ### themes
