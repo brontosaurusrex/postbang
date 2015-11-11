@@ -44,7 +44,7 @@ URxvt*fading:		    0
 URxvt.tintColor:        gray
 *.fadeColor:	        #252525
 *.borderless:	        true 
-*.geometry:             100x20 
+*.geometry:             130x40 
 
 Urxvt*termName:         rxvt-unicode-256color
 Urxvt*allow_bold:       false 
