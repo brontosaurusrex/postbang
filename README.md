@@ -764,6 +764,7 @@ sudo
 notes:
 - you will probably want to start this via openbox/autostart with some delay, so remember to remove /etc/xdg/autostart/wbar.desktop
 - wbar does not autohide and will not take place on desktop < fix it with some openbox margins (bottom in this case)
+- wbar does not behave very friendly in multi-monitor enviroments.
 
 bronto-moded .wbar should be in this gits root.
 
