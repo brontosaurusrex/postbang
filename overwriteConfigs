@@ -1,35 +1,43 @@
 #!/bin/bash
 
 set -e
-set -x # verbosity
 
-cd ~/source/postbang # < set this to the place where root postbang source git is
+# config
+srcdir="$HOME/source/postbang" # < set this to the place where root postbang source git is
+
+# main
+if [  ! -d "$srcdir" ]
+then
+echo "$srcdir not found, exiting." ; exit
+else
+cd "$srcdir" 
+fi
 
 git pull
 
-cp -rb .config/* ~/.config/
-cp -rb .icons/* ~/.icons/
-cp -rb .themes/* ~/.themes/
+cp -vurb .config/* ~/.config/
+cp -vurb .icons/* ~/.icons/
+cp -vurb .themes/* ~/.themes/
 
-cp -rb .urxvt/* ~/.urxvt/
+cp -vurb .urxvt/* ~/.urxvt/
 
-cp -rb bin/* ~/bin/
+cp -vurb bin/* ~/bin/
 
-cp -b .bashrc ~
-cp -b .bash_aliases ~
-cp -b .conkyrc ~
-cp -b .conkyrcdwm ~
-cp -b .gtkrc-2.0* ~
-cp -b .Xresources ~
-cp -b .profile ~
-cp -b .xsessionrc ~
-cp -b .tmux* ~
-cp -b .wbar ~
+cp -vub .bashrc ~
+cp -vub .bash_aliases ~
+cp -vub .conkyrc ~
+cp -vub .conkyrcdwm ~
+cp -vub .gtkrc-2.0* ~
+cp -vub .Xresources ~
+cp -vub .profile ~
+cp -vub .xsessionrc ~
+cp -vub .tmux* ~
+cp -vub .wbar ~
 
+# sudo here
+# set +x # verbosity off
 
 echo
-echo
-echo "65% stupid, run at your own risk from now on:"
+echo "65% stupid, run at your own risk from now on"
 
-set -x # verbosity
-sudo cp -rb usr/* /usr/ 
+sudo cp -vurb usr/* /usr/ 

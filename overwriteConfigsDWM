@@ -1,9 +1,17 @@
 #!/bin/bash
 
 set -e
-set -x # verbosity
 
-cd ~/source/postbang # < set this to the place where root postbang source git is
+# config
+srcdir="$HOME/source/postbang" # < set this to the place where root postbang source git is
+
+# main
+if [  ! -d "$srcdir" ]
+then
+echo "$srcdir not found, exiting." ; exit
+else
+cd "$srcdir" 
+fi
 
 git pull
 
@@ -11,19 +19,19 @@ git pull
 
 cd dwm2015
 
-[[ -d "$HOME/source/dwm" ]]     &&  cp dwm/config.h ~/source/dwm/
+# config2, assuming your dwm and dmenu sources are in ~/dwm and ~/dmenu here, change as needed
 
-[[ -d "$HOME/source/dmenu" ]]   &&  cp dmenu/config.h ~/source/dmenu/
+[[ -d "$HOME/source/dwm" ]]     &&  cp -vurb dwm/config.h ~/source/dwm/
+
+[[ -d "$HOME/source/dmenu" ]]   &&  cp -vurb dmenu/config.h ~/source/dmenu/
  
 # sudo here
+# set +x # verbosity off
 
-set +x # verbosity off
 echo
-echo
-echo "65% stupid, run at your own risk from now on:"
+echo "65% stupid, run at your own risk from now on"
 
-set -x # verbosity
-sudo cp -rb usr/* /usr/ 
+sudo cp -vurb usr/* /usr/ 
 
 
 
