@@ -15,6 +15,10 @@ fi
 
 git pull
 
+# the "cp -u" switch will
+# copy only when the SOURCE file is newer than the destination file or when the destination file is missing.
+# which may or may not be what you want.
+
 cp -vurb .config/* ~/.config/
 cp -vurb .icons/* ~/.icons/
 cp -vurb .themes/* ~/.themes/

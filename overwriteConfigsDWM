@@ -21,6 +21,10 @@ cd dwm2015
 
 # config2, assuming your dwm and dmenu sources are in ~/dwm and ~/dmenu here, change as needed
 
+# the "cp -u" switch will
+# copy only when the SOURCE file is newer than the destination file or when the destination file is missing.
+# which may or may not be what you want.
+
 [[ -d "$HOME/source/dwm" ]]     &&  cp -vurb dwm/config.h ~/source/dwm/
 
 [[ -d "$HOME/source/dmenu" ]]   &&  cp -vurb dmenu/config.h ~/source/dmenu/
