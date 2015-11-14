@@ -371,7 +371,7 @@ then
     cp ~/source/postbang/.gtkrc-2* ~
 
 p.s. some other interesting icon sets:  
-<http://pobtott.deviantart.com/art/Any-Color-You-Like-175624910>
+<http://pobtott.deviantart.com/art/Any-Color-You-Like-175624910>  
 <https://github.com/varlesh/papirus-pack-kde>
 
 
@@ -397,7 +397,7 @@ logout, login and it could look like this:
 
 p.s. some other interesting themes:
 https://github.com/horst3180/Arc-theme
-(Combination of 'Arc' for gtk and 'Bang Dark Green Bronto' for openbox is used by default here)
+(Combination of 'Arc' for gtk and 'Bang Dark Green Bronto' for openbox is used by default here)  
 <a href="http://shrani.si/f/D/6Y/1O2xtgRS/arcbang.png"><img src="http://shrani.si/t/D/6Y/1O2xtgRS/arcbang.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
 ### some more fonts and gdebi
