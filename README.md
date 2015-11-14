@@ -379,8 +379,8 @@ p.s. some other interesting icon sets:
 
     cd
     mkdir .themes
-    cp -r ~/source/postbang/.themes/FlatStudioLightBronto ~/.themes
-    cp -r ~/source/postbang/.themes/FlatStudioBrontoMod/ ~/.themes
+    cd .themes
+    cp -r ~/source/postbang/.themes/* .
 
 sudo
 
