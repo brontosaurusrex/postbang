@@ -1,0 +1,27 @@
+echo -e {"iceweasel\nxclock\nxeyes\nxfontsel"} | dzen2 -l 4 -m h -fn "Cuprum" -p 
+
+echo -e "iceweasel\nxclock\nxeyes\nxfontsel" | dzen2 -l 4 -m h -fn "Cuprum" -w 400 -p
+
+echo -e {"iceweasel\nxclock\nxeyes\nxfontsel"} | dzen2 -l 4 -m h -fn "Cuprum" -p
+
+{echo Menu; echo -e "urxvt\Thunar\geany\iceweasel"} | dzen2 -l 4 -m h -p
+
+{echo Menu; echo -e "xterm\nxclock\nxeyes\nxfontsel"} | dzen2 -l 4 -m h -p
+
+
+
+Vertical menu, both invocations are equivalent:
+    dzen2 -p -l 4 -m < file
+    dzen2 -p -l 4 -m v < file
+
+Horizontal menu:
+    dzen2 -p -l 4 -m h < file
+
+
+dzen2 -p -l 5 -m h -fn "Cuprum" < dzen2_menu.txt
+
+dzen2 -p -l 5 -m h -fn "Cuprum-11" -h 20 -w 400 -ta c -sa c -x 10 -y -30 < dzen2_menu.txt
+
+dzen2 -p -l 5 -m h -fn "Cuprum-11" -h 20 -w 400 -ta c -sa c -x 10 -y -30 -h 60 < dzen2_menu.txt
+
+dzen2 -p -l 5 -m h -fn "Cuprum-11" -h 20 -w 350 -sa c -x 10 -y -20 -h 11 < dzen2_menu.txt
