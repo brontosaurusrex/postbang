@@ -50,13 +50,14 @@ TEXT
 #ram $membar  \
 #disk ${fs_bar /home}  \
 #$nodename, up $uptime_short
-
+#
 # Version where bars will be red if usage is above 90%
 ${font cuprum:size=10}
 ${color black}${if_match ${cpu}>=90}${color ff3333}${endif}cpu $cpubar  \
 ${color black}${if_match ${memperc}>=90}${color ff3333}${endif}ram $membar  \
 ${color black}${if_match ${fs_used_perc /home}>=90}${color ff3333}${endif}disk ${fs_bar /home}  \
 ${color black}$nodename, up $uptime_short
+#
 #$nodename
 #$fs_bar disk 
 #$fs_size used
