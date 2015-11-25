@@ -23,7 +23,7 @@ draw_outline no
 draw_borders no
 draw_graph_borders no
 #default_color aaaaaa
-default_color 222222
+default_color 000000
 #default_color ffffff
 default_shade_color 000000
 default_outline_color 5D2560
@@ -39,15 +39,24 @@ override_utf8_locale yes
 default_bar_size 120 6
 default_graph_size 100 50
 
-color0 81CFD6
-color1 999999
-color2 1BB8F0
 
 ##############################################
 #  Output
 ##############################################
 TEXT
-${font cuprum:size=10}cpu $cpubar  ram $membar  disk ${fs_bar /home}  $nodename, up $uptime_short
+# Short version
+#${font cuprum:size=10}
+#cpu $cpubar  \
+#ram $membar  \
+#disk ${fs_bar /home}  \
+#$nodename, up $uptime_short
+
+# Version where bars will be red if usage is above 90%
+${font cuprum:size=10}
+${color black}${if_match ${cpu}>=90}${color ff3333}${endif}cpu $cpubar  \
+${color black}${if_match ${memperc}>=90}${color ff3333}${endif}ram $membar  \
+${color black}${if_match ${fs_used_perc /home}>=90}${color ff3333}${endif}disk ${fs_bar /home}  \
+${color black}$nodename, up $uptime_short
 #$nodename
 #$fs_bar disk 
 #$fs_size used
