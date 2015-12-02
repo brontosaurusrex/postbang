@@ -1,6 +1,6 @@
 work in progress ...
 
-# 32 bit AviSynth on 64 bit Debian Jessie linux (2015/16)
+# 32 bit AviSynth on 64 bit Debian Jessie Linux (2015/16)
 
 ## install
 
@@ -55,14 +55,12 @@ Now
 
 Should show an AviSynth version in player window.
 
-### less typing script (serve)
+### less typing script for preview (preview)
 
     #!/bin/bash
-    # wine32 avs2yuv ~/tmp/version.avs - | mpv -
-    wine32 avs2yuv "$1" - | "$2" -
-    
-    # usage example:
-    # serve version.avs mpv
+    # preview avs script in mpv
+    wine32 avs2yuv "$1" - | mpv -
+
 
 
 to be continued ...
