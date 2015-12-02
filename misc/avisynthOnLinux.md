@@ -60,6 +60,10 @@ Should show an AviSynth version in player window.
     #!/bin/bash
     # wine32 avs2yuv ~/tmp/version.avs - | mpv -
     wine32 avs2yuv "$1" - | "$2" -
+    
+    # usage example:
+    # serve version.avs mpv
+
 
 to be continued ...
 
