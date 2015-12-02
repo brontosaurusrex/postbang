@@ -1,10 +1,10 @@
 work in progress ...
 
-# 32 bit avisynth on 64 bit Debian Jessie linux (2015/16)
+# 32 bit AviSynth on 64 bit Debian Jessie linux (2015/16)
 
 ## install
 
-What we want is a 32 bit wine layer, since avisynth and most of the plugins are 32 bit apps
+What we want is a 32 bit wine layer, since AviSynth and most of the plugins are 32 bit apps
 
     sudo -i
     dpkg --add-architecture i386 && apt update
@@ -13,7 +13,7 @@ What we want is a 32 bit wine layer, since avisynth and most of the plugins are 
     sudo apt-get install wine32
     sudo apt-get install mpv
 
-Download the latest 32 bit avisynth from <http://avisynth.nl/index.php/Main_Page>, like
+Download the latest 32 bit AviSynth from <http://avisynth.nl/index.php/Main_Page>, like
 
     wget http://sourceforge.net/projects/avisynth2/files/latest/download
     mv download avisynth.exe # if you get a "download" filename
@@ -53,8 +53,7 @@ Now
 
     wine32 avs2yuv version.avs - | mpv -
 
-Should show an avisynth version in player window.
-
+Should show an AviSynth version in player window.
 
 to be continued ...
 
