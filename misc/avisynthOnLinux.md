@@ -59,7 +59,7 @@ Should show an avisynth version in player window.
 to be continued ...
 
 ## links
-<http://ubuntuforums.org/showthread.php?t=1333264> < an older guide
+<http://ubuntuforums.org/showthread.php?t=1333264> < an older guide  
 <http://www.vapoursynth.com/> < alternative to avisynth
 
 
