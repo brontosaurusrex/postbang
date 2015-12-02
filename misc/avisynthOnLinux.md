@@ -55,17 +55,12 @@ Now
 
 Should show an AviSynth version in player window.
 
-### named pipes ?
+### less typing script (serve)
 
-    fail:
-    
-    mkfifo new.y4m
-    wine32 avs2yuv version.avs -o new.y4m 
-    version.avs: 464x82, 24 fps, 240 frames
-    converting RGB -> YV12
-    fopen("╥■@") failed
-    
-    
+    #!/bin/bash
+    # wine32 avs2yuv ~/tmp/version.avs - | mpv -
+    wine32 avs2yuv "$1" - | "$2" -
+
 to be continued ...
 
 ## links
