@@ -65,15 +65,7 @@ Should show an AviSynth version in player window.
     converting RGB -> YV12
     fopen("╥■@") failed
     
-    working:
     
-    mkfifo new.y4m &&
-    # ctrl + c needed here
-    wine32 avs2yuv version.avs -o new.y4m 
-    version.avs: 464x82, 24 fps, 240 frames
-    converting RGB -> YV12
-
-
 to be continued ...
 
 ## links
