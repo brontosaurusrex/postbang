@@ -128,8 +128,8 @@ Nothing special, just an ugly avisynth version display, but qtgmc seems to be wo
 to be continued ...
 
 ## links
-<http://avisynth.nl/index.php/Getting_started>
+<http://avisynth.nl/index.php/Getting_started> < readme  
 <http://ubuntuforums.org/showthread.php?t=1333264> < an older guide  
-<http://www.vapoursynth.com/> < alternative to avisynth
+<http://www.vapoursynth.com/> < alternative to avisynth  
 
 
