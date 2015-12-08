@@ -4,25 +4,25 @@ t: /home/ticho/.fonts/Cuprum-Regular/10
 
 i: /home/ticho/source/postbang/images/wbar/black/term.png
 c: urxvt
-t: Terminal
+t: rxvt-unicode
 
 i: /home/ticho/source/postbang/images/wbar/black/thunar.png
-c: thunar
+c: launchee thunar
 t: thunar
 
 i: /home/ticho/source/postbang/images/wbar/black/geany.png
-c: geany
+c: launchee geany
 t: geany
 
 i: /home/ticho/source/postbang/images/wbar/black/blender.png
-c: /home/ticho/apps/blender/blender
+c: launchee /home/ticho/apps/blender/blender
 t: blender
 
 i: /home/ticho/source/postbang/images/wbar/black/firefox.png
-c: iceweasel
+c: launchee iceweasel
 t: iceweasel
 
 i: /home/ticho/source/postbang/images/wbar/black/calc.png
-c: galculator
+c: launchee galculator
 t: calc
 
