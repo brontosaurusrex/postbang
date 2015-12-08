@@ -10,24 +10,24 @@
 [keybindings]
 [profiles]
   [[default]]
-    scrollbar_position = hidden
+    foreground_color = "#839496"
     palette = "#444444:#b10000:#6cb100:#b15c00:#005577:#5600b1:#007177:#bbbbbb:#444444:#cc0000:#7ccc00:#cc6a00:#0075a3:#6300cc:#009199:#eeeeee"
     background_image = None
-    background_darkness = 0.78
-    background_type = transparent
+    background_darkness = 1.26
     use_system_font = False
     cursor_color = "#B15C00"
     cursor_blink = False
+    scrollbar_position = hidden
     show_titlebar = False
     antialias = False
     font = Terminus 10
+    background_color = "#002b36"
     allow_bold = False
   [[solarized_dark]]
     foreground_color = "#839496"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     background_image = None
     background_darkness = 0.81
-    background_type = transparent
     use_system_font = False
     cursor_color = "#B15C00"
     cursor_blink = False
@@ -42,7 +42,6 @@
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     background_image = None
     background_darkness = 0.81
-    background_type = transparent
     use_system_font = False
     cursor_color = "#B15C00"
     cursor_blink = False
