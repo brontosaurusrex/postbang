@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# launchee
+# copy/pasted from https://forums.bunsenlabs.org/viewtopic.php?pid=10997#p10997
+
 # This script acts as a launcher for apps that observes the following rules:
 #   1. If the app is not running, then start it up
 #   2. If the app is running, don't start a second instance, instead:
