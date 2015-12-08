@@ -771,7 +771,8 @@ notes:
 - wbar does not autohide and will not take place on desktop < fix it with some openbox margins (bottom in this case)
 - wbar does not behave very friendly in multi-monitor enviroments.
 
-bronto-moded .wbar should be in this gits root.
+bronto-moded .wbar should be in this gits root.  
+Update: provided .wbar now uses intermediate script called launchee, which should provide a bit smarter behaviour than just starting the app again.
 
 ### notify-send and replacing notification thingy
 
