@@ -3,7 +3,7 @@ c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idis
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
 i: /home/ticho/source/postbang/images/wbar/black/term.png
-c: urxvt
+c: launchee urxvt
 t: rxvt-unicode
 
 i: /home/ticho/source/postbang/images/wbar/black/thunar.png
