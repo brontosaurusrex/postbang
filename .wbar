@@ -3,26 +3,26 @@ c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idis
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
 i: /home/ticho/source/postbang/images/wbar/black/term.png
-c: launchee urxvt
+c: (launchee urxvt || urxvt)
 t: rxvt-unicode
 
 i: /home/ticho/source/postbang/images/wbar/black/thunar.png
-c: launchee thunar
+c: (launchee thunar || thunar)
 t: thunar
 
 i: /home/ticho/source/postbang/images/wbar/black/geany.png
-c: launchee geany
+c: (launchee geany || geany)
 t: geany
 
 i: /home/ticho/source/postbang/images/wbar/black/blender.png
-c: launchee /home/ticho/apps/blender/blender
+c: (launchee /home/ticho/apps/blender/blender || /home/ticho/apps/blender/blender)
 t: blender
 
 i: /home/ticho/source/postbang/images/wbar/black/firefox.png
-c: launchee iceweasel
+c: (launchee iceweasel || iceweasel)
 t: iceweasel
 
 i: /home/ticho/source/postbang/images/wbar/black/calc.png
-c: launchee galculator
+c: (launchee galculator || galculator)
 t: calc
 
