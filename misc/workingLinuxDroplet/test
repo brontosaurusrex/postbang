@@ -6,11 +6,11 @@ while [ $# -gt 0 ]; do
     expanded=$(readlink -f "$1")
     
  
-    echo $expanded 
+    echo "$expanded" 
     
     
     
     shift
 done
 
-sleep 100
+sleep 5
