@@ -1,0 +1,16 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+
+    # expand path, so this can be used from cli as well (on relative paths)
+    expanded=$(readlink -f "$1")
+    
+ 
+    echo $expanded 
+    
+    
+    
+    shift
+done
+
+sleep 100
