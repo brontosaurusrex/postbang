@@ -839,6 +839,10 @@ sudo
 
 <a href="http://shrani.si/f/1/ML/2e0k1KMM/realhardwarei3.png"><img src="http://shrani.si/t/1/ML/2e0k1KMM/realhardwarei3.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+### some i5 desktop
+
+<a href="http://shrani.si/f/2Z/e3/1NwPW8AG/i5.png"><img src="http://shrani.si/t/2Z/e3/1NwPW8AG/i5.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+
 ### asus eee
 
 <a href="http://shrani.si/f/17/2c/4znL9NdL/eee.png"><img src="http://shrani.si/t/17/2c/4znL9NdL/eee.jpg" style="border: 0px;" alt="Shrani.si"/></a>
