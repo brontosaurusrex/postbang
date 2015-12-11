@@ -33,10 +33,7 @@ as su
     apt-get install sudo
     adduser <username> sudo
 
-reboot ?
-
-Hint: if there is no root password entered in the Debian installer, sudo is installed and the first user created (ie, in the installer) is added to the "sudo" group automatically.
-<http://crunchbang.org/forums/viewtopic.php?pid=430287#p430287>
+reboot
 
 ## virtualbox related
 
@@ -59,17 +56,7 @@ sudo
 
     apt-get install gvfs gvfs-backends sshfs
 
-(should provide you with the working "Browse Network" thingy in thunar, however that does not work as expected)
-
-sudo
-
-    apt-get install compton
-
-(optional, personally not using compton)
-
-to test
-
-    compton & tint2 &
+(should provide you with the working "Browse Network" option in thunar.)
 
 configure vim (if in vbox, now might be a good time to enable bidirectional clipboard)
 
@@ -88,20 +75,8 @@ sudo
 sudo
 
     apt-get install network-manager-gnome
-    rm /etc/network/interfaces
-
-    vi /etc/NetworkManager/NetworkManager.conf
-
-change ifupdown managed to true.
-
-    sudo service network-manager restart
-
-warning: fix
-
-As noted on the #! forum, one should not remove /etc/network/interfaces , so lets fix that:
-
     sudo vi /etc/network/interfaces
-
+    
 paste
 
     # This file describes the network interfaces available on your system
@@ -110,17 +85,23 @@ paste
     # The loopback network interface
     auto lo
     iface lo inet loopback
+    
+configure network manager
+
+    vi /etc/NetworkManager/NetworkManager.conf
+
+change ifupdown managed to true.
+
+    sudo service network-manager restart
 
 as user
 
     openbox --exit
     startx
 
-    compton & tint2 &
+    tint2 &
 
 The network applet should show up on tint2
-
-    scrot -d 5
 
 <a href="http://shrani.si/f/2o/PM/1aLoN4EY/network.png"><img src="http://shrani.si/t/2o/PM/1aLoN4EY/network.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
@@ -131,14 +112,14 @@ The network applet should show up on tint2
 
 (a new file), paste something like
 
-    compton & tint2 &
+    tint2 &
 
 test
 
     openbox --exit
     startx
 
-and compton and tint2 should sit there.
+and tint2 should sit there.
 
 ## terminator
 
@@ -290,34 +271,13 @@ test ffmpeg_static with some noio to null encoding
 
 ## makeup
 
-### infinality font stuff
-
-sudo
-
-    apt-get install devscripts fakeroot
-    apt-get install docbook-to-man libx11-dev x11proto-core-dev libz-dev quilt
-
-as user
-
-    cd 
-    cd source
-    git clone https://github.com/chenxiaolong/Debian-Packages
-
-run both build.sh scripts, install all the debs with
-
-sudo
-
-    dpkg -i *.deb
-
-Note: If this infinality thing doesn't want to cooperate, skip it, font rendering is pretty good in jessie by default.
-
 ### openbox, openbox menu logic and beauty
 
     cp -b ~/source/postbang/.config/openbox/rc.xml ~/.config/openbox/
     openbox --restart
 
 Should give you:
-- bronto-manual tiling, try mod+a,1 or mod+a,2 or mod+a,enter
+- bronto-manual tiling, try mod+a,1 or mod+a,2 or mod+a,enter (or alt+y,x,c for some more used ones)
 - decoration rules (mpv is undecorated)
 - additional mice behaviour, for example middle mouse button on tint2 will kill that app
 - and so on
@@ -418,7 +378,7 @@ user, change the autostart to include nitrogen
 
 make it look like:
 
-    nitrogen --restore & compton & tint2 &
+    nitrogen --restore & tint2 &
 
 user
 
@@ -527,7 +487,7 @@ user
 
 add conky to ~/.config/openbox/autostart
 
-    nitrogen --restore & compton & tint2 & conky & 
+    nitrogen --restore & tint2 & conky & 
 
 scrot
 
@@ -651,7 +611,7 @@ add
 
 so autostart might look like
 
-    nitrogen --restore & compton & tint2 & conky & volti &  mpv ~/audio_fx/vader.mp3 & 
+    nitrogen --restore & tint2 & conky & volti &  mpv ~/audio_fx/vader.mp3 & 
 
 ## time, timezone
 
@@ -790,7 +750,7 @@ bronto-moded dunstrc should be in .config/dunst/dunstrc
 
 <a href="http://shrani.si/f/15/Do/WW1ZmZ6/dunst.png"><img src="http://shrani.si/t/15/Do/WW1ZmZ6/dunst.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
-### various system tools
+### various system tools (optional)
 
 sudo 
 
@@ -798,67 +758,86 @@ sudo
 
 from : <http://crunchbang.org/forums/viewtopic.php?id=38994> (wally)
 
-### nemo (behaves nicely with gnome-search-tool)
+## Bleeding edge
 
-note: this did not make it, I'am back to thunar.
+### Libreoffice
 
 sudo
 
-    apt-get install nemo dconf-tools
+    apt-get install -t jessie-backports libreoffice libreoffice-gtk libreoffice-style-breeze
 
-user
+In writer select Tools/options/View - and set Icon style to Breeze.
 
-    dconf write /org/nemo/desktop/show-desktop-icons false
+### inkscape
 
-or use dconf-editor.
+sudo
 
-<http://shrani.si/f/1X/zx/2kVbese0/nemo.png>
+    apt-get install -t jessie-backports inkscape
+
+### mpv
+
+    sudo apt-get install libncurses5-dev liblua5.1-0.dev devscripts equivs
+
+git clone the mpv-build git <https://github.com/mpv-player/mpv-build> and cd to source dir
+(remove any mpv-build-deps**.deb)
+
+    mk-build-deps
+    sudo dpkg -i mpv-build-deps(TAB).deb 
+    sudo apt-get install -f
+
+    ./rebuild -j2
+
+(replace 2 with # of cores)
+
+after everything happens you can just copy mpv-build/mpv/build/mpv to ~/bin.
+
+### gimp    
+
+Read here <https://forums.bunsenlabs.org/viewtopic.php?id=446>
+
+### blender
+
+    cd
+    mkdir apps
+    cd apps && mkdir blender
+    
+from <https://builder.blender.org/download/> wget the correct version and unpack.
 
 ## Problems to fix/things to add/modify:
-- xfce4-power-manager?
-- png wallpapers are fat, test bpg lossless (perhaps 8bpc 4:2:2)
-- automounting usb drives? android phones?
-- document custom scripts?
-- add weechat config?
-- disable root?
-- when things settle down, do a script that installs everything.
-- <s>theme errors</s> < seems like they mostly fixed themselves
-- <s>better name than "postbang": icebreaker? iceberg?</s> 
-- <s>gksu</s> < seems to be working
-- <s>Add that flat-pinkMarker theme</s> < done
-- <s>xdg? seems to be making a Desktop folder in user home ....</s> < fixed, was an iceweasel behaviour
+- none.
 
-Note: This is probably pretty much it.
+This is probably pretty much it.
 
 ## the magic install-all apt-get lines
 
+See the example /etc/apt/sources.list in this git before running this.
+
 sudo
 
-    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms compton network-manager-gnome xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode catfish atril e2fsprogs xfsprogs reiserfsprogs reiser4progs jfsutils ntfs-3g fuse gvfs gvfs-fuse fusesmb
-
+    apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms network-manager-gnome xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode catfish atril 
+    
     apt-get install flashplugin-nonfree
-
-    apt-get install gtk3-engines-* ?
-
+    
+    apt-get install gtk3-engines-*
+    
     apt-get install --no-install-recommends fonts-dejavu fonts-droid ttf-freefont ttf-liberation gdebi gtk2-engines-pixbuf gtk2-engines-murrine gtk2-engines-oxygen gtk2-engines-xfce xfce4-appfinder engrampa
-
-    apt-get install libreoffice libreoffice-gtk
-
-    apt-get install ntp ?
-
+    
+    apt-get install -t jessie-backports libreoffice libreoffice-gtk libreoffice-style-breeze
+    
+    apt-get install ntp
+    
     apt-get install lightdm
-
-    apt-get install xdotool xrandr tree 
-
-Infinality related stuff skipped here.
+    
+    apt-get install xdotool xrandr tree
+    
+    # optional
+    apt-get install e2fsprogs xfsprogs reiserfsprogs reiser4progs jfsutils ntfs-3g fuse gvfs gvfs-fuse fusesmb
 
 ## Real hardware
 
 ### some i3 desktop
 
 <a href="http://shrani.si/f/1/ML/2e0k1KMM/realhardwarei3.png"><img src="http://shrani.si/t/1/ML/2e0k1KMM/realhardwarei3.jpg" style="border: 0px;" alt="Shrani.si"/></a>
-
-"Problems" were a. video playback related, tearing. I did not dig into compton setting this time, just removed it from autostart. b. gtk3 apps like catfish do look fugly. 
 
 ### asus eee
 
@@ -878,57 +857,6 @@ and so on..., when it craps out, add
     EndSection
 
 and reboot.
-
-Table of Contents
-=================
-
-  * [Table of Contents](#table-of-contents)
-  * [Jessie from netinstall (postbang)](#jessie-from-netinstall-postbang)
-    * [install Debian Jessie](#install-debian-jessie)
-    * [sudo](#sudo)
-    * [virtualbox related](#virtualbox-related)
-    * [cont](#cont)
-    * [network manager](#network-manager)
-    * [openbox autostart, basic](#openbox-autostart-basic)
-    * [terminator](#terminator)
-    * [default xdg directories](#default-xdg-directories)
-    * [usability &amp; preparing for scripts](#usability--preparing-for-scripts)
-    * [makeup](#makeup)
-      * [infinality font stuff](#infinality-font-stuff)
-      * [openbox, openbox menu logic and beauty](#openbox-openbox-menu-logic-and-beauty)
-      * [tint2](#tint2)
-      * [icons](#icons)
-      * [themes](#themes)
-      * [some more fonts and gdebi](#some-more-fonts-and-gdebi)
-      * [wallpaper](#wallpaper)
-      * [obmenu and obapps](#obmenu-and-obapps)
-    * [openbox menu, the king of the castle](#openbox-menu-the-king-of-the-castle)
-    * [opening openbox menu with a button on tint2 (optional)](#opening-openbox-menu-with-a-button-on-tint2-optional)
-    * [geany makeup](#geany-makeup)
-    * [conky](#conky)
-    * [volti](#volti)
-    * [gimp and inkscape](#gimp-and-inkscape)
-    * [utility](#utility)
-    * [3rd party apps](#3rd-party-apps)
-    * [Some hotkeys](#some-hotkeys)
-    * [Darth Vader breathing, login sound](#darth-vader-breathing-login-sound)
-    * [time, timezone](#time-timezone)
-    * [disabling services](#disabling-services)
-    * [custom scripts](#custom-scripts)
-    * [login manager and autologin](#login-manager-and-autologin)
-    * [more stuff and flash, optional](#more-stuff-and-flash-optional)
-    * [things](#things)
-      * [opensnap (optional)](#opensnap-optional)
-      * [notify-send and replacing notification thingy](#notify-send-and-replacing-notification-thingy)
-      * [various system tools](#various-system-tools)
-      * [nemo (behaves nicely with gnome-search-tool)](#nemo-behaves-nicely-with-gnome-search-tool)
-    * [Problems to fix/things to add/modify:](#problems-to-fixthings-to-addmodify)
-    * [the magic install-all apt-get lines](#the-magic-install-all-apt-get-lines)
-    * [Real hardware](#real-hardware)
-      * [some i3 desktop](#some-i3-desktop)
-      * [asus eee](#asus-eee)
-
-TOC created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## brought to You by
 
