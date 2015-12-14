@@ -1,0 +1,124 @@
+#!/bin/bash
+
+# anything2mp3rplayData (based on flac2opus)
+# brontosaurusrex 2015
+
+# Usage examples
+
+# Simple:
+# ...........................................
+# anything2mp3rplayData *.flac
+# parallel --gnu anything2mp3rplayData {} ::: *.flac
+
+# With find:
+# ...........................................
+# If the symlinks are in question (cp -rs flacs /destination/), you could call this script:
+# find . -lname "*.flac" -exec anything2mp3rplayData {} \+
+# or with parallel
+# find . -lname "*.flac" | parallel --gnu anything2mp3rplayData {}
+
+# Or if the files are to be found
+# find . -type f -iname "*.flac" -exec anything2mp3rplayData {} \+
+# or with parallel
+# find . -type f -iname "*.flac" | parallel --gnu anything2mp3rplayData {}
+
+# note: Using parallel (apt-get install parallel) will give enormous encoding speed boost. 
+
+command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
+ffmpeg_static -hide_banner -codecs 2>&1 | grep lame >/dev/null 2>&1 || { echo "I need ffmpeg_static on the path and it has to have lame mp3 encoder." ; exit 1; }
+
+
+
+# functions
+encode() { # put your encoding settings here
+    
+   
+    
+                # see if there is rplay EBUR-128 correction data
+                # you can get such data by issuing: rplay scan *
+                # before running this transcoder
+                
+                if [ -f "$dir"/."$basename".rgtxt ];
+                then
+                    RG=$(<"$dir"/."$basename".rgtxt)
+                    #echo "$RG"
+
+                    # default ebu value is 23, but we are using 18 here, so songs will be louder
+                    correct=$(echo "(-18)-($RG)" | bc)
+                    correct="$correct"dB
+                    echo "$correct correction will be applied"
+                else
+                    correct="0dB"
+                    echo "no rg data found, $correct correction will be applied"
+                fi
+
+            ffmpeg_static -hide_banner -loglevel quiet -i "$dir/$basename" -vn -y -codec:a libmp3lame -q:a 3 -af volume=$correct "$dir/$base.mp3" 
+#-loglevel quiet
+}
+
+# http://wiki.hydrogenaud.io/index.php?title=Lame#Very_high_quality:_HiFi.2C_home.2C_or_quiet_listening.2C_with_best_file_size
+# Very high quality: HiFi, home, or quiet listening, with best file size
+# -V0 (~245 kbps), -V1 (~225 kbps), -V2 (~190 kbps) or -V3 (~175 kbps) are recommended.
+# These VBR settings will normally produce transparent results. Audible differences between these presets may exist, but are rare.
+
+absdiff() { 
+                echo -n "$(( (a<b) ? b-a : a-b ))" 
+}
+# end functions
+
+
+while [ $# -gt 0 ]; do
+  
+    expanded=$(readlink -f "$1")
+    # echo ".............................."
+    echo "$expanded"
+    
+    basename=$(basename "${1}")     # basename, like                file.flac
+    base="${basename%.*}"           # basename without extension    file
+    dir=$(dirname "${1}")       # directory
+    
+
+        # Do some checks first
+        if [ -f "$dir/$base.mp3" ]
+        then # mp3 file in existance, do some duration checking
+            echo "    the file exists, checking if source and mp3 durations match"
+        
+                # mediainfo "--Inform=General;%Duration%"
+                
+                a=$(mediainfo "--Inform=General;%Duration%" "$expanded")
+                b=$(mediainfo "--Inform=General;%Duration%" "$dir/$base.mp3")
+                
+                if [[ "$a" == "$b" ]]
+       
+                then
+                    echo "    yes, durations match exactly, skipping" # This will probably never happen
+                else
+                    echo "    no, durations does not match exactly" 
+                    
+                    # echo "$a" "$b"
+                    echo -n "    "
+                    absdiff "$a" "$b"
+                    echo -n "ms difference"
+                        # this 200 is just some value in miliseconds = max difference allowed,
+                        # if samplerate is 48 kHz, then it equals to 200x48=9600 samples
+                        if (( $(absdiff "$a" "$b") < 200 )) 
+                        then
+                            echo " = still ok (200 ms is max allowed)"
+                        else
+                            encode "$expanded"
+                        fi
+                fi
+            
+            
+        else # the mp3 file does not exist yet
+            encode "$expanded"
+        fi
+   
+   
+       
+   
+    shift
+    
+
+    
+done
