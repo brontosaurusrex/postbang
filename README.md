@@ -688,35 +688,13 @@ to update flash, sudo
 
 ## things
 
-### opensnap (optional)
-
-Opensnap brings the Aero Snap feature to Openbox.
-<https://github.com/lawl/opensnap>
-
-sudo 
-
-    apt-get install wmctrl
-
-user
-
-    cd ~/source/postbang/debs
+### ms fonts
 
 sudo
 
-    dpkg -i opensnap*.deb
-
-(or compile your own)
-
-test
-
-    opensnap &
-
-Move your windows around and check if opensnap gives you any errors and so on.
-If everything seems peachy, add opensnap & to your autostart.
-
-scrot
-
-<a href="http://shrani.si/f/4/Rs/1jQqz1kh/opensnap.png"><img src="http://shrani.si/t/4/Rs/1jQqz1kh/opensnap.jpg" style="border: 0px;" alt="Shrani.si"/></a>
+    apt-get install ttf-mscorefonts-installer
+    
+should provide nicer looking web pages.
 
 ### wbar (running dock without compositor), optional
 
@@ -816,7 +794,7 @@ sudo
 
     apt-get install openbox xserver-xorg xinit terminator vim thunar tint2 geany gmrun htop mc inxi xsettingsd i3lock sudo dkms network-manager-gnome xfonts-terminus git curl mpv youtube-dl mediainfo mkvtoolnix alsa-base alsa-tools alsa-tools-gui alsa-utils alsa-oss alsamixergui libalsaplayer0 iceweasel viewnior unp lxappearance lxappearance-obconf librsvg2-bin zenity imagemagick dmz-cursor-theme nitrogen obmenu python-xlib python-wxtools conky volti gimp gimp-plugin-registry inkscape galculator gpick font-manager rxvt-unicode catfish atril 
     
-    apt-get install flashplugin-nonfree
+    apt-get install flashplugin-nonfree ttf-mscorefonts-installer
     
     apt-get install gtk3-engines-*
     
