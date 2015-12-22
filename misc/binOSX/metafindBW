@@ -4,9 +4,9 @@ trap 'kill $(jobs -p) 2>/dev/null' EXIT
 # yes, this trap is needed, so one can kill a thing using ctrl+c
 
 # root search points array
-dirs=("/Volumes/int_raid/NETATALK/podnaslovi_new" "/Volumes/PROMOCIJA" "/Volumes/Disk R")
+dirs=("/Volumes/int_raid/NETATALK/IzmenjavaPP" "/Volumes/int_raid/NETATALK/sinhro" "/Volumes/int_raid/NETATALK/podnaslovi_new" "/Volumes/PROMOCIJA" "/Volumes/int_raid/NETATALK/tujaProdukcijaNEW" "/Volumes/NAPOVEDNIKI-2/")
 
-echo "white iname : mov, avi, mxf, mp4, mpg, wav, aif, omf, aiff, mp3"
+echo "white iname : aaf, mov, avi, mxf, mp4, mpg, wav, omf, aiff, mp3"
 echo "dirs are not included at the moment ..."
 echo "black ipath : *adobe*, *.DS_Store"
 
@@ -14,7 +14,7 @@ for i in "${dirs[@]}"
 do
 
 echo "searching $i"
-find "$i" \( -iname "*.mov" -o -iname "*.avi" -o -iname "*.mxf" -o -iname "*.mp4" -o -iname "*.mpg" -o -iname "*.wav" -o -iname "*.aif" -o -iname "*.omf" -o -iname "*.aiff" -o -iname "*.mp3" \) ! -ipath "*adobe*" ! -iname "*.DS_Store" 2>/dev/null | grep --colour="always" -i -s -e "$@" &
+find "$i" \( -iname "*.aaf" -iname "*.mov" -o -iname "*.avi" -o -iname "*.mxf" -o -iname "*.mp4" -o -iname "*.mpg" -o -iname "*.aif" -o -iname "*.omf" -o -iname "*.aiff" -o -iname "*.mp3" \) ! -ipath "*adobe*" ! -iname "*.DS_Store" 2>/dev/null | grep --colour="always" -i -s -e "$@" &
 
 # -o -ipath "*$i*" < is not working to also whitelist folders
 # 2>/dev/null
