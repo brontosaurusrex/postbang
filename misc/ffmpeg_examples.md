@@ -13,6 +13,8 @@
 ## crf example with bitrate limiter
 
     ffmpeg -i input -c:v libx264 -crf 20 -maxrate 2000k -bufsize 4000k out.mp4
+    
+(This would assume that most input doesn't need more than 2000k, but very few may)
 
 ## 1 pass vbr example
 
