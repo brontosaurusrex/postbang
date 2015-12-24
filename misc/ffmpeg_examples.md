@@ -18,7 +18,7 @@
 
     ffmpeg -i input -c:v libx264 -preset fast -b:v 1000k -c:a aac -b:a 128k out.mp4
     
-There are various presets (ultrafast,superfast, veryfast, faster, fast, medium, slow, slower, veryslow, placebo), tunes and profiles, see here <https://trac.ffmpeg.org/wiki/Encode/H.264>
+There are various presets (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow, placebo), tunes and profiles, see here <https://trac.ffmpeg.org/wiki/Encode/H.264>
 
 ## 1 pass vbr example with buffer and maxrate limiter
 
