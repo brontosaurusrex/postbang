@@ -59,7 +59,7 @@ ${color black}${if_match ${upspeedf}>=1}up $upspeed/s${endif}  \
 ${color black}${if_match ${cpu}>=90}${color ff3333}${endif}cpu $cpubar  \
 ${color black}${if_match ${memperc}>=90}${color ff3333}${endif}ram $membar  \
 ${color black}${if_match ${fs_used_perc /home}>=90}${color ff3333}${endif}disk ${fs_bar /home}  \
-#${color black}$nodename, up $uptime_short
+${color black}$nodename, up $uptime_short
 #
 #$nodename
 #$fs_bar disk 
