@@ -10,7 +10,7 @@ xftfont Liberation Sans:size=16
 xftalpha 1
 update_interval 5.0
 total_run_times 0
-own_window no
+own_window yes
 own_window_transparent yes
 own_window_type desktop
 # own_window_argb_visual yes
@@ -23,7 +23,7 @@ draw_outline no
 draw_borders no
 draw_graph_borders no
 #default_color aaaaaa
-default_color 000000
+default_color 121212
 #default_color ffffff
 default_shade_color 000000
 default_outline_color 5D2560
@@ -52,11 +52,13 @@ TEXT
 #$nodename, up $uptime_short
 #
 # Version where bars will be red if usage is above 90%
-${font cuprum:size=10}
+${font cuprum:size=10}\
+${color black}${if_match ${downspeedf}>=1}dl $downspeed/s${endif}  \
+${color black}${if_match ${upspeedf}>=1}up $upspeed/s${endif}  \
 ${color black}${if_match ${cpu}>=90}${color ff3333}${endif}cpu $cpubar  \
 ${color black}${if_match ${memperc}>=90}${color ff3333}${endif}ram $membar  \
 ${color black}${if_match ${fs_used_perc /home}>=90}${color ff3333}${endif}disk ${fs_bar /home}  \
-${color black}$nodename, up $uptime_short
+#${color black}$nodename, up $uptime_short
 #
 #$nodename
 #$fs_bar disk 
