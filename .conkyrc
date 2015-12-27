@@ -52,6 +52,7 @@ TEXT
 #$nodename, up $uptime_short
 #
 # Version where bars will be red if usage is above 90%
+# ▾ ▴  ^ v ↑ ↓ 
 ${font cuprum:size=10}\
 ${color black}${if_match ${downspeedf}>=1}dl $downspeed/s${endif}  \
 ${color black}${if_match ${upspeedf}>=1}up $upspeed/s${endif}  \
