@@ -748,6 +748,10 @@ from : <http://crunchbang.org/forums/viewtopic.php?id=38994> (wally)
 
     setxkbmap -query # or
     setxkbmap -query | grep layout
+    
+### languages
+
+<https://wiki.debian.org/Locale>
 
 ## Bleeding edge
 
