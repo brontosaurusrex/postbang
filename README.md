@@ -751,7 +751,7 @@ from : <http://crunchbang.org/forums/viewtopic.php?id=38994> (wally)
     
 ### languages
 
-<https://wiki.debian.org/Locale>
+<https://wiki.debian.org/Locale> (Severly out of date, but you should get an idea)
 
 ## Bleeding edge
 
