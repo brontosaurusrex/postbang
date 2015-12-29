@@ -736,6 +736,19 @@ sudo
 
 from : <http://crunchbang.org/forums/viewtopic.php?id=38994> (wally)
 
+### keyboard layout changer (from command line)
+
+#### set keyboard layout
+
+    setxkbmap si
+    setxkbmap us
+    setxkbmap de
+
+#### read layout
+
+    setxkbmap -query # or
+    setxkbmap -query | grep layout
+
 ## Bleeding edge
 
 ### Libreoffice
