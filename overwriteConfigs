@@ -15,28 +15,39 @@ fi
 
 git pull
 
+if [ "$1" = "-f" ] 
+then
+echo "Force overwrite mode" 
+switch="v"
+else
+echo "Update overwrite mode, use -f to force" 
+switch="vu"
+fi
+
 # the "cp -u" switch will
 # copy only when the SOURCE file is newer than the destination file or when the destination file is missing.
 # which may or may not be what you want.
 
-cp -vurb .config/* ~/.config/
+# always -vurb
 cp -vurb .icons/* ~/.icons/
 cp -vurb .themes/* ~/.themes/
+cp -vurb .fonts/* ~/.fonts/
 
-cp -vurb .urxvt/* ~/.urxvt/
+# depends, either vrb or vurb OR vb or vub (so its either vu or only v)
+cp -"$switch"rb .config/* ~/.config/
+cp -"$switch"rb .urxvt/* ~/.urxvt/
+cp -"$switch"rb bin/* ~/bin/
 
-cp -vurb bin/* ~/bin/
-
-cp -vub .bashrc ~
-cp -vub .bash_aliases ~
-cp -vub .conkyrc ~
-cp -vub .conkyrcdwm ~
-cp -vub .gtkrc-2.0* ~
-cp -vub .Xresources ~
-cp -vub .profile ~
-cp -vub .xsessionrc ~
-cp -vub .tmux* ~
-cp -vub .wbar ~
+cp -"$switch"b .bashrc ~
+cp -"$switch"b .bash_aliases ~
+cp -"$switch"b .conkyrc ~
+cp -"$switch"b .conkyrcdwm ~
+cp -"$switch"b .gtkrc-2.0* ~
+cp -"$switch"b .Xresources ~
+cp -"$switch"b .profile ~
+cp -"$switch"b .xsessionrc ~
+cp -"$switch"b .tmux* ~
+cp -"$switch"b .wbar ~
 
 # sudo here
 # set +x # verbosity off
@@ -44,4 +55,4 @@ cp -vub .wbar ~
 echo
 echo "65% stupid, run at your own risk from now on"
 
-sudo cp -vurb usr/* /usr/ 
+sudo cp -"$switch"rb usr/* /usr/ 
