@@ -786,6 +786,8 @@ git clone the mpv-build git <https://github.com/mpv-player/mpv-build> and cd to 
 
 after everything happens you can just copy mpv-build/mpv/build/mpv to ~/bin.
 
+Interesting, untested: <http://2ion.github.io/mpv-bash-completion/>
+
 ### gimp    
 
 Read here <https://forums.bunsenlabs.org/viewtopic.php?id=446>
