@@ -747,7 +747,8 @@ from : <http://crunchbang.org/forums/viewtopic.php?id=38994> (wally)
 #### read layout
 
     setxkbmap -query # or
-    setxkbmap -query | grep layout
+    setxkbmap -query | grep layout # or
+    setxkbmap -query | grep layout | tr -d 'layout:' | tr -d ' '
     
 ### languages
 
