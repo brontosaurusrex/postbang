@@ -12,7 +12,7 @@ Base is what we want and nothing else
 or with non-free stuff  
 <http://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/>
 
-Basic eth0 /etc/network/interfaces
+Basic eth0 `/etc/network/interfaces`
 
     auto eth0
     iface eth0 inet dhcp
@@ -62,7 +62,7 @@ configure vim (if in vbox, now might be a good time to enable bidirectional clip
 
 sudo
 
-    vi /etc/vim/vimrc.local
+    vi `/etc/vim/vimrc.local`
 
 (that is a new file), paste:
 
@@ -686,7 +686,7 @@ sudo
 
     apt-get install browser-plugin-freshplayer-pepperflash
     
-Make sure backports are enabled in /etc/apt/sources.list
+Make sure backports are enabled in `/etc/apt/sources.list`
 
 ### the old way (Only if the 'new - better way' would not want to cooperate for some reason)
 
@@ -717,11 +717,11 @@ sudo
 <a href="http://shrani.si/f/q/VV/hJrkXOD/wbar.png"><img src="http://shrani.si/t/q/VV/hJrkXOD/wbar.jpg" style="border: 0px;" alt="wbar scrot"/></a>
 
 notes:
-- you will probably want to start this via openbox/autostart with some delay, so remember to remove /etc/xdg/autostart/wbar.desktop
+- you will probably want to start this via openbox/autostart with some delay, so remember to remove `/etc/xdg/autostart/wbar.desktop`
 - wbar does not autohide and will not take place on desktop < fix it with some openbox margins (bottom in this case)
 - wbar does not behave very friendly in multi-monitor enviroments.
 
-bronto-moded <.wbar> should be in this gits root.  
+bronto-moded `.wbar` should be in this gits root.  
 Update: provided .wbar now uses intermediate script called launchee, which should provide a bit smarter behaviour than just starting the app again.
 
 ### notify-send and replacing notification thingy
