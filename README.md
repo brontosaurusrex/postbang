@@ -62,7 +62,7 @@ configure vim (if in vbox, now might be a good time to enable bidirectional clip
 
 sudo
 
-    vi `/etc/vim/vimrc.local`
+    vi /etc/vim/vimrc.local
 
 (that is a new file), paste:
 
@@ -277,7 +277,7 @@ test ffmpeg_static with some noio to null encoding
     openbox --restart
 
 Should give you:
-- bronto-manual tiling, try mod+a,1 or mod+a,2 or mod+a,enter (or alt+y,x,c for some more used ones)
+- bronto-manual tiling, try `mod+a,1` or `mod+a,2` or `mod+a,enter` (or `alt+y,x,c` for some more used ones)
 - decoration rules (mpv is undecorated)
 - additional mice behaviour, for example middle mouse button on tint2 will kill that app
 - and so on
@@ -387,7 +387,7 @@ user
     cp ~/source/postbang/images/wallpapers/*.png ~/images/wallpapers/
     nitrogen
 
-Note: The magic background color is #32383B
+Note: The magic background color is `#32383B`
 
 Add directory images/wallpapers, select one of the wallpapers ....
 (btw: as with most of this guide this is single-user approach,)
@@ -440,7 +440,7 @@ scrot
 
 ## opening openbox menu with a button on tint2 (optional)
 
-Add launcher to tint2rc, like
+Add launcher to `tint2rc`, like
 
     launcher_item_app = /usr/share/applications/menu.desktop
 
@@ -664,7 +664,7 @@ under
 
     [SeatDefaults]
 
-Note: Lightdm does not source .profile, so make sure that user bin path is added in .xsessionrc instead
+Note: Lightdm does not source .profile, so make sure that user bin path is added in `.xsessionrc` instead
 
 ## more stuff
 
@@ -736,7 +736,7 @@ to test, user
 
     notify-send "My sweater is black ......... not!"
 
-bronto-moded dunstrc should be in .config/dunst/dunstrc
+bronto-moded dunstrc should be in `.config/dunst/dunstrc`
 
 <a href="http://shrani.si/f/15/Do/WW1ZmZ6/dunst.png"><img src="http://shrani.si/t/15/Do/WW1ZmZ6/dunst.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
