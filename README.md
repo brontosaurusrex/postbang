@@ -856,7 +856,9 @@ sudo
 Compton appears to actually fix tearing issues on this machine:
 
     compton --backend glx --paint-on-overlay
-
+    or one running in virtualbox (with some shadows)
+    compton -cCG --paint-on-overlay
+    
 ### asus eee
 
 <a href="http://shrani.si/f/17/2c/4znL9NdL/eee.png"><img src="http://shrani.si/t/17/2c/4znL9NdL/eee.jpg" style="border: 0px;" alt="Shrani.si"/></a>
