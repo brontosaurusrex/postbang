@@ -1,17 +1,26 @@
+## compton
+## hp i5 solved the tearing:
+# compton --backend glx --paint-on-overlay &
+## or one running in virtualbox (with some shadows):
+# compton -cCG --paint-on-overlay &
+## with some deep shadows and transparency:
+# compton -cCG --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 -i 0.8 -e 0.75 -m 0.9 &
+
+## restore wallpaper
 nitrogen --restore & tint2 & volumeicon & (sleep 10 && wbar) &
 
+## Run conky with slight delay
 (sleep 3 && conky) &  
 
+## power manager
 # xfce4-power-manager &
 
-## compton banned due to video playback tearing
-
 ## Detect and configure touchpad. See 'man synclient' for more info.
-if egrep -iq 'touchpad' /proc/bus/input/devices; then
-    synclient VertEdgeScroll=1 &
-    synclient HorizEdgeScroll=1 &
-    synclient TapButton1=1 &
-fi
+#if egrep -iq 'touchpad' /proc/bus/input/devices; then
+#    synclient VertEdgeScroll=1 &
+#    synclient HorizEdgeScroll=1 &
+#    synclient TapButton1=1 &
+#fi
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
@@ -23,13 +32,14 @@ xset b off &
 ## policy kit
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
+## play some audio at login
 # mpv ~/audio_fx/vader.mp3 & 
 
-# only if running in vbox, will restore wallpaper if resolution 
-# change is detected.
+## only if running in vbox, will restore wallpaper if resolution 
+## change is detected.
 ~/bin/changeres &
 
-# optional (http://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
+## optional (http://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
 xset s off         # don't activate screensaver
 xset -dpms         # disable DPMS (Energy Star) features.
 xset s noblank     # don't blank the video device
