@@ -666,7 +666,7 @@ under
 
 Note: Lightdm does not source .profile, so make sure that user bin path is added in .xsessionrc instead
 
-## more stuff and flash, optional
+## more stuff
 
 sudo
 
@@ -677,6 +677,18 @@ note: atril is mate version of evince & engrampa is mate version of file-roller
 note: something about .config/Trolltech.conf and qt4-qtconfig (qtconfig)
 
 Neither vlc, nor smplayer are working correctly in vbox enviroment for me, possibly missing stuff.
+
+## flash
+
+### the new - better way (Yes it will work in iceweasel as well)
+    
+sudo 
+
+    apt-get install browser-plugin-freshplayer-pepperflash
+    
+Make sure backports are enabled in /etc/apt/sources.list
+
+### the old way (Only if the 'new - better way' would not want to cooperate for some reason)
 
 sudo 
 
