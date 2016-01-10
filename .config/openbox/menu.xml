@@ -40,7 +40,7 @@
 		<separator/>
 		<item label="gimp-dev">
 			<action name="Execute">
-				<execute>~/.gimp-dev/bin/gimp-2.9</execute>
+				<execute>~/.gimp-build-dev/bin/gimp-2.9</execute>
 			</action>
 		</item>
 		<item label="inkscape">
