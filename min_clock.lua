@@ -17,20 +17,20 @@ clock_table = {
         draw_background = false, -- set to false if you do not want a bg fill
         draw_seconds = false, -- draw the seconds ring
             -- options if above is true
-            seconds_ring_width = 4, -- seconds ring width
+            seconds_ring_width = 1, -- seconds ring width
             seconds_ring_base_color = {0x909090, 0.8}, -- base color
             seconds_ring_fill_color = {0xFFFFFF, 0.8},-- fill color
         --
         -- main settings
         --
-        xc = 440, -- centre of the clock
+        xc = 220, -- centre of the clock
         yc = 250,
         R  = 80, -- outer radius
         r  = 25, -- minute ring radius
-        border_width = 5,
+        border_width = 0.3,
         -- color settings. {color, alpha}
         background_color = {0xFFFFFF, 0.5}, -- bgcolor id draw_background is true.
-        fill_color   = {0xcccccc, 1},       -- fill color for minutes ring
+        fill_color   = {0xbbbbbb, 1},       -- fill color for minutes ring
         border_color = {0x000000, 1},       -- border color
         text_color   = {0x000000, 1},       -- color of numbers
         -- font settings
@@ -38,7 +38,7 @@ clock_table = {
         hour_font = "cuprum",  -- font face for hours
         min_font  = "cuprum",  -- font face for minutes
         day_font  = "cuprum",  -- font face for day and time period
-        hour_font_size = 80,  -- font size for hours
+        hour_font_size = 110,  -- font size for hours
         min_font_size  = 18,   -- font size for minutes
         day_font_size  = 24,   -- font size for day and period
 }
