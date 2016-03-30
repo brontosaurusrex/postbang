@@ -34,7 +34,7 @@ session = /home/b/.sessions
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
 schedule = watch_directory,5,5,load_start=/home/b/downloads/*.torrent
-schedule = tied_directory,6,5,start_tied=
+# schedule = tied_directory,6,5,start_tied=
 schedule = untied_directory,7,5,stop_untied=
 
 # Close torrents when diskspace is low.
@@ -57,7 +57,7 @@ ratio.upload.set=250M
 system.method.set = group.seeding.ratio.command, d.close=
 
 # Move files to ./unsorted when download completes
-system.method.set_key = event.download.finished,move_complete,"execute=mv,-n,$d.get_base_path=,./unsorted/;d.set_directory=./unsorted/"
+# system.method.set_key = event.download.finished,move_complete,"execute=mv,-n,$d.get_base_path=,./unsorted/;d.set_directory=./unsorted/"
 
 # Port range to use for listening.
 port_range = 6881-7000
@@ -114,4 +114,4 @@ dht_port = 6880
 
 # Enable peer exchange (for torrents not marked private)
 #
-peer_exchange = yes
+#peer_exchange = yes
