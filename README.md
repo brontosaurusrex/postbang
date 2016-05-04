@@ -571,6 +571,8 @@ Blender, Sublime, fadein <http://www.fadeinpro.com/page.pl?content=download>
     +-------------+  +-------------+  +-------------+  +-------------+
     left             right            center           fullwidth
     
+    p.s. super + arrows is another interesting option.
+    
 ### urxvt related 
     
     font-size extension (see ~./Xresources)
