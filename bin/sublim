@@ -1,0 +1,6 @@
+while [ $# -gt 0 ]; do
+
+    subliminal "$1" -l en -s
+
+shift
+done
