@@ -1,5 +1,5 @@
-*.font:	        -*-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
-*.boldFont:	    -*-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
+*.font:	        -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+*.boldFont:	    -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
 
 ! add extensions here
 URxvt.perl-ext-common:  default,matcher,font-size,tabbed
