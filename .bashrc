@@ -84,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 #alias ll='ls -l'
 #alias la='ls -A'
@@ -109,12 +112,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# transfer.sh
-transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }; alias transfer=transfer 
+# custom prompt
+# PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\`if [ \$? = 0 ]; then echo ^_^; else echo O_O; fi\` \u@: \[\033[0m\]" # two lines
+# PS1="\w\n\`if [ \$? = 0 ]; then echo ':)'; else echo ':/'; fi\` \u: " # two lines
+PS1="\033[32m\\w\033[0m\\n\`if [ \$? = 0 ]; then echo \:\); else echo \:\/; fi\` \u> " # two lines
+# PS1="\w\n\`if [ \$? != 0 ]; then echo \:\/; fi\` \u@: " # two lines
 
-# http://bashrcgenerator.com/
-export PS1="\[\e[00;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[00;32m\]\h\[\e[0m\]\[\e[00;37m\]:\[\e[0m\]\[\e[00;36m\]\W\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+
 
 
 
