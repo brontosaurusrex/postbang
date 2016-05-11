@@ -113,11 +113,11 @@ if ! shopt -oq posix; then
 fi
 
 # custom prompt
-# PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\`if [ \$? = 0 ]; then echo ^_^; else echo O_O; fi\` \u@: \[\033[0m\]" # two lines
-# PS1="\w\n\`if [ \$? = 0 ]; then echo ':)'; else echo ':/'; fi\` \u: " # two lines
-PS1="\033[32m\\w\033[0m\\n\`if [ \$? = 0 ]; then echo \:\); else echo \:\/; fi\` \u> " # two lines
-# PS1="\w\n\`if [ \$? != 0 ]; then echo \:\/; fi\` \u@: " # two lines
+# PS1="\033[32m\\w\033[0m\\n\`if [ \$? = 0 ]; then echo \:\); else echo \:\/; fi\` \u@\h> " # two lines, smiley
+PS1="\033[32m\\w\033[0m\\n\`if [ \$? = 0 ]; then echo ∴; else echo ∵; fi\`\u@\h> " # two lines, predator version
 
+
+# ≡ ≢ ⊤ ⊥ ≠ = ≣ ⋐ ⋑ ⋘ ⋙ ⫽  ∴ ∵
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
