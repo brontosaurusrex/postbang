@@ -45,7 +45,7 @@ border_color_pressed = #111111 50
 
 # Background 5: Inactive taskbar
 rounded = 2
-border_width = 1
+border_width = 0
 background_color = #111111 0
 border_color = #111111 25
 background_color_hover = #111111 20
@@ -144,17 +144,20 @@ task_text = 0
 task_icon = 1
 task_centered = 1
 urgent_nb_of_blink = 20
-task_maximum_size = 100 40
-task_padding = 25 5 0
+task_maximum_size = 1000 40
+task_padding = 0 0 0
 task_font = cuprum 10
 task_tooltip = 1
 task_active_font_color = #ffffff 100
 task_urgent_font_color = #aaaaaa 100
-task_icon_asb = 50 -100 -50
-task_normal_icon_asb = 50 -100 -50
-task_active_icon_asb = 100 0 0
-task_urgent_icon_asb = 100 0 0
-task_iconified_icon_asb = 50 -100 -50
+
+# Task Icons
+task_icon_asb = 10 -100 0
+task_active_icon_asb = 50 -100 0
+task_urgent_icon_asb = 10 -100 0
+task_iconified_icon_asb = 10 -100 0
+#task_normal_icon_asb = 20 -100 -0
+
 mouse_left = toggle_iconify
 mouse_middle = close
 mouse_right = toggle
