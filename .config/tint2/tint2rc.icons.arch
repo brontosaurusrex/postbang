@@ -1,0 +1,184 @@
+#---------------------------------------------
+# TINT2 CONFIG FILE
+#---------------------------------------------
+# For more information about tint2, see:
+# http://code.google.com/p/tint2/wiki/Welcome
+
+
+# Background definitions
+# ID 1
+rounded = 1
+border_width = 0
+background_color = #ffffff 0
+border_color = #111111 50
+
+# ID 2 - task active
+rounded = 1
+border_width = 0
+background_color = #111111 70
+border_color = #111111 50
+
+# ID 3 - task
+rounded = 1
+border_width = 0
+background_color = #111111 30
+border_color = #111111 50
+
+# ID 4
+rounded = 1
+border_width = 0
+background_color = #111111 0
+border_color = #111111 50
+
+# ID 5 - taskbar
+rounded = 2
+border_width = 0
+background_color = #111111 20
+border_color = #111111 50
+
+# ID 6 - active taskbar
+rounded = 2
+border_width = 0
+background_color = #111111 50
+border_color = #111111 50
+
+# ID 7 - tooltip
+rounded = 3
+border_width = 0
+background_color = #ffffff 70
+border_color = #111111 50
+
+# ID 8
+rounded = 1
+border_width = 1
+background_color = #111111 0
+border_color = #111111 50
+
+# ID 9
+rounded = 1
+border_width = 0
+background_color = #ffffff 0
+border_color = #111111 100
+
+# Panel
+panel_monitor = 1
+panel_position = top center horizontal
+#panel_items = TSBC
+panel_items = LTSC
+panel_size = 95% 46
+panel_margin = 0 -1
+panel_padding = 3 2
+panel_dock = 0
+wm_menu = 1
+panel_layer = bottom
+panel_background_id = 1
+
+# Panel Autohide
+autohide = 0
+autohide_show_timeout = 0.3
+autohide_hide_timeout = 1.5
+autohide_height = 6
+strut_policy = follow_size
+
+# Taskbar
+taskbar_mode = multi_desktop
+#taskbar_mode = single_desktop
+taskbar_padding = 0 0 0
+taskbar_background_id = 5
+taskbar_active_background_id = 6
+taskbar_name = 0
+taskbar_name_background_id = 0
+taskbar_name_active_background_id = 0
+taskbar_name_font = ubuntu condensed 9
+taskbar_name_font_color = #cccccc 100
+taskbar_name_active_font_color = #cccccc 100
+#taskbar_icon = 1
+#taskbar_text = 0
+
+# Tasks
+urgent_nb_of_blink = 20
+task_icon = 1
+task_text = 1
+task_centered = 1
+task_maximum_size = 400 40
+task_padding = 5 5
+task_background_id = 3
+task_active_background_id = 2
+task_urgent_background_id = 4
+task_iconified_background_id = 3
+
+# Task Icons
+task_icon_asb = 10 -100 0
+task_active_icon_asb = 20 -100 0
+task_urgent_icon_asb = 10 -100 0
+task_iconified_icon_asb = 10 -100 0
+
+# Fonts
+task_font = cuprum 10
+task_font_color = #aaaaaa 60
+task_active_font_color = #ffffff 100
+task_urgent_font_color = #aaaaaa 100
+task_iconified_font_color = #aaaaaa 60
+font_shadow = 0
+
+# Launcher
+launcher_padding = 0 0 0
+launcher_background_id = 0
+launcher_icon_size = 32
+# Specify icon theme names with launcher_icon_theme. 
+# if you have an XSETTINGS manager running (like xfsettingsd), tint2 will follow your current theme.
+# launcher_icon_theme = Clarity
+# Each launcher_item_app must be a full path to a .desktop file
+
+launcher_item_app = /home/ticho/source/postbang/applications/menuarch.desktop
+
+
+
+# System Tray
+systray = 1
+systray_padding = 0 4 5
+systray_background_id = 9
+systray_sort = left2right
+systray_icon_size = 20
+#systray_icon_asb = 100 100 -100
+systray_icon_asb = 100 -100 -100
+
+
+# Clock
+time1_format = %d.%b
+time1_font = cuprum 10
+time2_format = %H:%M
+time2_font = cuprum 13
+clock_font_color = #111111 100
+clock_padding = 6 2
+clock_background_id = 0
+clock_lclick_command = gsimplecal
+clock_rclick_command = gsimplecal
+
+# Tooltips
+tooltip = 1
+tooltip_padding = 2 2
+tooltip_show_timeout = 0.0
+tooltip_hide_timeout = 0.0
+tooltip_background_id = 7
+tooltip_font_color = #111111 100
+tooltip_font = cuprum 10
+
+# Mouse
+mouse_middle = close
+mouse_right = toggle
+mouse_scroll_up = toggle
+mouse_scroll_down = iconify
+
+# Battery
+battery = 0
+battery_low_status = 20
+battery_low_cmd = notify-send "battery low"
+battery_hide = 96
+bat1_font = cuprum 10
+bat2_font = cuprum 10
+battery_font_color = #828282 100
+battery_padding = 2 0
+battery_background_id = 0
+
+# End of config
