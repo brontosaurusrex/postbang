@@ -95,8 +95,8 @@ border_color_pressed = #111111 100
 
 #-------------------------------------
 # Panel
-panel_items = LTS
-panel_size = 71% 46
+panel_items = LTSC
+panel_size = 90% 46
 panel_margin = 0 0
 panel_padding = 3 2 3
 panel_background_id = 0
@@ -169,7 +169,7 @@ mouse_scroll_down = iconify
 systray_padding = 15 4 10
 systray_background_id = 9
 systray_sort = right2left
-systray_icon_size = 18
+systray_icon_size = 24
 systray_icon_asb = 100 -100 -100
 systray_monitor = 1
 
@@ -188,22 +188,15 @@ launcher_item_app = ~/source/postbang/applications/menuarch.desktop
 
 #-------------------------------------
 # Clock
-time1_format = 
-time2_format = 
+time1_format = %d.%b
 time1_font = cuprum 10
-time1_timezone = 
-time2_timezone = 
+time2_format = %H:%M
 time2_font = cuprum 13
 clock_font_color = #111111 100
 clock_padding = 6 2
 clock_background_id = 0
-clock_tooltip = 
-clock_tooltip_timezone = 
 clock_lclick_command = gsimplecal
 clock_rclick_command = gsimplecal
-clock_mclick_command = 
-clock_uwheel_command = 
-clock_dwheel_command = 
 
 #-------------------------------------
 # Battery
