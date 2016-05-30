@@ -1,6 +1,9 @@
 *.font:	        -*-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
 *.boldFont:	    -*-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
 
+! urxvt icon - https://aur.archlinux.org/packages/rxvt-unicode-pixbuf/
+URxvt.iconFile:    /home/ticho/.icons/papirus/32x32/apps/xterm-color.svg
+
 ! add extensions here
 URxvt.perl-ext-common:  default,matcher,font-size,tabbed
 
@@ -82,10 +85,6 @@ URxvt.internalBorder:  40
 
 URxvt.iso14755:         false
 URxvt.iso14755_52:      false
-
-! experiments
-
-
 
 ! dkeg something
 ! special
