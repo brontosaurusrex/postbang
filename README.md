@@ -722,9 +722,11 @@ notes:
 - you will probably want to start this via openbox/autostart with some delay, so remember to remove `/etc/xdg/autostart/wbar.desktop`
 - wbar does not autohide and will not take place on desktop < fix it with some openbox margins (bottom in this case)
 - wbar does not behave very friendly in multi-monitor enviroments.
+- wbar config is local floating point character dependant (usually either , or .)
 
 bronto-moded `.wbar` should be in this gits root.  
-Update: provided .wbar now uses intermediate script called launchee, which should provide a bit smarter behaviour than just starting the app again.
+Update: provided .wbar now uses intermediate script called launchee, which should provide a bit smarter behaviour than just starting the app again.  
+Update: there is now .wbar.papirus (Nice size seems to be 42px on smaller screens and 46px on larger)
 
 ### notify-send and replacing notification thingy
 
