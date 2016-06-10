@@ -2,8 +2,7 @@ echo
 
 img2txt -W "$( tput cols )" -f utf8 -d random ~/bin/bronto.gif
 # screenfetch -N | tr -cd '\11\12\15\40-\176' | sed 's/ //g' | tail -n +2
-linuxlogo -a -g -w "$( tput cols )"
-
+# linuxlogo -a -g -w "$( tput cols )"
 # inxi -b
 
 echo
