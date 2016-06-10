@@ -1,0 +1,28 @@
+i: /usr/share/pixmaps/wbar/dock.png
+c: wbar --above-desk --nofont --pos bottom --isize 46 --idist 3 --zoomf 1,100000 --balfa 0 --filter 3 --fc 0xffbbbbbb
+t: /home/ticho/.fonts/Cuprum-Regular/10
+
+i: /home/ticho/source/postbang/images/wbar/papirus/term_bw.png
+c: (launchee urxvt || urxvt)
+t: rxvt-unicode
+
+i: /home/ticho/source/postbang/images/wbar/papirus/text_bw.png
+c: (LANG=en_US.UTF8 launchee geany || geany)
+t: geany
+
+i: /home/ticho/source/postbang/images/wbar/papirus/firefox_bw.png
+c: (launchee firefox || firefox)
+t: firefox
+
+i: /home/ticho/source/postbang/images/wbar/papirus/blender_bw.png
+c: (launchee blender || blender)
+t: blender
+
+i: /home/ticho/source/postbang/images/wbar/papirus/thunar_bw.png
+c: (launchee thunar || thunar)
+t: thunar
+
+i: /home/ticho/source/postbang/images/wbar/papirus/calc_bw.png
+c: (launchee galculator || galculator)
+t: calc
+
