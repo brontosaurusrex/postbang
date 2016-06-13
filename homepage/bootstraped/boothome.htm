@@ -4,29 +4,28 @@
     <meta charset="utf-8">
 <style>
 .btn
-{
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
-}
-.container-fluid
-{
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-body {
-    text-align:center;
-}
+{       margin-top: 0.1rem;
+        margin-bottom: 0.1rem; }
+
+body {  text-align:center; }
+.centered {
+        position: fixed;
+        top: 38%;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%); 
+        width: 90%;
+    }
 </style>
 
-    <title>homestrap</title>
-
+<title>homestrap</title>
 <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
 <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
 
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="centered">
 
             <form class="form-group" action="https://google.com/search" method="get">               
                 <input type="text" class="form-control form-control-lg" id="exampleInputName" placeholder="google" name="q" autofocus>
