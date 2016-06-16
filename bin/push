@@ -1,0 +1,6 @@
+#!/bin/bash
+
+user="user"
+remote="remote.com"
+
+scp "$@" "$user"@"$remote":/home/"$user"/downloads
