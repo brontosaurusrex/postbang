@@ -155,7 +155,7 @@ task_urgent_font_color = #aaaaaa 100
 # Task Icons
 task_icon_asb = 10 -100 0
 task_active_icon_asb = 50 -100 0
-task_urgent_icon_asb = 10 -100 0
+task_urgent_icon_asb = 100 -100 0
 task_iconified_icon_asb = 10 -100 0
 #task_normal_icon_asb = 20 -100 -0
 
