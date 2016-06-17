@@ -1,0 +1,23 @@
+#!/bin/bash
+# getfav - Get webpage favicon using 3rd party service https://icons.better-idea.org
+# usage: getfav https://duckduckgo.com duck
+# set -x
+
+# checks critical
+command -v wget >/dev/null 2>&1 || { >&2 echo "$me I need wget." ; exit 1; }
+command -v mogrify >/dev/null 2>&1 || { >&2 echo "$me I need mogrify (imagemagick)." ; exit 1; }
+
+# parameters
+link="$1"                       # url
+name="$2"                       # name
+
+# static vars
+size="48"                       # Desired minimum icon size (will end up exact with mogrify)
+wheredir="$HOME/tmp/favicons"   # Where to store those icons
+
+# action
+wget "https://icons.better-idea.org/icon?url=$link&formats=png&size=$size" -O "$wheredir/$name.png" >/dev/null 2>&1 \
+&& mogrify -resize "$size"x"$size" "$wheredir/$name.png" \
+&& echo "$wheredir/$name.png"
+
+
