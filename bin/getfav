@@ -4,8 +4,8 @@
 # set -x
 
 # checks critical
-command -v wget >/dev/null 2>&1 || { >&2 echo "$me I need wget." ; exit 1; }
-command -v mogrify >/dev/null 2>&1 || { >&2 echo "$me I need mogrify (imagemagick)." ; exit 1; }
+command -v wget >/dev/null 2>&1 || { >&2 echo "I need wget." ; exit 1; }
+command -v mogrify >/dev/null 2>&1 || { >&2 echo "I need mogrify (imagemagick)." ; exit 1; }
 
 # parameters
 link="$1"                       # url
