@@ -1,6 +1,10 @@
 while [ $# -gt 0 ]; do
 
-    subliminal "$1" -l en -s
+    $HOME/.local/bin/subliminal download -l sl -l en -s "$1"
 
 shift
 done
+
+# install subliminal with
+# pip install --user subliminal
+# help: https://subliminal.readthedocs.io/en/latest/user/cli.html
