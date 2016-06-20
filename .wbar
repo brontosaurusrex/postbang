@@ -1,28 +1,28 @@
 i: /usr/share/pixmaps/wbar/dock.png
-c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idist 1 --zoomf 1.100000 --balfa 0 --falfa 80
+c: wbar --bpress --above-desk --nofont --pos bottom --isize 42 --zoomf 1,100000 --balfa 0 --falfa 70 --filter 2 --fc 0xffbbbbbb
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
-i: /home/ticho/source/postbang/images/wbar/black/term.png
+i: /home/ticho/source/postbang/images/wbar/papirus/term_bw.png
 c: (launchee urxvt || urxvt)
 t: rxvt-unicode
 
-i: /home/ticho/source/postbang/images/wbar/black/thunar.png
-c: (launchee thunar || thunar)
-t: thunar
-
-i: /home/ticho/source/postbang/images/wbar/black/geany.png
+i: /home/ticho/source/postbang/images/wbar/papirus/text_bw.png
 c: (LANG=en_US.UTF8 launchee geany || geany)
 t: geany
 
-i: /home/ticho/source/postbang/images/wbar/black/blender.png
-c: (launchee /home/ticho/apps/blender/blender || /home/ticho/apps/blender/blender)
+i: /home/ticho/source/postbang/images/wbar/papirus/firefox_bw.png
+c: (launchee firefox || firefox)
+t: firefox
+
+i: /home/ticho/source/postbang/images/wbar/papirus/blender_bw.png
+c: (launchee blender || blender)
 t: blender
 
-i: /home/ticho/source/postbang/images/wbar/black/firefox.png
-c: (launchee iceweasel || iceweasel)
-t: iceweasel
+i: /home/ticho/source/postbang/images/wbar/papirus/thunar_bw.png
+c: (launchee thunar || thunar)
+t: thunar
 
-i: /home/ticho/source/postbang/images/wbar/black/calc.png
+i: /home/ticho/source/postbang/images/wbar/papirus/calc_bw.png
 c: (launchee galculator || galculator)
 t: calc
 
