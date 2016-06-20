@@ -1,0 +1,34 @@
+#!/bin/bash
+# set -x
+
+# watch directory where input files would be found
+input="$HOME/prehod/bostjan/input/x264deint25p"
+# working directory
+working="$HOME/prehod/bostjan/input/x264deint25p/.progress"
+# output
+# defined as out in singularity.cfg < which is bad!
+
+# eternal loop
+while :
+do
+    # find singular oldest file
+    unset -v oldest
+    for file in "$input"/*; do
+      [[ -z $oldest || $file -ot $oldest ]] && oldest=$file
+    done
+
+    # If there is some file, move it to .progress dir (oldest first)
+    test -f "$oldest" && echo "$oldest" && mv "$oldest" "$working" || { sleep 10 ; continue ; }
+
+    # "$oldest" to pieces
+        watchfile=$(readlink -f "$oldest")   # expanded full path
+        watchbaseext=$(basename "${oldest}") # file.ext
+        watchbase="${baseext%.*}"            # file
+
+    # toX264crf with low priority 19
+    nice -19 toX264crf "$working/$watchbaseext"
+    
+    # rm tmp
+    rm "$working/$watchbaseext"
+
+done
