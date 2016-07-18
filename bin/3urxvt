@@ -3,6 +3,25 @@
 # 3urxvt - is a script that opens 3 urxvt windows, centered, with specific width/height on specific virtual screen.
 # needs 'xrandr','xdotool' and 'awk' < in repos
 
+# illustration
+#+---------------------------------------------------+
+#|            +-------------------------+            |
+#|            |urxvt1                   |            |
+#|            |                         |            |
+#|            |                         |            |
+#|            +-------------------------+            |
+#|            +-------------------------+            |
+#|            |urxvt2                   |            |
+#|            |                         |            |
+#|            |                         |            |
+#|            +-------------------------+            |
+#|            +-------------------------+            |
+#|            |urxvt3                   |            |
+#|            |                         |            |
+#|            |                         |            |
+#|            +-------------------------+            |
+#+---------------------------------------------------+
+
 # configurable variables
 xdotool set_desktop 1   # change me to a desktop you want urxvt windows to open
 sleep="0.2"             # sleep before it gets active
