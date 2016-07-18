@@ -901,6 +901,11 @@ With slight reconfiguration the same make-up layer might work with other distros
 
 <a href="http://shrani.si/f/3s/dW/iXkZZPh/reallyarchy.png"><img src="http://shrani.si/t/3s/dW/iXkZZPh/reallyarchy.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
+## Issues?
+
+You may explain yourself here (Or better correct me)  
+<https://github.com/brontosaurusrex/postbang/issues>
+
 ## brought to You by
 
 <a href="http://brontosaurusrex.github.io"><img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/logos/logoPost.png" style="border:0;"></a>
