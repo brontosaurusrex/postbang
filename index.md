@@ -1,4 +1,4 @@
-[gimmick:theme](flatly)
+[gimmick:theme](amelia)
 
 # Jessie from netinstall (postbang)
 
