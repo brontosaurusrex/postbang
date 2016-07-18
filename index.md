@@ -2,7 +2,13 @@
 
 # Jessie from netinstall (postbang)
 
-Manual approach to post-banging the Debian Jessie, work in progress
+## What is this
+
+- Seting up simple but effective system using openbox as your window manager with Debian stable as base
+- Hugly influenced by now defunkt crunchbang
+- Consideration to stay Debian all the way and not invent any more abstraction layers
+- Learning tool to get you closer to the state where you can roll your own/personalized Linux desktop system
+- and more ...
 
 Attention: This is brainstorming and execution in single step, so consider this document experimental.
 
