@@ -101,7 +101,7 @@ as user
 
     tint2 &
 
-The network applet should show up on tint2
+The network applet should show up on tint2 (Exec name is nm-applet and it should get autostarted from entrie in /etc/xdg/autostart/).
 
 <a href="http://shrani.si/f/2o/PM/1aLoN4EY/network.png"><img src="http://shrani.si/t/2o/PM/1aLoN4EY/network.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
