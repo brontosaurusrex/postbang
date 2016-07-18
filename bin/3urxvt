@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# 3urxvt
-# I need 'xrandr' and 'xdotool' < in repos
-# open 3 urxvt windows to specific positions at desktop 1 (their ids start with 0)
+# 3urxvt - is a script that opens 3 urxvt windows, centered, with specific width/height on specific virtual screen.
+# needs 'xrandr','xdotool' and 'awk' < in repos
 
 # configurable variables
 xdotool set_desktop 1   # change me to a desktop you want urxvt windows to open
@@ -15,9 +14,10 @@ y="50"                  # y pos of first window
 # checks
 command -v xrandr >/dev/null 2>&1 ||    { >&2 echo "I need xrandr." ; exit 1; }
 command -v xdotool >/dev/null 2>&1 ||   { >&2 echo "I need xdotool." ; exit 1; }
+command -v awk >/dev/null 2>&1 ||   { >&2 echo "I need awk." ; exit 1; }
 
 # remember what desktop is active now
-now=$(xdotool get_desktop)
+desknow=$(xdotool get_desktop)
 
 # get screen resolution width and halve it
 width=$(xrandr --current | awk '/Screen/ {print $8}')
@@ -26,15 +26,15 @@ halfwidth=$((width / 2))
 # calc stuff
 center=$((halfwidth - w / 2))
 
-echo "halfwidth $halfwidth" # screenwidth / 2
-echo "center $center"
+echo "halfwidth $halfwidth"     # screen center
+echo "center $center"           # the actual x position to move a window to become centered
 
 # action
 (urxvt & sleep "$sleep") && xdotool getactivewindow windowsize "$w" "$h" windowmove "$center" "$y"
 (urxvt & sleep "$sleep") && xdotool getactivewindow windowsize "$w" "$h" windowmove "$center" $((y + h + margin))
 (urxvt & sleep "$sleep") && xdotool getactivewindow windowsize "$w" "$h" windowmove "$center" $((y + 2 * h + 2 * margin))
 
-xdotool set_desktop "$now" # return me to original desktop
+xdotool set_desktop "$desknow" # return me to original desktop
 
 
 # notes:
