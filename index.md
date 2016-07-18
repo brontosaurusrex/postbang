@@ -1,3 +1,5 @@
+[gimmick:theme](flatly)
+
 # Jessie from netinstall (postbang)
 
 Manual approach to post-banging the Debian Jessie, work in progress
