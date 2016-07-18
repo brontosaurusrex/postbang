@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# 3urxvt
+# I need 'xrandr' and 'xdotool' < in repos
+# open 3 urxvt windows to specific positions at desktop 1 (their ids start with 0)
+
+# configurable variables
+xdotool set_desktop 1   # change me to a desktop you want urxvt windows to open
+sleep="0.2"             # sleep before it gets active
+w="1000"                # window width
+h="360"                 # window height
+margin="-5"             # bottom margin
+y="50"                  # y pos of first window
+
+# checks
+command -v xrandr >/dev/null 2>&1 ||    { >&2 echo "I need xrandr." ; exit 1; }
+command -v xdotool >/dev/null 2>&1 ||   { >&2 echo "I need xdotool." ; exit 1; }
+
+# remember what desktop is active now
+now=$(xdotool get_desktop)
+
+# get screen resolution width and halve it
+width=$(xrandr --current | awk '/Screen/ {print $8}')
+halfwidth=$((width / 2))
+
+# calc stuff
+center=$((halfwidth - w / 2))
+
+echo "halfwidth $halfwidth" # screenwidth / 2
+echo "center $center"
+
+# action
+(urxvt & sleep "$sleep") && xdotool getactivewindow windowsize "$w" "$h" windowmove "$center" "$y"
+(urxvt & sleep "$sleep") && xdotool getactivewindow windowsize "$w" "$h" windowmove "$center" $((y + h + margin))
+(urxvt & sleep "$sleep") && xdotool getactivewindow windowsize "$w" "$h" windowmove "$center" $((y + 2 * h + 2 * margin))
+
+xdotool set_desktop "$now" # return me to original desktop
+
+
+# notes:
+# wmctrl -l < will list all visible window ids
+# xdotool windowmove does not support percents, while windowsize does
+# urxvtc && sleep "$sleep" && xdotool getactivewindow windowsize 50% 50% windowmove 600 30 < percentage example
