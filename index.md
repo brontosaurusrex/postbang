@@ -903,7 +903,7 @@ With slight reconfiguration the same make-up layer might work with other distros
 
 ## brought to You by
 
-<img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/logos/logoPost.png" style="border:0;">
+<a href="http://brontosaurusrex.github.io"><img src="https://raw.githubusercontent.com/brontosaurusrex/postbang/master/logos/logoPost.png" style="border:0;"></a>
 
 
 
