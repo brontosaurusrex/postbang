@@ -1,0 +1,25 @@
+# wallpaper, tint2, volumeicon, wbar
+nitrogen --restore & (sleep 4 && tint2) & volumeicon & (sleep 3 && wbar) &
+
+# conky
+(sleep 3 && conky) &  
+
+# i5 compton
+compton -cCG --backend glx --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 &
+
+## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
+xset r rate 250 25 &
+
+## Turn on/off system beep
+xset b off &
+
+## policy kit
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+# optional (http://raspberrypi.stackexchange.com/questions/752/how-do-i-prevent-the-screen-from-going-blank)
+xset s off         # don't activate screensaver
+xset -dpms         # disable DPMS (Energy Star) features.
+xset s noblank     # don't blank the video device
+
+# nm-applet
+(sleep 1 && nm-applet) &
