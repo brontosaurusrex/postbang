@@ -28,9 +28,10 @@ Basic eth0 `/etc/network/interfaces`
 as su
 
     apt-get install openbox xserver-xorg xinit
-    apt-get install terminator rxvt-unicode vim thunar tint2 geany gmrun
+    apt-get install terminator rxvt-unicode vim vim-gtk thunar tint2 geany gmrun
     apt-get install htop mc inxi xsettingsd i3lock
 
+Note: They say that vim-gtk gives ability to yank (copy) text to x clipboard (either "*y or "+y should work)
 Note: terminator and thunar will bring in lots of stuff    
 Note: Installing xsettingsd stoped tint2 to fill .xsession-errors <https://code.google.com/p/xsettingsd/>
 
