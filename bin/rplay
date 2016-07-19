@@ -27,7 +27,7 @@ trap 'control_c; trap - SIGINT; kill -INT "$$"' SIGINT  # end ctrl+c trap
 shopt -s extglob
 
 # checks
-ffmpeg_static -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting." ; exit 1; }
+ffmpeg -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting." ; exit 1; }
 #command -v mplayer2 >/dev/null 2>&1 || { echo >&2 "I require mplayer2 but it's not installed, exiting."; exit 1; }
 command -v mpv >/dev/null 2>&1 || { echo >&2 "I require mpv but it's not installed, exiting."; exit 1; }
 command -v mediainfo >/dev/null 2>&1 || { echo "I need mediainfo installed." ; exit 1; }
@@ -66,7 +66,7 @@ fi
 
 # If no specific arguments were passed to script then it will check current dir for
 # certain audio extensions itself
-(( $# )) || set -- *.@(mp3|mp4|m4a|flac|ogg|mpc|wav|aif); [[ -e $1 ]] || { echo "No audio files find in this dir (mp3|mp4|m4a|flac|ogg|mpc|wav|aif)"; exit 1; }
+(( $# )) || set -- *.@(mp3|mp4|m4a|flac|ogg|mpc|wav|aif); [[ -e $1 ]] || { echo "No audio files find in this dir (mp3|mp4|m4a|flac|ogg|mpc|wav|aif)"; stty sane; exit 1; }
 
 
 
@@ -100,7 +100,7 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 
 	# tmp dir http://mywiki.wooledge.org/BashFAQ/062
    	temp_dir=/tmp/$RANDOM-$$
-   	trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+   	trap '[ -n "$temp_dir" ] && stty sane && rm -fr "$temp_dir"' EXIT
    	mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
 
 
@@ -127,7 +127,7 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 			
 			
 			
-				ffmpeg_static -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$temp_dir/$justname".rgtxt
+				ffmpeg -nostats -i "$expanded" -vn -filter_complex ebur128 -f null - 2> "$temp_dir/$justname".rgtxt
 			
 				# get Integrated loudness into variable
 	 
@@ -150,8 +150,8 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 							else
 							echo "$r128		LUFS Integrated loudness (I)"
 	
-							correct=$(echo "(-18)-($r128)" | bc)  
-							# change this -18 to whatever you want, default EBU value is -23
+							correct=$(echo "(-23)-($r128)+6" | bc)  
+							# default EBU value is -23 to which we add 6dB boost.
 	
 							echo -n "$correct 		dB correction"
 							echo
@@ -197,4 +197,4 @@ fi
 shift
 done
 
-
+stty sane
