@@ -8,7 +8,7 @@
 - Hugly influenced by now defunkt crunchbang
 - Consideration to stay Debian all the way and not invent any more abstraction layers
 - Learning tool to get you closer to the state where you can roll your own/personalized Linux desktop system
-- and more ...
+- Reaching that next level of geekness
 
 Attention: This is brainstorming and execution in single step, so consider this document experimental.
 
