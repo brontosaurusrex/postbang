@@ -66,7 +66,7 @@ fi
 
 # If no specific arguments were passed to script then it will check current dir for
 # certain audio extensions itself
-(( $# )) || set -- *.@(mp3|mp4|m4a|flac|ogg|mpc|wav|aif); [[ -e $1 ]] || { echo "No audio files find in this dir (mp3|mp4|m4a|flac|ogg|mpc|wav|aif)"; stty sane; exit 1; }
+(( $# )) || set -- *.@(mp3|mp4|m4a|flac|ogg|mpc|wav|aif|opus); [[ -e $1 ]] || { echo "No audio files find in this dir (mp3|mp4|m4a|flac|ogg|mpc|wav|aif|opus)"; stty sane; exit 1; }
 
 
 
@@ -91,9 +91,9 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 	then
 	
 	
-	[[ -n "$4" ]] && echo "later   >" $4
-	[[ -n "$3" ]] && echo "soon    >" $3
-	[[ -n "$2" ]] && echo "next    >" $2
+	[[ -n "$4" ]] && echo "later    " $4
+	[[ -n "$3" ]] && echo "soon     " $3
+	[[ -n "$2" ]] && echo "next     " $2
                       
 	fi
 
@@ -111,7 +111,9 @@ if [ -f "$expanded" ] && mediainfo "$expanded" | egrep -qi 'audio'; then
 
 	if [ "$scanonly" != "true" ] 
 	then
-	echo -e "playing > $justname $justdir"
+    # echo -e "Normal \e[7minverted" < invert
+    # echo -e "\e[0mNormal Text"     < normal
+	echo -e "playing > \e[7m$justname\e[0m $justdir"
 	else
 	echo -e "scan > $justname $justdir"
 	fi
