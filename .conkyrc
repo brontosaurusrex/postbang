@@ -1,7 +1,4 @@
 # conky configuration
-#
-# The list of variables has been removed from this file in favour
-# of keeping the documentation more maintainable.
 # Check http://conky.sf.net for an up-to-date-list.
 
 background yes
@@ -22,9 +19,7 @@ draw_shades no
 draw_outline no
 draw_borders no
 draw_graph_borders no
-#default_color aaaaaa
-default_color 121212
-#default_color ffffff
+default_color 000000
 default_shade_color 000000
 default_outline_color 5D2560
 alignment BR
@@ -36,9 +31,8 @@ uppercase no
 cpu_avg_samples 2
 override_utf8_locale yes
 
-default_bar_size 120 6
+default_bar_size 160 6
 default_graph_size 100 50
-
 
 ##############################################
 #  Output
@@ -52,18 +46,18 @@ TEXT
 #$nodename, up $uptime_short
 #
 # Version where bars will be red if usage is above 90%
-# ▾ ▴  ^ v ↑ ↓ 
-${font cuprum:size=10}\
+${font cuprum:size=10}
 ${color black}${if_match ${downspeedf}>=1}dl $downspeed/s${endif}  \
 ${color black}${if_match ${upspeedf}>=1}up $upspeed/s${endif}  \
-${color black}${if_match ${cpu}>=90}${color ff3333}${endif}cpu $cpubar  \
-${color black}${if_match ${memperc}>=90}${color ff3333}${endif}ram $membar  \
-${color black}${if_match ${fs_used_perc /home}>=90}${color ff3333}${endif}disk ${fs_bar /home}  \
-${color black}$nodename, up $uptime_short
+${color black}cpu ${if_match ${cpu}>=90}${color aa3333}${endif}$cpubar  \
+${color black}ram ${if_match ${memperc}>=90}${color aa3333}${endif}$membar  \
+${color black}disk ${if_match ${fs_used_perc /home}>=90}${color aa3333}${endif}${fs_bar /home}
+#${execi 60 curl -m 0.1 http://kresnica/disk.php 2> /dev/null || echo --}
+# ${color black}$nodename, uptime $uptime_short \
 #
 #$nodename
 #$fs_bar disk 
 #$fs_size used
-#${font cuprum:size=8}${time %A}, ${time %e.%b %G}
-#${font cuprum:size=18}${time %H.%M}
+#${font cuprum:size=10}${time %A}, ${time %e.%b %G} \
+#${color white}${font cuprum:size=10}${time %H.%M} \
 #$nodename ${addr} $uptime_short
