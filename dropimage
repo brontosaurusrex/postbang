@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# dropimage 0.2
+# Script that generates some thumbs & 
+# constructs #! compatible forum code for easy image sharing
+
+# usage:
+# dropimage scrot.png or dropimage *.png
+
+# needed:
+# dropbox, dropbox, imagemagick/convert, xclip
+
+# tmp dir http://mywiki.wooledge.org/BashFAQ/062
+
+
+temp_dir=/tmp/$RANDOM # < this seems to be working on sid
+trap '[ -n "$temp_dir" ] && rm -fr "$temp_dir"' EXIT
+mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir=; exit 1; }
+
+# checks
+
+command -v dropbox >/dev/null 2>&1 || { echo >&2 "I require dropbox but it's not on PATH, exiting."; exit 1; }
+command -v convert >/dev/null 2>&1 || { echo >&2 "I require imagemagicks/convert but it's not installed, exiting."; exit 1; }
+command -v xclip >/dev/null 2>&1 || { echo >&2 "I require xclip but it's not installed, exiting."; exit 1; }
+dropbox status | grep "isn't" && exit
+
+# main 
+
+while [ $# -gt 0 ]; do
+
+base=$(basename "${1}")     # basename, like                file.png
+base="${base%.*}"           # basename without extension    file
+dir=$(dirname "${1}")
+   
+#echo "$dir/"
+#echo "${base}"
+#echo "$dir/${base}"
+
+    # action
+    convert "$1" -flatten -depth 8 -resize 160x "png:$dir/.${base}"
+    
+    # for area resizing one could use: -resize '@25600'
+    
+    # round corners http://www.imagemagick.org/Usage/thumbnails/
+    convert "$dir/.${base}"  \
+     \( +clone  -alpha extract \
+        -draw 'fill black polygon 0,0 0,3 3,0 fill white circle 3,3 3,0' \
+        \( +clone -flip \) -compose Multiply -composite \
+        \( +clone -flop \) -compose Multiply -composite \
+     \) -alpha off -compose CopyOpacity -composite "png:$dir/.${base}_"
+     
+     mv "$dir/.${base}_" "$dir/.${base}.png"
+     # end round corners < remove this to disable rounded corners for thumbs
+
+    
+    imageurl="$(dropbox puburl "$1")"
+    #echo "$imageurl < imageurl"
+    
+    thumburl="$(dropbox puburl "$dir/.${base}.png")"
+    #echo "$thumburl < thumburl"
+    
+    all="[url=$imageurl][img]$thumburl[/img][/url]"
+    echo "$all"
+    
+    printf "$all" >> "$temp_dir/clip"
+
+    shift
+
+done
+
+xclip -i -selection clipboard "$temp_dir/clip"

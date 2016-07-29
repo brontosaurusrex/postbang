@@ -1,0 +1,15 @@
+#!/bin/bash
+# screenrex
+# Make sure your ffmpeg is compiled with x264 and x11grab. xrandr must also be on path.
+
+set -x
+
+DESTINATION="$HOME/videos/Screencasts"
+
+                # screencast without audio
+                screenres=$(xrandr | grep '*' | cut -c 4-15)
+                /usr/local/bin/ffmpeg -r 30 -f x11grab -s $screenres -i :0.0 -vcodec libx264 -preset ultrafast -tune fastdecode -pix_fmt yuv420p -crf 25 -an -y $DESTINATION/$(date +"%m%d%Y_%H%M%S_$HOSTNAME")_screencast.mp4
+                sleep 1
+                
+                # -crf 21
+                # thunar $DESTINATION
