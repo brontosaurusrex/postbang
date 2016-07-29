@@ -8,7 +8,7 @@
 # dropimage scrot.png or dropimage *.png
 
 # needed:
-# dropbox, dropbox.py, imagemagick/convert, xclip
+# dropbox, dropbox, imagemagick/convert, xclip
 
 # tmp dir http://mywiki.wooledge.org/BashFAQ/062
 
@@ -19,10 +19,10 @@ mkdir -m 700 "$temp_dir" || { echo '!! unable to create a tempdir' >&2; temp_dir
 
 # checks
 
-command -v dropbox.py >/dev/null 2>&1 || { echo >&2 "I require dropbox.py but it's not on PATH, exiting."; exit 1; }
+command -v dropbox >/dev/null 2>&1 || { echo >&2 "I require dropbox but it's not on PATH, exiting."; exit 1; }
 command -v convert >/dev/null 2>&1 || { echo >&2 "I require imagemagicks/convert but it's not installed, exiting."; exit 1; }
 command -v xclip >/dev/null 2>&1 || { echo >&2 "I require xclip but it's not installed, exiting."; exit 1; }
-dropbox.py status | grep "isn't" && exit
+dropbox status | grep "isn't" && exit
 
 # main 
 
@@ -53,10 +53,10 @@ dir=$(dirname "${1}")
      # end round corners < remove this to disable rounded corners for thumbs
 
     
-    imageurl="$(dropbox.py puburl "$1")"
+    imageurl="$(dropbox puburl "$1")"
     #echo "$imageurl < imageurl"
     
-    thumburl="$(dropbox.py puburl "$dir/.${base}.png")"
+    thumburl="$(dropbox puburl "$dir/.${base}.png")"
     #echo "$thumburl < thumburl"
     
     all="[url=$imageurl][img]$thumburl[/img][/url]"
