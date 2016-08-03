@@ -1,0 +1,72 @@
+# conky configuration
+#
+# The list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+
+background yes
+use_xft yes
+xftfont Liberation Sans:size=16
+xftalpha 1
+update_interval 5.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+# own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 100 10
+maximum_width 1200
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+#default_color aaaaaa
+default_color 121212
+#default_color ffffff
+default_shade_color 000000
+default_outline_color 5D2560
+alignment BR
+gap_x 5
+gap_y 5
+
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+
+default_bar_size 120 6
+default_graph_size 100 50
+
+
+##############################################
+#  Output
+##############################################
+TEXT
+# Short version
+#${font cuprum:size=10}
+#cpu $cpubar  \
+#ram $membar  \
+#disk ${fs_bar /home}  \
+#$nodename, up $uptime_short
+#
+# Version where bars will be red if usage is above 90%
+# ▾ ▴  ^ v ↑ ↓ 
+${font cuprum:size=10}\
+${color black}${if_match ${downspeedf}>=1}dl $downspeed/s${endif}  \
+${color black}${if_match ${upspeedf}>=1}up $upspeed/s${endif}  
+${color black}${if_match ${cpu}>=90}${color ff3333}${endif}$cpubar cpu  \
+${color black}${goto 160}${if_match ${memperc}>=90}${color ff3333}${endif}$membar mem  
+${color black}${if_match ${fs_used_perc /home}>=90}${color ff3333}${endif}${fs_bar /home} home  \
+${goto 160}${fs_bar /data1} data1 
+#$nodename, up $uptime_short
+#$nodename, up $uptime_short
+#${color black}up $uptime_short
+#
+#$nodename
+#$fs_bar disk 
+#$fs_size used
+#${font cuprum:size=8}${time %A}, ${time %e.%b %G}
+#${font cuprum:size=18}${time %H.%M}
+#$nodename ${addr} $uptime_short
