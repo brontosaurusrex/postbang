@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Should return random word from dict
+
+# lets make it a function
+randomword()  {
+    dict="/usr/share/dict/words"
+    test -f "$dict" || { echo "$dict does not exist" ; exit 1; }
+    shuf -n1 /usr/share/dict/words | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]'
+}
+
+# lets test this with this lil loop
+for i in {1..10} 
+do
+    word=$(randomword) # function call and assign output to $word
+    echo "$word"
+done
+
