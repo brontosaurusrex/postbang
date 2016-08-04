@@ -21,14 +21,18 @@ destination="$HOME/videos/Screencasts"
     fps="25" # you can change this
     screenres=$(xrandr | grep '*' | cut -c 4-15)
 
-    echo $screenres "," $fps "fps"
+    echo $screenres "," $fps "fps" "," "$word"
+
+    # a lil sleep before recording
+    sleep 2
     
     # use ffmpeg compiled with x11grab
     /usr/local/bin/ffmpeg -hide_banner -r $fps -f x11grab -s $screenres -i :0.0 \
     -vcodec libx264 -preset ultrafast -tune fastdecode -pix_fmt yuv420p -crf 28 -an -y \
-    "$destination/$(date +"%m%d%Y_%H%M%S")_$word".mp4 -loglevel panic -stats
+    "$destination/$(date +"%m%d%Y").$word.$(date +"%H%M")".mp4 -loglevel panic -stats
     # $(date +"%m%d%Y_%H%M%S_$HOSTNAME")_
     # sleep 1
+    
     
     # -crf 21
     # thunar $destination
