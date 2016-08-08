@@ -364,7 +364,7 @@ logout, login and it could look like this:
 
 <a href="http://shrani.si/f/2e/8N/2kLZW6BM/themed.png"><img src="http://shrani.si/t/2e/8N/2kLZW6BM/themed.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
-p.s. some other interesting themes:
+p.s. some other interesting themes:  
 <https://github.com/horst3180/Arc-theme>  
 (Combination of 'Arc' for gtk and 'Bang Dark Green Bronto' for openbox is used by default here)  
 <https://github.com/tista500/Adapta>  
