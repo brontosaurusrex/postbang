@@ -1,3 +1,0 @@
-mkdir: cannot create directory ‘/home/ticho/.config/’: File exists
-mkdir: cannot create directory ‘/home/ticho/.urxvt/’: File exists
-mkdir: cannot create directory ‘/home/ticho/bin/’: File exists
