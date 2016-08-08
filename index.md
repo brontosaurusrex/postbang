@@ -367,6 +367,8 @@ logout, login and it could look like this:
 p.s. some other interesting themes:
 <https://github.com/horst3180/Arc-theme>  
 (Combination of 'Arc' for gtk and 'Bang Dark Green Bronto' for openbox is used by default here)  
+<https://github.com/tista500/Adapta>  
+(Adapta & 'Bang Dark Green Bronto Adapta')  
 
 <a href="http://shrani.si/f/D/6Y/1O2xtgRS/arcbang.png"><img src="http://shrani.si/t/D/6Y/1O2xtgRS/arcbang.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
