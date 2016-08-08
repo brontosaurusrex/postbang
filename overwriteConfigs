@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+# set -e
+# set -x
 
 # config
 srcdir="$HOME/source/postbang" # < set this to the place where root postbang source git is
@@ -10,7 +11,7 @@ if [  ! -d "$srcdir" ]
 then
 echo "$srcdir not found, exiting." ; exit
 else
-cd "$srcdir" 
+cd "$srcdir" || exit
 fi
 
 git pull
@@ -28,12 +29,16 @@ fi
 # copy only when the SOURCE file is newer than the destination file or when the destination file is missing.
 # which may or may not be what you want.
 
+# mkdir -p /foo/bar
 # always -vurb
+
+mkdir ~/.icons/ ~/.themes/ ~/.fonts/ 2>/dev/null
 cp -vurb .icons/* ~/.icons/
 cp -vurb .themes/* ~/.themes/
 cp -vurb .fonts/* ~/.fonts/
 
 # depends, either vrb or vurb OR vb or vub (so its either vu or only v)
+mkdir ~/.config/ ~/.urxvt/ ~/bin/ 2>/dev/null
 cp -"$switch"rb .config/* ~/.config/
 cp -"$switch"rb .urxvt/* ~/.urxvt/
 cp -"$switch"rb bin/* ~/bin/
@@ -53,6 +58,6 @@ cp -"$switch"b .wbar ~
 # set +x # verbosity off
 
 echo
-echo "65% stupid, run at your own risk from now on"
+echo "65% stupid, run at your own risk from now on or ctrl+c"
 
 sudo cp -"$switch"rb usr/* /usr/ 
