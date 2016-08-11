@@ -27,14 +27,19 @@
 				<execute>geany</execute>
 			</action>
 		</item>
-		<item label="iceweasel">
+		<item label="firefox">
 			<action name="Execute">
-				<execute>iceweasel</execute>
+				<execute>firefox</execute>
 			</action>
 		</item>
 		<item label="mpv">
 			<action name="Execute">
 				<execute>mpv --force-window --idle</execute>
+			</action>
+		</item>
+		<item label="slither.io">
+			<action name="Execute">
+				<execute>google-chrome --app=&quot;http://slither.io&quot;</execute>
 			</action>
 		</item>
 		<separator/>
