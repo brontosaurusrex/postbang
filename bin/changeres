@@ -13,7 +13,7 @@ if dmesg | grep -i Virtualbox ; then
 	
 	# diff <(echo "$foo") <(echo "$bar")
 	
-	diff <(echo "$old") <(xrandr) || ( nitrogen --restore && wbarRestart && killall conky && sleep 2 && conky & )
+	diff <(echo "$old") <(xrandr) || ( nitrogen --restore && wbarRestart && killall conky ; sleep 2 && conky & )
 	
 	# in bunsen labs one could use a line like
 	# diff <(echo "$old") <(xrandr) || ( nitrogen --restore && killall conky && sleep 2 && bl-conky-session & )
