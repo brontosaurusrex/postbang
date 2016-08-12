@@ -1,6 +1,7 @@
 #!/bin/bash
 # screenrex
-# Make sure your ffmpeg is compiled with x264 and x11grab. xrandr must also be on path.
+# Make sure your ffmpeg is compiled with x264 and x11grab. 
+# xrandr must also be on path. notify-send is optional.
 
 #set -x
 
@@ -26,9 +27,10 @@ destination="$HOME/videos/Screencasts"
     # a lil sleep before recording
     sleep 2
     
+    notify-send "RECORDING" -u critical -a screenrex -t 10 2>/dev/null
     # use ffmpeg compiled with x11grab
     /usr/local/bin/ffmpeg -hide_banner -r $fps -f x11grab -s $screenres -i :0.0 \
-    -vcodec libx264 -preset ultrafast -tune fastdecode -pix_fmt yuv420p -crf 28 -an -y \
+    -vcodec libx264 -preset ultrafast -tune fastdecode -pix_fmt yuv420p -crf 30 -an -y \
     "$destination/$(date +"%m%d%Y").$word.$(date +"%H%M")".mp4 -loglevel panic -stats
     # $(date +"%m%d%Y_%H%M%S_$HOSTNAME")_
     # sleep 1
