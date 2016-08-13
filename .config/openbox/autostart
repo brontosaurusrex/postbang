@@ -4,11 +4,11 @@
 ## or one running in virtualbox (with some shadows):
 # compton -cCG --paint-on-overlay &
 ## with some deep shadows and transparency:
-#compton -cCG --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 -i 0.8 -e 0.75 -m 0.9 &
+# compton -cCG --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 -i 0.8 -e 0.75 -m 0.9 &
 ## with some deep shadows only
-compton -cCG --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 -i 0.8 &
+# compton -cCG --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 -i 0.8 &
 ## The one that works nicely on intel machines (no transparency) and mpv will play video without stuttering
-#compton -cCG --backend glx --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 &
+compton -cCG --backend glx --paint-on-overlay -o 0.9 -r 30 -l -9 -t -9 &
 
 ## restore wallpaper
 nitrogen --restore & tint2 & volumeicon & (sleep 10 && wbar) &
@@ -39,7 +39,7 @@ xset b off &
 ## play some audio at login
 # mpv ~/audio_fx/vader.mp3 & 
 
-## only if running in vbox, will restore wallpaper if resolution 
+## only if running in vbox, will restore wallpaper, restart conky, restart wbar if resolution 
 ## change is detected.
 ~/bin/changeres &
 
