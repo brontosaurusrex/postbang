@@ -1,0 +1,83 @@
+# conky configuration
+#
+# The list of variables has been removed from this file in favour
+# of keeping the documentation more maintainable.
+# Check http://conky.sf.net for an up-to-date-list.
+#
+# For ideas about how to modify conky, please see:
+# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
+#
+# For help with conky, please see:
+# http://crunchbanglinux.org/forums/topic/2047/conky-help/
+#
+# Enjoy! :)
+##############################################
+# Settings
+##############################################
+background yes
+use_xft yes
+xftfont Liberation Sans:size=16
+xftalpha 1
+update_interval 5.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+# own_window_argb_visual yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 300 100
+maximum_width 500
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+#default_color aaaaaa
+default_color 111111
+#default_color ffffff
+default_shade_color 000000
+default_outline_color 5D2560
+alignment TL
+gap_x 5
+gap_y 5
+
+
+
+
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+
+default_bar_size 100 10
+default_graph_size 100 50
+
+color0 81CFD6
+color1 999999
+color2 1BB8F0
+
+##############################################
+#  Output
+##############################################
+TEXT
+${image $HOME/images/logo120x73.png -p 130,0 -s 120x73}${font cuprum:size=11}$nodename Jessie 2015
+${font cuprum:size=10}$cpubar cpu
+$membar ram 
+$fs_bar disk 
+$fs_size used
+#${font cuprum:size=11}${time %H:%M}${font cuprum:size=13}
+#${time %A}, ${time %e.%B %G}
+# $nodename ${addr} $uptime
+#${execi 60 service minidlna status}
+#${execi 60 service apache2 status}
+#${execi 60 service ssh status}$alignc${exec mocp -Q %artist} - ${exec mocp -Q %song}
+#${execi 60 service mysql status}
+
+#swap ${goto 45}$swapbar
+#disk ${goto 45}${fs_bar /home} ${fs_free /home} free
+#${execi 10 audtool current-song}
+#prenos ${goto 45}${font cuprum:size=15}$downspeed/s
+#virtual transcoding linux engine
+#${addr} 
+#WAN ${execi 560 wget -q -O - checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'}
+
