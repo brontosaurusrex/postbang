@@ -1,11 +1,11 @@
-*.font:	        -*-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
-*.boldFont:	    -*-terminus-medium-*-*-*-18-*-*-*-*-*-*-*
+*.font:	        -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+*.boldFont:	    -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
 
 ! urxvt icon - https://aur.archlinux.org/packages/rxvt-unicode-pixbuf/
-URxvt.iconFile:    /home/ticho/.icons/papirus/32x32/apps/xterm-color.svg
+URxvt.iconFile:    /usr/share/icons/Papirus-GTK/32x32/apps/xterm-color.svg
 
 ! add extensions here
-URxvt.perl-ext-common:  default,matcher,font-size,tabbed
+URxvt.perl-ext-common:  default,matcher
 
 ! tabbed colors
 URxvt.tabbed.tabbar-fg: 8
@@ -123,13 +123,3 @@ URxvt.iso14755_52:      false
 ! white
 *.color7:       #9a846d
 *.color15:      #eed8c4
-
-
-
-
-
-
-
-
-
-
