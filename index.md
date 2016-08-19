@@ -39,6 +39,8 @@ p.s. Possible future replacement for gmrun is called rofi
 
     rofi -show run -lines 3 -font "Cuprum 11" -bw 0 -separator-style none -width 7 -hide-scrollbar -padding 1 
 
+Colors can be set in .Xresources
+
 ## sudo
 
 as su
