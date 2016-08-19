@@ -35,6 +35,10 @@ Note: They say that vim-gtk gives ability to yank (copy) text to x clipboard (ei
 Note: terminator and thunar will bring in lots of stuff    
 Note: Installing xsettingsd stoped tint2 to fill .xsession-errors <https://code.google.com/p/xsettingsd/>
 
+p.s. Possible future replacement for gmrun is called rofi
+
+    rofi -show run -lines 3 -font "Cuprum 11" -bw 0 -separator-style none -width 7 -hide-scrollbar -padding 1 
+
 ## sudo
 
 as su
