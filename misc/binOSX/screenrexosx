@@ -1,0 +1,34 @@
+#!/bin/bash
+# screenrex osx edition
+# Make sure your ffmpeg is compiled with x264 and x11grab. 
+
+
+#set -x
+
+destination="/Volumes/raid0/tmp"
+
+    # # random word dictionary function
+    # randomword()  {
+    #     dict="/usr/share/dict/words"
+    #     shuf -n1 "$dict" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]'
+    # }
+    # word=$(randomword)
+    
+    # if dict gets us null length then replace with something else
+    [ -z "$word" ] && word="$HOSTNAME"
+    [ -z "$word" ] && word="screencast"
+
+    # screencast without audio
+    fps="30" # you can change this
+
+
+    echo $fps "fps" 
+
+    # a lil sleep before recording
+    sleep 5
+    
+
+    # avfoundation explained at https://trac.ffmpeg.org/wiki/Capture/Desktop
+   /Volumes/raid0/ffdrop_dev/ffdrop/ffmpeg/ffmpeg -hide_banner -f avfoundation -i 1:0 -r $fps \
+    -vcodec libx264 -preset ultrafast -tune fastdecode -pix_fmt yuv420p -crf 30 -an -y \
+    "$destination/$(date +"%m%d%Y").$word.$(date +"%H%M")".mp4 -loglevel panic -stats
