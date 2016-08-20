@@ -1,7 +1,7 @@
 #!/bin/bash
 # screenrex osx edition
-# Make sure your ffmpeg is compiled with x264 and x11grab. 
-
+# Make sure your ffmpeg is compiled with x264
+# Expect quirky behaviour  
 
 #set -x
 
