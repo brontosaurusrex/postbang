@@ -1,6 +1,6 @@
 [gimmick:theme](amelia)
 
-![postbang](https://raw.githubusercontent.com/brontosaurusrex/titles/master/example.png)
+<img src="https://raw.githubusercontent.com/brontosaurusrex/titles/master/example.png">
 
 # Jessie from netinstall = postbang
 
