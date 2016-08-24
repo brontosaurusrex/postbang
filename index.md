@@ -1,7 +1,5 @@
 [gimmick:theme](amelia)
 
-<img src="https://raw.githubusercontent.com/brontosaurusrex/titles/master/example.png">
-
 # Jessie from netinstall = postbang
 
 ## What is this
@@ -13,6 +11,8 @@
 - Reaching that next level of geekness
 
 Attention: This is brainstorming and execution in single step, so consider this document experimental.
+
+<img src="https://raw.githubusercontent.com/brontosaurusrex/titles/master/example.png">
 
 ## install Debian Jessie
 
