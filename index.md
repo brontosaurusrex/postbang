@@ -10,7 +10,7 @@
 - Hugly influenced by now defunkt crunchbang
 - Consideration to stay Debian all the way and not invent any more abstraction layers
 - Learning tool to get you closer to the state where you can roll your own/personalized Linux desktop system
-- and more ...
+- Reaching that next level of geekness
 
 Attention: This is brainstorming and execution in single step, so consider this document experimental.
 
@@ -30,11 +30,18 @@ Basic eth0 `/etc/network/interfaces`
 as su
 
     apt-get install openbox xserver-xorg xinit
-    apt-get install terminator rxvt-unicode vim thunar tint2 geany gmrun
+    apt-get install terminator rxvt-unicode vim vim-gtk thunar tint2 geany gmrun
     apt-get install htop mc inxi xsettingsd i3lock
 
+Note: They say that vim-gtk gives ability to yank (copy) text to x clipboard (either "*y or "+y should work)  
 Note: terminator and thunar will bring in lots of stuff    
 Note: Installing xsettingsd stoped tint2 to fill .xsession-errors <https://code.google.com/p/xsettingsd/>
+
+p.s. Possible future replacement for gmrun is called rofi
+
+    rofi -show run -lines 3 -font "Cuprum 11" -bw 0 -separator-style none -width 7 -hide-scrollbar -padding 1 
+
+Colors can be set in .Xresources
 
 ## sudo
 
@@ -365,9 +372,11 @@ logout, login and it could look like this:
 
 <a href="http://shrani.si/f/2e/8N/2kLZW6BM/themed.png"><img src="http://shrani.si/t/2e/8N/2kLZW6BM/themed.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
-p.s. some other interesting themes:
+p.s. some other interesting themes:  
 <https://github.com/horst3180/Arc-theme>  
 (Combination of 'Arc' for gtk and 'Bang Dark Green Bronto' for openbox is used by default here)  
+<https://github.com/tista500/Adapta>  
+(Adapta & 'Bang Dark Green Bronto Adapta')  
 
 <a href="http://shrani.si/f/D/6Y/1O2xtgRS/arcbang.png"><img src="http://shrani.si/t/D/6Y/1O2xtgRS/arcbang.jpg" style="border: 0px;" alt="Shrani.si"/></a>
 
@@ -730,6 +739,7 @@ sudo
 <a href="http://shrani.si/f/q/VV/hJrkXOD/wbar.png"><img src="http://shrani.si/t/q/VV/hJrkXOD/wbar.jpg" style="border: 0px;" alt="wbar scrot"/></a>
 
 notes:
+
 - you will probably want to start this via openbox/autostart with some delay, so remember to remove `/etc/xdg/autostart/wbar.desktop`
 - wbar does not autohide and will not take place on desktop < fix it with some openbox margins (bottom in this case)
 - wbar does not behave very friendly in multi-monitor enviroments.
