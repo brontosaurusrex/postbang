@@ -1,0 +1,1 @@
+mpv `curl http://www.rtvslo.si/podcasts/radio_gaga.xml | grep -m 1 mp3 | cut -d\" -f 6`
