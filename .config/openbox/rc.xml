@@ -31,7 +31,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>Bang Dark Green Bronto</name>
+    <name>Bang Dark Green Bronto Adapta</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -133,8 +133,8 @@
   <margins>
     <top>0</top>
     <bottom>36</bottom>
-    <left>0</left>
-    <right>0</right>
+    <left>6</left>
+    <right>6</right>
   </margins>
   <dock>
     <position>BottomLeft</position>
@@ -1050,14 +1050,18 @@
 
   # end of the example
 -->
-    <application class="Gmrun" name="gmrun" type="normal">
+    <application class="Firefox" name="Navigator" role="browser" type="normal">
       <iconic>default</iconic>
       <decor>no</decor>
       <shade>no</shade>
-      <skip_pager>default</skip_pager>
-      <skip_taskbar>yes</skip_taskbar>
+      <skip_pager>no</skip_pager>
+      <skip_taskbar>no</skip_taskbar>
       <focus>yes</focus>
-    </application>
+      <position force="no">
+        <x>center</x>
+        <y>default</y>
+      </position>
+    <fullscreen>no</fullscreen><maximized>yes</maximized></application>
     <application class="mpv" name="gl" type="normal">
       <decor>no</decor>
       <shade>no</shade>
@@ -1082,9 +1086,11 @@
         <y>90</y>
       </position>
     </application>
-    
-    
-  <application class="mpv" name="x11" type="normal"><decor>no</decor></application>
-<application class="URxvt" name="urxvt" type="normal"><decor>no</decor></application>
-</applications>
+    <application class="mpv" name="x11" type="normal">
+      <decor>no</decor>
+    </application>
+    <application class="URxvt" name="urxvt" type="normal">
+      <decor>no</decor>
+    </application>
+  </applications>
 </openbox_config>
