@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# epub2pdf
+# usage: epub2pdf *.epub
+# use 'ctrl + z' to kill me
+
+# checks critical
+command -v ebook-convert >/dev/null 2>&1 || { >&2 echo "I need ebook-convert (part of calibre install in debian) installed." ; exit 1; }
+# checks non-critical
+command -v zathura >/dev/null 2>&1 || { >&2 echo "I'd like zathura for brief pdf preview" ; }
+
+while [ $# -gt 0 ]; do
+
+    file=$(readlink -f "$1")
+    
+    baseext=$(basename "${1}")       # file.ext
+    base="${baseext%.*}"             # file
+    directory=$(dirname "${file}")   # directory
+    
+    echo "input  $file"
+    echo "output $directory/$base.pdf"
+    
+    # action    
+    if [ -f "$directory/$base.pdf" ];
+    then
+        echo "already there, skiping."
+    else
+        ebook-convert "$file" "$directory/$base.pdf" \
+        --margin-left 72 --margin-right 72 --margin-top 72 --margin-bottom 72 --minimum-line-height 140 # && ((zathura "$directory/$base.pdf" 2> /dev/null & (sleep 30 && pkill zathura)) & )
+    
+    # ebook-convert manual 
+    # https://manual.calibre-ebook.com/generated/en/ebook-convert.html#look-and-feel
+    
+    fi
+    
+    echo # empty line
+
+shift
+done
