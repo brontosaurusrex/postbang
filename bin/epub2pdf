@@ -26,7 +26,7 @@ while [ $# -gt 0 ]; do
         echo "already there, skiping."
     else
         ebook-convert "$file" "$directory/$base.pdf" \
-        --margin-left 72 --margin-right 72 --margin-top 72 --margin-bottom 72 --minimum-line-height 140 # && ((zathura "$directory/$base.pdf" 2> /dev/null & (sleep 30 && pkill zathura)) & )
+        --margin-left 72 --margin-right 72 --margin-top 72 --margin-bottom 72 --minimum-line-height 140  --embed-all-fonts # && ((zathura "$directory/$base.pdf" 2> /dev/null & (sleep 30 && pkill zathura)) & )
     
     # ebook-convert manual 
     # https://manual.calibre-ebook.com/generated/en/ebook-convert.html#look-and-feel
