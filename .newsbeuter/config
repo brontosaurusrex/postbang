@@ -5,7 +5,7 @@ refresh-on-startup yes
 reload-time 120
 reload-threads 2
 
-# formatting and colorization ------------------------------------------
+# formatting and colorization 
 
 # articlelist-format "%4i %f %D  %?T?|%-17T| ?%t"
 
@@ -25,5 +25,10 @@ highlight article     ":.*\\(embedded flash\\)$"            color74  default
 
 color listnormal                                            yellow    default
 color listfocus                                             default  color240
+color listfocus_unread                                      default  color240
 color info                                                  default  color240
 color listnormal_unread                                     white    default 
+
+# keys
+
+bind-key         LEFT    quit 
