@@ -9,21 +9,21 @@ reload-threads 2
 
 # articlelist-format "%4i %f %D  %?T?|%-17T| ?%t"
 
-highlight feedlist    "^  *[0-9]+  *N  "                    color156 default
-highlight articlelist "^  *[0-9]+  *N  "                    color156 default
+#highlight feedlist    "^  *[0-9]+  *N  "                    color156 default
+#highlight articlelist "^  *[0-9]+  *N  "                    color156 default
 
-highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     color75  default
-highlight article     "(^Link:.*|^Date:.*)"                 color75  default
-highlight article     "^Podcast Download URL:.*"            color71  default
-highlight article     "^Links:"                             white    color240 underline
-highlight article     "\\[[0-9][0-9]*\\]"                   color72  default  bold
-highlight article     "\\[image [0-9][0-9]*\\]"             color72  default  bold
-highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   color72  default  bold
-highlight article     ":.*\\(link\\)$"                      color74  default
-highlight article     ":.*\\(image\\)$"                     color74  default
-highlight article     ":.*\\(embedded flash\\)$"            color74  default
+#highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     cyan   default
+#highlight article     "(^Link:.*|^Date:.*)"                 cyan   default
+#highlight article     "^Podcast Download URL:.*"            cyan   default
+#highlight article     "^Links:"                             white  color240 underline
+#highlight article     "\\[[0-9][0-9]*\\]"                   cyan   default  bold
+#highlight article     "\\[image [0-9][0-9]*\\]"             cyan   default  bold
+#highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   cyan   default  bold
+#highlight article     ":.*\\(link\\)$"                      cyan   default
+#highlight article     ":.*\\(image\\)$"                     cyan   default
+#highlight article     ":.*\\(embedded flash\\)$"            cyan   default
 
-color listnormal                                            yellow    default
+color listnormal                                            yellow   default
 color listfocus                                             default  color240
 color listfocus_unread                                      default  color240
 color info                                                  default  color240
