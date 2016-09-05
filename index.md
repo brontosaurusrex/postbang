@@ -1,6 +1,8 @@
 [gimmick:theme](amelia)
 
-# Jessie from netinstall (postbang)
+<img src="https://raw.githubusercontent.com/brontosaurusrex/titles/master/example.png" style="border:0;">
+
+# Jessie from netinstall = postbang
 
 ## What is this
 
@@ -34,6 +36,12 @@ as su
 Note: They say that vim-gtk gives ability to yank (copy) text to x clipboard (either "*y or "+y should work)  
 Note: terminator and thunar will bring in lots of stuff    
 Note: Installing xsettingsd stoped tint2 to fill .xsession-errors <https://code.google.com/p/xsettingsd/>
+
+p.s. Possible future replacement for gmrun is called rofi
+
+    rofi -show run -lines 3 -font "Cuprum 11" -bw 0 -separator-style none -width 7 -hide-scrollbar -padding 1 
+
+Colors can be set in .Xresources
 
 ## sudo
 
