@@ -341,7 +341,7 @@ then
 
 p.s. some other interesting icon sets:  
 <http://pobtott.deviantart.com/art/Any-Color-You-Like-175624910>  
-<https://github.com/varlesh/papirus-pack-kde>
+<https://github.com/varlesh/papirus-suite/files/263230/papirus-gtk-icon-theme-1.0.tar.gz>
 
 
 ### themes
