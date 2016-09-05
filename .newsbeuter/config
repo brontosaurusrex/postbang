@@ -2,7 +2,7 @@ auto-reload yes
 #notify-always yes
 #notify-program notify-send
 refresh-on-startup yes
-reload-time 120
+reload-time 1
 reload-threads 2
 
 # formatting and colorization 
