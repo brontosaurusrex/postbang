@@ -32,3 +32,7 @@ color listnormal_unread                                     white    default
 # keys
 
 bind-key         LEFT    quit 
+
+
+
+browser "firefox %u" 
