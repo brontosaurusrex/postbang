@@ -8,6 +8,7 @@
     <outline type="rss" xmlUrl="http://rss.slashdot.org/Slashdot/slashdotMain" htmlUrl="https://slashdot.org/" title="Slashdot"/>
     <outline type="rss" xmlUrl="http://forum.doom9.org/external.php?type=RSS2" htmlUrl="http://forum.doom9.org/" title="Doom9's Forum"/>
     <outline type="rss" xmlUrl="https://forums.bunsenlabs.org/extern.php?action=feed&amp;type=atom" htmlUrl="https://forums.bunsenlabs.org/extern.php?action=feed&amp;type=atom" title="BunsenLabs Linux Forums"/>
+    <outline type="rss" xmlUrl="https://bbs.archlinux.org/extern.php?action=feed&amp;type=atom" htmlUrl="https://bbs.archlinux.org/extern.php?action=feed&amp;type=atom" title="Arch Linux Forums"/>
     <outline type="rss" xmlUrl="https://hydrogenaud.io/index.php?action=.xml;type=rss2;limit=20" htmlUrl="https://hydrogenaud.io/index.php" title="Hydrogenaudio Forums"/>
     <outline type="rss" xmlUrl="http://www.rtvslo.si/znanost-in-tehnologija/rss" htmlUrl="http://www.rtvslo.si/" title="MMC RTV - Znanost in tehnologija"/>
     <outline type="rss" xmlUrl="http://feeds.feedblitz.com/blenderguru" htmlUrl="http://www.blenderguru.com" title="Blender Guru"/>

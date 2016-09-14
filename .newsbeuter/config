@@ -1,13 +1,15 @@
 # OPML Online Subscription Mode
-urls-source "opml"
-opml-url "https://raw.githubusercontent.com/brontosaurusrex/postbang/master/.newsbeuter/feed.opml"
+
+#Enable this next tow on non-main versions of newsbeuter
+#urls-source "opml"
+#opml-url "https://raw.githubusercontent.com/brontosaurusrex/postbang/master/.newsbeuter/feed.opml"
 
 # stuff
 auto-reload yes
 #notify-always yes
 #notify-program notify-send
 refresh-on-startup yes
-reload-time 1
+reload-time 5
 reload-threads 2
 
 # formatting and colorization 
