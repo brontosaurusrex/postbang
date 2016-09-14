@@ -40,4 +40,4 @@ color listnormal_unread                                     white    default
 bind-key         LEFT    quit 
 
 # browser definition seems to be needed on arch
-browser "firefox %u" 
+browser "firefox %u > /dev/null 2>&1 &" 
