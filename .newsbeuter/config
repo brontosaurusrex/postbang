@@ -1,3 +1,8 @@
+# OPML Online Subscription Mode
+urls-source "opml"
+opml-url "https://raw.githubusercontent.com/brontosaurusrex/postbang/master/.newsbeuter/feed.opml"
+
+# stuff
 auto-reload yes
 #notify-always yes
 #notify-program notify-send
@@ -30,9 +35,7 @@ color info                                                  default  color240
 color listnormal_unread                                     white    default 
 
 # keys
-
 bind-key         LEFT    quit 
 
-
-
+# browser definition seems to be needed on arch
 browser "firefox %u" 
