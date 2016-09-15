@@ -10,7 +10,7 @@ auto-reload yes
 #notify-program notify-send
 refresh-on-startup yes
 reload-time 5
-reload-threads 2
+reload-threads 6
 
 # formatting and colorization 
 
@@ -41,3 +41,6 @@ bind-key         LEFT    quit
 
 # browser definition seems to be needed on arch
 browser "firefox %u > /dev/null 2>&1 &" 
+
+# image view macro
+macro i set browser "feh %u"; open ; set browser "firefox %u > /dev/null 2>&1 &"
