@@ -6,8 +6,8 @@
 
 ## What is this
 
-- Seting up simple but effective system using openbox as your window manager with Debian stable as base
-- Hugly influenced by now defunkt crunchbang
+- Setting up a simple but effective system using openbox as your window manager with Debian stable as base
+- Hugely influenced by now defunct CrunchBang
 - Consideration to stay Debian all the way and not invent any more abstraction layers
 - Learning tool to get you closer to the state where you can roll your own/personalized Linux desktop system
 - Reaching that next level of geekness
