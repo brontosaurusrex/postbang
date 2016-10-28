@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# beats = swatch time 
+# http://www.timeanddate.com/time/internettime.html
+# https://www.swatch.com/en/internettime/
+# https://en.wikipedia.org/wiki/Swatch_Internet_Time#Calculation_from_UTC.2B1
+
+# UTC to variables
+read h m s <<<$(date -u "+%H %M %S")
+
+# (UTC+1seconds + (UTC+1minutes * 60) + (UTC+1hours * 3600)) / 86.4 
+# beatsRounded=$(bc -l <<< "tmp=(((($s + 1) + (($m + 1) * 60) + (($h + 1) * 3600)) / 86.4) + 0.5)/1; scale=3; tmp/1")
+beatsRounded=$(bc -l <<< "tmp=((($s + 1) + (($m + 1) * 60) + (($h + 1) * 3600)) / 86.4); scale=3; tmp/1")
+# beatsRounded=$(bc -l <<< "(($s + 1) + (($m + 1) * 60) + (($h + 1) * 3600)) / 86.4")
+
+echo "@$beatsRounded"
