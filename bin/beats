@@ -5,6 +5,9 @@
 # https://www.swatch.com/en/internettime/
 # https://en.wikipedia.org/wiki/Swatch_Internet_Time#Calculation_from_UTC.2B1
 
+# required
+command -v bc >/dev/null 2>&1 || { echo "I need bc" ; exit 1; }
+
 # UTC to variables
 read h m s <<<$(date -u "+%H %M %S")
 # echo $h $m $s
