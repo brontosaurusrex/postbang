@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# flifloop
+# png to flif
+
+command -v flif >/dev/null 2>&1 || { >&2 echo "I need flif installed." ; exit 1; }
+
+
+# main 
+while [ $# -gt 0 ]; do
+    file="$1"
+    base=$(basename "${1}")     # basename, like                file.png
+    base="${base%.*}"           # basename without extension    file
+    dir=$(dirname "${1}")
+
+    # check if flif is allready there
+    test -f "$dir/$base.flif" && { >&2 echo "$dir/$base.flif allready there, skiping" ; shift; continue; }
+
+    # encode
+    flif -E100 "$file" "$dir/$base.flif" 
+
+    shift
+done
