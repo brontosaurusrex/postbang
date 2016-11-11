@@ -3,6 +3,10 @@
 # flifloop
 # png to flif
 
+# usage
+# flifloop *.png
+# find . -type f -iname "*.png" | parallel --gnu flifloop
+
 command -v flif >/dev/null 2>&1 || { >&2 echo "I need flif installed." ; exit 1; }
 
 
@@ -18,6 +22,9 @@ while [ $# -gt 0 ]; do
 
     # encode
     flif -E100 "$file" "$dir/$base.flif" 
+    
+    # echo
+    test -f "$dir/$base.flif" && echo "$base.flif done"
 
     shift
 done
