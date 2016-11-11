@@ -1,5 +1,5 @@
 i: /usr/share/pixmaps/wbar/dock.png
-c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idist 1 --zoomf 1,100000 --balfa 0 --falfa 80
+c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idist 1 --zoomf 1.100000 --balfa 0 --falfa 80
 t: /home/ticho/.fonts/Cuprum-Regular/10
 
 i: /home/ticho/source/postbang/images/wbar/black/term.png
@@ -17,10 +17,6 @@ t: thunar
 i: /home/ticho/source/postbang/images/wbar/black/firefox.png
 c: (launchee firefox || firefox)
 t: firefox
-
-i: /home/ticho/source/postbang/images/wbar/black/blender.png
-c: (launchee blender || blender)
-t: blender
 
 i: /home/ticho/source/postbang/images/wbar/black/calc.png
 c: (launchee galculator || galculator)
