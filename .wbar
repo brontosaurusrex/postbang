@@ -19,5 +19,5 @@ c: (launchee firefox || firefox)
 t: firefox
 
 i: /home/ticho/source/postbang/images/wbar/black/calc.png
-c: (launchee galculator || galculator)
+c: bcterm
 t: calc
