@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# bcterm
+# starts or activates bc calculator in urxvt window in the middle of the screen
+
+# configurable variables
+sleep="0.01"             # sleep before it gets active
+ww="300"                 # window width
+wh="300"                 # window height
+
+# checks
+command -v xdpyinfo >/dev/null 2>&1 ||    { >&2 echo "I need xdpyinfo." ; exit 1; }
+command -v xdotool >/dev/null 2>&1 ||   { >&2 echo "I need xdotool." ; exit 1; }
+command -v awk >/dev/null 2>&1 ||   { >&2 echo "I need awk." ; exit 1; }
+command -v bc >/dev/null 2>&1 ||   { >&2 echo "I need bc." ; exit 1; }
+
+# get screen resolution width/height and halve it
+read -r w h <<<$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3, $4}')
+halfw=$((w / 2))
+halfh=$((h / 2))
+
+# calc stuff
+centerw=$((halfw - ww / 2))
+centerh=$((halfh - wh / 2))
+
+# action
+
+# check if one is allready active and select and exit
+xdotool search -name 'calculus' windowactivate && { echo "allready running" ; exit; }
+
+# if not launch one
+(urxvt -title calculus -bg black -e bc -l -q & sleep "$sleep") && xdotool search --sync --name 'calculus' windowactivate windowsize "$ww" "$wh" windowmove "$centerw" "$centerh"
