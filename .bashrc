@@ -127,28 +127,12 @@ fi
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; xclip -i -selection clipboard $tmpfile; rm -f $tmpfile; }
 
-# gui selection http://worldwidemann.com/a-gui-file-picker-for-bash-in-six-lines-of-code/
-#select_files() {  
-#local files="$(python -c 'import Tkinter, tkFileDialog; Tkinter.Tk().withdraw(); print(" ".join(map(lambda x: "'"'"'"+x+"'"'"'", tkFileDialog.askopenfilename(multiple=1))))')"
-#READLINE_LINE="${READLINE_LINE:0:READLINE_POINT}$files${READLINE_LINE:READLINE_POINT}"
-#READLINE_POINT=$((READLINE_POINT + ${#files}))
-#}
-
-#select_files() {
-
-#local files="$(yad --file --multiple)"
-#files="${files[@]}"
-#READLINE_LINE="${READLINE_LINE:0:READLINE_POINT}$files${READLINE_LINE:READLINE_POINT}"
-#READLINE_POINT=$((READLINE_POINT + ${#files}))
-#}
-#bind -x '"\C-g":select_files' 
-
+# uses yad to get gui selector from command line, use ctrl+g 
+# version by misko https://forums.bunsenlabs.org/viewtopic.php?pid=40162#p40162
 select_files() { 
-local file files i IFS=' '
-local -n l=READLINE_LINE p=READLINE_POINT
-while IFS= read -rd '' file; do printf -v 'files[i++]' %q "$file"
-done < <(yad --file --multiple --width=600 --height=600 --center | tr '|\n' '\0\0')
-files="${files[*]}" l=${l:0:p}$files${l:p} p=$((p+${#files})); 
+local files="$(yad --file --multiple --width=600 --height=600 --center --quoted-output | tr '|' '\ ')"
+READLINE_LINE="${READLINE_LINE:0:READLINE_POINT}$files${READLINE_LINE:READLINE_POINT}"
+READLINE_POINT=$((READLINE_POINT + ${#files}))
 }
 bind -x '"\C-g":select_files'
 
