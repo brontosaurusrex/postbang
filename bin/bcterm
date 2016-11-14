@@ -6,8 +6,8 @@
 
 # configurable variables
 sleep="0.01"             # sleep before it gets active
-ww="600"                 # window width
-wh="600"                 # window height
+ww="300"                 # window width
+wh="300"                 # window height
 
 # checks
 command -v xdpyinfo >/dev/null 2>&1 ||    { >&2 echo "I need xdpyinfo." ; exit 1; }
@@ -31,5 +31,5 @@ centerh=$((halfh - wh / 2))
 xdotool search -name 'calculus' windowactivate && { echo "allready running" ; exit; }
 
 # if not launch one
-(urxvt -bg black -title calculus -e wcalc -q & sleep "$sleep") && xdotool search --sync --name 'calculus' windowactivate windowsize "$ww" "$wh" windowmove "$centerw" "$centerh"
+(urxvt -bg black -title calculus -e wcalc & sleep "$sleep") && xdotool search --sync --name 'calculus' windowactivate windowsize "$ww" "$wh" windowmove "$centerw" "$centerh"
 # replace 'wcalc -q' with 'bc -l' if you wish.
