@@ -31,7 +31,7 @@ w="1000"                # window width
 h="360"                 # window height
 margin="-5"             # bottom margin
 y="50"                  # y pos of first window
-sleep="0.1"             # sleep time
+sleep="0.1"             # sleep time < this should NOT be neccesary
 
 # checks
 command -v xrandr >/dev/null 2>&1 ||    { >&2 echo "I need xrandr." ; exit 1; }
