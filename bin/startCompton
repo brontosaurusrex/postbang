@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# This should start compton (with some hardcoded settings) 
+# if it is not allready running
+
+pgrep -x compton
+
+if [ $? -eq 0 ]; then
+  echo "allready running"
+else
+  compton -cCG --backend glx --paint-on-overlay -o 0.5 -r 30 -l -9 -t -9 &
+fi 
