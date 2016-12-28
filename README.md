@@ -1,2 +1,2 @@
-Guide is now in gh-pages branch of this git and visible at:  
-<http://brontosaurusrex.github.io/postbang>
+Guide is now part of my blog, visible at:  
+<https://brontosaurusrex.github.io/postbang2017/>
