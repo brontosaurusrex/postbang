@@ -9,12 +9,20 @@
 command -v bc >/dev/null 2>&1 || { echo "I need bc" ; exit 1; }
 
 # UTC to variables
-read h m s <<<$(date -u "+%H %M %S")
+export TZ=GMT-1 # Not sure why is this minus and not plus
+read h m s <<<$(date "+%H %M %S")
+
 # echo $h $m $s
+
 # (UTC+1seconds + (UTC+1minutes * 60) + (UTC+1hours * 3600)) / 86.4 
 # btw: beats smaller than one are not in the standard
 # bc is "rounding down", which seems to be the correct way in this case
-beats=$(bc -l <<< "scale=0; ($s + ($m * 60) + (($h + 1) * 3600)) / 86.4")
+
+# h=23
+# m=59
+# s=59
+
+beats=$(bc -l <<< "scale=0; ($s + ($m * 60) + (($h) * 3600)) / 86.4")
 echo "@$beats"
 
 
