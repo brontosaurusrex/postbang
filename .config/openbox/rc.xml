@@ -1,6 +1,6 @@
 <?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
     
-
+  <cornerRadius>4</cornerRadius>  
     
   <resistance>
     <strength>10</strength>
@@ -1053,18 +1053,6 @@
 
   # end of the example
 -->
-    <application class="Firefox" name="Navigator" role="browser" type="normal">
-      <iconic>default</iconic>
-      <decor>no</decor>
-      <shade>no</shade>
-      <skip_pager>no</skip_pager>
-      <skip_taskbar>no</skip_taskbar>
-      <focus>yes</focus>
-      <position force="no">
-        <x>center</x>
-        <y>default</y>
-      </position>
-    <fullscreen>no</fullscreen><maximized>yes</maximized></application>
     <application class="mpv" name="gl" type="normal">
       <decor>no</decor>
       <shade>no</shade>
@@ -1095,5 +1083,12 @@
     <application class="URxvt" name="urxvt" type="normal">
       <decor>no</decor>
     </application>
-  </applications>
+    <application class="mpv" name="xv" type="normal">
+      <decor>no</decor>
+      <iconic>no</iconic>
+    </application>
+  <application class="URxvt" name="transparent" type="normal"><decor>no</decor><shade>no</shade></application>
+<application class="Blender" name="Blender" type="normal"><decor>no</decor></application>
+<application class="Google-chrome" name="slither.io" role="pop-up" type="normal"><decor>no</decor></application>
+</applications>
 </openbox_config>
