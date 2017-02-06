@@ -31,7 +31,7 @@ uppercase no
 cpu_avg_samples 2
 override_utf8_locale yes
 
-default_bar_size 160 6
+default_bar_size 110 6
 default_graph_size 100 50
 
 ##############################################
@@ -46,14 +46,18 @@ TEXT
 #$nodename, up $uptime_short
 #
 # Version where bars will be red if usage is above 90%
+
+
+
+
 ${font cuprum:size=10}
 ${color black}${if_match ${downspeedf}>=1}dl $downspeed/s${endif}  \
 ${color black}${if_match ${upspeedf}>=1}up $upspeed/s${endif}  \
-${color black}cpu ${if_match ${cpu}>=90}${color aa3333}${endif}$cpubar  \
+${color black}cpu ${if_match ${cpu}>=90}${color black}${endif}$cpubar  \
 ${color black}ram ${if_match ${memperc}>=90}${color aa3333}${endif}$membar  \
-${color black}disk ${if_match ${fs_used_perc /home}>=90}${color aa3333}${endif}${fs_bar /home}
+${color black}disk ${if_match ${fs_used_perc /home}>=90}${color aa3333}${endif}${fs_bar /home} \
 #${execi 60 curl -m 0.1 http://kresnica/disk.php 2> /dev/null || echo --}
-# ${color black}$nodename, uptime $uptime_short \
+${color black} $nodename, uptime $uptime_short \
 #
 #$nodename
 #$fs_bar disk 
