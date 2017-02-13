@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# simulation of osx open command, abusing thunar
+# this overriredes native open Linux/Debian command (use openvt)
+
+thunar "$@" &
