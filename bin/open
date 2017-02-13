@@ -3,4 +3,9 @@
 # simulation of osx open command, abusing thunar
 # this overriredes native open Linux/Debian command (use openvt)
 
+# usage examples:
+# open file.txt
+# open .
+# open 1.jpg 2.jpg 3.png
+
 thunar "$@" &
