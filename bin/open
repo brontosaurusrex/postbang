@@ -8,4 +8,4 @@
 # open .
 # open 1.jpg 2.jpg 3.png
 
-thunar "$@" &
+thunar "$@" >/dev/null 2>&1 & 
