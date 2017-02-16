@@ -1,0 +1,41 @@
+#!/bin/bash
+# screenrex
+# Make sure your ffmpeg is compiled with x264 and x11grab. 
+# xrandr must also be on path. notify-send is optional.
+
+#set -x
+
+destination="$HOME/videos/Screencasts"
+
+    # random word dictionary function
+    randomword()  {
+        dict="/usr/share/dict/words"
+        shuf -n1 "$dict" | tr -dc '[:alnum:]\n\r' | tr '[:upper:]' '[:lower:]'
+    }
+    word=$(randomword)
+    
+    # if dict gets us null length then replace with something else
+    [ -z "$word" ] && word="$HOSTNAME"
+    [ -z "$word" ] && word="screencast"
+
+    # screencast without audio
+    fps="30" # you can change this
+    screenres=$(xrandr | grep '*' | cut -c 4-15)
+
+    echo $screenres "," $fps "fps" "," "$word"
+
+    # a lil sleep before recording
+    sleep 5
+    
+    notify-send "RECORDING" -u critical -a "$word" -t 10 2>/dev/null
+    # use ffmpeg compiled with x11grab
+    /usr/local/bin/ffmpeg -hide_banner -f x11grab -r $fps -s $screenres -i :0.0 \
+    -vcodec ffvhuff -an -y \
+    "$destination/$(date +"%m%d%Y").$word.$(date +"%H%M")".mkv -loglevel panic -stats
+    # $(date +"%m%d%Y_%H%M%S_$HOSTNAME")_
+    # sleep 1
+    
+    
+    # -crf 21
+    # thunar $destination
+    
