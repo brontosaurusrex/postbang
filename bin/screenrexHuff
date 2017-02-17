@@ -5,6 +5,7 @@
 
 #set -x
 
+pathtoffmpeg="$HOME/source/ffmpeg"
 destination="$HOME/videos/Screencasts"
 
     # random word dictionary function
@@ -29,7 +30,7 @@ destination="$HOME/videos/Screencasts"
     
     notify-send "RECORDING" -u critical -a "$word" -t 10 2>/dev/null
     # use ffmpeg compiled with x11grab
-    /usr/local/bin/ffmpeg -hide_banner -f x11grab -r $fps -s $screenres -i :0.0 \
+    "$pathtoffmpeg/"ffmpeg -hide_banner -f x11grab -r $fps -s $screenres -i :0.0 \
     -vcodec ffvhuff -an -y \
     "$destination/$(date +"%m%d%Y").$word.$(date +"%H%M")".mkv -loglevel panic -stats
     # $(date +"%m%d%Y_%H%M%S_$HOSTNAME")_
