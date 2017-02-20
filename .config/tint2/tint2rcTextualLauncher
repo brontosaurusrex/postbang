@@ -115,7 +115,7 @@ border_color_pressed = #111111 100
 
 #-------------------------------------
 # Panel
-panel_items = TSC:EEEEE
+panel_items = TSC:EEEEE:
 panel_size = 96% 46
 panel_margin = 0 0
 panel_padding = 3 2 3
@@ -250,12 +250,22 @@ tooltip_font_color = #d0d0d0 100
 tooltip_font = cuprum 10
 
 #-------------------------------------
+# : = separator
 separator = new 
 separator_background_id = 0
 separator_color = #111111
-separator_style = line
-separator_size = 2
+separator_style = dots
+separator_size = 1
 separator_padding = 0
+#-------------------------------------
+# : = separator
+separator = new 
+separator_background_id = 0
+separator_color = #111111
+separator_style = dots
+separator_size = 1
+separator_padding = 0
+
 
 #-------------------------------------
 # E = EXECP
