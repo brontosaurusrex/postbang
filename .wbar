@@ -2,13 +2,13 @@ i: /usr/share/pixmaps/wbar/dock.png
 c: wbar --bpress --above-desk --nofont --pos bottom --offset 0 --isize 46 --idist 1 --zoomf 1.100000 --balfa 0 --falfa 80
 t: .fonts/Cuprum-Regular/10
 
-i: source/postbang/images/wbar/black/term.png
+i: source/postbang/images/wbar/black/debian.png
 c: (launchee urxvt || urxvt)
 t: rxvt-unicode
 
 i: source/postbang/images/wbar/black/geany.png
 c: (LANG=en_US.UTF8 launchee geany || geany)
-t: geany
+t: editor
 
 i: source/postbang/images/wbar/black/thunar.png
 c: (launchee thunar || thunar)
