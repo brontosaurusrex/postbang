@@ -115,7 +115,7 @@ border_color_pressed = #111111 100
 
 #-------------------------------------
 # Panel
-panel_items = TSC:EEEEE:
+panel_items = TS:EEEEE:C
 panel_size = 96% 46
 panel_margin = 0 0
 panel_padding = 3 2 3
