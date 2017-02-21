@@ -103,7 +103,7 @@ background_color_pressed = #ffffff 0
 border_color_pressed = #111111 100
 
 # Background 10: Active task
-rounded = 50
+rounded = 10
 border_width = 2
 border_sides = T
 background_color = #ffffff 0
@@ -198,7 +198,7 @@ launcher_icon_size = 30
 launcher_icon_asb = 100 -100 -34
 launcher_icon_theme = Clarity
 launcher_icon_theme_override = 0
-startup_notifications = 0
+startup_notifications = 1
 launcher_tooltip = 1
 launcher_item_app = ~/source/postbang/applications/menuarch.desktop
 
