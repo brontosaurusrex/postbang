@@ -22,7 +22,7 @@ draw_graph_borders no
 default_color 000000
 default_shade_color 000000
 default_outline_color 5D2560
-alignment BR
+alignment bottom_right
 gap_x 5
 gap_y 5
 
