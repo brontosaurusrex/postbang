@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# this is not working correctly!!!
+
+# set -x
+
+# mp3ebuGain
+# burn mp3gain based on ebur128 to mp3 files
+
+# check
+ffmpeg -filters 2>/dev/null | grep -q 'EBU R128' || { echo "your ffmpeg doesn't have EBU R128 scanner, exiting." ; exit 1; }
+command -v mp3gain >/dev/null 2>&1 || { echo "I need mp3gain." ; exit 1; }
+
+while [ $# -gt 0 ]; do
+
+    echo "$1"
+
+    lufs=$(ffmpeg -nostats -i "$1" -vn -filter_complex ebur128 -f null - 2>&1 | tail | grep I: | awk '{print $2}')
+    echo "$lufs lufs"
+
+    correct=$(echo "print ((-23)-($lufs)+6)" | python3 ) #float
+    echo "$correct correct"
+    
+    correct=$(echo "print (round((-23)-($lufs)+6))" | python3 ) # integer
+    echo "$correct correct int"
+
+    mp3gain -g "$correct" "$1"
+        
+
+shift
+    
+done
