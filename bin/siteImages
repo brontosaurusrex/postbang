@@ -1,30 +1,31 @@
 #!/bin/bash
 
+# set -x
+
 # siteImages
 
 # download all images from this site (tested on OSX)
 # cd to _posts dir with your markdown files
-# and configure this output dir
+# and configure $out dir, then run:
 
-out="$HOME/images/siteImages/"
+# siteImages *.md           # or similar
+
+out="/Volumes/raid0/dl/siteImages/"
 
 if [ ! -d "$out" ]; then
   echo "Configure output directory, $out not found"; exit
 fi
 
-expanded=$(readlink -f ".")
-#echo "$expanded"
-base=$(basename "${expanded}")
-#echo "$base"
+while [ $# -gt 0 ]; do
 
-if [ "$base" == "_posts" ]
-then
-echo "ok"
-else
-echo "before running me, cd to _posts dir"; exit
-fi
-
-cat ./* | grep -E '.png)$|.jpg)$|.jpeg)$|.gif)$' | \
+grep -E '.png)|.jpg)|.jpeg)|.gif)' "$1" | \
 grep -Eo '(https?|http)://[^ ")]+' | \
-grep -Ev '.th.|b.pwnz|shrani.si\/t\/' | \
+grep -Ev '\.th\.|b\.pwnz|shrani\.si\/t\/|]' | \
 wget -N -i - -P "$out"
+
+
+shift
+done
+
+
+# grep -E '.png)$|.jpg)$|.jpeg)$|.gif)$' *kanban* | grep -Eo '(https?|http)://[^ ")]+' | grep -Ev '\.th\.|b\.pwnz|shrani\.si\/t\/'
