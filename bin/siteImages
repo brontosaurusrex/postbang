@@ -18,9 +18,13 @@ fi
 
 while [ $# -gt 0 ]; do
 
+
+#echo "$1"
+
 grep -E '.png)|.jpg)|.jpeg)|.gif)' "$1" | \
 grep -Eo '(https?|http)://[^ ")]+' | \
 grep -Ev '\.th\.|b\.pwnz|shrani\.si\/t\/|]' | \
+grep -E '.png|.jpg|.jpeg|.gif' | \
 wget -N -i - -P "$out"
 
 
