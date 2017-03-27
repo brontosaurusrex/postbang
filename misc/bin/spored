@@ -1,0 +1,4 @@
+#!/bin/bash
+# spored, download and open in text editor (vim?)
+
+wget http://kresnica/spored/spored.txt -O /tmp/spored.txt && vim /tmp/spored.txt
