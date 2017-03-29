@@ -1,0 +1,6 @@
+#!/bin/bash
+# toggle fullscreen, usefull for urxvt. Possibly can be maped to some key in openbox rc.xml.
+
+command -v wmctrl >/dev/null 2>&1 || { >&2 echo "I need wmctrl installed." ; exit 1; }
+
+wmctrl -r :ACTIVE: -b toggle,fullscreen

@@ -1,7 +1,5 @@
 <?xml version="1.0" ?><openbox_config xmlns="http://openbox.org/3.4/rc">
-    
-  <cornerRadius>4</cornerRadius>  
-    
+  <cornerRadius>4</cornerRadius>
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -34,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>Bang Dark Green Bronto Adapta</name>
+    <name>Arc-Dark_ob</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -119,13 +117,13 @@
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
   <resize>
-    <drawContents>no</drawContents>
-    <popupShow>Nonpixel</popupShow>
+    <drawContents>yes</drawContents>
+    <popupShow>Never</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
-    <popupPosition>Center</popupPosition>
+    <popupPosition>Fixed</popupPosition>
     <!-- 'Center' or 'Top' -->
     <popupFixedPosition>
-      <x>0</x>
+      <x>center</x>
       <y>0</y>
     </popupFixedPosition>
   </resize>
@@ -275,7 +273,7 @@
           <enabled>true</enabled>
           <name>Run Program</name>
         </startupnotify>
-        <command>gmrun</command>
+        <command>rofi -show run -font &quot;Cuprum 13&quot; -bw 0 -separator-style none -width 17 -hide-scrollbar -padding 1</command>
       </action>
     </keybind>
     <keybind key="W-f">
@@ -629,7 +627,7 @@
         <x>center</x>
       </action>
     </keybind>
-    <!-- full width -->
+    <!-- full width, almost full height in percents -->
     <keybind key="A-v">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -639,7 +637,13 @@
         <height>96%</height>
       </action>
     </keybind>
-    <!-- brontosaurusrex end -->
+    <!-- fullscreen toggle script -->
+    <keybind key="W-F11">
+      <action name="Execute">
+         <command>fullscreen</command>
+      </action>
+    </keybind>
+<!-- brontosaurusrex end -->
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
@@ -948,6 +952,16 @@
           <menu>client-list-combined-menu</menu>
         </action>
       </mousebind>
+      
+      <!-- https://urukrama.wordpress.com/2014/12/01/middle-click-the-desktop-to-create-a-new-note/ 
+      <mousebind action="Press" button="Middle">
+      <action name="Execute">
+      <execute>~/bin/xpad-middleclick</execute>
+      </action>
+      </mousebind>
+      -->
+      
+      
       <mousebind action="Press" button="Right">
         <action name="ShowMenu">
           <menu>root-menu</menu>
@@ -1087,8 +1101,16 @@
       <decor>no</decor>
       <iconic>no</iconic>
     </application>
-  <application class="URxvt" name="transparent" type="normal"><decor>no</decor><shade>no</shade></application>
-<application class="Blender" name="Blender" type="normal"><decor>no</decor></application>
-<application class="Google-chrome" name="slither.io" role="pop-up" type="normal"><decor>no</decor></application>
+    <application class="URxvt" name="transparent" type="normal">
+      <decor>no</decor>
+      <shade>no</shade>
+    </application>
+    <application class="Google-chrome" name="slither.io" role="pop-up" type="normal">
+      <decor>no</decor>
+    </application>
+    <application class="Firefox-esr" name="Navigator" role="browser" type="normal">
+      <decor>no</decor>
+    </application>
+  
 </applications>
 </openbox_config>
