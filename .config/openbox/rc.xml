@@ -640,7 +640,7 @@
     <!-- fullscreen toggle script -->
     <keybind key="W-F11">
       <action name="Execute">
-         <command>fullscreen</command>
+         <command>wmctrl -r :ACTIVE: -b toggle,fullscreen</command>
       </action>
     </keybind>
 <!-- brontosaurusrex end -->
