@@ -206,12 +206,12 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-F1">
+    <keybind key="W-y">
       <action name="Desktop">
         <desktop>1</desktop>
       </action>
     </keybind>
-    <keybind key="W-F2">
+    <keybind key="W-x">
       <action name="Desktop">
         <desktop>2</desktop>
       </action>
@@ -238,11 +238,11 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="A-space">
+    <!-- <keybind key="A-space">
       <action name="ShowMenu">
         <menu>client-menu</menu>
       </action>
-    </keybind>
+    </keybind> -->
     <keybind key="Print">
       <action name="Execute">
         <execute>xfce4-screenshooter</execute>
@@ -267,15 +267,25 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    <keybind key="A-space">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Run Program</name>
+        </startupnotify>
+        <command>gmrun</command>
+      </action>
+    </keybind>
     <keybind key="A-F2">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Run Program</name>
         </startupnotify>
-        <command>rofi -show run -font &quot;Cuprum 13&quot; -bw 0 -separator-style none -width 17 -hide-scrollbar -padding 1</command>
+        <command>gmrun</command>
       </action>
     </keybind>
+
     <keybind key="W-f">
       <action name="Execute">
         <startupnotify>
@@ -1118,5 +1128,6 @@
       <decor>no</decor>
     </application>
   
+<application class="Gmrun" name="gmrun" type="normal"><skip_pager>yes</skip_pager><skip_taskbar>yes</skip_taskbar><focus>yes</focus><decor>no</decor></application>
 </applications>
 </openbox_config>
