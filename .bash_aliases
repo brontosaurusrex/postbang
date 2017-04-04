@@ -1,5 +1,5 @@
 alias lst='ls -clhtr'
-alias up='sudo apt-get update && sudo apt-get dist-upgrade'
+alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias mi='mediainfo'
 alias htop='htop -C'
 alias news='newsbeuter'
