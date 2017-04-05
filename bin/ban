@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# ban < display a simple kanban board in oldfashioned html table
+
+# usage: ban | w3m -T text/html -dump
+
+# required
+command -v w3m >/dev/null 2>&1 || { echo "I need w3m installed." ; exit 1; }
+command -v tree >/dev/null 2>&1 || { echo "I need tree installed." ; exit 1; }
+
+# action
+main () {
+cd ~/source/kanban-cli
+
+echo "<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>"
+echo "<table cellpadding=10><tr>"
+
+kan () {
+echo "<td valign=top><pre>"
+tree -Ancri --noreport "$1"
+echo "</pre>"
+}
+
+kan 1_project
+
+kan 2_readyForMix 
+
+kan 3_push
+
+
+echo "</table></body></html>"
+}
+
+main | w3m -T text/html -dump
