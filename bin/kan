@@ -2,9 +2,5 @@
 
 # kan < display a simple kanban board
 
-#clear 
-#echo "........................................................"
 cd ~/source/kanban-cli
 tree -cr --noreport 1_project 2_readyForMix 3_push
-#echo "........................................................"
-echo
