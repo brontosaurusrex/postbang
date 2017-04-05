@@ -3,11 +3,9 @@
 # kan < display a simple kanban board
 
 cd ~/source/kanban-cli
-
-function kanban {
-tree -cr --noreport "$1"
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
-}
-kanban 1_project 
-kanban 2_readyForMix 
-kanban 3_push
+tree -ncr --noreport 1_project 
+echo
+tree -ncr --noreport 2_readyForMix 
+echo
+tree -ncr --noreport 3_push
+echo
