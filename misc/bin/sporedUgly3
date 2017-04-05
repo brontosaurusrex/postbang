@@ -4,7 +4,7 @@
 
 # set -o verbose
 
-PATH="/home/USER/bin/":$PATH
+PATH="/home/ticho/bin/":$PATH
 export LC_ALL=sl_SI.UTF-8
 
 command -v xml2 >/dev/null 2>&1 || { echo "I need xml2 installed." ; exit 1; }
@@ -13,7 +13,7 @@ command -v sortAwk >/dev/null 2>&1 || { echo "I need sortAwk custom script on pa
 
 
 # define web location here, must be fullpath to be used with crontab ?
-webdir="/home/USER/www/spored/"
+webdir="/home/ticho/public_html/spored/"
 
 # asci logo separator echo function
 logo() {
