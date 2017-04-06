@@ -6,7 +6,7 @@
 command -v tree >/dev/null 2>&1 || { echo "I need tree installed." ; exit 1; }
 
 # action
-cd ~/source/kanban-cli
+cd ~/source/kanban-cli || exit
 
 kan () {
 tree -cr --noreport "$@"

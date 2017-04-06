@@ -10,7 +10,7 @@ command -v tree >/dev/null 2>&1 || { echo "I need tree installed." ; exit 1; }
 
 # action
 main () {
-cd ~/source/kanban-cli
+cd ~/source/kanban-cli || exit
 
 echo "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"></head><body>"
 echo "<table cellpadding=10><tr>"
