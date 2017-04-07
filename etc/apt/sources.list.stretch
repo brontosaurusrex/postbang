@@ -1,31 +1,16 @@
-deb http://httpredir.debian.org/debian/ stretch main contrib non-free
-deb-src http://httpredir.debian.org/debian/ stretch main contrib non-free
+# apt install apt-transport-https 
+deb https://deb.debian.org/debian/ stretch main contrib non-free
+deb-src https://deb.debian.org/debian/ stretch main contrib non-free
 
-deb http://httpredir.debian.org/debian/ stretch-updates main contrib non-free
-deb-src http://httpredir.debian.org/debian/ stretch-updates main contrib non-free
+deb https://deb.debian.org/debian/ stretch-updates main contrib non-free
+deb-src https://deb.debian.org/debian/ stretch-updates main contrib non-free
 
-deb http://httpredir.debian.org/debian/ stretch-proposed-updates main contrib non-free
-deb-src http://httpredir.debian.org/debian/ stretch-proposed-updates main contrib non-free
+deb https://deb.debian.org/debian/ stretch-proposed-updates main contrib non-free
+deb-src https://deb.debian.org/debian/ stretch-proposed-updates main contrib non-free
 
+# not sure if this two are needed
 deb http://security.debian.org/ stretch/updates main contrib non-free
 deb-src http://security.debian.org/ stretch/updates main contrib non-free
 
-
-
-
-
-
-
-
-
-#deb http://httpredir.debian.org/debian jessie-backports main contrib non-free
-#deb-src http://httpredir.debian.org/debian jessie-backports main contrib non-free
-
-# Backports repository
-#deb http://httpredir.debian.org/debian jessie-backports main contrib non-free
-
-# Lighttpd
-#deb http://debian.lighttpd.net/lighttpd1.4 jessie main
-
-# Neofetch
-#deb http://dl.bintray.com/dawidd6/neofetch jessie main
+# docker
+# deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
