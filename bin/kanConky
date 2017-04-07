@@ -2,10 +2,22 @@
 
 # kan < display a simple kanban board
 
-cd ~/source/kanban-cli
-tree -ncr --noreport 1_project 
+# required
+command -v tree >/dev/null 2>&1 || { echo "I need tree installed." ; exit 1; }
+
+# action
+cd ~/source/kanban-cli || exit
+
+kan () {
+tree -cr --noreport "$@"
+}
+
+kan 1_project
+echo 
+kan 2_readyForMix
 echo
-tree -ncr --noreport 2_readyForMix 
+kan 3_push
 echo
-tree -ncr --noreport 3_push
-echo
+
+# delete me:
+# tree -cr --noreport 1_project 2_readyForMix 3_push
