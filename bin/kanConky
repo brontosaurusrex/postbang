@@ -17,7 +17,6 @@ echo
 kan 2_readyForMix
 echo
 kan 3_push
-echo
 
 # delete me:
 # tree -cr --noreport 1_project 2_readyForMix 3_push

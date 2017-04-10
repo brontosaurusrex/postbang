@@ -16,19 +16,17 @@ echo "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"></head><body>"
 echo "<table cellpadding=10><tr>"
 
 kan () {
-echo "<td valign=top><pre>"
+echo "<td valign=top width=30%><pre>"
 tree -Ancri --noreport "$1"
 echo "</pre>"
 }
 
 kan 1_project
-
 kan 2_readyForMix 
-
 kan 3_push
-
 
 echo "</table></body></html>"
 }
 
 main | w3m -T text/html -dump
+#main | elinks -dump 
