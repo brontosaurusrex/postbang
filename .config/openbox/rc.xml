@@ -276,15 +276,14 @@
         <command>gmrun</command>
       </action>
     </keybind>
+    
     <keybind key="A-F2">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Run Program</name>
-        </startupnotify>
-        <command>gmrun</command>
+      <action name="ShowMenu">
+        <menu>client-menu</menu>
       </action>
     </keybind>
+    
+    
 
     <keybind key="W-f">
       <action name="Execute">
@@ -650,16 +649,16 @@
     <!-- fullscreen toggle -->
     <keybind key="W-F11">
       <action name="Execute">
-         <command>wmctrl -r :ACTIVE: -b toggle,fullscreen</command>
+        <command>wmctrl -r :ACTIVE: -b toggle,fullscreen</command>
       </action>
     </keybind>
     <!-- toggleCompton -->
     <keybind key="W-F12">
       <action name="Execute">
-         <command>toggleCompton</command>
+        <command>toggleCompton</command>
       </action>
     </keybind>
-<!-- brontosaurusrex end -->
+    <!-- brontosaurusrex end -->
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
@@ -968,7 +967,6 @@
           <menu>client-list-combined-menu</menu>
         </action>
       </mousebind>
-      
       <!-- https://urukrama.wordpress.com/2014/12/01/middle-click-the-desktop-to-create-a-new-note/ 
       <mousebind action="Press" button="Middle">
       <action name="Execute">
@@ -976,8 +974,6 @@
       </action>
       </mousebind>
       -->
-      
-      
       <mousebind action="Press" button="Right">
         <action name="ShowMenu">
           <menu>root-menu</menu>
@@ -1124,10 +1120,12 @@
     <application class="Google-chrome" name="slither.io" role="pop-up" type="normal">
       <decor>no</decor>
     </application>
-    <application class="Firefox-esr" name="Navigator" role="browser" type="normal">
+    <application class="Gmrun" name="gmrun" type="normal">
+      <skip_pager>yes</skip_pager>
+      <skip_taskbar>yes</skip_taskbar>
+      <focus>yes</focus>
       <decor>no</decor>
     </application>
-  
-<application class="Gmrun" name="gmrun" type="normal"><skip_pager>yes</skip_pager><skip_taskbar>yes</skip_taskbar><focus>yes</focus><decor>no</decor></application>
+  <application class="Firefox-esr" name="Navigator" role="browser" type="normal"><decor>no</decor></application>
 </applications>
 </openbox_config>
