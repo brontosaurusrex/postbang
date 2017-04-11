@@ -245,7 +245,7 @@
     </keybind> -->
     <keybind key="Print">
       <action name="Execute">
-        <execute>xfce4-screenshooter</execute>
+        <execute>scrot -q 0</execute>
       </action>
     </keybind>
     <keybind key="A-Print">
