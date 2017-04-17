@@ -8,3 +8,5 @@ alias 2017='gcal --cc-holidays=SI -s Mon -n 2017'
 alias search='apt-cache search'
 alias nvim='nvim -c "colors molokai"'
 alias docx='unoconv -f text --stdout'
+alias weather="wget wttr.in 2>/dev/null -O - | grep -v 'New feature*\|Follow'"
+alias today='wget wttr.in/?0Q 2>/dev/null -O -'
