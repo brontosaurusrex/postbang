@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+# lets say each replicator is 0.01 cubic mm big
+y = 0.01
+
+# counter
+n = 1
+
+# volume of earth in m3 = 1097509500000000000000
+# in cubic mm:
+earth = 1000000 * 1097509500000000000000
+
+print "earth in cubic mm", earth
+
+# loop until we eat the earth
+while (earth > y):
+
+    print "gen" , n, y
+    n = n + 1
+    y = y * 2
+
+
