@@ -6,39 +6,60 @@
 # out-of-control self-replicating robots consume all biomass on Earth while building more of themselves
 # https://forums.bunsenlabs.org/viewtopic.php?pid=49803#p49803
 
+import datetime
+import math
+
 # counter
-n = 1
+n = 0
 
 # time
 time = 0
 
+# speed var
+speedOfsystem = 0.00
+
 # replication time in seconds
 r = 10.00
 
-# atom sized replicator
-y = 1e-7 
+# atom sized replicator in mm
+y = 0.1 / 1000000
+
 
 # volume in cubic mm:
 earth =    1000000 * 10**21
 milky =    1000000 * 3.3*10**61
 universe = 1000000 * 10**113
 
+# speed of light
+speedOflight = 299792458 * 1000 # mm per second
+speedbarrier = ""
+
+# define size
 size = earth
 
-print "earth in cubic mm", earth
-print "milky way in cubic mm", milky
-print "universe in cubic mm", universe
+#print "earth in cubic mm", earth
+#print "milky way in cubic mm", milky
+#print "universe in cubic mm", universe
 print "size in cubic mm", size
 
 
 # loop until we eat the earth
 while (size > y):
 
-    
-    print "generation=",n,", replicants in cubic mm=",y,", time in minutes=",time
-        
     n = n + 1
-    time = n * r / 60
+    time = n * r 
+    hhmmss = str(datetime.timedelta(seconds=time))
     y = y * 2
+    
+    # this is more a guess than a real formula:
+    speedOfsystem = math.sqrt(y)/r # mm per second < formula is wrong
+
+    if (speedOfsystem > speedOflight):
+        speedbarrier = "faster than light"
+        
+    print "gen",n,", replicants",y,", time",hhmmss#,speedbarrier,speedOfsystem
+    
+
+            
 
 
