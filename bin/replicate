@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+# replicate
+
+# https://en.wikipedia.org/wiki/Grey_goo <
+# out-of-control self-replicating robots consume all biomass on Earth while building more of themselves
+# https://forums.bunsenlabs.org/viewtopic.php?pid=49803#p49803
+
 # counter
 n = 1
 
@@ -18,7 +24,7 @@ earth =    1000000 * 10**21
 milky =    1000000 * 3.3*10**61
 universe = 1000000 * 10**113
 
-size = milky
+size = earth
 
 print "earth in cubic mm", earth
 print "milky way in cubic mm", milky
