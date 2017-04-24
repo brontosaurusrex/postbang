@@ -3,6 +3,9 @@
 # lets say each replicator is 0.01 cubic mm big
 y = 0.01
 
+# atom sized replicator
+#y = 1e-7 
+
 # counter
 n = 1
 
