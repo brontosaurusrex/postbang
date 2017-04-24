@@ -18,8 +18,7 @@ r = 10.00
 # atom sized replicator
 y = 1e-7 
 
-# volume of earth in m3 = 1097509500000000000000
-# in cubic mm:
+# volume in cubic mm:
 earth =    1000000 * 10**21
 milky =    1000000 * 3.3*10**61
 universe = 1000000 * 10**113
