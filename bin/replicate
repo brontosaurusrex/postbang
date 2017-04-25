@@ -52,12 +52,12 @@ while (size > y):
     y = y * 2
     
     # this is more a guess than a real formula:
-    speedOfsystem = math.sqrt(y)/r # mm per second < formula is wrong
+    speedOfsystem = y**(1./3.)/r # mm per second < formula is wrong
 
     if (speedOfsystem > speedOflight):
         speedbarrier = "faster than light"
         
-    print "gen",n,", replicants",y,", time",hhmmss#,speedbarrier,speedOfsystem
+    print "gen",n,", replicants",y,", time",hhmmss,speedbarrier,speedOfsystem
     
 
             
