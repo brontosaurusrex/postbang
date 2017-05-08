@@ -1,0 +1,20 @@
+#!/bin/bash
+
+clear
+
+fortune=$(fortune)
+words=$(echo "$fortune" | wc -w)
+
+# if reading speed is around 180 words per minute
+# that is prerol + 3 words per second + postroll
+# sometime = preroll + postroll
+
+sometime="0"
+
+displayForSeconds="$(echo "scale=4;$words / 3 + $sometime" | bc)"
+
+echo "$fortune"
+echo "$displayForSeconds"
+sleep "$displayForSeconds" 
+
+clear 
