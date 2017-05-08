@@ -34,4 +34,14 @@ a:hover { color: #000000; }
 
 td a { min-width: 300px; }
 
-pre.readme {margin: 20px; } 
+pre.readme { margin-left: 55px;
+             margin-right: 55px; 
+             padding-top: 20px;
+             border-top: 1px dotted black;
+             white-space: pre-wrap;
+             max-width: 85ch;
+             font-size: 14px;
+             font-family: Menlo, Monaco, "Courier New", monospace;
+      
+      
+} 
