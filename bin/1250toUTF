@@ -1,0 +1,31 @@
+#!/bin/bash
+# set -x
+# 1250 to UTF
+
+# help
+    if [ $# -eq 0 ]; then echo "1250 to UTF"; exit 1; fi
+    
+# checks critical
+command -v iconv >/dev/null 2>&1 || { >&2 echo "I need iconv installed." ; exit 1; }
+
+# main loop
+while [ $# -gt 0 ]; do
+
+    file=$(readlink -f "$1")
+    baseext=$(basename "${1}")      # file.ext
+    base="${baseext%.*}"            # file
+    dir=$(dirname "${file}")        # directory
+    ext="${file##*.}"               # .ext
+    
+    # check if it is allready unicode, otherwise assume 1250
+    if [[ $(file "$file" | grep UTF) ]]; then
+        echo "is utf"
+    else
+        echo "not utf, assuming cp1250"
+
+        iconv -f cp1250 -t utf8 "$file" > "$dir/$base"UTF."$ext"
+    fi
+
+shift
+done
+
