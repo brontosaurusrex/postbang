@@ -4,7 +4,7 @@
 # awk, bc needed
 
 chars="11"
-fil="."
+fil="─"
 pos="│"
 
 debug="nottrue"
@@ -17,7 +17,6 @@ fi
 if (( volPercents < 0 )); then
     volPercents=0
 fi
-
 
 [ "$debug" = true ]  && { echo "$volPercents volPercents" ;}
 
