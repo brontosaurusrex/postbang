@@ -14,9 +14,10 @@ if (( volPercents < 0 )); then
     volPercents=0
 fi
 
-chars="37"
+chars="57"
+
 fil="."
-pos="::::::"
+pos="     "
 #pos=" $volPercents " # Enable this to have a display like ─────50─────
 
 [ "$debug" = true ]  && { echo "$volPercents volPercents" ;}
