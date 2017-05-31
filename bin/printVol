@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# print alsa master volume as ascii slider ─────│─────
+# awk, bc needed
+
+chars="11"
+fil="."
+pos="│"
+
+debug="nottrue"
+
+volPercents=$(awk -F"[^0-9]*" '/dB/ { print $3 }' <(amixer sget Master))
+
+if (( volPercents > 100 )); then
+    volPercents=100
+fi
+if (( volPercents < 0 )); then
+    volPercents=0
+fi
+
+
+[ "$debug" = true ]  && { echo "$volPercents volPercents" ;}
+
+faktor=$(echo "scale=2;$chars/100" | bc)
+
+vol=$(echo "scale=0;($volPercents*$faktor+0.5)/1" | bc -l)
+
+[ "$debug" = true ]  && { echo "$vol vol" ;}
+
+postloop=$(echo "$chars-$vol" | bc)
+
+if (( vol == chars )); then
+    postloop=0
+fi
+
+preloop=$(echo "$vol-1" | bc)
+
+if (( vol == 0 )); then
+    preloop=0
+    postloop=$(echo "$chars-$vol-1" | bc)
+fi
+
+[ "$debug" = true ]  && { echo "$preloop preloop" ;}
+[ "$debug" = true ]  && { echo "$postloop postloop" ;}
+
+for i in $(seq 1 $preloop); do
+    printf "$fil" 
+done
+    printf "$pos"
+for i in $(seq 1 $postloop); do
+    printf "$fil"
+done
