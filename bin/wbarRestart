@@ -1,4 +1,4 @@
 #!/bin/bash
 
-killall -w wbar &
-(sleep 2s && wbar) &
+killall -w wbar
+wbar & 

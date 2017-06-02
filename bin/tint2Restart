@@ -1,0 +1,4 @@
+#!/bin/bash
+
+killall -w tint2
+tint2 &
