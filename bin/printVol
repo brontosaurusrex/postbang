@@ -3,9 +3,10 @@
 # print alsa master volume as ascii slider ─────│───── ☐ Ξ  	· ‖ •
 # awk, bc needed
 
-debug="nottrue"
+debug="--true"
 
 volPercents=$(awk -F"[^0-9]*" '/dB/ { print $3 }' <(amixer sget Master))
+mute=$(awk -F"[][]" '/dB/ { print $6 }' <(amixer sget Master))
 
 if (( volPercents > 100 )); then
     volPercents=100
@@ -14,11 +15,17 @@ if (( volPercents < 0 )); then
     volPercents=0
 fi
 
-chars="57"
+chars="20"
 
-fil="."
-pos="     "
-#pos=" $volPercents " # Enable this to have a display like ─────50─────
+fil="─"
+pos="│"
+pos=" $volPercents " # Enable this to have a display like ─────50─────
+# if mute
+if [ "$mute" == "off" ]; then
+    pos=" ___ "
+fi
+
+[ "$debug" = true ]  && { echo "$pos pos" ;}
 
 [ "$debug" = true ]  && { echo "$volPercents volPercents" ;}
 
@@ -45,10 +52,9 @@ fi
 [ "$debug" = true ]  && { echo "$postloop postloop" ;}
 
 for i in $(seq 1 $preloop); do
-    printf "$fil" 
+    printf "%s" "$fil" 
 done
-    printf "$pos"
+    printf "%s" "$pos"
 for i in $(seq 1 $postloop); do
-    printf "$fil"
+    printf "%s" "$fil"
 done
-#printf " $volPercents"
