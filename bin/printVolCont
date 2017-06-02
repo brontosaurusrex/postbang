@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# printVolCont
+
 # continuously print alsa master volume as ascii slider ─────│───── ☐ Ξ  	· ‖ •
 # to be used with tint2 executor like:
 
