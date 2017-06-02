@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# print alsa master volume as ascii slider ─────│───── ☐ Ξ  	· ‖ •
+# continuously print alsa master volume as ascii slider ─────│───── ☐ Ξ  	· ‖ •
+# to be used with tint2 executor like:
+
+    #execp_command = printVolCont
+    #execp_continuous = 1
+
 # awk, bc needed
 
 # 2017 by bronto, fixed by o9000
