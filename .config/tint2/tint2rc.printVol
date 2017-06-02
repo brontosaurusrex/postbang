@@ -258,11 +258,12 @@ execp_command = printVol
 # looks good, behaves bad:
 execp_interval = 0
 # behaves well, looks bad:
-# execp_continuous = 1
+#execp_continuous = 1
 execp_font = cuprum 8
 execp_font_color = #111111 100
 execp_padding = 0 0 0
-#execp_tooltip = volume
+# disable this tooltip to get update info
+execp_tooltip = volume
 #execp_background_id = 0
 #execp_padding = 0 0 50
 execp_mclick_command = gnome-alsamixer
