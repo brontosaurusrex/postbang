@@ -259,7 +259,7 @@ execp_command = printVol
 execp_interval = 0
 # behaves well, looks bad:
 # execp_continuous = 1
-execp_font = cuprum 11
+execp_font = cuprum 8
 execp_font_color = #111111 100
 execp_padding = 0 0 0
 #execp_tooltip = volume
