@@ -255,9 +255,8 @@ execp = new
 execp_centered = 0
 execp_has_icon = 0
 execp_command = printVolCont
-# looks good, behaves bad:
 #execp_interval = 0
-# behaves well, looks bad:
+# behaves well, looks good:
 execp_continuous = 1
 execp_font = cuprum 8
 execp_font_color = #111111 100
