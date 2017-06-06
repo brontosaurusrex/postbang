@@ -11,5 +11,6 @@ if [ $? -eq 0 ]; then
   killall compton
 else
   echo "starting compton"
-  compton -cCG --backend glx --paint-on-overlay -o 0.5 -r 30 -l -9 -t -9 &
+  compton &
+  #compton -cCG --backend glx --paint-on-overlay -o 0.5 -r 30 -l -9 -t -9 &
 fi 

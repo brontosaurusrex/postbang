@@ -10,7 +10,9 @@
 ## The one that works nicely on intel machines (no transparency) and mpv will play video without stuttering (and lesser shadows)
 # compton -cCG --backend glx --paint-on-overlay -o 0.5 -r 30 -l -9 -t -9 &
 # legacy nvidia, Debian Stretch
-compton -cCG --backend glx &
+# compton -cCG --backend glx &
+
+compton & # check .config/compton.conf
 
 ## restore wallpaper
 nitrogen --restore & tint2 & volumeicon & (sleep 10 && wbar) &
