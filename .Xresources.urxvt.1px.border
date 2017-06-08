@@ -1,0 +1,193 @@
+*.font:	        -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+*.boldFont:	    -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
+
+! urxvt icon - https://aur.archlinux.org/packages/rxvt-unicode-pixbuf/
+URxvt.iconFile:    /home/b/.icons/Papirus-GTK/32x32/apps/xterm-color.svg
+
+! line space > http://brontosaurusrex.github.io/2016/07/19/urxvt-lsp-3/
+URxvt.lineSpace: 6
+
+! add extensions here
+URxvt.perl-ext-common:  default,matcher,font-size
+
+! tabbed colors
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+! url matcher extension
+URxvt*matcher.button:       1 
+Urxvt*matcher.pattern:      \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.mapAlert:             true
+
+! color bold, color italic
+*.colorBD:                  #7d7875
+*.colorIT:                  #7d7875 
+
+! no idea what this is
+URxvt.selection.pattern-0:  ([[:word:]]+)
+URxvt*secondaryscroll:      true
+URxvt*scrollTtyOutput:      false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer:     true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:    true
+
+
+URxvt*dynamicColors:        on
+URxvt*depth:                24
+
+Xcursor.theme:              handhelds
+Xcursor.size:               8
+
+!URxvt*depth:32
+URxvt*transparent:	    false
+URxvt*shading:          15	
+URxvt*fading:		    0
+URxvt.tintColor:        gray
+*.fadeColor:	        #252525
+*.borderless:	        true 
+
+
+Urxvt*termName:         rxvt-unicode-256color
+Urxvt*allow_bold:       false 
+*.scrollBar:            false
+
+*background:       	    #252525
+*.hightlightSection: 	true	
+*.highlightColor:	    #1a1a1a
+*.highlightTextColor:   #008800
+*.trimSelection:        true 
+*.scrollLines:          5000
+
+! font settings --------------------------------------------------------------
+
+Xft.autohint:           true
+Xft.antialias:          true
+Xft.hinting:            true
+Xft.hintstyle:          hintslight
+!Xft.dpi: 96
+Xft.rgba:               rgb
+Xft.lcdfilter:          lcddefault
+
+! font size perl extension 
+URxvt.keysym.A-Up:      perl:font-size:increase
+URxvt.keysym.A-Down:    perl:font-size:decrease
+URxvt.keysym.A-S-Up:    perl:font-size:incglobal
+URxvt.keysym.A-S-Down:  perl:font-size:decglobal
+
+URxvt.keysym.A-Left:    perl:font-size:reset
+
+! adding stuff for dwm and urxvt
+URxvt.internalBorder:  1
+URxvt.borderColor: #333333
+
+! disable catching ctrl+shift, since I want ctrl+shift+r to be vims redo 
+
+URxvt.iso14755:         false
+URxvt.iso14755_52:      false
+
+! dkeg something
+! special
+*.foreground:   #d3d3d3
+*.background:   #111111
+*.cursorColor:  #d3d3d3
+
+! black
+*.color0:       #382c2f
+*.color8:       #ac9377
+
+! red
+*.color1:       #48393a
+*.color9:       #baa17e
+
+! green
+*.color2:       #65534d
+*.color10:      #bca282
+
+! yellow
+*.color3:       #79665a
+*.color11:      #c1a67e
+
+! blue
+*.color4:       #836e5e
+*.color12:      #cfb48e
+
+! magenta
+*.color5:       #8e7766
+*.color13:      #d1baa3
+
+! cyan
+*.color6:       #917781
+*.color14:      #dfc39b
+
+! white
+*.color7:       #9a846d
+*.color15:      #eed8c4
+
+! override
+
+! neon
+! special
+*.foreground:   #f8f8f8
+*.background:   #171717
+*.cursorColor:  #f8f8f8
+
+! black
+*.color0:       #171717
+*.color8:       #38252c
+
+! red
+*.color1:       #d81765
+*.color9:       #ff0000
+
+! green
+*.color2:       #97d01a
+*.color10:      #76b639
+
+! yellow
+*.color3:       #ffa800
+*.color11:      #e1a126
+
+! blue
+*.color4:       #16b1fb
+*.color12:      #289cd5
+
+! magenta
+*.color5:       #ff2491
+*.color13:      #ff2491
+
+! cyan
+*.color6:       #0fdcb6
+*.color14:      #0a9b81
+
+! white
+*.color7:       #ebebeb
+*.color15:      #f8f8f8
+
+
+! rofi
+rofi.color-enabled: true
+rofi.color-window: #002b37, #002b37, #003642
+rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
+rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
+rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
+
+! yeahconsole < in Debian repos
+!yeahconsole*background:black
+!yeahconsole*foreground:green
+!yeahconsole*screenWidth:1152
+yeahconsole*aniDelay:10
+yeahconsole*toggleKey:None+F12
+yeahconsole*term:urxvt
+yeahconsole*screenWidth:1000
+yeahconsole*consoleHeight:25
+yeahconsole*handleWidth:1
+yeahconsole*xOffset:10
+yeahconsole*faceName:terminus-medium
+yeahconsole*faceSize:18
+
+
