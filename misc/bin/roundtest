@@ -14,20 +14,36 @@ bc_round () {
     echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc))
 }
 
-# pass
+py_round () {
+    echo "print '{0:g}'.format(round($1,$2))" | python
+}
+
+# awk = pass
+echo "awk"
 a=$(awk_round "0" "-3.6")
 echo "$a"
 
-time (for ((i=1;i<=1000;i++)); 
+time (for ((i=1;i<=100;i++)); 
 do 
     awk_round "0" "-3.6" > /dev/null
 done)
 
-# fail
+# bc = fail
+echo "bc"
 b=$(bc_round "-3.6" "0")
 echo "$b"
 
-time (for ((i=1;i<=1000;i++)); 
+time (for ((i=1;i<=100;i++)); 
 do 
     bc_round "-3.6" "0" > /dev/null
+done)
+
+# python = pass
+echo "python"
+c=$(py_round "-3.6" "0")
+echo "$c"
+
+time (for ((i=1;i<=100;i++)); 
+do 
+    py_round "-3.6" "0" > /dev/null
 done)
