@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# roundtest
+
+#set -x
+#a="-3.6"
+#n="0"
+
+awk_round () {
+    awk 'BEGIN{printf "%3."'$1'"f\n", "'$2'"}'
+}
+
+bc_round () {
+    echo $(printf %.$2f $(echo "scale=$2;(((10^$2)*$1)+0.5)/(10^$2)" | bc))
+}
+
+# pass
+a=$(awk_round "0" "-3.6")
+echo "$a"
+
+time (for ((i=1;i<=1000;i++)); 
+do 
+    awk_round "0" "-3.6" > /dev/null
+done)
+
+# fail
+b=$(bc_round "-3.6" "0")
+echo "$b"
+
+time (for ((i=1;i<=1000;i++)); 
+do 
+    bc_round "-3.6" "0" > /dev/null
+done)
