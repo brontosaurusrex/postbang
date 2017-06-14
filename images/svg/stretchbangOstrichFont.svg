@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2048"
+   height="1152"
+   id="svg3360"
+   version="1.1"
+   inkscape:version="0.92.1 r15371"
+   viewBox="0 0 1920 1080"
+   inkscape:export-filename="/home/ticho/images/wallpapers/stretchbangBlau.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:docname="stretchbangOstrichFont.svg">
+  <defs
+     id="defs3362">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient7542">
+      <stop
+         style="stop-color:#a7e0ee;stop-opacity:1;"
+         offset="0"
+         id="stop7544" />
+      <stop
+         style="stop-color:#a7e0ee;stop-opacity:0;"
+         offset="1"
+         id="stop7546" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient7175">
+      <stop
+         style="stop-color:#92fff9;stop-opacity:1;"
+         offset="0"
+         id="stop7177" />
+      <stop
+         style="stop-color:#92fff9;stop-opacity:0;"
+         offset="1"
+         id="stop7179" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient7163"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#92fff9;stop-opacity:1;"
+         offset="0"
+         id="stop7165" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7175"
+       id="linearGradient7181"
+       x1="10.231934"
+       y1="540"
+       x2="1909.7681"
+       y2="540"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7542"
+       id="linearGradient7548"
+       x1="731.97723"
+       y1="540"
+       x2="1188.0228"
+       y2="540"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter7665">
+      <feFlood
+         flood-opacity="0.541176"
+         flood-color="rgb(0,0,14)"
+         result="flood"
+         id="feFlood7667" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite7669" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="5.4"
+         result="blur"
+         id="feGaussianBlur7671" />
+      <feOffset
+         dx="8.32667e-17"
+         dy="1.38778e-16"
+         result="offset"
+         id="feOffset7673" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite7675" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#646464"
+     bordercolor="#000000"
+     borderopacity="1"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.6970563"
+     inkscape:cx="1004.148"
+     inkscape:cy="406.79292"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="true"
+     borderlayer="false"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1908"
+     inkscape:window-height="1083"
+     inkscape:window-x="6"
+     inkscape:window-y="46"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3365">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:18.88200188px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.7891643px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.38351255"
+       x="963.6651"
+       y="586.07788"
+       id="text3368"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="963.6651"
+         y="586.07788"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:136.85275269px;line-height:0;font-family:'Ostrich Sans';-inkscape-font-specification:'Ostrich Sans';text-align:center;text-anchor:middle;fill:#afe9c6;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.7891643px;stroke-opacity:0.38351255"
+         id="tspan4941"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'Ostrich Sans Dashed';-inkscape-font-specification:'Ostrich Sans Dashed Medium';fill:#afe9c6"
+           id="tspan4512">stretch</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ostrich Sans Rounded';-inkscape-font-specification:'Ostrich Sans Rounded';fill:#afe9c6"
+           id="tspan4514">bang</tspan></tspan></text>
+  </g>
+</svg>
