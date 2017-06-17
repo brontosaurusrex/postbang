@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# wanted (openbox pipeMenu display)
+
+#       13:13 - 17.jun 2017
+#       ||||   |||||||||||||||||||||||||||||| cpu 4%
+#       |   ||||||||||||||||||||||||||||||||| mem 245M/15G used
+#       ||||||||||||||||||||||   |||||||||||| disk ~ 32% used, 65G free
+#       dl 1.1M, up 34k, uptime: 2h, node: i5
+
+# when clicked copy to clipboard?
+
+# required awk, bc
+
+awk_round () {
+    awk 'BEGIN{printf "%."'$1'"f\n", "'$2'"}'
+}
+
+# date/time (something nicer, like "14:34, Sat, 17.jun 2017")
+date
+
+# cpu usage in percents 
+tmp=$(ps -A -o pcpu | tail -n+2 | paste -sd+ | bc)
+cpu=$(awk_round 0 "$tmp")
+echo "$cpu% cpu used"
+
+# mem usage 245M/15G 
+# https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
+free -m | awk 'NR==2{printf "%s/%sM, %.2f%% mem used\n", $3,$2,$3*100/$2 }'
+
+# /home disk usage in percents and free space in Gb (32% used, 65G free)
+
+read -r _ _ _ avail use _ <<< $(df -h ~ | tail -1)
+echo "$avail ~ disk free," "$use used"
+
+# upload/download speed
+# nload?
+
+# host name, distroname
+rel=$(lsb_release -ds 2>/dev/null || cat /etc/*release 2>/dev/null | head -n1 || uname -om)
+echo "$HOSTNAME running $rel"
+
+# uptime
+#read -r _ _ uptime _ _ _ _ _ <<< $(uptime)
+#echo "${uptime//,} uptime"
+uptime=$(uptime -p)
+echo "$uptime"
