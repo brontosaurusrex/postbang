@@ -1,0 +1,94 @@
+#!/bin/bash
+
+# pipeSysInfo
+
+# call from .config/openbox/menu.xml like
+#        <separator/>
+#        <menu id="infoPipe" label="infoPipe" execute="pipeSysInfo" />
+
+# required awk, bc
+
+awk_round () {
+    awk 'BEGIN{printf "%."'$1'"f\n", "'$2'"}'
+}
+
+# header
+cat << EOFMENU
+<openbox_pipe_menu>
+EOFMENU
+
+# cpu usage in percents 
+tmp=$(ps -A -o pcpu | tail -n+2 | paste -sd+ | bc)
+cpu=$(awk_round 0 "$tmp")
+#echo "$cpu% cpu used"
+
+cat << EOFMENU
+<item label="$cpu% cpu used" />
+EOFMENU
+
+# mem usage 245M/15G 
+# https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
+free=$(free -m | awk 'NR==2{printf "%s/%sM, %.2f%% mem used\n", $3,$2,$3*100/$2 }')
+#echo $free
+
+cat << EOFMENU
+<item label="$free" />
+EOFMENU
+
+# /home disk usage in percents and free space in Gb (32% used, 65G free)
+read -r _ _ _ avail use _ <<< $(df -h ~ | tail -1)
+disk=$(echo "$avail ~ disk free," "$use used")
+#echo $disk
+
+cat << EOFMENU
+<item label="$disk" />
+EOFMENU
+
+## upload/download speed
+## nload?
+
+# host name, distroname
+rel=$(lsb_release -ds 2>/dev/null || cat /etc/*release 2>/dev/null | head -n1 || uname -om)
+distro=$(echo "$HOSTNAME running $rel")
+
+cat << EOFMENU
+<item label="$distro" />
+EOFMENU
+
+# uptime and date
+#read -r _ _ uptime _ _ _ _ _ <<< $(uptime)
+#echo "${uptime//,} uptime"
+uptime=$(uptime -p)
+date=$(date)
+
+cat << EOFMENU
+<item label="$uptime" />
+EOFMENU
+
+cat << EOFMENU
+<item label="$date">
+    <action name="Execute">
+        <execute>scrot -q 0 -d 7 -e 'mv $f ~'</execute>
+    </action>
+</item>
+EOFMENU
+
+# footer
+cat << EOFMENU
+</openbox_pipe_menu>
+EOFMENU
+
+
+
+
+
+##########################################################################
+# wanted (openbox pipeMenu display)
+
+#       13:13 - 17.jun 2017
+#       ||||   |||||||||||||||||||||||||||||| cpu 4%
+#       |   ||||||||||||||||||||||||||||||||| mem 245M/15G used
+#       ||||||||||||||||||||||   |||||||||||| disk ~ 32% used, 65G free
+#       dl 1.1M, up 34k, uptime: 2h, node: i5
+
+# when clicked copy to clipboard?
