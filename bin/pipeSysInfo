@@ -3,8 +3,8 @@
 # pipeSysInfo
 
 # call from .config/openbox/menu.xml like
-#        <separator/>
-#        <menu id="infoPipe" label="infoPipe" execute="pipeSysInfo" />
+#       <separator/>
+#       <menu id="sysInfo" label="sysInfo" execute="pipeSysInfo" />
 
 # required awk, bc
 
