@@ -3,83 +3,76 @@
 # pipeSysInfo
 
 # call from .config/openbox/menu.xml like
-#       <separator/>
-#       <menu id="sysInfo" label="sysInfo" execute="pipeSysInfo" />
+#        <menu id="sysInfo" label="sysInfo" execute="pipeSysInfo pipe" />
+
+# or from cli: pypeSysinfo
 
 # required awk, bc
+
+if [[ "$1" == "pipe" ]]
+then
+    pipe="true"
+fi
 
 awk_round () {
     awk 'BEGIN{printf "%."'$1'"f\n", "'$2'"}'
 }
 
-# header
-cat << EOFMENU
-<openbox_pipe_menu>
-EOFMENU
-
 # cpu usage in percents 
 tmp=$(ps -A -o pcpu | tail -n+2 | paste -sd+ | bc)
 cpu=$(awk_round 0 "$tmp")
-#echo "$cpu% cpu used"
-
-cat << EOFMENU
-<item label="$cpu% cpu used" />
-EOFMENU
 
 # mem usage 245M/15G 
 # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
-free=$(free -m | awk 'NR==2{printf "%s/%sM, %.2f%% mem used\n", $3,$2,$3*100/$2 }')
-#echo $free
-
-cat << EOFMENU
-<item label="$free" />
-EOFMENU
+read -r memslash mem <<< $(free -m | awk 'NR==2{printf "%s/%sM %.0f%%", $3,$2,$3*100/$2 }')
+mem="${mem//%}"
 
 # /home disk usage in percents and free space in Gb (32% used, 65G free)
-read -r _ _ _ avail use _ <<< $(df -h ~ | tail -1)
-disk=$(echo "$avail ~ disk free," "$use used")
-#echo $disk
+read -r _ _ _ availdisk usedisk _ <<< $(df -h ~ | tail -1)
+usedisk="${usedisk//%}"
 
-cat << EOFMENU
-<item label="$disk" />
-EOFMENU
-
-## upload/download speed
-## nload?
+## upload/download speed (this needs a delay to get the delta calculus, so script will lag a bit)
+#awk '{if(l1){print ($2-l1)/1024"kB/s",($10-l2)/1024"kB/s"} else{l1=$2; l2=$10;}}' <(tail -1 /proc/net/dev) <(sleep 1; tail -1 /proc/net/dev
+# ugly stuff ahead
+read -r download upload <<< $(awk '{if(l1){print ($2-l1)/1024,($10-l2)/1024} else{l1=$2; l2=$10;}}' <(tail -1 /proc/net/dev) <(sleep 1; tail -1 /proc/net/dev))
+download=$(awk_round 0 "$download")
+upload=$(awk_round 0 "$upload")
 
 # host name, distroname
 rel=$(lsb_release -ds 2>/dev/null || cat /etc/*release 2>/dev/null | head -n1 || uname -om)
-distro=$(echo "$HOSTNAME running $rel")
-
-cat << EOFMENU
-<item label="$distro" />
-EOFMENU
+kernel=$(uname -r)
+distro="$HOSTNAME @ $rel"
 
 # uptime and date
 #read -r _ _ uptime _ _ _ _ _ <<< $(uptime)
-#echo "${uptime//,} uptime"
 uptime=$(uptime -p)
 date=$(date)
 
+if [[ "$pipe" == "true" ]]
+then
+# pipe display
 cat << EOFMENU
-<item label="$uptime" />
-EOFMENU
-
-cat << EOFMENU
-<item label="$date">
+<openbox_pipe_menu>
+<item label="$cpu% cpu used" />
+<item label="$memslash, $mem% mem used" />
+<item label="$availdisk disk free, $usedisk% ~ used" />
+<item label="dl $download, up $upload kB/s, $uptime" />
+<item label="$distro">
     <action name="Execute">
         <execute>scrot -q 0 -d 7 -e 'mv $f ~'</execute>
     </action>
 </item>
-EOFMENU
-
-# footer
-cat << EOFMENU
 </openbox_pipe_menu>
 EOFMENU
 
-
-
+else
+# normal cli display
+echo "$cpu% cpu used"
+echo "$memslash, $mem% mem used"
+echo "$availdisk disk free, $usedisk% ~ used"
+echo "dl $download, up $upload kB/s, $uptime"
+echo "$distro"
+fi
 
 
 ##########################################################################
