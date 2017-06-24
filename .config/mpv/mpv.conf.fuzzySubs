@@ -1,0 +1,3 @@
+hwdec=vdpau
+vo=vdpau
+sub-auto=fuzzy
