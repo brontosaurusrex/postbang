@@ -10,3 +10,6 @@ alias nvim='nvim -c "colors molokai"'
 alias docx='unoconv -f text --stdout'
 alias weather="wget wttr.in 2>/dev/null -O - | grep -v 'New feature*\|Follow'"
 alias today='wget wttr.in/?0Q 2>/dev/null -O -'
+alias mpvd='mpv --af=lavfi=[dynaudnorm=s=30]'
+alias mpvl='mpv --af=lavfi=[loudnorm]'
+alias inform='curl -e "No Cookies Please, Do not track and spy. Do not inform me about my ad blocker. Go home and rethink your life."  -A "User"'
