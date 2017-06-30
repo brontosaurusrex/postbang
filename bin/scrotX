@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# scrotX
+
+# Custom scrot script, should be useful for 
+# dual head display to only scrot left 1920x1200 screen
+
+# usage: scrotX         # basic
+#        scrotX -d 10   # send any parameters to maim, like 10 second delay
+
+# tmp dir http://mywiki.wooledge.org/BashFAQ/062
+tmp=/tmp/$RANDOM-$$
+trap '[ -n "$tmp" ] && stty sane && rm -fr "$tmp"' EXIT
+mkdir -m 700 "$tmp" || { echo '!! unable to create a tempdir' >&2; tmp=; exit 1; }
+
+# checks
+command -v maim >/dev/null 2>&1 || { echo "apt install maim" ; exit 1; }
+command -v pngcrush >/dev/null 2>&1 || { echo "apt install pngcrush" ; exit 1; }
+
+# maim is the new scrot and pngcrush is pngcrush
+maim -g 1920x1200+0+0 --hidecursor "$@" "$tmp/tmp.png"
+printf -v var "%05d" $RANDOM
+pngcrush -q "$tmp/tmp.png" "$HOME/scrot$var.png"
