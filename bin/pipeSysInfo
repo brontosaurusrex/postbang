@@ -31,12 +31,14 @@ mem="${mem//%}"
 read -r _ _ _ availdisk usedisk _ <<< $(df -h ~ | tail -1)
 usedisk="${usedisk//%}"
 
+
 ## upload/download speed (this needs a delay to get the delta calculus, so script will lag a bit)
 #awk '{if(l1){print ($2-l1)/1024"kB/s",($10-l2)/1024"kB/s"} else{l1=$2; l2=$10;}}' <(tail -1 /proc/net/dev) <(sleep 1; tail -1 /proc/net/dev
 # ugly stuff ahead
-read -r download upload <<< $(awk '{if(l1){print ($2-l1)/1024,($10-l2)/1024} else{l1=$2; l2=$10;}}' <(tail -1 /proc/net/dev) <(sleep 1; tail -1 /proc/net/dev))
-download=$(awk_round 0 "$download")
-upload=$(awk_round 0 "$upload")
+# disabled for now
+#read -r download upload <<< $(awk '{if(l1){print ($2-l1)/1024,($10-l2)/1024} else{l1=$2; l2=$10;}}' <(grep enp10 /proc/net/dev) <(sleep 1; grep enp10 /proc/net/dev))
+#download=$(awk_round 0 "$download")
+#upload=$(awk_round 0 "$upload")
 
 # host name, distroname
 rel=$(lsb_release -ds 2>/dev/null || cat /etc/*release 2>/dev/null | head -n1 || uname -om)
@@ -56,7 +58,6 @@ cat << EOFMENU
 <item label="$cpu% cpu used" />
 <item label="$memslash, $mem% mem used" />
 <item label="$availdisk disk free, $usedisk% ~ used" />
-<item label="dl $download, up $upload kB/s, $uptime" />
 <item label="$distro">
     <action name="Execute">
         <execute>scrot -q 0 -d 7 -e 'mv $f ~'</execute>
@@ -65,15 +66,19 @@ cat << EOFMENU
 </openbox_pipe_menu>
 EOFMENU
 
+# disabled
+# <item label="dl $download, up $upload kB/s, $uptime" />
+
 else
 # normal cli display
 echo "$cpu% cpu used"
 echo "$memslash, $mem% mem used"
 echo "$availdisk disk free, $usedisk% ~ used"
-echo "dl $download, up $upload kB/s, $uptime"
 echo "$distro"
 fi
 
+# disabled
+# echo "dl $download, up $upload kB/s, $uptime"
 
 ##########################################################################
 # wanted (openbox pipeMenu display)
@@ -85,3 +90,10 @@ fi
 #       dl 1.1M, up 34k, uptime: 2h, node: i5
 
 # when clicked copy to clipboard?
+
+# even better
+
+#       ||||   |||||||||||||||||||||||||||||| cpu
+#       |   ||||||||||||||||||||||||||||||||| mem
+#       ||||||||||||||||||||||   |||||||||||| 65G disk free
+#       dl 14, up 248 kB/s
