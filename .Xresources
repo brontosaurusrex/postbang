@@ -1,8 +1,11 @@
 *.font:	        -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
 *.boldFont:	    -*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*
 
+! urxvt size in chars
+URxvt.geometry: 120x25
+
 ! urxvt icon - https://aur.archlinux.org/packages/rxvt-unicode-pixbuf/
-URxvt.iconFile:    /home/ticho/.icons/Papirus-GTK/32x32/apps/xterm-color.svg
+URxvt.iconFile:    /home/b/.icons/Papirus-GTK/32x32/apps/xterm-color.svg
 
 ! line space > http://brontosaurusrex.github.io/2016/07/19/urxvt-lsp-3/
 URxvt.lineSpace: 6
@@ -82,7 +85,8 @@ URxvt.keysym.A-S-Down:  perl:font-size:decglobal
 URxvt.keysym.A-Left:    perl:font-size:reset
 
 ! adding stuff for dwm and urxvt
-URxvt.internalBorder:  20
+URxvt.internalBorder:  1
+URxvt.borderColor: #333333
 
 ! disable catching ctrl+shift, since I want ctrl+shift+r to be vims redo 
 
