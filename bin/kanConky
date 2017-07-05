@@ -1,22 +1,33 @@
 #!/bin/bash
 
-# kan < display a simple kanban board
+# kanConky < display a simple kanban board
+# could be called from conky and should look usefull with
+# non-monospaced fonts (like cuprum as well)
 
-# required
-command -v tree >/dev/null 2>&1 || { echo "I need tree installed." ; exit 1; }
+# example call from conky
+# ${execpi 60 kanConky}
 
 # action
 cd ~/source/kanban-cli || exit
 
 kan () {
-tree -cr --noreport "$@"
+ls -chtr "$@"
 }
 
+two="black"
+one="#8B9CA3"
+
+echo -n '${color '$one'}' # conky stuff
+echo "Projekt"
+echo -n '${color '$two'}'
 kan 1_project
 echo 
+echo -n '${color '$one'}'
+echo "Za Mix"
+echo -n '${color '$two'}'
 kan 2_readyForMix
 echo
+echo -n '${color '$one'}'
+echo "Push"
+echo -n '${color '$two'}'
 kan 3_push
-
-# delete me:
-# tree -cr --noreport 1_project 2_readyForMix 3_push
