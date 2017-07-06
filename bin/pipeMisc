@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# pipeMisc
+
+# from a txt file named ~/bin/misc, that may look like:
+
+# geany
+# blender 2.9,~/apps/blender-2.79-testbuild1-linux-glibc219-x86_64/blender
+# inkscape
+
+# generate a pipe menu for openbox that could be called from menu.xml like
+
+#    <separator/>
+#    <menu id="misc" label="misc" execute="pipeMisc" />
+#    <separator/>
+
+# header
+cat << EOFMENU
+<openbox_pipe_menu>
+EOFMENU
+
+# main
+while read -r line; do
+    IFS=, read -r label action <<< "$line"
+    # skip if label is empty
+    [ -z "$label" ] && { continue; }
+    # if second field is empty, lets equal it to first
+    [ -z "$action" ] && { action="$label"; }
+
+# body
+cat << EOFMENU
+<item label="$label">
+    <action name="Execute">
+        <execute>$action</execute>
+    </action>
+</item>
+EOFMENU
+
+done < "$HOME/bin/misc"
+
+# footer
+cat << EOFMENU
+</openbox_pipe_menu>
+EOFMENU

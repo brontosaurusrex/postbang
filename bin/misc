@@ -1,0 +1,5 @@
+geany
+scan,simple-scan
+3d files,thunar ~/3d/
+rxvt trans,urxvt -name transparent -depth 32 -bg rgba:2000/2000/2000/0000 -sh 0
+blender 2.79,~/apps/blender-2.79-testbuild1-linux-glibc219-x86_64/blender
