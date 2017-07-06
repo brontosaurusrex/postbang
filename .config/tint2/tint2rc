@@ -117,7 +117,7 @@ border_color_pressed = #111111 100
 # Panel
 panel_items = TSEC
 panel_size = 96% 46
-panel_margin = 0 1
+panel_margin = 0 0
 panel_padding = 3 2 3
 panel_background_id = 0
 wm_menu = 1
