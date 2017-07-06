@@ -43,7 +43,7 @@ cat << EOFMENU
 EOFMENU
 fi
 
-done < "$HOME/bin/misc"
+done < "$HOME/bin/misc" # < This is where your database is
 
 # footer
 cat << EOFMENU
