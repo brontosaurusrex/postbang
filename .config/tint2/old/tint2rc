@@ -115,16 +115,16 @@ border_color_pressed = #111111 100
 
 #-------------------------------------
 # Panel
-panel_items = TSEC
+panel_items = TSC
 panel_size = 96% 46
-panel_margin = 0 1
+panel_margin = 0 0
 panel_padding = 3 2 3
 panel_background_id = 0
 wm_menu = 1
 panel_dock = 0
 panel_position = top center horizontal
 panel_layer = bottom
-panel_monitor = 1
+panel_monitor = all
 primary_monitor_first = 0
 autohide = 0
 autohide_show_timeout = 0.3
@@ -182,7 +182,7 @@ mouse_scroll_down = iconify
 
 #-------------------------------------
 # System tray (notification area)
-systray_padding = 5 0 10
+systray_padding = 15 4 10
 systray_background_id = 9
 systray_sort = right2left
 systray_icon_size = 24
@@ -211,7 +211,7 @@ time1_timezone =
 time2_timezone = 
 time2_font = cuprum 13
 clock_font_color = #111111 100
-clock_padding = 10 2
+clock_padding = 6 2
 clock_background_id = 0
 clock_tooltip = 
 clock_tooltip_timezone = 
@@ -249,24 +249,3 @@ tooltip_background_id = 2
 tooltip_font_color = #d0d0d0 100
 tooltip_font = cuprum 10
 
-#-------------------------------------
-# E = EXECP
-execp = new
-execp_centered = 0
-execp_has_icon = 0
-execp_command = printVolCont
-#execp_interval = 0
-# behaves well, looks good:
-execp_continuous = 1
-execp_font = cuprum 8
-execp_font_color = #111111 100
-execp_padding = 0 0 0
-# disable this tooltip to get update info
-execp_tooltip = volume
-#execp_background_id = 0
-#execp_padding = 0 0 50
-execp_mclick_command = amixer set Master toggle
-execp_rclick_command = amixer set Master 5%+
-execp_lclick_command = amixer set Master 5%-
-execp_uwheel_command = amixer set Master 1%-
-execp_dwheel_command = amixer set Master 1%+
