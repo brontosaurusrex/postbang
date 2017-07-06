@@ -6,4 +6,4 @@ slither.io,       chromium --app="http://slither.io"
 scrotX -d 9
 ---
 # Open this file with geany:
-edit this ^,           geany ~/bin/misc
+edit ^,           geany ~/bin/misc
