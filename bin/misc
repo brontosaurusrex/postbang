@@ -1,8 +1,9 @@
 Blender 2.79,     ~/apps/blender-2.79-testbuild1-linux-glibc219-x86_64/blender
 3d files,         thunar ~/3d/
 slither.io,       chromium --app="http://slither.io"
-# comment
-# this next line should be separator
+# this next line should be separator:
 ---
 scrotX -d 9
-# another comment
+---
+# Open this file with geany:
+edit this ^,           geany ~/bin/misc
