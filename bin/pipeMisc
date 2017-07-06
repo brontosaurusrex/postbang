@@ -34,8 +34,10 @@ EOFMENU
 # main
 while read -r line; do
     IFS=, read -r label action <<< "$line"
-    # skip if label is empty
-    [ -z "$label" ] && { continue; }
+    # skip if label is empty or 1st char is #
+    if [ -z "$label" ] || [ "${label:0:1}" == "#" ]; then
+        continue
+    fi
     # if second field is empty, lets equal it to first
     [ -z "$action" ] && { action="$label"; }
     
