@@ -1,9 +1,17 @@
 Blender 2.79,     ~/apps/blender-2.79-testbuild1-linux-glibc219-x86_64/blender
 3d files,         thunar ~/3d/
-slither.io,       chromium --app="http://slither.io"
-# this next line should be separator:
 ---
+gimp
+inkscape
+krita
+---
+slither.io,       chromium --app="http://slither.io"
+viber,            /opt/viber/Viber
+libreoffice
+---
+urxvt transparent, urxvt -name transparent -depth 32 -bg rgba:2000/2000/2000/0000 -sh 0
 scrotX -d 9
 ---
-# Open this file with geany:
+audiotool,        google-chrome --app="https://audiotool.com/app"
+---
 edit ^,           geany ~/bin/misc
