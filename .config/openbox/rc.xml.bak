@@ -32,7 +32,7 @@
     <primaryMonitor>1</primaryMonitor>
   </placement>
   <theme>
-    <name>Arc-Dark_ob_border</name>
+    <name>Arc-Dark_ob</name>
     <titleLayout>CIML</titleLayout>
     <!--
       avaible characters are NDSLIMC, each can occur at most once.
@@ -276,11 +276,15 @@
         <command>gmrun</command>
       </action>
     </keybind>
+    
     <keybind key="A-F2">
       <action name="ShowMenu">
         <menu>client-menu</menu>
       </action>
     </keybind>
+    
+    
+
     <keybind key="W-f">
       <action name="Execute">
         <startupnotify>
@@ -1075,7 +1079,15 @@
 
   # end of the example
 -->
-    
+    <application class="mpv" name="gl" type="normal">
+      <decor>no</decor>
+      <shade>no</shade>
+      <skip_taskbar>yes</skip_taskbar>
+      <maximized>no</maximized>
+      <fullscreen>no</fullscreen>
+      <skip_pager>yes</skip_pager>
+      <iconic>no</iconic>
+    </application>
     <application class="Dwb" name="dwb" type="normal">
       <decor>no</decor>
     </application>
@@ -1091,19 +1103,16 @@
         <y>90</y>
       </position>
     </application>
-    
+    <application class="mpv" name="x11" type="normal">
+      <decor>no</decor>
+    </application>
     <application class="URxvt" name="urxvt" type="normal">
       <decor>no</decor>
-      <position force="no">
-        <x>5</x>
-        <y>0</y>
-      </position>
     </application>
-    
-    <application class="mpv" name="*" type="normal">
+    <application class="mpv" name="xv" type="normal">
       <decor>no</decor>
-      <iconic>default</iconic>
-    <shade>no</shade><skip_taskbar>default</skip_taskbar><skip_pager>default</skip_pager></application>
+      <iconic>no</iconic>
+    </application>
     <application class="URxvt" name="transparent" type="normal">
       <decor>no</decor>
       <shade>no</shade>
@@ -1117,10 +1126,6 @@
       <focus>yes</focus>
       <decor>no</decor>
     </application>
-    <application class="Firefox-esr" name="Navigator" role="browser" type="normal">
-      <decor>no</decor>
-    </application><application class="Chromium" name="slither.io" role="pop-up" type="normal">
-      <decor>no</decor>
-    </application>
-  </applications>
+  <application class="Firefox-esr" name="Navigator" role="browser" type="normal"><decor>no</decor></application>
+</applications>
 </openbox_config>
