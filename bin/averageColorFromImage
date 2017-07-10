@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# averageColorFromImage
+
+# not implemented: 
+# - fails with svg files at the moment
+# - fails with files where alpha has more info than rgb (full black front for example)
+# - will not work with urxvt, plays fine with terminator
+# - shellcheck complains
+
+hasImage() {
+file "$1" | grep image >/dev/null 2>&1
+}
+
+while [ $# -gt 0 ]; do
+
+    hasImage "$1" || { >&2 shift; continue; } # if not an image, skip it
+    
+    
+    
+    colors=$(convert "$1" -resize 1x1 -format '%[fx:int(255*r)],%[fx:int(255*g)],%[fx:int(255*b)]' info:-)
+
+    display=${colors//","/";"} # replace , with ;
+    foo="\x1b[38;2;"
+    bar="m██████████\n██████████\n██████████\n██████████\n██████████\x1b[0m\n"
+    printf "$foo$display$bar"
+    echo "$colors"
+    echo "$1"
+    
+shift
+done
