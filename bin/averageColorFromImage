@@ -12,18 +12,23 @@ hasImage() {
 file "$1" | grep image >/dev/null 2>&1
 }
 
+# checks critical
+command -v convert >/dev/null 2>&1 || { >&2 echo "I need ImageMagick convert installed." ; exit 1; }
+
 while [ $# -gt 0 ]; do
 
     hasImage "$1" || { >&2 shift; continue; } # if not an image, skip it
     
-    
-    
     colors=$(convert "$1" -resize 1x1 -format '%[fx:int(255*r)],%[fx:int(255*g)],%[fx:int(255*b)]' info:-)
 
+    # Only draw color block if term is not urxvt
+    if [ "$TERM" != "rxvt-unicode" ]; then
     display=${colors//","/";"} # replace , with ;
     foo="\x1b[38;2;"
     bar="m██████████\n██████████\n██████████\n██████████\n██████████\x1b[0m\n"
     printf "$foo$display$bar"
+    fi
+    
     echo "$colors"
     echo "$1"
     
