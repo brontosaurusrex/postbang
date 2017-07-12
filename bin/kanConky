@@ -7,6 +7,10 @@
 # example call from conky
 # ${execpi 60 kanConky}
 
+# if conky is cutting stuff, add something like
+# text_buffer_size 1024
+# to .conkyrc
+
 # action
 cd ~/source/kanban-cli || exit
 
