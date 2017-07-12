@@ -14,20 +14,21 @@ kan () {
 ls -chtr "$@"
 }
 
-two="black"
+two="#000000"
 one="#8B9CA3"
 
 echo -n '${color '$one'}' # conky stuff
 echo "Projekt"
 echo -n '${color '$two'}'
-kan 1_project
+kan 1_projekt
 echo 
 echo -n '${color '$one'}'
 echo "Za Mix"
 echo -n '${color '$two'}'
-kan 2_readyForMix
+kan 2_mix
 echo
 echo -n '${color '$one'}'
 echo "Push"
 echo -n '${color '$two'}'
 kan 3_push
+echo 

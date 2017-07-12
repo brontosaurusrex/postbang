@@ -12,7 +12,7 @@ kan () {
 tree -cr --noreport "$@"
 }
 
-kan 1_project 2_readyForMix 3_push
+kan 1_projekt 2_mix 3_push
 
 # delete me:
 # tree -cr --noreport 1_project 2_readyForMix 3_push
