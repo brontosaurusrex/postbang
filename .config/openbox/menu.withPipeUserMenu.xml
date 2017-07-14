@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<item label="run">
+			<action name="Execute">
+				<execute>rofi -show run -font &quot;Cuprum 13&quot; -bw 0 -separator-style none -width 17 -hide-scrollbar -padding 1</execute>
+			</action>
+		</item>
+		<separator/>
+		<menu execute="pipeMisc" id="misc" label="pipe"/>
+		<separator/>
+		<item label="urxvt">
+			<action name="Execute">
+				<execute>urxvt</execute>
+			</action>
+		</item>
+		<item label="geany">
+			<action name="Execute">
+				<execute>geany</execute>
+			</action>
+		</item>
+		<item label="thunar">
+			<action name="Execute">
+				<execute>thunar</execute>
+			</action>
+		</item>
+		<item label="firefox">
+			<action name="Execute">
+				<execute>firefox</execute>
+			</action>
+		</item>
+		<item label="mpv">
+			<action name="Execute">
+				<execute>mpv --force-window --idle</execute>
+			</action>
+		</item>
+		<separator/>
+		<menu id="root-menu-774543" label="find">
+			<item label="apps">
+				<action name="Execute">
+					<execute>xfce4-appfinder</execute>
+				</action>
+			</item>
+			<item label="files">
+				<action name="Execute">
+					<execute>catfish</execute>
+				</action>
+			</item>
+		</menu>
+		<!-- This requires the presence of the 'menu' package to work -->
+		<separator/>
+		<menu id="root-menu-251146" label="config">
+			<menu execute="pipeSysInfo pipe" id="sysInfo" label="sysInfo"/>
+			<item label="lxAppearance">
+				<action name="Execute">
+					<execute>lxappearance</execute>
+				</action>
+			</item>
+			<item label="wallpaper">
+				<action name="Execute">
+					<execute>nitrogen --sort=alpha</execute>
+				</action>
+			</item>
+			<item label="wbarConfig">
+				<action name="Execute">
+					<execute>wbar-config</execute>
+				</action>
+			</item>
+			<item label="wbarRestart">
+				<action name="Execute">
+					<execute>wbarRestart</execute>
+				</action>
+			</item>
+			<item label="tint2Restart">
+				<action name="Execute">
+					<execute>tint2Restart</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="obMenu">
+				<action name="Execute">
+					<execute>obmenu</execute>
+				</action>
+			</item>
+			<item label="obApps">
+				<action name="Execute">
+					<execute>obapps</execute>
+				</action>
+			</item>
+			<item label="obConf">
+				<action name="Execute">
+					<execute>obconf</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="obRestart">
+				<action name="Restart"/>
+			</item>
+			<item label="obReconfigure">
+				<action name="Reconfigure"/>
+			</item>
+		</menu>
+		<separator/>
+		<menu id="root-menu-315416" label="exit">
+			<item label="lock">
+				<action name="Execute">
+					<execute>i3lock -c 191C1E</execute>
+				</action>
+			</item>
+			<item label="obExit">
+				<action name="Exit"/>
+			</item>
+			<separator/>
+			<item label="powerOff">
+				<action name="Execute">
+					<execute>systemctl poweroff</execute>
+				</action>
+			</item>
+			<item label="reBoot">
+				<action name="Execute">
+					<execute>systemctl reboot</execute>
+				</action>
+			</item>
+		</menu>
+	</menu>
+</openbox_menu>
