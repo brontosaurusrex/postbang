@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# set -e
+# set -x
+
+# config
+srcdir="$HOME/source/postbang" # < set this to the place where root postbang source git is
+
+# main
+if [  ! -d "$srcdir" ]
+then
+echo "$srcdir not found, exiting." ; exit
+else
+cd "$srcdir" || exit
+fi
+
+git pull
+
+if [ "$1" = "-f" ] 
+then
+echo "Force overwrite mode" 
+switch="v"
+else
+echo "Update overwrite mode, use -f to force" 
+switch="vu"
+fi
+
+# the "cp -u" switch will
+# copy only when the SOURCE file is newer than the destination file or when the destination file is missing.
+# which may or may not be what you want.
+
+# mkdir -p /foo/bar
+# always -vurb
+
+#mkdir ~/.icons/ ~/.themes/ ~/.fonts/ 2>/dev/null
+#cp -vurb .icons/* ~/.icons/
+#cp -vurb .themes/* ~/.themes/
+#cp -vurb .fonts/* ~/.fonts/
+
+# depends, either vrb or vurb OR vb or vub (so its either vu or only v)
+mkdir ~/.config/ ~/.urxvt/ ~/bin/ 2>/dev/null
+cp -"$switch"rb .config/* ~/.config/
+cp -"$switch"rb .urxvt/* ~/.urxvt/
+cp -"$switch"rb bin/* ~/bin/
+
+cp -"$switch"b .bashrc ~
+cp -"$switch"b .bash_aliases ~
+cp -"$switch"b .conkyrc ~
+cp -"$switch"b .conkyrcdwm ~
+cp -"$switch"b .gtkrc-2.0* ~
+cp -"$switch"b .Xresources ~
+cp -"$switch"b .profile ~
+cp -"$switch"b .xsessionrc ~
+cp -"$switch"b .tmux* ~
+cp -"$switch"b .wbar ~
+
+# sudo here
+# set +x # verbosity off
+
+echo
+echo "65% stupid, run at your own risk from now on or ctrl+c"
+
+sudo cp -"$switch"rb usr/* /usr/ 
