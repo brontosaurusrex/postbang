@@ -8,30 +8,20 @@ offset="180"
 
 nvidia () {
 DISPLAY=:10 nvidia-settings "$@"
-#nvidia-settings "$@"
 }
 
-
-
-
-
 X :10 &
-sleep 5
-echo "fans"
-nvidia -a [gpu:0]/GPUFanControlState=1 -a [fan:0]/GPUTargetFanSpeed="$fan"
-nvidia -a [gpu:1]/GPUFanControlState=1 -a [fan:1]/GPUTargetFanSpeed="$fan"
-nvidia -a [gpu:2]/GPUFanControlState=1 -a [fan:2]/GPUTargetFanSpeed="$fan"
+Xpid="$!"
+sleep 2
+echo && echo "fans"
+nvidia -a [gpu:0]/GPUFanControlState=1 -a [fan:0]/GPUTargetFanSpeed="$fan" \
+-a [gpu:1]/GPUFanControlState=1 -a [fan:1]/GPUTargetFanSpeed="$fan" \
+-a [gpu:2]/GPUFanControlState=1 -a [fan:2]/GPUTargetFanSpeed="$fan"
 
 echo "clocks"
-nvidia -a [gpu:0]/GPUGraphicsClockOffset[3]="$offset"
-nvidia -a [gpu:1]/GPUGraphicsClockOffset[3]="$offset"
-nvidia -a [gpu:2]/GPUGraphicsClockOffset[3]="$offset"
+nvidia -a [gpu:0]/GPUGraphicsClockOffset[3]="$offset" \
+-a [gpu:1]/GPUGraphicsClockOffset[3]="$offset" \
+-a [gpu:2]/GPUGraphicsClockOffset[3]="$offset"
 
+kill "$Xpid" 
 
-
-
-
-
-
-
-killall Xorg
