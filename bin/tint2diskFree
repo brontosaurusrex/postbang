@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# tint2diskfree
+
+# /home disk usage in percents and free space in Gb (32% used, 65G free)
+read -r _ _ _ availdisk _ _ <<< $(df -h ~ | tail -1)
+echo "$availdisk" 
+echo "free"
