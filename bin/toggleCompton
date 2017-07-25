@@ -7,9 +7,11 @@ pgrep -x compton
 
 if [ $? -eq 0 ]; then
 
-  notify-send "killing compton and conky"
+  #notify-send "killing compton and conky"
   killall compton & killall conky &
+  sleep 1
 else
-  notify-send "starting compton and conky"
+  #notify-send "starting compton and conky"
   compton & conky &
+  sleep 1
 fi 
